@@ -9,11 +9,8 @@
             android:id="@+id/nav_produk"
             android:title="Produk" />
         <item
-            android:id="@+id/nav_myProject"
+            android:id="@+id/nav_marketingsupport"
             android:title="My Project" />
-        <item
-            android:id="@+id/nav_myOrder"
-            android:title="My Order" />
         <item
             android:id="@+id/nav_QandA"
             android:title="Q and A" />

@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.wiradipa.ondulineApplicator.LoginActivity"
+            android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,12 +23,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.wiradipa.ondulineApplicator.HomeActivity"
+            android:name=".HomeActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.wiradipa.ondulineApplicator.ChooseUserTypeActivity" />
-        <activity android:name="com.wiradipa.ondulineApplicator.RegistrationFromActivity" />
-        <activity android:name="com.wiradipa.ondulineApplicator.VerificationPageActivity"></activity>
+        <activity android:name=".ChooseUserTypeActivity" />
+        <activity android:name=".RegistrationFromActivity" />
+        <activity android:name=".VerificationPageActivity" />
+        <activity android:name=".MyOrderActivity" />
+        <activity android:name=".OurProductActivity" />
+        <activity android:name=".MenuProductActivity" />
+        <activity android:name=".SimulatorAtapActivity" />
+        <activity android:name=".ProjectRefrenceActivity" />
+        <activity android:name=".ProjectDetailActivity" />
+        <activity android:name=".CalculatorActivity" />
+        <activity android:name=".TotalPoinActivity" />
+        <activity android:name=".HistoryActivity" />
+        <activity android:name=".NewOrderActivity"></activity>
     </application>
 
 </manifest>
