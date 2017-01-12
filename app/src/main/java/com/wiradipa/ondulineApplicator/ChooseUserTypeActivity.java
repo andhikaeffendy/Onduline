@@ -18,13 +18,11 @@ public class ChooseUserTypeActivity extends AppCompatActivity {
         Intent i;
         switch (v.getId()){
             case R.id.btnRetailer:
-                /*
-                i = new Intent(this, HomeActivity.class);
+                i = new Intent(this, ChooseStoreTypeActivity.class);
                 startActivity(i);
-                */
                 Toast.makeText(ChooseUserTypeActivity.this, "btnRetailer", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.btnAplikator:
+            case R.id.btnTukangBajaRingan:
                 i = new Intent(this, RegistrationFromActivity.class);
                 startActivity(i);
                 Toast.makeText(ChooseUserTypeActivity.this, "btnAplikator", Toast.LENGTH_LONG).show();

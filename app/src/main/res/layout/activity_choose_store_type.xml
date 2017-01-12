@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_choose_user_type"
+    android:id="@+id/activity_choose_store_type"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.wiradipa.ondulineApplicator.ChooseUserTypeActivity">
+    tools:context="com.wiradipa.ondulineApplicator.ChooseStoreTypeActivity">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="8">
+        android:weightSum="8"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -21,34 +26,42 @@
                 android:layout_centerInParent="true"
                 android:textSize="24dp"
                 android:textColor="@color/colorTextLight"
-                android:text="Saya Adalah : "/>
+                android:text="Pilih Kategori Toko : "/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
             <ImageView
-                android:id="@+id/btnRetailer"
-                android:onClick="onClickChooseUser"
+                android:id="@+id/btnTokoTradisional"
+                android:onClick="onClickChooseStore"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorBlue"/>
+                android:background="@drawable/img_kat_tradisional"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:textAlignment="center"
                 android:textColor="#fff"
                 android:textSize="24dp"
-                android:text="Retailer (Toko Bangunan)"/>
+                android:text="Toko Bahan Bangunan / Toko Tradisional "/>
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
             <ImageView
-                android:id="@+id/btnTukangBajaRingan"
-                android:onClick="onClickChooseUser"
-                android:background="@color/colorOrange"
+                android:src="@drawable/img_kat_baja_ringan"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <ImageView
+                android:id="@+id/btnBajaRingan"
+                android:onClick="onClickChooseStore"
+                android:src="@color/colorBlackAlpha"
+                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
             <TextView
@@ -56,17 +69,20 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textColor="#fff"
+                android:textAlignment="center"
                 android:textSize="24dp"
-                android:text="Tukang Baja Ringan / Kontraktor"/>
+                android:text="Toko Baja Ringan / Depo Keramik
+"/>
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
             <ImageView
-                android:id="@+id/btnIndividu"
-                android:onClick="onClickChooseUser"
-                android:background="@color/colorGreen"
+                android:id="@+id/btnSupermarket"
+                android:onClick="onClickChooseStore"
+                android:background="@drawable/img_kat_supermarket"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
             <TextView
@@ -74,8 +90,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textColor="#fff"
-                android:textSize="30dp"
-                android:text="Individu"/>
+                android:textAlignment="center"
+                android:textSize="24dp"
+                android:text="Supermarket Bahan Bangunan
+"/>
         </RelativeLayout>
 
         <RelativeLayout

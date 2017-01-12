@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_history"
+    android:id="@+id/activity_my_project"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.wiradipa.ondulineApplicator.HistoryActivity">
+    tools:context="com.wiradipa.ondulineApplicator.MyProjectActivity">
 
 
     <LinearLayout
@@ -28,10 +28,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textSize="24dp"
-                android:text="History"/>
+                android:text="My Project"/>
         </RelativeLayout>
         <ListView
-            android:id="@+id/lv_history"
+            android:id="@+id/lvMyProject"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="8"/>
@@ -44,20 +44,20 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:text="Total Order Anda \n30"/>
+            android:text="Total Project Anda \n30"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
             <LinearLayout
-                android:id="@+id/btnNewOrder"
-                android:onClick="onClickHistory"
+                android:background="@color/colorPrimary"
+                android:id="@+id/btnNewProject"
+                android:onClick="onClickMyProject"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/colorPrimary">
+                android:orientation="horizontal">
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -70,7 +70,7 @@
                     android:textStyle="bold"
                     android:textSize="20dp"
                     android:layout_margin="5dp"
-                    android:text="Masukan Order Baru"/>
+                    android:text="Masukan Project Baru"/>
             </LinearLayout>
         </RelativeLayout>
 

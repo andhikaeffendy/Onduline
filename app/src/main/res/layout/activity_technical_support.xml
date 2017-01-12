@@ -1,32 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_home"
+    android:id="@+id/activity_technical_support"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.wiradipa.ondulineApplicator.HomeActivity"
-    tools:showIn="@layout/app_bar_home">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.wiradipa.ondulineApplicator.TechnicalSupportActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:weightSum="10"
         android:orientation="vertical"
-        android:weightSum="8">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="11dp">
 
-        <ImageView
-            android:layout_width="match_parent"
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="4"
-            android:scaleType="fitXY"
-            android:src="@drawable/img_sample_program"
-            android:background="@color/colorAccent"/>
+            android:orientation="vertical"
+            android:layout_weight="2">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="24dp"
+                android:text="Halo Mr Fauzi"/>
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="18dp"
+                android:text="Technical Support"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_weight="4"
+            android:layout_weight="6"
             android:weightSum="2">
             <LinearLayout
                 android:layout_width="0dp"
@@ -37,60 +59,48 @@
 
 
                 <RelativeLayout
-                    android:id="@+id/btnProgram"
-                    android:onClick="onClickHome"
+                    android:id="@+id/btnCaraPemasangan"
+                    android:onClick="onClickTechnicalSupport"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_margin="0.5dp"
                     android:layout_weight="1">
-
-
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/bg_cyrcle"/>
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/ic_program_white_24dp"/>
+                        android:src="@mipmap/ic_launcher"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Program"
+                        android:text="Cara Pemasangan"
                         android:textSize="12dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_margin="10dp"/>
-
+                        android:id="@+id/textView4" />
                 </RelativeLayout>
-
                 <RelativeLayout
-                    android:id="@+id/btnMyProject"
-                    android:onClick="onClickHome"
+                    android:id="@+id/btnSupervisiProyek"
+                    android:onClick="onClickTechnicalSupport"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_margin="0.5dp"
                     android:layout_weight="1">
-
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/bg_cyrcle"/>
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/ic_my_project_white_24dp"/>
+                        android:src="@mipmap/ic_launcher"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="My Project"
+                        android:text="Supervisi Proyek"
                         android:textSize="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
+                        android:id="@+id/textView2"
                         android:layout_margin="10dp"/>
                 </RelativeLayout>
             </LinearLayout>
@@ -102,61 +112,52 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:id="@+id/btnTechnicalSupport"
-                    android:onClick="onClickHome"
+                    android:id="@+id/btnKeluhan"
+                    android:onClick="onClickTechnicalSupport"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_margin="0.5dp"
                     android:layout_weight="1">
-
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/bg_cyrcle"/>
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/ic_technical_support_white_24dp"/>
+                        android:src="@mipmap/ic_launcher"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Technical Support"
+                        android:text="Keluhan"
                         android:textSize="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10dp"/>
                 </RelativeLayout>
                 <RelativeLayout
-                    android:id="@+id/btnMyOrder"
-                    android:onClick="onClickHome"
+                    android:id="@+id/btnTraining"
+                    android:onClick="onClickTechnicalSupport"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_margin="0.5dp"
                     android:layout_weight="1">
-
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/bg_cyrcle"/>
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/ic_my_order_white_24dp"
-                        android:layout_centerVertical="true"
-                        android:layout_centerHorizontal="true" />
+                        android:src="@mipmap/ic_launcher"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="My Order"
+                        android:text="Training"
                         android:textSize="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
+                        android:id="@+id/textView3"
                         android:layout_margin="10dp" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
+
+
 </RelativeLayout>

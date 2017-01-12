@@ -14,6 +14,12 @@
             android:id="@+id/imgLogoHistory"
             android:layout_width="80dp"
             android:layout_height="80dp">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/bg_cyrcle"/>
             <TextView
                 android:id="@+id/txtBulanHistory"
                 android:layout_width="wrap_content"

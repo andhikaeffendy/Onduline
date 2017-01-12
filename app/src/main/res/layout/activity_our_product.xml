@@ -26,34 +26,80 @@
                 android:textSize="24dp"
                 android:text="Our Product"/>
         </RelativeLayout>
-        <ImageView
-            android:id="@+id/btnOnduvila"
-            android:onClick="onClickOurProduct"
+
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorAccent"
-            android:layout_weight="2"/>
-        <ImageView
-            android:id="@+id/btnOnduline"
-            android:onClick="onClickOurProduct"
+            android:layout_weight="2">
+            <ImageView
+                android:id="@+id/btnOnduvila"
+                android:onClick="onClickOurProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#fff"
+                android:textSize="30dp"
+                android:text="Onduvila"/>
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorPrimary"
-            android:layout_weight="2"/>
-        <ImageView
-            android:id="@+id/btnBarduline"
-            android:onClick="onClickOurProduct"
+            android:layout_weight="2">
+            <ImageView
+                android:id="@+id/btnOnduline"
+                android:onClick="onClickOurProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#fff"
+                android:textSize="30dp"
+                android:text="Onduline"/>
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorAccent"
-            android:layout_weight="2"/>
-        <ImageView
-            android:id="@+id/btnBituline"
-            android:onClick="onClickOurProduct"
+            android:layout_weight="2">
+            <ImageView
+                android:id="@+id/btnBarduline"
+                android:onClick="onClickOurProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#fff"
+                android:textSize="30dp"
+                android:text="Barduline"/>
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorPrimary"
-            android:layout_weight="2"/>
+            android:layout_weight="2">
+            <ImageView
+                android:id="@+id/btnBituline"
+                android:onClick="onClickOurProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#fff"
+                android:textSize="30dp"
+                android:text="Bituline"/>
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"

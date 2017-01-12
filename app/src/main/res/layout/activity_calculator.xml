@@ -41,12 +41,14 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="110dp" />
+                    android:layout_height="110dp"
+                    android:background="@color/colorAccent"/>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:id="@+id/imageView" />
+                    android:id="@+id/imageView"
+                    android:background="@color/colorPrimary"/>
 
 
                 <TextView

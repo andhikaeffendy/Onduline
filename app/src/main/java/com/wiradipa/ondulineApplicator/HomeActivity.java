@@ -24,6 +24,7 @@ public class HomeActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Onduline");
         setSupportActionBar(toolbar);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -91,20 +92,24 @@ public class HomeActivity extends AppCompatActivity{
         Intent i;
         switch (v.getId()) {
             case R.id.btnMyOrder:
-                Toast.makeText(HomeActivity.this, "btnMyOrder", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "btnMyOrder", Toast.LENGTH_LONG).show();
+                i = new Intent(this, HistoryActivity.class);
+                startActivity(i);
                 break;
             case R.id.btnProgram:
-                Toast.makeText(HomeActivity.this, "btnProgram", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "btnProgram", Toast.LENGTH_LONG).show();
+                i = new Intent(this, ProgramActivity.class);
+                startActivity(i);
                 break;
             case R.id.btnMyProject:
-                Toast.makeText(HomeActivity.this, "btnMyProject", Toast.LENGTH_LONG).show();
-                //i = new Intent(this, productActivity.class);
-                //startActivity(i);
+                Toast.makeText(this, "btnMyProject", Toast.LENGTH_LONG).show();
+                i = new Intent(this, MyProjectActivity.class);
+                startActivity(i);
                 break;
             case R.id.btnTechnicalSupport:
-                Toast.makeText(HomeActivity.this, "btnTechnicalSupport", Toast.LENGTH_LONG).show();
-                //i = new Intent(this, PoinActivity.class);
-                //startActivity(i);
+                Toast.makeText(this, "btnTechnicalSupport", Toast.LENGTH_LONG).show();
+                i = new Intent(this, TechnicalSupportActivity.class);
+                startActivity(i);
                 break;
         }
     }
