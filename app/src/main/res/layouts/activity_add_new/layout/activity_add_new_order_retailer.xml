@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.wiradipa.ondulineApplicator.NewOrderActivity">
+    tools:context="com.wiradipa.ondulineApplicator.AddNewActivity">
 
 
     <LinearLayout
@@ -28,15 +28,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_gravity="center"
                 android:textSize="24dp"
                 android:text="Halo Mr Fauzi"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_gravity="center"
                 android:textSize="18dp"
-                android:text="Rincian Pmebelian"/>
+                android:text="Masukan Data Pmebelian Anda"/>
         </LinearLayout>
         <ScrollView
             android:layout_width="match_parent"
@@ -54,6 +54,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
                     <ImageView
                         android:layout_width="50dp"
@@ -65,11 +66,41 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="24dp"
-                        android:text="Upload Struk"/>
+                        android:text="UPLOAD SURAT JALAN"/>
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jenis Produk"/>
                 <Spinner
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></Spinner>
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Warna Produk"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="Jumlah : "
+                        android:layout_gravity="center"/>
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:hint="masukan jumlah"
+                        android:inputType="number"/>
+                </LinearLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -95,27 +126,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tempat Pembelian"/>
+                    android:text="Kota Pembelian"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="isi Nama Toko anda membeli"/>
+                    android:hint="isi kota pembelian"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kota"/>
+                    android:text="Propinsi Pembelian"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="isi kota anda Membeli"/>
+                    android:hint="isi propinsi pembelian"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Propinsi"/>
+                    android:text="Nama Distributor"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="isi propinsi anda membeli"/>
+                    android:hint="isi nama distributor"/>
                 <Button
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"

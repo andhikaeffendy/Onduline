@@ -26,14 +26,28 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textSize="24dp"
-                android:text="Our Product"/>
+                android:text="Produk"/>
         </RelativeLayout>
 
-        <ImageView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
-            android:background="@color/colorAccent"/>
+            android:layout_weight="3">
+            <ImageView
+                android:id="@+id/btnOnduline"
+                android:onClick="onClickOurProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/txtMenuProductName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#fff"
+                android:textSize="30dp"
+                android:text="ONDULINE®"/>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,22 +69,29 @@
                     android:layout_height="0dp"
                     android:layout_margin="0.5dp"
                     android:layout_weight="1">
+
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:layout_centerInParent="true"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@drawable/bg_cyrcle"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_produk_detail_white_24dp"/>
+
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Product Detail"
+                        android:text="Detail Produk"
                         android:textSize="12dp"
-                        android:layout_marginBottom="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/textView4" />
-                </RelativeLayout>
+                        android:layout_margin="10dp"/>
+
+                    </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/btnCalculator"
                     android:onClick="onClickMenuProduct"
@@ -79,18 +100,23 @@
                     android:layout_margin="0.5dp"
                     android:layout_weight="1">
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:layout_centerInParent="true"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@drawable/bg_cyrcle"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_calculator_white_24dp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Calculator"
+                        android:text="Kalkulator Kebutuhan Atap"
                         android:textSize="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/textView2"
                         android:layout_margin="10dp"/>
                 </RelativeLayout>
             </LinearLayout>
@@ -109,18 +135,25 @@
                     android:layout_margin="0.5dp"
                     android:layout_weight="1">
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:layout_centerInParent="true"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@drawable/bg_cyrcle"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_simulasi_atap_white_24dp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Simulator Atap"
+                        android:text="Simulasi Atap"
                         android:textSize="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10dp"/>
+
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/btnProjectRefrence"
@@ -130,19 +163,24 @@
                     android:layout_margin="0.5dp"
                     android:layout_weight="1">
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:layout_centerInParent="true"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@drawable/bg_cyrcle"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_my_project_white_24dp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Project Refrence"
+                        android:text="Refrensi Proyek"
                         android:textSize="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/textView3"
-                        android:layout_margin="10dp" />
+                        android:layout_margin="10dp"/>
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

@@ -11,6 +11,23 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            //layout permintaan marketing
+                            'src/main/res/layouts/activity_permintaan_marketing',
+                            //layout add new untuk new order, new project semua user
+                            'src/main/res/layouts/activity_add_new',
+                            //layout history untuk history order, history project semua user
+                            'src/main/res/layouts/activity_history',
+                            //layout untuk listview
+                            'src/main/res/layouts/listview_layout',
+                            'src/main/res/layouts',
+                            'src/main/res'
+                    ]
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false

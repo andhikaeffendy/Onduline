@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class CalculatorActivity extends AppCompatActivity {
+public class MenuDetailActivity extends AppCompatActivity {
 
 
     String pil;
@@ -12,7 +12,7 @@ public class CalculatorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calculator);
+        setContentView(R.layout.activity_menu_detail);
 
         Bundle extras = getIntent().getExtras();
         pil = extras.getString("pil");

@@ -16,25 +16,26 @@ public class OurProductActivity extends AppCompatActivity {
 
     public void onClickOurProduct(View v){
         Intent i;
+        i = new Intent(this, MenuProductActivity.class);
         switch (v.getId()) {
             case R.id.btnOnduvila:
                 Toast.makeText(OurProductActivity.this, "btnOnduvila", Toast.LENGTH_LONG).show();
+                i.putExtra("pil","ONDUVILA");
                 break;
             case R.id.btnOnduline:
                 Toast.makeText(OurProductActivity.this, "btnOnduline", Toast.LENGTH_LONG).show();
-                i = new Intent(this, MenuProductActivity.class);
+                i.putExtra("pil","ONDULINE");
                 startActivity(i);
                 break;
             case R.id.btnBarduline:
                 Toast.makeText(OurProductActivity.this, "btnBarduline", Toast.LENGTH_LONG).show();
-                //i = new Intent(this, productActivity.class);
-                //startActivity(i);
+                i.putExtra("pil","BARDULINE");
                 break;
             case R.id.btnBituline:
                 Toast.makeText(OurProductActivity.this, "btnBituline", Toast.LENGTH_LONG).show();
-                //i = new Intent(this, PoinActivity.class);
-                //startActivity(i);
+                i.putExtra("pil","BITULINE");
                 break;
         }
+        startActivity(i);
     }
 }

@@ -34,7 +34,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:background="@color/colorAccent"/>
+            android:background="@drawable/layer_list"
+            android:src="@drawable/odl_prod_red_004"
+            android:scaleType="centerCrop"
+            android:id="@+id/imgSimulator" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -43,7 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                android:background="@drawable/layer_list">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -52,22 +57,20 @@
                     android:textSize="20dp"
                     android:layout_gravity="center"/>
                 <Spinner
-                    android:id="@+id/spnProduk"
+                    android:id="@+id/spnProdukSimulatorAtap"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></Spinner>
-                <Spinner
-                    android:id="@+id/spnAtap"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></Spinner>
-                <Spinner
-                    android:id="@+id/spnWarna"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></Spinner>
-                <Button
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Simulated"
-                    android:layout_gravity="center"/>
+                    android:layout_marginBottom="10dp"/>
+                <Spinner
+                    android:id="@+id/spnAtapSimulatorAtap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"/>
+                <Spinner
+                    android:id="@+id/spnWarnaSimulatorAtap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"/>
 
             </LinearLayout>
         </RelativeLayout>

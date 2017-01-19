@@ -24,6 +24,7 @@ public class ChooseUserTypeActivity extends AppCompatActivity {
                 break;
             case R.id.btnTukangBajaRingan:
                 i = new Intent(this, RegistrationFromActivity.class);
+                i.putExtra("pil", "tukang bangunan");
                 startActivity(i);
                 Toast.makeText(ChooseUserTypeActivity.this, "btnAplikator", Toast.LENGTH_LONG).show();
                 break;

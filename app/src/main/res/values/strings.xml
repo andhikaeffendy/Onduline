@@ -6,21 +6,41 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
 
-
-    <string-array name="pilih_produk_onduline_array">
+    <!-- array String untuk simulasi atap -->
+    <string-array name="pilih_produk_array">
         <item> - Pilih Produk - </item>
-        <item>Classic</item>
+        <item>ONDUVILA</item>
+        <item>ONDULINE</item>
+        <item>BARDULINE</item>
+        <item>BITULINE</item>
+
     </string-array>
     <string-array name="pilih_atap_onduline_array">
         <item> - Pilih Atap - </item>
     </string-array>
+
+    <string-array name="pilih_warna_onduvila_array">
+        <item> - Pilih Warna - </item>
+        <item>SHADED RED</item>
+        <item>SHADED  GREEN</item>
+        <item>SHADED BROWN</item>
+        <item>ANTHRACITE BLACK</item>
+        <item>FOREST GREEN</item>
+        <item>EBONY BLACK</item>
+        <item>TERRA COTA 3D</item>
+        <item>CLASSIC RED 3D</item>
+    </string-array>
     <string-array name="pilih_warna_onduline_array">
         <item> - Pilih Warna - </item>
-        <item>Hitam</item>
-        <item>Hijau</item>
-        <item>Coklat</item>
-        <item>Merah</item>
+        <item>BROWN</item>
+        <item>BLACK</item>
+        <item>RED</item>
+        <item>GREEN</item>
     </string-array>
 
 

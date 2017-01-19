@@ -7,12 +7,16 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.wiradipa.ondulineApplicator.HomeActivity"
-    tools:showIn="@layout/app_bar_home">
+    tools:showIn="@layout/app_bar_home_retailer">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="8">
+        android:weightSum="8"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:layout_width="match_parent"
@@ -28,6 +32,7 @@
             android:orientation="horizontal"
             android:layout_weight="4"
             android:weightSum="2">
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -67,7 +72,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/btnMyProject"
+                    android:id="@+id/btnProduk"
                     android:onClick="onClickHome"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -83,11 +88,11 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_my_project_white_24dp"/>
+                        android:src="@drawable/ic_roof_white_24dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="My Project"
+                        android:text="Produk"
                         android:textSize="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
@@ -102,7 +107,7 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:id="@+id/btnTechnicalSupport"
+                    android:id="@+id/btnDukunganMarketing"
                     android:onClick="onClickHome"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -118,18 +123,18 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_technical_support_white_24dp"/>
+                        android:src="@drawable/ic_dukungan_marketing_white_24dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Technical Support"
+                        android:text="Dukungan Marketing"
                         android:textSize="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10dp"/>
                 </RelativeLayout>
                 <RelativeLayout
-                    android:id="@+id/btnMyOrder"
+                    android:id="@+id/btnOrderSaya"
                     android:onClick="onClickHome"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -150,7 +155,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="My Order"
+                        android:text="Order Saya"
                         android:textSize="12dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"

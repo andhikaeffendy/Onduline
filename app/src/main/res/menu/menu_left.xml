@@ -10,7 +10,7 @@
             android:title="Produk" />
         <item
             android:id="@+id/nav_marketingsupport"
-            android:title="My Project" />
+            android:title="Dukungan" />
         <item
             android:id="@+id/nav_QandA"
             android:title="Q and A" />

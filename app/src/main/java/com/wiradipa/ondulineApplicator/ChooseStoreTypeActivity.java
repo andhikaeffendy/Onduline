@@ -19,8 +19,9 @@ public class ChooseStoreTypeActivity extends AppCompatActivity {
         Intent i;
         switch (v.getId()){
             case R.id.btnTokoTradisional:
-                /*i = new Intent(this, ChooseStoreTypeActivity.class);
-                startActivity(i);*/
+                i = new Intent(this, RegistrationFromActivity.class);
+                i.putExtra("pil", "retailer tradisional");
+                startActivity(i);
                 Toast.makeText(this, "btnTokoTradisional", Toast.LENGTH_LONG).show();
                 break;
             case R.id.btnBajaRingan:
