@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
 
         switch (v.getId()){
             case R.id.btnLogin:
-//                i = new Intent(this, HomeActivity.class);
                 switch (editTextLoginEmail.getText().toString()){
                     case "app@gmail.com":
                         pil="applicator";
