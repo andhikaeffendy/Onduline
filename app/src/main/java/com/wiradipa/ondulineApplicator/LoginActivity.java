@@ -8,12 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.wiradipa.ondulineApplicator.lib.calc_formula;
+
 public class LoginActivity extends AppCompatActivity {
 
 
     EditText editTextLoginEmail,editTextLoginPassword;
     Button btnLogin;
     String pil;
+    calc_formula formula;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 break;
             case R.id.btnRegister:
+                //Toast.makeText(this, 112.56/Math.cos(Math.toRadians(24))+ "email tidak terdaftar", Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, formula.luas(24)+ "email tidak terdaftar", Toast.LENGTH_LONG).show();
                 i = new Intent(this, ChooseUserTypeActivity.class);
                 startActivity(i);
                 break;

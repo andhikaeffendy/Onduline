@@ -11,17 +11,31 @@
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
+
+    <!-- color simulator atap onduvila -->
+    <string name="EBONYBLACK">EBONY BLACK</string>
+    <string name="TERRACOTA">TERRACOTA</string>
+    <string name="FORESTGREEN">FOREST GREEN</string>
+    <string name="CLASSICRED">CLASSIC RED</string>
+    <string name="ANTHRACITEBLACK">ANTHRACITE BLACK</string>
+    <string name="SHADEDBROWN">SHADED BROWN</string>
+
+
     <!-- array String untuk simulasi atap -->
     <string-array name="pilih_produk_array">
         <item> - Pilih Produk - </item>
         <item>ONDUVILA</item>
-        <item>ONDULINE</item>
-        <item>BARDULINE</item>
-        <item>BITULINE</item>
-
     </string-array>
+
     <string-array name="pilih_atap_onduline_array">
         <item> - Pilih Atap - </item>
+        <item>Modern Roof</item>
+        <item>Round Roof</item>
+    </string-array>
+    <string-array name="pilih_atap_onduvila_array">
+        <item> - Pilih Atap - </item>
+        <item>Modern Roof</item>
+        <item>Round Roof</item>
     </string-array>
 
     <string-array name="pilih_warna_onduvila_array">
@@ -35,6 +49,24 @@
         <item>TERRA COTA 3D</item>
         <item>CLASSIC RED 3D</item>
     </string-array>
+    <string-array name="pilih_warna_onduvila_modern_roof_array">
+        <item> - Pilih Warna - </item>
+        <item>EBONY BLACK</item>
+        <item>TERRACOTA</item>
+        <item>FOREST GREEN</item>
+        <item>CLASSIC RED</item>
+        <item>ANTHRACITE BLACK</item>
+        <item>SHADED BROWN</item>
+        </string-array>
+    <string-array name="pilih_warna_onduvila_round_roof_array">
+        <item> - Pilih Warna - </item>
+        <item>EBONY BLACK</item>
+        <item>TERRACOTA</item>
+        <item>FOREST GREEN</item>
+        <item>CLASSIC RED</item>
+        <item>ANTHRACITE BLACK</item>
+        <item>SHADED BROWN</item>
+    </string-array>
     <string-array name="pilih_warna_onduline_array">
         <item> - Pilih Warna - </item>
         <item>BROWN</item>
@@ -43,5 +75,199 @@
         <item>GREEN</item>
     </string-array>
 
+    <!-- array String untuk Kalkulator -->
+    <string-array name="pilih_jenis_rangka_array">
+        <item>RANGKA KAYU</item>
+        <item>RANGKA BAJA</item>
+    </string-array>
+    <string-array name="pilih_jenis_atap_array">
+        <item>ONDULINE</item>
+        <item>ONDUVILLA</item>
+    </string-array>
+
+
+    <!-- detail produk -->
+    <string name="DescriptionOnduvilla">Genteng ONDUVILLA® adalah genteng berbahan ringan, dibuat dengan teknologi tinggi yang menggabungkan berbagai keunggulan teknis, ekonomis dan estetika.Genteng ONDUVILLA® dirancang khusus agar dapat memenuhi keinginan dan kepuasan pelanggan akan estetika pada atap rumah dan bangunan. Genteng ONDUVILLA® yang memiliki kombinasi warna yang unik dan elegan serta didukung oleh keistimewaan desain Italia, menjadikan genteng ini lebih eksklusif.</string>
+    <string name="DescriptionOnduline">ONDULINE CLASSIC merupakan lembaran atap bitumen bergelombang yang telah bersertifikat SNI.\n\nAtap ONDULINE CLASSIC sangat cocok diaplikasikan untuk bangunan di pinggir pantai dan rawan gempa karena ONDULINE merupakan atap ringan yang tidak mengandung unsur ASBES dan METAL sehingga tidak berkarat dan korosi.\n\nAtap ONDULINE CLASSIC merupakan solusi atap handal yang dapat diaplikasikan pada rangka baja ringan dan rangka kayu.</string>
+    <string name="DescriptionBardoline">ATAP BARDOLINE merupakan atap shingles yang memastikan waterproofing sempurna di atap Anda sambil membawa tampilan yang mengesankan.</string>
+    <string name="DescriptionBituline">BITULINE adalah aspal berkualitas tinggi ditingkatkan dengan polimer dan diperkuat poliester atau fiberglass dari ketebalan yang berbeda.\n\nBITULINE adalah teknologi tinggi dan membran bitiminious paling efektif sejak tahun 1998 untuk kedua atap dan pondasi waterproofing dengan berbagai jenis dan warna. Untuk referensi lebih, silahkan hubungi kami.\n\n</string>
+
+
+    <!-- product spesification -->
+    <string name="specificationOnduvilla1">Panjang: 40 cm\nLebar: 106 cm\nCakupan bersih per tile: 0312 m²\nTebal: 3 mm\nJumlah corrugations: 6\nTinggi kerut: 3,8 cm\nBerat / m²: 4 kgBerat per tile: 1,27 kg\nJejak karbon: 4kg eq CO2 / m\n</string>
+    <string name="specificationOnduvilla2">Palet\nLebar x Panjang: 110 x 125 cm\nTinggi: 160 cm\nJumlah bundel / pallet: 81\nBerat: 1078 kg\nSqm Net / pallet: 252,72\n</string>
+    <string name="specificationOnduvilla3">Bundle\nJumlah genting: 10\nBerat: 12,7 kg\nSqm Net: 3,12\n</string>
+    <string name="specificationOnduline">Lembar ONDULINE CLASSIC\n\nLebar: 95 cm\nPanjang: 200 cm\nCakupan per lembar: 1.59 sqm/sheet\nBerat: 6,5 kg ± 0,3 kg\nTinggi gelombang: 4 cm\nJumlah gelombang: 10 corrugations/sheet\n</string>
+    <string name="specificationBardoline1">\nBARDOLINE Tradisional</string>
+    <string name="specificationBardoline2">\nBARDOLINE Pro Standart</string>
+    <string name="specificationBituline0">Ruang lingkup Sistem BITULINE  adalah penggunaan torch yang  diterapkan sehingga mengubahnya menjadi membran waterproofing. Membran BITULINE digunakan untuk waterproofing atap datar dan rendah miring, teras, floorings permukaan basah, permukaan bawah tanah yayasan tersebut, ruang bawah tanah dan kolam renang, taman atap atau dari struktur teknik tertentu seperti parkings bertingkat, highwayws atau jembatan kereta api.\n\n</string>
+    <string name="specificationBituline1">BITULINE Prima\nSeri "Prima" erdiri dari membran plastomeric yang dimodifikasi dengan "Atactic Polypropylene" (APP). Membran BITULINE  Prima yang sesuai dengan kondisi cuaca dingin dan hangat zona iklim ringan (minimal -5 ° C) menawarkan sistem waterproofing ekonomi dan dapat diandalkan dengan spektrum yang luas untuk berbagai jenis bangunan. Minimum 150 gr / m² polyester penguatan digunakan dalam "Prima" seri PP dan minimum 50 gr / m² penguatan fiberlass digunakan dalam "Prima" seri PG.\n\n</string>
+    <string name="specificationBituline2">BITULINE Extra\nSeri "Extra" terdiri dari membran plastomeric dimodifikasi dengan "Atactic Polypropylene" (APP). BITULINE seri membran EP ekstra setelah meningkat kekuatan tarik mereka dengan minimal 180 gr / m2 polyester penguatan tampil lebih baik pada suhu tinggi dan rendah di daerah dengan kondisi iklim yang ekstrim (minimum -10 ° C) dengan fleksibilitas dan daya tahan. Minimal 60 gr / m² dari fiberglass penguatan digunakan dalam "Extra" seri EG. The BITULINE ® EP410 adalah terutama dirumuskan "Heavy Duty" membran untuk digunakan dalam waterproofing jalan raya trotoar, jalan jembatan, viaducs dll Dan minimal 250 gr / m² polyester penguatan digunakan untuk melakukan maksimum kekuatan tarik dalam kondisi mekanik yang ekstrim.\n\n</string>
+    <string name="specificationBituline3">BITULINE  Maxima\nSeri “Maxima"  berisi membran elastomeric yang diubah diubah dengan "Butadiene Styrene Styrene" (SBS). Memiliki fleksibilitas tertinggi bahkan pada suhu terendah (minimum -20 ° C) dan meningkatkan kekuatan tarik mereka dengan minimal 180 gr / m² polyester penguatan, BITULINE ® Pixma MP membran seri sangat cocok untuk iklim dingin dan juga ideal untuk "bundel "jenis pondasi waterproofing terhadap subjek air bawah tanah tekanan serta untuk atap tunduk pada getaran tinggi atau dilatasi. Minimal 60 gr / m² dari fiberglass penguatan digunakan dalam "Maxima" seri MG.\n\n</string>
+    <string name="specificationBituline4">BITULINE Aluminium\nKelompok Ekstra EG30A dan EP30A digunakan sebagai bahan lapisan akhir yang berpasir.. Spesifikasi teknis mereka yang identik dengan kelompok ekstra. Tipe ini juga digunakan untuk flashing rincian atap seperti lembah, selokan hiden, dan lain-lain.\n\n</string>
+    <string name="specificationBituline5">BITULINE Anti-Serabut\nMembrane anti-akar (anti-root) EP300 dan EP400 digunakan untuk penanaman atap intensif atau ekstensif kebun dan tahan terhadap perforasi akar atau penetrasi kerusakan. The BITULINE Anti - membran racine telah diuji selama dua tahun oleh University of Applied Sciences Penelitian "Institut Hortikultura" - Jerman dengan metode FLL dan diberikan Sertifikat FLL perlawanan akar.\n\nBITULINE  Antiracine digunakan dalam Sistem ONDUGREEN, sistem atap hijau. Untuk lebih jelasnya, silakan lihat\n\n</string>
+    <string name="specificationBituline6">BITULINE TropicaSeri "Tropica" terdiri dari membran plastomeric yang dimodifikasi dengan "Atactic Polypropylene" (APP). Membran BITULINE Tropica yang sesuai dengan kondisi dan hangat cuaca dari zona iklim ringan (0 ° C minimum) menawarkan sistem waterproofing ekonomi dan dapat diandalkan dengan spektrum yang luas untuk berbagai jenis bangunan. Minimum 150gr / m² polyester penguatan digunakan dalam "Tropica" seri PP dan minimum 50gr / m² fiberlass penguatan digunakan dalam "Tropica" seri PG.</string>
+
+
+    <!-- color selection-->
+    <string name="ShadedRed">Shaded Red</string>
+    <string name="AntrachiteBlack">Antrachite Black</string>
+    <string name="ShadedGreen">Shaded Green</string>
+    <string name="ShadedBrown">Shaded Brown</string>
+    <string name="ClassicRed">Classic Red</string>
+    <string name="ForestGreen">Forest Green</string>
+    <string name="Terracotta3D">Terracotta 3D</string>
+    <string name="EbonyBlack">Ebony Black</string>
+    <string name="Black">Black</string>
+    <string name="Green">Green</string>
+    <string name="Brown">Brown</string>
+    <string name="BARDOLINETradisional">BARDOLINE Tradisional</string>
+    <string name="BARDOLINEProStandart">BARDOLINE Pro Standart</string>
+
+        <!-- BITULINE prima Extra Maxima Series -->
+    <string name="primaExtraMaximaSeries">prima Extra Maxima Series</string>
+    <string name="Abuabu">Abu-abu</string>
+    <string name="Merah">Merah</string>
+    <string name="hijau">hijau</string>
+    <string name="CafeFlame">Cafe Flame</string>
+    <string name="Terracotta">Terracotta</string>
+    <string name="Putih">Putih</string>
+    <string name="Biru">Biru</string>
+    <string name="Merah2Warna">Merah 2 Warna</string>
+    <string name="Coklat2Warna">Coklat 2 Warna</string>
+    <string name="Natural2Warna">Natural 2 Warna</string>
+    <string name="Hitam2Warna">Hitam 2 Warna</string>
+    <string name="Hijau2Warna">Hijau 2 Warna</string>
+
+
+        <!-- BITULINE Alumunium -->
+    <string name="Alumunium">Alumunium</string>
+    <string name="NaturalAlumunium">Natural Alumunium</string>
+    <!-- <string name="Abuabu">Abu-abu</string> -->
+    <string name="Teracotta">Teracotta</string>
+    <string name="Bordeaux">Bordeaux</string>
+    <string name="HijauPastel">Hijau Pastel</string>
+    <string name="Krem">Krem</string>
+    <string name="Tembaga">Tembaga</string>
+    <string name="BiruLaut">Biru Laut</string>
+    <string name="Hijau">Hijau</string>
+    
+
+
+    <!-- advantages -->
+            <!-- onduvilla -->
+    <string name="fleksibel">FLEKSIBLE\nAtap GENTENG ONDUVILLA dapat di aplikasikan pada berbagai bentuk rangka atap.\nDapan diaplikasikan pada Atap lengkung</string>
+    <string name="estetika">ESTETIKA\n</string>
+    <string name="cepat">CEPAT\nRingan dan lebar: Untuk kemudahan aplikasi di tempat kerja.\nPemasangan yang mudah. Dapatkan ukuran atap yang anda inginkan hanya dengan palu dan pisau cutter</string>
+    <string name="aman">AMAN\nGENTENG ONDUVILLA merupakan atap ringan, tahan segala macam cuaca, cocok untuk daerah rawan gempa.</string>
+
+            <!-- Onduline -->
+    <string name="odlCepat">CEPAT\nRingan dan lebar: Untuk kemudahan aplikasi di tempat kerja\nPemasangan yang mudah. Dapatkan ukuran atap yang anda inginkan hanya dengan palu dan pisau cutter\n</string>
+    <string name="odlTidakBerisik">TIDAK BERISIK\nNilai rata-rata peredaman suara sekitar 40 dB. DIN52210\n</string>
+    <string name="odlFleksibel">FLEKSIBLE\nAtap ONDULINE CLASSIC dapat di aplikasikan pada berbagai bentu rangka atap. Dapan diaplikasikan pada Atap lengkung\n</string>
+    <string name="odlAman">AMAN\nONDULINE CLASSIC merupakan atap ringan, tahan segala macam cuaca, cocok untuk daerah rawan gempa\n</string>
+
+            <!-- Bardoline -->
+    <string name="bdlTidakBerisik">TIDAK BERISIK\n</string>
+    <string name="bdlEstetika">ESTETIKA\n</string>
+    <string name="bdlFleksibel">FLEKSIBLE\nAtap BARDOLINE dapat di aplikasikan pada berbagai bentu rangka atap. Dapan diaplikasikan pada Atap lengkung\n</string>
+    <string name="bdlAman">AMAN\nBARDOLINE merupakan atap ringan, tahan segala macam cuaca, cocok untuk daerah rawan gempa.\n</string>
+
+    <string name="btlTeknologiMutakhir">TEKNOLOGI MUTAKHIRMembran BITULINE  diproduksi menggunakan peralatan state-of-the art technology di lingkungan pabrik sehingga memastikan waterproofing homogen serta integritas bahan dari segi kualitas yang menghilangkan risiko isolasi.</string>
+    <string name="btlKedapAirPadaSetiapKondisi">KEDAP AIR PADA SETIAP KONDISIBerkat aspal yang telah dimodifikasi, isolasi mempertahankan fleksibilitas bahkan di bawah suhu yang sangat rendah, bebas dari retak, dengan demikian mempertahankan bentuk di bawah suhu tinggi. Inilah sebabnya mengapa system Bituline BITULINE dapat digunakan dengan aman dalam segala kondisi iklim.</string>
+    <string name="btlKedapAir">KEDAP AIRMembran BITULINE digabungkan bersama-sama oleh fusion welding dan kemudian hanya terikat ke permukaan yang diinginkan. Teknik pengelasan ini membuat waterproofing permanen.</string>
+
+
+    <!--<string name="ESTETIKA">ESTETIKA\nNikmati gaya atap Mediterania\nBeragam pilihan warna dan nuansa yang menarik\nMemperindah atap anda dengan aksesoris baru yang dirancang secara khusus\n</string>
+    <string name="TEKNOLOGISEALSMART">TEKNOLOGI SEALSMART\nElastisitas ONDUVILLA ® material komposit memungkinkan untuk mengecilkan sekitar satu sama pengikat, menciptakan penghalang tahan bocor.\nWaterproofing dijamin berkat teknologi double-embos segitiga di tumpang tindih.\n</string>
+    <string name="WATERTIGHT">WATERTIGHT\nMencapai watertightness tahan lama dan garansi seumur hidup terhadap korosi.\n</string>
+    <string name="CEPATDANMUDAHDIPERBAIKI">CEPAT DAN MUDAH DIPERBAIKI\nInstal genting yang Anda inginkan: pada reng kayu atau dek terus menerus.\nTidak perlu menggunakan lem - hanya palu, paku dan pemotong akan dilakukan.\nInstal atap Anda dengan cepat dengan sedikit usaha.\n</string>
+    <string name="RINGAN">RINGAN\nHanya 4kg / m², mudah untuk mengangkut dan menangani.\n</string>
+    <string name="ECOLOGICAL">ECOLOGICAL\nONDUVILLA ® terdiri dari sekitar 50% bahan daur ulang, produk terbaik di kelasnya!\n</string> -->
+
+
+    <!-- Accessoris -->
+    <string name="ClearTile">ONDUVILLA ® Clear Tile\nWarna        : Transparan\nDimensi     : 496 mm x 400 mm x H38,5 mm\n</string>
+    <string name="SlimCap">Slim Cap\nWarna        : Red, Black, Green, Brown, Terracotta\nDimensi    : 106 cm x 19,4 cm\n</string>
+    <string name="ClosureCap">Closure Cap\nWarna        : Red, Black, Green, Brown, Terracotta\nDimensi    : 106 cm x 19,4 cm\n</string>
+    <string name="ApronPiece">Apron Piece\nWarna        : Red, Black, Green, Brown, Terracotta\nDimensi    : 102 cm x 14 cm\n</string>
+    <string name="VergePiece">Verge Piece\nWarna        : Red, Black, Green, Brown, Terracotta\nDimensi    : 104 cm x 10,5 cm x H11,4 cm\n</string>
+    <string name="StandardRidge">Standard Ridge\nWarna        : Red, Black, Green, Brown, Terracotta\nDimensi    : 100  cm x 50 cm \n</string>
+    <string name="ONDUBAND">ONDUBAND ®\nWarna        : Red dan Lead (warna tembaga)\nDimensi    : \n         15 cm x 10 m\n         20 cm x 10 m\n</string>
+    <string name="ONDULAIR">ONDULAIR ® Slim\nWarna        : Black\nDimensi    : 15 cm x 5 cm\n</string>
+    <string name="Skylight">Skylight\nWarna        : Black\nDimensi    : 82,5 cm x 66,9 cm\n</string>
+    <string name="VentilationPipe">Ventilation Pipe\nWarna        : Black\nDimensi    : 45 cm x 51 cm\n</string>
+    <string name="RoofRent">Roof Rent\nWarna        : Black\nDimensi    : 45 cm x 51 cm\n</string>
+    <string name="ONDUVILLAAdapter">ONDUVILLA®  Adapter\nWarna        : Black\nDimensi    : 66,5 cm x 27,5 cm\n</string>
+    <string name="CorrugatedVentilatedFiller">Corrugated Ventilated Filler\nWarna        : Black\nDimensi    : 61 cm\n</string>
+    <string name="Valley">Valley\nWarna        : Black\nDimensi    : 100 cm x 50 cm\n</string>
+    <string name="SpeedyScrew">Speedy Screw\nWarna        : Red, Black, Green, Brown, Terracotta\nDimensi    : 65 mm\n</string>
+    <string name="SafeTopNails">Safe Top Nails\nWarna        : Red, Black, Green, Brown, Terracotta\nDimensi    : 70  mm x 3,55 mm\n</string>
+    <string name="AluminiumZprofile">Aluminium Z-profile\nWarna        : Aluminium\nDimensi    : 6 cm x 2,4 cm x 300 cm\n</string>
+    <string name="Ondumastic">Ondumastic®\nWarna        : Transparan\n</string>
+    <string name="OndulineVergeStandard">Onduline® Verge Standard\nWarna        : Red, Black, Green, Brown, Teracotta\nDimensi     : 110 cm x 41 cm\n</string>
+    <string name="ApronFlashing">Apron Flashing\nWarna        : Black\nDimensi    : 93 cm x 19 cm\n</string>
+    <string name="ONDUCLAIR">ONDUCLAIR ®\nWarna        : Transparan\nDimensi    : 200 cm x 95 cm\n</string>
+
+            <!-- aksesoris pada bardoline di ganti <== Jenis Atap Bardoline -->
+    <string name="bdlAccessorisTradisional">BARDOLINE Tradisional</string>
+    <string name="bdlAccessorisProTradisional">BARDOLINE Pro Tradisional</string>
+    <string name="bdlAccessorisStandart">BARDOLINE Standart</string>
+    <string name="bdlAccessorisProStandart">BARDOLINE Pro Standart</string>
+    <string name="bdlAccessorisProS125Hexagonal">BARDOLINE Pro S 125 Hexagonal</string>
+    <string name="bdlAccessorisSNova">BARDOLINE S Nova</string>
+    <string name="bdlAccessorisProS125Design">BARDOLINE Pro S 125 Design</string>
+    <string name="bdlAccessorisProOpera">BARDOLINE Pro Opera</string>
+    <string name="bdlAccessorisBiltmore">Biltmore</string>
+
+            <!-- aksesoris BITULINE -->
+    <!--<string name="primaExtraMaximaSeries"></string>-->
+    <string name="btlAccessorisBerbahanKaretTermoplastik">Berbahan Karet Termoplastik</string>
+    <string name="btlAccessorisBerbahanKaretTermoplastik_0">Diameter luar: 92 mm\n(Fits to ø100 PVC pipe)\nKedalaman : 180 mm\n</string>
+    <string name="btlAccessorisWallBaseRainwaterHopper">Wall Base Rainwater Hopper </string>
+    <string name="btlAccessorisWallBaseRainwaterHopper_0">Dimensi Outlet: ø100\nKedalaman: 330 mm\n</string>
+    <string name="btlAccessorisAirShaft">Air Shaft</string>
+    <string name="btlAccessorisAirShaft_0">Karet termoplastik \nDiameter di dalam: 75 mm \nTinggi: 270 mm\n</string>
+    <string name="btlAccessorisBITULINEPrimer">BITULINE ® Primer</string>
+    <string name="btlAccessorisBITULINEPrimer_0">Kualitas tinggi non - emulsi aspal ionik\ndiproduksi sesuai dengan TS113.\nKemasan : 17 kg Net metal canister.\n</string>
+    <string name="btlAccessorisRoofSkylight">Roof Skylight</string>
+    <string name="btlAccessorisRoofSkylight_0">Lebar: 66,5 cm\nPanjang: 82,5 cm\nWarna: Siyah\nKemasan: 5 buah per paket\n</string>
+    <string name="btlAccessorisRoundLeafTrap">Round Leaf Trap</string>
+    <string name="btlAccessorisRoundLeafTrap_0">Diameter dalam: 75 mm\nTinggi: 270 mm\n</string>
+    <string name="btlAccessorisAluminiumZProfile">Aluminium Z-Profile (untuk tahap penyelesaian)</string>
+    <string name="btlAccessorisAluminiumZProfile_0">Panjang: 300cm\npaket: 10 buah/bundel\n</string>
+
+
+    <!-- instalation guide -->
+    <string name="KEMIRINGANATAP">1. KEMIRINGAN ATAP\nKemiringan atap adalah 35 derajat\n</string>
+    <string name="JARAKRENG">2. JARAK RENG\nJarak as reng pertama dari sisi listplank luar adalah 27 CM, selanjutnya jarak as-as reng berikutnya adalah 32 CM.\n</string>
+    <string name="PEMOTONGAN">3. PEMOTONGAN\nPemotongan genteng di bagian pinggir gelombang dengan alat potong (gergaji/gerinda/gunting/cutter). Gunakan oli pada mata pisau untuk memperlancar pemotongan.\n</string>
+    <string name="UKURANOVERHANG">4. UKURAN OVERHANG\nOverhang maksimal adalah 5 CM.\n</string>
+    <string name="PENYEKRUPAN">5. PENYEKRUPAN\nGunakan sekrup Onduline dan dipasang di tiap gelombang diantara 2 gelombang kecil (interlock).\n</string>
+    <string name="PEMASANGANSEKRUP">6. PEMASANGAN SEKRUP\nSekrup dipasang di tiap gelombang pada tiap bagian gelombang atas, diantara 2 gelombang kecil (interlock).\n</string>
+    <string name="URUTANPENYEKRUPAN">7. URUTAN PENYEKRUPAN\nSekrup dipasang urut di gelombang pertama dan kelima, setelah itu pasang di gelombang diantara pertama dan kelima.\n</string>
+    <string name="PENYUSUNANLEMBARAN">8. PENYUSUNAN LEMBARAN\nPemasangan zig-zag seperti pasangan bata, dimulai dari pojok kiri bawah bidang atap.\n</string>
+    <string name="PEMASANGANNOK">9. PEMASANGAN NOK\nPasang reng tambahan untuk dudukan nok, jarak dari as kuda-kuda sebesar 22 CM.\n</string>
+    <string name="OVERLAPPINGNOK">10. OVERLAPPING NOK\nOverlap antar nok mengikuti interlock yang ada (minimal 22 CM). Pertemuan genteng di bawah nok diusahakan serapat mungkin, maksimal celah 1 CM.\n</string>
+
+            <!-- Bardoline -->
+    <string name="bdl_instalationguide1">Cara pemasangan BARDOLINE sangat mudah. Untuk ulasan lengkap cara pemasangan, silahkan unduh di sini.\n</string>
+    <string name="bdl_instalationguide2"></string>
+    <string name="bdl_instalationguide3">Peralatan pemasangan\n Palu\n Pistol Lem untuk BARDOSTICK\n Suluh Pengatapan ONDULINE\n</string>
+
+
+    <!-- Subtainabuility -->
+    <string name="ONDUVILLASUSTAINABILITY">ONDUVILLA® SUSTAINABILITY</string>
+    <string name="odv_subtainability_1">"Sustainability adalah tanggung jawab kita kepada generasi mendatang."\nTujuan kami adalah keberlanjutan produk kami dan proses produksi dengan mengadopsi Anda serta dalam arti kelembagaan, adalah untuk melanjutkan kegiatan kami di semua area. Untuk tujuan ini, untuk memberikan solusi atap nyata berkelanjutan kepada pelanggan kami, sementara bertujuan juga untuk men-download setidaknya kerusakan kita menyebabkan lingkungan dan berusaha untuk mempertahankannya. Lingkungan dan kami terus mengambil langkah-langkah besar menuju keberlanjutan untuk generasi mendatang. Saat membuang langkah-langkah ini, kami mengkonfirmasi lembaga berimbang lingkungan kami.\n</string>
+    <string name="odv_subtainability_2">KONTEN DAUR ULANG \nOnduline Eurasia memberikan setiap tahun 30.000 ton daur ulang limbah selulosa, sistem HR Onduline menggunakan sekitar 50% bahan daur ulang. Produk konten daur ulang bahan yang diproduksi di semua tanaman manufaktur kelompok di seluruh dunia dari Onduline disertifikasi oleh organisasi independen internasional dievaluasi di bawah program SIMPAN lingkungan ICC-ES. ICC-ES yang dikeluarkan untuk produk Onduline "YES 1016" nomor satu laporan lingkungan dapat ditemukan di sini. \n\nKarena tingginya proporsi konten daur ulang dalam produk kami, untuk proyek-proyek hijau berusaha untuk menerima sertifikasi LEED, "Bahan dan Sumber Daya" Kategori kontribusi sampai 2 poin. \n</string>
+    <string name="odv_subtainability_3">RINGAN \nYang cukup ringan dibandingkan dengan bahan atap konvensional Onduline HR menggunakan lebih sedikit energi dalam sistem transportasi. Dengan implementasi yang mudah terjadi sedikit limbah taktis. Dengan demikian, sekaligus mengurangi dampak lingkungan dari pengiriman dan tahap implementasi, memberikan kontribusi untuk proyek-proyek hijau. \n</string>
+    <string name="odv_subtainability_4">Jejak karbon \nOnduline Group, semua produk dan kegiatan dalam meningkatkan kesadaran tentang emisi gas rumah kaca muncul dan untuk memenuhi tanggung jawabnya dalam pemanasan global dan isu-isu lingkungan melalui langkah-langkah strategis, komprehensif "jejak karbon neraca" terlibat dalam pekerjaan. Lingkungan Perancis dan Badan Manajemen Energi (ADEME), yang dikembangkan oleh "Bilan Carbone: Carbon footprint neraca" dibuat sesuai dengan metode dan 2009 produksi dan data operasional didasarkan pada studi yang digunakan, Onduline gas rumah kaca selama siklus hidup emisi pelat HR (GRK) per meter persegi 4066g CO2e. / m². Hasil ini, dibandingkan dengan produk atap yang paling umum digunakan pelat Onduline ditemukan memiliki emisi yang lebih rendah. Sebagai tambahan, semua pabrik di seluruh fasilitas Eurasia Sapanca dari Onduline Onduline Group, ditetapkan bahwa setidaknya berosilasi per piring pabrik.\n</string>
+
+
+    <string name="odl_subtainability_1">Atap Ringan Ber-SNI Yang Ramah Lingkungan</string>
+    <string name="odl_subtainability_2">FITUR dan NILAI dari EPD?\n\n</string>
+    <string name="odl_subtainability_3">Komprehensif dan hasil yang akurat. EPD adalah salah satu yang paling komprehensif dalam semua eco-label memberikan dengan produk di dunia. Berdasarkan standar ISO 14025, EPDs mempertimbangkan dampak lingkungan secara keseluruhan dari produk melalui siklus hidup seluruh nya.\n\n</string>
+    <string name="odl_subtainability_4">Sebanding. Ini tranparently menyajikan dampak lingkungan dengan parameter terukur. Hal ini terbuka untuk semua orang dan deklarasi dimengerti dan memungkinkan untuk membuat perbandingan antara bahan konstruksi. Ini adalah cara yang paling komprehensif untuk menyorot produk kami fitur lingkungan.\n\n</string>
+    <string name="odl_subtainability_5">Handal. Ini bukan deklarasi diri, harus diverifikasi oleh pihak ketiga yang independen dan dipublikasikan oleh otoritas.\n\n</string>
 
 </resources>

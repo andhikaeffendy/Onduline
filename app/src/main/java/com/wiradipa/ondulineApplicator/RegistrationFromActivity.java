@@ -8,11 +8,15 @@ import android.view.View;
 public class RegistrationFromActivity extends AppCompatActivity {
 
     String pil;
+
+    String user_type, username, password, email, shop_name, shop_address, states_id, city_id, hp_no, birth_date, distribution_name, owner_name, id_no, id_no_type, retailer_type, name, address, company_name, association_name;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLayout();
-        //setContentView(R.layout.activity_registration_from_tukang_bangunan);
+        //setContentView(R.layout.activity_registration_form_tukang_bangunan);
     }
 
     public void onClickRegistrationForm(View v){
@@ -32,10 +36,10 @@ public class RegistrationFromActivity extends AppCompatActivity {
         pil = extras.getString("pil");
         switch (pil) {
             case "tukang bangunan":
-                setContentView(R.layout.activity_registration_from_tukang_bangunan);
+                setContentView(R.layout.activity_registration_form_tukang_bangunan);
                 break;
             case "retailer tradisional":
-                setContentView(R.layout.activity_registration_from_retailer_tradisional);
+                setContentView(R.layout.activity_registration_form_retailer_tradisional);
                 break;
         }
     }
