@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ public class SimulatorAtapActivity extends AppCompatActivity {
     Spinner spnProduk, spnAtap, spnWarna;
     ArrayAdapter<CharSequence> adapterSpnProduk, adapterSpnAtap, adapterSpnWarna;
     ImageView imgSimulator;
+    LinearLayout LinearColorButton;
     String imgChooser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,9 @@ public class SimulatorAtapActivity extends AppCompatActivity {
         imgSimulator = (ImageView)findViewById(R.id.imgSimulator);
         spnProduk = (Spinner)findViewById(R.id.spnProdukSimulatorAtap);
         spnAtap = (Spinner)findViewById(R.id.spnAtapSimulatorAtap);
+        LinearColorButton = (LinearLayout)findViewById(R.id.LinearColorButton);
+
+        LinearColorButton.setVisibility(View.GONE);
 
         spnAtap.setEnabled(false);
 
@@ -42,8 +47,9 @@ public class SimulatorAtapActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(SimulatorAtapActivity.this, spnProduk.getSelectedItem().toString() , Toast.LENGTH_LONG).show();
-                setRoofTypeSpinner(spnProduk.getSelectedItem().toString());
+               Toast.makeText(SimulatorAtapActivity.this, spnProduk.getSelectedItem().toString() , Toast.LENGTH_LONG).show();
+                //setRoofTypeSpinner(spnProduk.getSelectedItem().toString());
+                simulatorCOntroller(spnProduk.getSelectedItem().toString());
             }
 
             @Override
@@ -55,7 +61,7 @@ public class SimulatorAtapActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(SimulatorAtapActivity.this, spnAtap.getSelectedItem().toString() , Toast.LENGTH_LONG).show();
-                imgChooser=spnAtap.getSelectedItem().toString();
+                simulatorCOntroller(spnAtap.getSelectedItem().toString());
             }
 
             @Override
@@ -66,47 +72,45 @@ public class SimulatorAtapActivity extends AppCompatActivity {
 
     }
 
-    public void setColorSpinner(String produk){
-        switch (produk){
+    public void simulatorCOntroller(String stat){
+        switch (stat){
+            case "- Pilih Produk -":
+                LinearColorButton.setVisibility(View.GONE);
+                spnAtap.setEnabled(false);
+                break;
             case "ONDUVILA":
-                adapterSpnWarna = ArrayAdapter.createFromResource(this,
-                        R.array.pilih_warna_onduvila_array, android.R.layout.simple_spinner_item);
-                spnWarna.setEnabled(true);
-                break;
-            case "ONDULINE":
-                adapterSpnWarna = ArrayAdapter.createFromResource(this,
-                        R.array.pilih_warna_onduline_array, android.R.layout.simple_spinner_item);
-                spnWarna.setEnabled(true);
-                break;
-            case "BARDULINE":
-                spnWarna.setEnabled(false);
-                break;
-            case "BITULINE":
-                spnWarna.setEnabled(false);
-                break;
-        }
-        adapterSpnWarna.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnWarna.setAdapter(adapterSpnWarna);
-    }
-    public void setRoofTypeSpinner(String produk){
-        switch (produk){
-            case "ONDUVILA":
+                LinearColorButton.setVisibility(View.GONE);
                 adapterSpnAtap = ArrayAdapter.createFromResource(this,
                         R.array.pilih_atap_onduvila_array, android.R.layout.simple_spinner_item);
                 spnAtap.setEnabled(true);
                 break;
-            case "ONDULINE":
-                spnAtap.setEnabled(false);
+            case "ONDUVILLA":
+                LinearColorButton.setVisibility(View.GONE);
+                //Bila Ada
                 break;
-            case "BARDULINE":
-                spnAtap.setEnabled(false);
+            case "BARDOLINE":
+                LinearColorButton.setVisibility(View.GONE);
+                //Bila Ada
                 break;
             case "BITULINE":
-                spnAtap.setEnabled(false);;
+                LinearColorButton.setVisibility(View.GONE);
+                //Bila Ada
+                break;
+            case "- Pilih Atap -":
+                LinearColorButton.setVisibility(View.GONE);
+                break;
+            case "Modern Roof":
+                LinearColorButton.setVisibility(View.VISIBLE);
+                imgChooser=stat;
+                imgSimulator.setImageResource(R.drawable.maisonmoderne_h1_ebony_black_v1);
+                break;
+            case "Round Roof":
+                LinearColorButton.setVisibility(View.VISIBLE);
+                imgSimulator.setImageResource(R.drawable.maisonronde_h1_ebony_black_v1);
+                imgChooser=stat;
                 break;
         }
-        adapterSpnAtap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnAtap.setAdapter(adapterSpnAtap);
+
     }
 
     public void setImageSimulator(String produk){
@@ -243,6 +247,61 @@ public class SimulatorAtapActivity extends AppCompatActivity {
                 setImageSimulator("SHADED BROWN "+imgChooser);
                 break;
         }
+    }
+
+
+
+
+
+
+    //----------------------------------------------------------------------------------------------
+
+
+    public void setColorSpinner(String produk){
+        switch (produk){
+            case "ONDUVILA":
+                adapterSpnWarna = ArrayAdapter.createFromResource(this,
+                        R.array.pilih_warna_onduvila_array, android.R.layout.simple_spinner_item);
+                spnWarna.setEnabled(true);
+                break;
+            case "ONDULINE":
+                adapterSpnWarna = ArrayAdapter.createFromResource(this,
+                        R.array.pilih_warna_onduline_array, android.R.layout.simple_spinner_item);
+                spnWarna.setEnabled(true);
+                break;
+            case "BARDULINE":
+                spnWarna.setEnabled(false);
+                break;
+            case "BITULINE":
+                spnWarna.setEnabled(false);
+                break;
+        }
+        adapterSpnWarna.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnWarna.setAdapter(adapterSpnWarna);
+    }
+
+    public void setRoofTypeSpinner(String produk){
+        switch (produk){
+            case "ONDUVILA":
+                adapterSpnAtap = ArrayAdapter.createFromResource(this,
+                        R.array.pilih_atap_onduvila_array, android.R.layout.simple_spinner_item);
+                spnAtap.setEnabled(true);
+                break;
+            case "ONDULINE":
+                spnAtap.setEnabled(false);
+                break;
+            case "BARDULINE":
+                spnAtap.setEnabled(false);
+                break;
+            case "BITULINE":
+                spnAtap.setEnabled(false);;
+                break;
+            case " - Pilih Produk - ":
+                LinearColorButton.setVisibility(View.GONE);
+                break;
+        }
+        adapterSpnAtap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnAtap.setAdapter(adapterSpnAtap);
     }
 
 }

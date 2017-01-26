@@ -61,7 +61,9 @@
                     android:onClick="ProductDetail"
                     android:text="deskripsi"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight" />
 
                 <!-- desktipsi -->
                 <LinearLayout
@@ -83,7 +85,9 @@
                     android:onClick="ProductDetail"
                     android:text="Spesifikasi produk"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"  />
 
 
                 <!-- spesifikasi produk -->
@@ -165,7 +169,9 @@
                     android:onClick="ProductDetail"
                     android:text="Pilihan Warna"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"  />
 
                 <!-- Linear color selection -->
                 <LinearLayout
@@ -397,7 +403,9 @@
                     android:onClick="ProductDetail"
                     android:text="Keunggulan"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"  />
 
                 <!-- advantages -->
                 <LinearLayout
@@ -477,7 +485,9 @@
                     android:onClick="ProductDetail"
                     android:text="aksesoris"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"  />
 
 
                 <!-- Accessories -->
@@ -681,7 +691,9 @@
                     android:onClick="ProductDetail"
                     android:text="panduan pemasangan"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight" />
 
                 <!-- Instalation Guide -->
                 <LinearLayout
@@ -804,8 +816,11 @@
                 <Button
                     android:onClick="ProductDetail"
                     android:text="sustainability"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight" />
             </LinearLayout>
 
         </ScrollView>

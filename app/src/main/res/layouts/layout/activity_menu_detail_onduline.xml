@@ -61,7 +61,9 @@
                     android:onClick="ProductDetail"
                     android:text="deskripsi"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight" />
 
                 <!-- desktipsi -->
                 <LinearLayout
@@ -83,7 +85,9 @@
                     android:onClick="ProductDetail"
                     android:text="Spesifikasi produk"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"/>
 
 
                 <!-- spesifikasi produk -->
@@ -111,7 +115,9 @@
                     android:onClick="ProductDetail"
                     android:text="Pilihan Warna"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight" />
 
                 <!-- Linear color selection -->
                 <LinearLayout
@@ -178,7 +184,9 @@
                     android:onClick="ProductDetail"
                     android:text="Keunggulan"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"/>
 
                 <!-- advantages -->
                 <LinearLayout
@@ -187,53 +195,120 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+
                     <!-- advantages 1-->
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_advantages_cepat"/>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/odlCepat"/>
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="6">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/img_advantages_cepat"/>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/odlCepat"/>
+
+                    </LinearLayout>
 
                     <!-- advantages 2-->
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_advantages_tidakberisik"/>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/odlTidakBerisik"/>
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="6">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/img_advantages_tidakberisik"/>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/odlTidakBerisik"/>
+
+                    </LinearLayout>
+
 
                     <!-- advantages 3-->
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_advantages_flaksible"/>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/odlFleksibel"/>
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="6">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/img_advantages_flaksible"/>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/odlFleksibel"/>
+
+                    </LinearLayout>
+
 
                     <!-- advantages 4-->
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_advantages_aman"/>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/odlAman"/>
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="6">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/img_advantages_aman"/>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/odlAman"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -242,7 +317,9 @@
                     android:onClick="ProductDetail"
                     android:text="aksesoris"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight" />
 
 
                 <!-- Accessories -->
@@ -381,7 +458,10 @@
                     android:onClick="ProductDetail"
                     android:text="panduan pemasangan"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"/>
 
                 <!-- Instalation Guide -->
                 <LinearLayout
@@ -396,7 +476,9 @@
                     android:onClick="ProductDetail"
                     android:text="subtainability"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"/>
 
                 <LinearLayout
                     android:id="@+id/LinearSubtainability"

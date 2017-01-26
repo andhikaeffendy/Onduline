@@ -61,7 +61,9 @@
                     android:onClick="ProductDetail"
                     android:text="deskripsi"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"  />
 
                 <!-- desktipsi -->
                 <LinearLayout
@@ -73,6 +75,7 @@
                         android:id="@+id/txtDescriptionProduct"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
                         android:layout_gravity="center_horizontal|center"
                         android:text="@string/DescriptionBardoline"/>
 
@@ -83,7 +86,9 @@
                     android:onClick="ProductDetail"
                     android:text="Spesifikasi produk"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight" />
 
 
                 <!-- spesifikasi produk -->
@@ -123,7 +128,9 @@
                     android:onClick="ProductDetail"
                     android:text="Pilihan Warna"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight" />
 
                 <!-- Linear color selection -->
                 <LinearLayout
@@ -164,7 +171,9 @@
                     android:onClick="ProductDetail"
                     android:text="Keunggulan"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"  />
 
                 <!-- advantages -->
                 <LinearLayout
@@ -173,53 +182,128 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+
+
                     <!-- advantages 1-->
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_advantages_tidakberisik"/>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/bdlTidakBerisik"/>
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="6">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/img_advantages_tidakberisik"/>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bdlTidakBerisik"/>
+
+                    </LinearLayout>
+
+
+
+
 
                     <!-- advantages 2-->
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_advantages_estetika"/>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/bdlEstetika"/>
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="6">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/img_advantages_estetika"/>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bdlEstetika"/>
+
+                    </LinearLayout>
+
+
+
 
                     <!-- advantages 3-->
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_advantages_flaksible"/>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/bdlFleksibel"/>
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="6">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/img_advantages_flaksible"/>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bdlFleksibel"/>
+
+                    </LinearLayout>
+
 
                     <!-- advantages 4-->
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_advantages_aman"/>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/bdlAman"/>
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="6">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/img_advantages_aman"/>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bdlAman"/>
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
                 <Button
@@ -227,7 +311,9 @@
                     android:onClick="ProductDetail"
                     android:text="Jenis Atap"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight" />
 
 
                 <!-- Accessories -->
@@ -343,7 +429,9 @@
                     android:onClick="ProductDetail"
                     android:text="panduan pemasangan"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight"  />
 
                 <!-- Instalation Guide -->
                 <LinearLayout
@@ -376,7 +464,9 @@
                     android:text="sustainability"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:background="@color/colorBlackAlpha"
+                    android:textColor="@color/colorTextLight" />
                 <LinearLayout
                     android:id="@+id/LinearSubtainability"
                     android:layout_width="match_parent"
