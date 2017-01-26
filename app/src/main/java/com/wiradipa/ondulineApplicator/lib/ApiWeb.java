@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
@@ -26,44 +27,44 @@ import javax.net.ssl.X509TrustManager;
 
 public class ApiWeb {
 	
-	private String apiurl = "https://www.wipick.com/api/";
+	private String apiurl = "http://www.onduline-mobile.wiradipa.com/api/";
 	private int responseCode =200;
 
 	public ApiWeb(){
-		try {
-			HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
-
-				@Override
-				public boolean verify(String s, SSLSession sslSession) {
-					return true;
-				}
-
-			});
-			SSLContext sc = SSLContext.getInstance("TLS");
-			sc.init(null, trustAllCerts, new java.security.SecureRandom());
-			HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-		} catch (KeyManagementException e) {
-			e.printStackTrace();
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+//
+//				@Override
+//				public boolean verify(String s, SSLSession sslSession) {
+//					return true;
+//				}
+//
+//			});
+//			SSLContext sc = SSLContext.getInstance("TLS");
+//			sc.init(null, trustAllCerts, new java.security.SecureRandom());
+//			HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+//		} catch (KeyManagementException e) {
+//			e.printStackTrace();
+//		} catch (NoSuchAlgorithmException e) {
+//			e.printStackTrace();
+//		}
 	}
 
-	TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
-		public X509Certificate[] getAcceptedIssuers() {
-			return null;
-		}
-
-		@Override
-		public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
-			// Not implemented
-		}
-
-		@Override
-		public void checkServerTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
-			// Not implemented
-		}
-	} };
+//	TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+//		public X509Certificate[] getAcceptedIssuers() {
+//			return null;
+//		}
+//
+//		@Override
+//		public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
+//			// Not implemented
+//		}
+//
+//		@Override
+//		public void checkServerTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
+//			// Not implemented
+//		}
+//	} };
 
 	public int getResponseCode(){
 		return responseCode;
@@ -105,11 +106,11 @@ public class ApiWeb {
 	}
 
 	/** Fungsi register untuk aplikator*/
-	public String RegisterApplicator(String user_type,String retailer_type,String username, String password, String email, String name, String address, String states_id, String city_id, String hp_no, String company_name, String birth_date, String association_name, String id_no, String id_no_type){
+	public String RegisterApplicator(String user_type,String username, String password, String email, String name, String address, String states_id, String city_id, String hp_no, String company_name, String birth_date, String association_name, String id_no, String id_no_type){
 		try {
 			String url = apiurl+"users/create";
 			String params =
-					"user_type="+ URLEncoder.encode(user_type, "UTF-8")+"retailer_type="+ URLEncoder.encode(retailer_type, "UTF-8")+" username="+ URLEncoder.encode( username, "UTF-8")+ "&password="+ URLEncoder.encode(password, "UTF-8")
+					"user_type="+ URLEncoder.encode(user_type, "UTF-8")+" username="+ URLEncoder.encode( username, "UTF-8")+ "&password="+ URLEncoder.encode(password, "UTF-8")
 					+ "email="+ URLEncoder.encode(email, "UTF-8")+"name="+ URLEncoder.encode(name, "UTF-8")+"address="+ URLEncoder.encode(address, "UTF-8")
 					+ "states_id="+ URLEncoder.encode(states_id, "UTF-8") + "city_id="+ URLEncoder.encode(city_id, "UTF-8")+"hp_no="+ URLEncoder.encode(hp_no, "UTF-8")
 					+ "birth_date="+ URLEncoder.encode(birth_date, "UTF-8") + "company_name="+ URLEncoder.encode(company_name, "UTF-8") + "association_name="+ URLEncoder.encode(association_name, "UTF-8")
@@ -122,14 +123,13 @@ public class ApiWeb {
 		return null;
 	}
 
-
-	public String GetOrders(String token){
-		String url = apiurl+"orders?auth_token="+token;
+	public String GetCities(){
+		String url = apiurl+"cities";
 		return GetHttp(url);
 	}
 
-	public String GetOrder(String token, int id){
-		String url = apiurl+"orders/"+id+"?auth_token="+token;
+	public String GetStates(){
+		String url = apiurl+"states";
 		return GetHttp(url);
 	}
 
@@ -221,7 +221,7 @@ public class ApiWeb {
 		try {
 			System.out.println("Getting Data From :" + complete_url);
 			URL url = new URL(complete_url);
-			HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 			conn.setRequestMethod("GET");
 
 			System.out.println("Response Code :" + conn.getResponseCode());
@@ -262,7 +262,7 @@ public class ApiWeb {
 		try {
 			System.out.println("Getting Data From :" + complete_url);
 			URL url = new URL(complete_url);
-			HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 			conn.setRequestMethod("POST");
 			conn.setDoOutput(true);
 
