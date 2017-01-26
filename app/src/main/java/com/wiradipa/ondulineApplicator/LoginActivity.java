@@ -52,8 +52,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 break;
             case R.id.btnRegister:
-                //Toast.makeText(this, 112.56/Math.cos(Math.toRadians(24))+ "email tidak terdaftar", Toast.LENGTH_LONG).show();
-                //Toast.makeText(this, formula.luas(24)+ "email tidak terdaftar", Toast.LENGTH_LONG).show();
                 i = new Intent(this, ChooseUserTypeActivity.class);
                 startActivity(i);
                 break;
