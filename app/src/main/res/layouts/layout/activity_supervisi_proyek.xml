@@ -41,12 +41,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Project"/>
                 <EditText
+                    android:id="@+id/et_supervisionProjectNama"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="isi Nama Project"/>
@@ -55,6 +55,7 @@
                     android:layout_height="wrap_content"
                     android:text="Lokasi Project"/>
                 <EditText
+                    android:id="@+id/et_supervisionProjectAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="isi lokasi project"/>
@@ -63,14 +64,17 @@
                     android:layout_height="wrap_content"
                     android:text="No HP PIC"/>
                 <EditText
+                    android:id="@+id/et_supervisionProjectPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="phone"
                     android:hint="isi no HP"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Pemilik"/>
                 <EditText
+                    android:id="@+id/et_supervisionProjectOwnerName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="isi nama pemilik"/>
@@ -91,15 +95,21 @@
                             android:layout_height="wrap_content"
                             android:text="Keterangan : "/>
                         <EditText
+                            android:id="@+id/et_supervisionProjectDetail"
                             android:layout_width="match_parent"
                             android:layout_height="200dp" />
                     </LinearLayout>
                 </RelativeLayout>
                 <Button
+                    android:id="@+id/btn_supervisionProject"
+                    android:onClick="onClickSupervisionProject"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Submit"/>
+                    android:text="Submit"
+                    android:background="@drawable/ps__button_youtube"
+                    android:textColor="@color/colorTextLight"
+                    android:layout_centerInParent="true"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

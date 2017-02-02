@@ -54,7 +54,7 @@
                         android:layout_centerInParent="true"
                         android:textColor="#fff"
                         android:textSize="30dp"
-                        android:text="ONDULINE®"/>
+                        android:text="@string/onduline"/>
                 </RelativeLayout>
                 <Button
                     android:id="@+id/btnDetaiPDescriptionProduct"
@@ -112,6 +112,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@drawable/bdl_spec_img_tradisional"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/bdl_spec_tradisional"/>
                     <!-- spesifikasi product 2-->
                     <TextView
                         android:layout_width="wrap_content"
@@ -121,6 +125,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@drawable/bdl_spec_img_pro_standart"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/bdl_spec_pro_standart"/>
 
                 </LinearLayout>
                 <Button
@@ -458,6 +466,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/bdl_instalationguide3"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bdl_instalationguide4"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bdl_instalationguide5"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bdl_instalationguide6"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bdl_instalationguide7"/>
                 </LinearLayout>
                 <Button
                     android:onClick="ProductDetail"

@@ -35,7 +35,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:background="@null"
-        android:text="Nest"
+        android:text="Next"
         android:textColor="@android:color/white" />
 
     <Button

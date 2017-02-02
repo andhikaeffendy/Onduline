@@ -83,14 +83,14 @@ public class MenuDetailActivity extends AppCompatActivity {
 
     public void chooselayout(String pil){
         switch (pil){
-            case "ONDUVILA":
+            case "ONDUVILLA":
                 setContentView(R.layout.activity_menu_detail_onduvilla);
                 break;
             case "ONDULINE":
                 setContentView(R.layout.activity_menu_detail_onduline);
                 break;
-            case "BARDULINE":
-                setContentView(R.layout.activity_menu_detail_barduline);
+            case "BARDOLINE":
+                setContentView(R.layout.activity_menu_detail_bardoline);
                 break;
             case "BITULINE":
                 setContentView(R.layout.activity_menu_detail_bituline);

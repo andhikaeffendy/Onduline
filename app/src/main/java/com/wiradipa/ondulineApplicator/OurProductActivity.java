@@ -20,7 +20,7 @@ public class OurProductActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.btnOnduvila:
                 Toast.makeText(OurProductActivity.this, "btnOnduvila", Toast.LENGTH_LONG).show();
-                i.putExtra("pil","ONDUVILA");
+                i.putExtra("pil","ONDUVILLA");
                 break;
             case R.id.btnOnduline:
                 Toast.makeText(OurProductActivity.this, "btnOnduline", Toast.LENGTH_LONG).show();
@@ -29,7 +29,7 @@ public class OurProductActivity extends AppCompatActivity {
                 break;
             case R.id.btnBarduline:
                 Toast.makeText(OurProductActivity.this, "btnBarduline", Toast.LENGTH_LONG).show();
-                i.putExtra("pil","BARDULINE");
+                i.putExtra("pil","BARDOLINE");
                 break;
             case R.id.btnBituline:
                 Toast.makeText(OurProductActivity.this, "btnBituline", Toast.LENGTH_LONG).show();

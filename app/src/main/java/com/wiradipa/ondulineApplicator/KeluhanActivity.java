@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 public class KeluhanActivity extends AppCompatActivity {
 
+    private String pil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,14 +19,17 @@ public class KeluhanActivity extends AppCompatActivity {
         Intent i;
         switch (v.getId()) {
             case R.id.btnKeluhanPemasangan:
-                Toast.makeText(this, "btnKeluhanPemasangan", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "btnKeluhanPemasangan", Toast.LENGTH_LONG).show();
                 i = new Intent(this, KeluhanPemasanganActivity.class);
+                //i.putExtra("pil","InstalationComplain");
+                i.putExtra("pil","InstalationComplain");
                 startActivity(i);
                 break;
             case R.id.btnKeluhanProduk:
-                Toast.makeText(this, "btnKeluhanProduk", Toast.LENGTH_LONG).show();
-                //i = new Intent(this, ProgramActivity.class);
-                //startActivity(i);
+//                Toast.makeText(this, "btnKeluhanProduk", Toast.LENGTH_LONG).show();
+                i = new Intent(this, KeluhanPemasanganActivity.class);
+                i.putExtra("pil","ProductComplain");
+                startActivity(i);
                 break;
         }
     }

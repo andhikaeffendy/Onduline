@@ -1,5 +1,6 @@
 package com.wiradipa.ondulineApplicator;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,10 +15,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.wiradipa.ondulineApplicator.lib.AppSession;
+
 public class HomeActivity extends AppCompatActivity{
 
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
+    private Context context;
+    private AppSession session;
 
     String pil;
 
@@ -25,14 +30,18 @@ public class HomeActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        context = this;
+        session = new AppSession(context);
+        session.checkSession();
+        pil=session.getUSERTYPE();
         //class ini memuat xml sesuai dengan user masuk sebagai aplikator atau retailer
-        setLayout();
+        setLayout(pil);
     }
 
     //function to set layout(aplikator or retailer)
-    public void setLayout(){
-        Bundle extras = getIntent().getExtras();
-        pil = extras.getString("pil");
+    public void setLayout(String pil){
+//        Bundle extras = getIntent().getExtras();
+//        pil = extras.getString("pil");
         switch (pil) {
             case "applicator":
                 loginAplicator();
@@ -150,7 +159,7 @@ public class HomeActivity extends AppCompatActivity{
                         Toast.makeText(HomeActivity.this, "nav_home", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.nav_produk:
-                        Toast.makeText(HomeActivity.this, "nav_produk", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(HomeActivity.this, "nav_produk", Toast.LENGTH_LONG).show();
                         i = new Intent(HomeActivity.this, OurProductActivity.class);
                         startActivity(i);
                         break;
@@ -174,18 +183,22 @@ public class HomeActivity extends AppCompatActivity{
                 Intent i;
                 switch (item.getItemId()) {
                     case R.id.nav_TotalPoin:
-                        Toast.makeText(HomeActivity.this, "nav_TotalPoin", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(HomeActivity.this, "nav_TotalPoin", Toast.LENGTH_LONG).show();
                         i = new Intent(HomeActivity.this, TotalPoinActivity.class);
                         startActivity(i);
                         break;
                     case R.id.nav_TotalOrder:
-                        Toast.makeText(HomeActivity.this, "nav_TotalOrder", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(HomeActivity.this, "nav_TotalOrder", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.nav_History:
-                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
                         i = new Intent(HomeActivity.this, HistoryActivity.class);
                         i.putExtra("pil","project " + pil);
                         startActivity(i);
+                        break;
+                    case R.id.nav_Logout:
+//                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
+                        session.logout();
                         break;
                 }
 

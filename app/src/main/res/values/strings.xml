@@ -10,6 +10,61 @@
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
+    <string name="neworder">NEW ORDER</string>
+    <string name="history">HISTORY</string>
+    <string name="history_surat_jalan">HISTORY SURAT JALAN</string>
+    <string name="history_proyek_saya">PROYEK SAYA</string>
+    <string name="finish">selesai</string>
+    <string name="proccess">proses</string>
+    <string name="onduline">ONDULINE®</string>
+    <string name="onduvilla">ONDUVILLA®</string>
+    <string name="bardoline">BARDOLINE®</string>
+    <string name="bituline">BITULINE®</string>
+    <string name="minimum_username">minimal 8 digit berupa huruf dan angka</string>
+
+    <!-- SIGN IN ACTIVITY -->
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_up">Sign Up</string>
+    <string name="action_forgot">Forgot Password</string>
+    <string name="action_sign_out">sign out</string>
+
+    <!-- REGISTER ACTIVITY -->
+    <string name="title_register">Sign Up</string>
+    <string name="prompt_password_confirm">tulis ulang password</string>
+    <string name="prompt_password_create">tulis password yang anda inginkan</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_full_name">Full Name</string>
+    <string name="action_have_user">Already Have User?</string>
+
+
+
+    <!-- Strings related to login -->
+    <string name="action_add">Add</string>
+    <string name="error_invalid_email">This username is invalid</string>
+    <string name="error_invalid_password">password terlalu pendek</string>
+    <string name="error_invalid_password_confirm">password tidak sama</string>
+    <string name="error_incorrect_password">This username/password is incorrect</string>
+    <string name="error_field_required">wajib diisi</string>
+    <string name="error_server">Error Connection to server</string>
+    <string name="error_parsing_json">Error Parsing data</string>
+    <string name="action_sign_in_short">Sign in</string>
+
+
+    <!-- kalkulator -->
+    <string name="calc_tittle">PERHITUNGAN VOLUME ATAP ONDULINE®</string>
+    <string name="calc_sum_of_roof_onduvila">JUMLAH ATAP ONDUVILLA®</string>
+    <string name="calc_sum_of_roof_onduline">JUMLAH ATAP ONDULINE®</string>
+    <string name="calc_sum_of_nok_onduline">JUMLAH NOK ONDULINE®</string>
+    <string name="calc_sum_of_scrup_onduline">JUMLAH SEKRUP ONDULINE®</string>
+    <string name="calc_resume">RESUME</string>
+
+    <!-- array String yes or no -->
+    <string-array name="yes_or_no_array">
+        <item>ya</item>
+        <item>tidak</item>
+    </string-array>
 
 
     <!-- color simulator atap onduvila -->
@@ -19,6 +74,7 @@
     <string name="CLASSICRED">CLASSIC RED</string>
     <string name="ANTHRACITEBLACK">ANTHRACITE BLACK</string>
     <string name="SHADEDBROWN">SHADED BROWN</string>
+
 
 
     <!-- array String untuk simulasi atap -->
@@ -57,7 +113,7 @@
         <item>CLASSIC RED</item>
         <item>ANTHRACITE BLACK</item>
         <item>SHADED BROWN</item>
-        </string-array>
+    </string-array>
     <string-array name="pilih_warna_onduvila_round_roof_array">
         <item> - Pilih Warna - </item>
         <item>EBONY BLACK</item>
@@ -124,7 +180,7 @@
     <string name="BARDOLINETradisional">BARDOLINE Tradisional</string>
     <string name="BARDOLINEProStandart">BARDOLINE Pro Standart</string>
 
-        <!-- BITULINE prima Extra Maxima Series -->
+    <!-- BITULINE prima Extra Maxima Series -->
     <string name="primaExtraMaximaSeries">prima Extra Maxima Series</string>
     <string name="Abuabu">Abu-abu</string>
     <string name="Merah">Merah</string>
@@ -140,7 +196,7 @@
     <string name="Hijau2Warna">Hijau 2 Warna</string>
 
 
-        <!-- BITULINE Alumunium -->
+    <!-- BITULINE Alumunium -->
     <string name="Alumunium">Alumunium</string>
     <string name="NaturalAlumunium">Natural Alumunium</string>
     <!-- <string name="Abuabu">Abu-abu</string> -->
@@ -151,23 +207,23 @@
     <string name="Tembaga">Tembaga</string>
     <string name="BiruLaut">Biru Laut</string>
     <string name="Hijau">Hijau</string>
-    
+
 
 
     <!-- advantages -->
-            <!-- onduvilla -->
+    <!-- onduvilla -->
     <string name="fleksibel">FLEKSIBLE\nAtap GENTENG ONDUVILLA dapat di aplikasikan pada berbagai bentuk rangka atap.\nDapan diaplikasikan pada Atap lengkung</string>
     <string name="estetika">ESTETIKA\n</string>
     <string name="cepat">CEPAT\nRingan dan lebar: Untuk kemudahan aplikasi di tempat kerja.\nPemasangan yang mudah. Dapatkan ukuran atap yang anda inginkan hanya dengan palu dan pisau cutter</string>
     <string name="aman">AMAN\nGENTENG ONDUVILLA merupakan atap ringan, tahan segala macam cuaca, cocok untuk daerah rawan gempa.</string>
 
-            <!-- Onduline -->
+    <!-- Onduline -->
     <string name="odlCepat">CEPAT\nRingan dan lebar: Untuk kemudahan aplikasi di tempat kerja\nPemasangan yang mudah. Dapatkan ukuran atap yang anda inginkan hanya dengan palu dan pisau cutter\n</string>
     <string name="odlTidakBerisik">TIDAK BERISIK\nNilai rata-rata peredaman suara sekitar 40 dB. DIN52210\n</string>
     <string name="odlFleksibel">FLEKSIBLE\nAtap ONDULINE CLASSIC dapat di aplikasikan pada berbagai bentu rangka atap. Dapan diaplikasikan pada Atap lengkung\n</string>
     <string name="odlAman">AMAN\nONDULINE CLASSIC merupakan atap ringan, tahan segala macam cuaca, cocok untuk daerah rawan gempa\n</string>
 
-            <!-- Bardoline -->
+    <!-- Bardoline -->
     <string name="bdlTidakBerisik">TIDAK BERISIK\n</string>
     <string name="bdlEstetika">ESTETIKA\n</string>
     <string name="bdlFleksibel">FLEKSIBLE\nAtap BARDOLINE dapat di aplikasikan pada berbagai bentu rangka atap. Dapan diaplikasikan pada Atap lengkung\n</string>
@@ -183,7 +239,7 @@
     <string name="WATERTIGHT">WATERTIGHT\nMencapai watertightness tahan lama dan garansi seumur hidup terhadap korosi.\n</string>
     <string name="CEPATDANMUDAHDIPERBAIKI">CEPAT DAN MUDAH DIPERBAIKI\nInstal genting yang Anda inginkan: pada reng kayu atau dek terus menerus.\nTidak perlu menggunakan lem - hanya palu, paku dan pemotong akan dilakukan.\nInstal atap Anda dengan cepat dengan sedikit usaha.\n</string>
     <string name="RINGAN">RINGAN\nHanya 4kg / m², mudah untuk mengangkut dan menangani.\n</string>
-    <string name="ECOLOGICAL">ECOLOGICAL\nONDUVILLA ® terdiri dari sekitar 50% bahan daur ulang, produk terbaik di kelasnya!\n</string> -->
+    <string name="ECOLOGICAL">ECOLOGICAL\nONDUVILLA ® terdiri dari sekitar 50 persen bahan daur ulang, produk terbaik di kelasnya!\n</string> -->
 
 
     <!-- Accessoris -->
@@ -209,7 +265,7 @@
     <string name="ApronFlashing">Apron Flashing\nWarna        : Black\nDimensi    : 93 cm x 19 cm\n</string>
     <string name="ONDUCLAIR">ONDUCLAIR ®\nWarna        : Transparan\nDimensi    : 200 cm x 95 cm\n</string>
 
-            <!-- aksesoris pada bardoline di ganti <== Jenis Atap Bardoline -->
+    <!-- aksesoris pada bardoline di ganti <== Jenis Atap Bardoline -->
     <string name="bdlAccessorisTradisional">BARDOLINE Tradisional</string>
     <string name="bdlAccessorisProTradisional">BARDOLINE Pro Tradisional</string>
     <string name="bdlAccessorisStandart">BARDOLINE Standart</string>
@@ -220,7 +276,7 @@
     <string name="bdlAccessorisProOpera">BARDOLINE Pro Opera</string>
     <string name="bdlAccessorisBiltmore">Biltmore</string>
 
-            <!-- aksesoris BITULINE -->
+    <!-- aksesoris BITULINE -->
     <!--<string name="primaExtraMaximaSeries"></string>-->
     <string name="btlAccessorisBerbahanKaretTermoplastik">Berbahan Karet Termoplastik</string>
     <string name="btlAccessorisBerbahanKaretTermoplastik_0">Diameter luar: 92 mm\n(Fits to ø100 PVC pipe)\nKedalaman : 180 mm\n</string>
@@ -250,16 +306,20 @@
     <string name="PEMASANGANNOK">9. PEMASANGAN NOK\nPasang reng tambahan untuk dudukan nok, jarak dari as kuda-kuda sebesar 22 CM.\n</string>
     <string name="OVERLAPPINGNOK">10. OVERLAPPING NOK\nOverlap antar nok mengikuti interlock yang ada (minimal 22 CM). Pertemuan genteng di bawah nok diusahakan serapat mungkin, maksimal celah 1 CM.\n</string>
 
-            <!-- Bardoline -->
+    <!-- Bardoline -->
     <string name="bdl_instalationguide1">Cara pemasangan BARDOLINE sangat mudah. Untuk ulasan lengkap cara pemasangan, silahkan unduh di sini.\n</string>
-    <string name="bdl_instalationguide2"></string>
-    <string name="bdl_instalationguide3">Peralatan pemasangan\n Palu\n Pistol Lem untuk BARDOSTICK\n Suluh Pengatapan ONDULINE\n</string>
+    <string name="bdl_instalationguide2">Untuk semua atap dengan tinggi kemiringan lebih dari 40 persen atau antara 30 persen dan 40 persen dimana jarak punggungan lis kurang dari 10 meter.\n\nUntuk semua atap dengan tinggi kemiringan diantara 30 persen dan 40 persen  dan dimana jarak punggungan lis lebih dari 10 meter.\n\n Untuk kemiringan dibawah 30 persen.\n\n</string>
+    <string name="bdl_instalationguide3">Diperlukan kemiringan minimal 30 persen untuk pemasangan dengan paku. Untuk kemiringan yang lebih rendah, semua atap harus ditutupi dengan lapisan aspal polimerik setidaknya setebal 3 milimeter dengan cara menyatukannya dengan pengelasan. Kepingan papan tipis tersebut harus dipanaskan tanpa menggunakan paku. Pada kemiringan-kemiringan antara 30 persen dan 40 persen, jika jarak antara lis bagian genteng dan punggung melebihi 10 meter, maka metode pengelasan harus digunakan untuk 7 meter pertama dari lis bagian genteng. \n\n</string>
+    <string name="bdl_instalationguide4">Satu lapisan BARDOSTICK berwarna kuning muda dipasang pada ujung lis bagian genting. Kepingan papan tipis BARDOLINE dipotong untuk membentuk lapisan bawah untuk baris bagian pertama kepingan papan tipis yang terlihat dan diikatkan ke lis bagian genting dengan BARDOSTICK. Saat baris kedua diletakkan, lipatan tersebut buat menyamping agar terpusat satu sama lain. Celah-celah pada punggung di papan membantu kita mendapatkan jarak yang tepat antara baris dan simpangan yang benar.\n\n</string>
+    <string name="bdl_instalationguide5">Kepingan papan tipis harus ditempatkan pada dasar dengan paku-paku BARDOLINE berlapis seng dan berkepala besar. Jumlah paku-paku yang digunakan bertambah 50 persen pada atap-atap yang lebih curam 160 persen dan pada permukaan yang tegak lurus. Kepingan papan tipis menempel satu sama lain agar tipe BARDOLINE Nova terlihat sebagai mana mestinya dengan tekanan dari beratnya sendiri saat pemasangan dilakukan pada kondisi cuaca  yang penuh sinar matahari dan panas. Jika menempel dengan sendirinya tidak cukup karena kondisi cuaca yang berawan dan dingin, bagian yang ditumpuk harus dipanaskan terlebih dahulu dan kemudian tekan dengan perlahan.\n\n</string>
+    <string name="bdl_instalationguide6">Karena kondisi lingkungan seperti lumpur, debu dan kelembapan mempengaruhi penempelan, pekerjaan tidak boleh selesai tanpa melakukan pengecekan dengan cermat terlebih dahulu. Kepingan papan tipis tersebut dapat dipaku ke dasar setelah ditempel satu sama lain, tapi juga dimungkinkan untuk memindahkan PE-film setelah dipaku melalui bagian tumpukan pada kepingan papan tipis tersebut.\n\n</string>
+    <string name="bdl_instalationguide7">Peralatan pemasangan\n Palu\n Pistol Lem untuk BARDOSTICK\n Suluh Pengatapan ONDULINE\n</string>
 
 
     <!-- Subtainabuility -->
     <string name="ONDUVILLASUSTAINABILITY">ONDUVILLA® SUSTAINABILITY</string>
     <string name="odv_subtainability_1">"Sustainability adalah tanggung jawab kita kepada generasi mendatang."\nTujuan kami adalah keberlanjutan produk kami dan proses produksi dengan mengadopsi Anda serta dalam arti kelembagaan, adalah untuk melanjutkan kegiatan kami di semua area. Untuk tujuan ini, untuk memberikan solusi atap nyata berkelanjutan kepada pelanggan kami, sementara bertujuan juga untuk men-download setidaknya kerusakan kita menyebabkan lingkungan dan berusaha untuk mempertahankannya. Lingkungan dan kami terus mengambil langkah-langkah besar menuju keberlanjutan untuk generasi mendatang. Saat membuang langkah-langkah ini, kami mengkonfirmasi lembaga berimbang lingkungan kami.\n</string>
-    <string name="odv_subtainability_2">KONTEN DAUR ULANG \nOnduline Eurasia memberikan setiap tahun 30.000 ton daur ulang limbah selulosa, sistem HR Onduline menggunakan sekitar 50% bahan daur ulang. Produk konten daur ulang bahan yang diproduksi di semua tanaman manufaktur kelompok di seluruh dunia dari Onduline disertifikasi oleh organisasi independen internasional dievaluasi di bawah program SIMPAN lingkungan ICC-ES. ICC-ES yang dikeluarkan untuk produk Onduline "YES 1016" nomor satu laporan lingkungan dapat ditemukan di sini. \n\nKarena tingginya proporsi konten daur ulang dalam produk kami, untuk proyek-proyek hijau berusaha untuk menerima sertifikasi LEED, "Bahan dan Sumber Daya" Kategori kontribusi sampai 2 poin. \n</string>
+    <string name="odv_subtainability_2">KONTEN DAUR ULANG \nOnduline Eurasia memberikan setiap tahun 30.000 ton daur ulang limbah selulosa, sistem HR Onduline menggunakan sekitar 50 persen bahan daur ulang. Produk konten daur ulang bahan yang diproduksi di semua tanaman manufaktur kelompok di seluruh dunia dari Onduline disertifikasi oleh organisasi independen internasional dievaluasi di bawah program SIMPAN lingkungan ICC-ES. ICC-ES yang dikeluarkan untuk produk Onduline "YES 1016" nomor satu laporan lingkungan dapat ditemukan di sini. \n\nKarena tingginya proporsi konten daur ulang dalam produk kami, untuk proyek-proyek hijau berusaha untuk menerima sertifikasi LEED, "Bahan dan Sumber Daya" Kategori kontribusi sampai 2 poin. \n</string>
     <string name="odv_subtainability_3">RINGAN \nYang cukup ringan dibandingkan dengan bahan atap konvensional Onduline HR menggunakan lebih sedikit energi dalam sistem transportasi. Dengan implementasi yang mudah terjadi sedikit limbah taktis. Dengan demikian, sekaligus mengurangi dampak lingkungan dari pengiriman dan tahap implementasi, memberikan kontribusi untuk proyek-proyek hijau. \n</string>
     <string name="odv_subtainability_4">Jejak karbon \nOnduline Group, semua produk dan kegiatan dalam meningkatkan kesadaran tentang emisi gas rumah kaca muncul dan untuk memenuhi tanggung jawabnya dalam pemanasan global dan isu-isu lingkungan melalui langkah-langkah strategis, komprehensif "jejak karbon neraca" terlibat dalam pekerjaan. Lingkungan Perancis dan Badan Manajemen Energi (ADEME), yang dikembangkan oleh "Bilan Carbone: Carbon footprint neraca" dibuat sesuai dengan metode dan 2009 produksi dan data operasional didasarkan pada studi yang digunakan, Onduline gas rumah kaca selama siklus hidup emisi pelat HR (GRK) per meter persegi 4066g CO2e. / m². Hasil ini, dibandingkan dengan produk atap yang paling umum digunakan pelat Onduline ditemukan memiliki emisi yang lebih rendah. Sebagai tambahan, semua pabrik di seluruh fasilitas Eurasia Sapanca dari Onduline Onduline Group, ditetapkan bahwa setidaknya berosilasi per piring pabrik.\n</string>
 

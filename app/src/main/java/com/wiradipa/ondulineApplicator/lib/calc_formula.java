@@ -45,5 +45,43 @@ public class calc_formula {
         return hasil;
     }
 
+//    jenis rangka 1==kayu 2==baja , 1==onduline 2==onduvilla
+    public double sumOfScrup(int frameType, int roofType, int tilt, int sumOfRoof){
+
+        double hasil= 0;
+
+        if(frameType==1 & roofType==1 & (tilt >=15)){
+
+            hasil = sumOfRoof*19;
+
+        }else if(frameType==1 & roofType==1 & tilt>=10 & tilt <15){
+
+            hasil = sumOfRoof*18;
+
+        }else if(frameType==1 & roofType==1 & tilt<10){
+
+            hasil = sumOfRoof*19;
+
+        }else if(frameType==2 & roofType==1 & (tilt >=15)){
+
+            hasil = sumOfRoof*11;
+
+        }else if(frameType==2 & roofType==1 & tilt>=10 & tilt <15){
+
+            hasil = sumOfRoof*14;
+
+        }else if(frameType==2 & roofType==1 & tilt<10){
+
+            hasil = sumOfRoof*11;
+
+        }else {
+
+            hasil = sumOfRoof*5;
+
+        }
+
+        return hasil;
+    }
+
 
 }

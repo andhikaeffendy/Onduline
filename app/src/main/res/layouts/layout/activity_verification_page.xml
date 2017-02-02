@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_verification_page"
+    android:background="@drawable/bg_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -32,6 +33,8 @@
         <Button
             android:id="@+id/btnReSendCode"
             android:layout_gravity="center"
+            android:background="@drawable/ps__button_youtube"
+            android:textColor="@color/colorTextLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="kirim ulang kode aktivasi"/>
@@ -53,13 +56,28 @@
             android:layout_gravity="center"
             android:text="Masukan kode aktivasi disini"/>
         <EditText
+            android:id="@+id/et_activation_code"
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Kode Aktivasi"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Masukan email aktivasi disini"/>
+        <EditText
+            android:id="@+id/et_activation_email"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Aktivasi"/>
         <Button
             android:id="@+id/btnActivation"
             android:onClick="onClickVerivication"
+            android:background="@drawable/ps__button_youtube"
+            android:textColor="@color/colorTextLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

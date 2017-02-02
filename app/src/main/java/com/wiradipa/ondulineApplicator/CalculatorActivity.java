@@ -20,10 +20,10 @@ public class CalculatorActivity extends AppCompatActivity {
 
 
     String pil;
-    TextView txtMenuProductName, txtLuasAtap,txtJumlahAtap;
-    EditText edittextTiltAngle;
-    Spinner spnJenisRangka, spnJenisAtap;
-    ArrayAdapter<CharSequence> adapterspnJenisRangka, adapterspnJenisAtap;
+    TextView txtMenuProductName, txtLuasAtap,txtJumlahAtap, txtresultSumOfNok;
+    EditText edittextTiltAngle, etPanjangBubungan, etPanjangJuraiLuar, etPanjangJuraiDalam;
+    Spinner spnJenisRangka, spnJenisAtap, spnNokOnduline;
+    ArrayAdapter<CharSequence> adapterspnJenisRangka, adapterspnJenisAtap, adapterspnNokOnduline;
 
     calc_formula formula;
     int statRoof;   // digunakan untuk mendefinisikan onduline ==1 atau onduvila ==2
@@ -39,10 +39,15 @@ public class CalculatorActivity extends AppCompatActivity {
         txtMenuProductName = (TextView)findViewById(R.id.txtMenuProductName);
         txtLuasAtap = (TextView)findViewById(R.id.txtLuasAtap);
         txtJumlahAtap = (TextView)findViewById(R.id.txtJumlahAtap);
+        txtresultSumOfNok = (TextView)findViewById(R.id.txtresultSumOfNok);
+        etPanjangBubungan = (EditText)findViewById(R.id.etPanjangBubungan);
+        etPanjangJuraiLuar = (EditText)findViewById(R.id.etPanjangJuraiLuar);
+        etPanjangJuraiDalam = (EditText)findViewById(R.id.etPanjangJuraiDalam);
         edittextTiltAngle = (EditText)findViewById(R.id.edittextTiltAngle);
         formula = new calc_formula();
         spnJenisAtap = (Spinner)findViewById(R.id.spnJenisAtap);
         spnJenisRangka = (Spinner)findViewById(R.id.spnJenisRangka);
+        spnNokOnduline = (Spinner)findViewById(R.id.spnNokOnduline);
 
         txtMenuProductName.setText(pil + "®");
 
@@ -51,14 +56,17 @@ public class CalculatorActivity extends AppCompatActivity {
         // Create an ArrayAdapter using the string array and a default spinner layout
         adapterspnJenisAtap = ArrayAdapter.createFromResource(this, R.array.pilih_jenis_atap_array, android.R.layout.simple_spinner_item);
         adapterspnJenisRangka = ArrayAdapter.createFromResource(this, R.array.pilih_jenis_rangka_array, android.R.layout.simple_spinner_item);
+        adapterspnNokOnduline = ArrayAdapter.createFromResource(this, R.array.yes_or_no_array, android.R.layout.simple_spinner_item);
 
         // Specify the layout to use when the list of choices appears
         adapterspnJenisAtap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterspnJenisRangka.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterspnNokOnduline.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // Apply the adapter to the spinner
         spnJenisAtap.setAdapter(adapterspnJenisAtap);
         spnJenisRangka.setAdapter(adapterspnJenisRangka);
+        spnNokOnduline.setAdapter(adapterspnNokOnduline);
 
         edittextTiltAngle.addTextChangedListener(new TextWatcher() {
             @Override
@@ -77,6 +85,14 @@ public class CalculatorActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void onClickcalculator(View v){
+        switch (v.getId()){
+            case R.id.btnSumOfNok:
+                getSumOfNok();
+                break;
+        }
     }
 
     public void getSumOfRoof(Editable s){
@@ -109,6 +125,23 @@ public class CalculatorActivity extends AppCompatActivity {
             //Toast.makeText(SimulatorAtapActivity.this, spnProduk.getSelectedItem().toString() , Toast.LENGTH_LONG).show();
             //setColorSpinner(spnProduk.getSelectedItem().toString());
         }
+    }
+
+    public void getSumOfNok(){
+
+
+        int statNok, panjangBubungan, panjangJuraiLuar, panjangJuraiDalam;
+        panjangBubungan=Integer.parseInt(etPanjangBubungan.getText().toString());
+        panjangJuraiLuar=Integer.parseInt(etPanjangJuraiLuar.getText().toString());
+        panjangJuraiDalam=Integer.parseInt(etPanjangJuraiDalam.getText().toString());
+
+        if (spnNokOnduline.getSelectedItem().toString().equals("ya")){
+            statNok=1;
+        }else {
+            statNok=2;
+        }
+
+        txtresultSumOfNok.setText(Math.ceil(formula.sumOfNok(statNok,panjangBubungan,panjangJuraiLuar,panjangJuraiDalam)) + " lembar");
 
     }
 }

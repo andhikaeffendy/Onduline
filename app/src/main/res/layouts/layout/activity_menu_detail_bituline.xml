@@ -54,7 +54,7 @@
                         android:layout_centerInParent="true"
                         android:textColor="#fff"
                         android:textSize="30dp"
-                        android:text="ONDULINE®"/>
+                        android:text="@string/bituline"/>
                 </RelativeLayout>
                 <Button
                     android:id="@+id/btnDetaiPDescriptionProduct"
@@ -193,12 +193,13 @@
                         android:id="@+id/txtColorSelection1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Abuabu"/>
                     <ImageView
                         android:id="@+id/imgColorSelection1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_prima_gray"/>
 
                     <!-- img 2 -->
@@ -206,12 +207,13 @@
                         android:id="@+id/txtColorSelection2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Merah"/>
                     <ImageView
                         android:id="@+id/imgColorSelection2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_prima_red"/>
 
                     <!-- img 3 -->
@@ -219,12 +221,13 @@
                         android:id="@+id/txtColorSelection3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/hijau"/>
                     <ImageView
                         android:id="@+id/imgColorSelection3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_prima_green"/>
 
                     <!-- img 4 -->
@@ -232,12 +235,13 @@
                         android:id="@+id/txtColorSelection4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/CafeFlame"/>
                     <ImageView
                         android:id="@+id/imgColorSelection4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_prima_cafe_flame"/>
 
                     <!-- img 5 -->
@@ -245,12 +249,13 @@
                         android:id="@+id/txtColorSelection5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Terracotta"/>
                     <ImageView
                         android:id="@+id/imgColorSelection5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_prima_terra_cotta"/>
 
                     <!-- img 6 -->
@@ -258,12 +263,13 @@
                         android:id="@+id/txtColorSelection6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/HijauPastel"/>
                     <ImageView
                         android:id="@+id/imgColorSelection6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_prima_pastel_green"/>
 
                     <!-- img 7 -->
@@ -271,19 +277,19 @@
                         android:id="@+id/txtColorSelection7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Putih"/>
                     <ImageView
                         android:id="@+id/imgColorSelection7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_prima_white"/>
 
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
                         android:layout_gravity="center"
                         android:scrollbarSize="18dp"
                         android:text="@string/Alumunium"/>
@@ -293,11 +299,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/NaturalAlumunium"/>
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_alumunium_natural_aluminium"/>
 
 
@@ -305,11 +312,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Abuabu"/>
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_alumunium_gray"/>
 
 
@@ -317,11 +325,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Terracotta"/>
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_alumunium_terra_cotta"/>
 
 
@@ -329,11 +338,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Bordeaux"/>
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_alumunium_bordeaux"/>
 
 
@@ -341,11 +351,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/HijauPastel"/>
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_alumunium_pastel_green"/>
 
 
@@ -353,11 +364,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Krem"/>
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_alumunium_cream"/>
 
 
@@ -365,11 +377,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Tembaga"/>
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_alumunium_copper"/>
 
 
@@ -377,11 +390,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/BiruLaut"/>
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_alumunium_marine_blue"/>
 
 
@@ -389,11 +403,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Hijau"/>
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btl_alumunium_green"/>
 
 
@@ -441,43 +456,60 @@
                             android:text="@string/btlTeknologiMutakhir"/>
 
                     </LinearLayout>
-                    <!--===========================================================================-->
-
-                    <!-- advantages 1-->
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
                     <!-- advantages 2-->
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="6">
 
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/img_advantages_light_weight"/>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btlKedapAirPadaSetiapKondisi"/>
+
+                    </LinearLayout>
                     <!-- advantages 3-->
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="6">
 
-                    <!-- advantages 4-->
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/img_advantages_watertight"/>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btlKedapAir"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
                 <Button
@@ -692,6 +724,7 @@
                     android:text="panduan pemasangan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:background="@color/colorBlackAlpha"
                     android:textColor="@color/colorTextLight" />
 
@@ -821,6 +854,12 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorBlackAlpha"
                     android:textColor="@color/colorTextLight" />
+                <LinearLayout
+                    android:id="@+id/LinearSubtainability"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                </LinearLayout>
             </LinearLayout>
 
         </ScrollView>

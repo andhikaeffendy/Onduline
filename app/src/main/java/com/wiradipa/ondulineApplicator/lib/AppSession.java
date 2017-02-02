@@ -17,6 +17,7 @@ public class AppSession {
     public final String EMAILKEY = "email";
     public final String NAMEKEY = "name";
     public final String USERID = "userid";
+    public final String USERTYPE = "user_type";
     public final String AVATAR = "avatar";
 
     public final String DEVICEID = "device_id";
@@ -38,15 +39,14 @@ public class AppSession {
         editor.clear().apply();
     }
 
-    public void login(long userid, String username, String token, String name, String email,
-                      String avatar){
+    public void login(long userid, String username, String usertype, String token, String name, String email){
         editor = sharedPreferences.edit();
         editor.putString(USERNAMEKEY, username);
         editor.putString(NAMEKEY, name);
         editor.putString(EMAILKEY,email);
         editor.putString(TOKENKEY,token);
+        editor.putString(USERTYPE, usertype);
         editor.putLong(USERID, userid);
-        editor.putString(AVATAR, avatar);
         editor.apply();
     }
 
@@ -101,6 +101,10 @@ public class AppSession {
 
     public String getName(){
         return sharedPreferences.getString(NAMEKEY, "N/A");
+    }
+
+    public String getUSERTYPE() {
+        return sharedPreferences.getString(USERTYPE, "N/A");
     }
 
     public String getEmail(){

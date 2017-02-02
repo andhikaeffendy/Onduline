@@ -1,13 +1,18 @@
 package com.wiradipa.ondulineApplicator;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
@@ -24,13 +29,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.acl.Owner;
 import java.util.Calendar;
 
 public class RegistrationFromActivity extends AppCompatActivity {
 
     String pil, gender;
 
-    long states_id, city_id;
 
     private Calendar calendar;
     private int year, month, day;
@@ -46,9 +51,12 @@ public class RegistrationFromActivity extends AppCompatActivity {
     private long[] statesIds, citiesIds;
 
     private AutoCompleteAdapter adapter_state, adapter_city;
+    long states_id, city_id;
 
     private UpdateTask updateTask;
-    private RegisterTask registerTask;
+    private RegisterTask registerTask = null;
+    private View mProgressView;
+    private View mFormView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,23 +65,27 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
         context = this;
 
-        et_name = (EditText)findViewById(R.id.et_name);
-        et_address = (EditText)findViewById(R.id.et_address);
-        et_phone = (EditText)findViewById(R.id.et_phone);
-        et_email = (EditText)findViewById(R.id.et_email);
-        et_distributor = (EditText)findViewById(R.id.et_distributor);
-        et_association = (EditText)findViewById(R.id.et_association);
-        et_owner = (EditText)findViewById(R.id.et_owner);
+        et_name = (EditText)findViewById(R.id.et_name);//               wajib diisi
+        et_address = (EditText)findViewById(R.id.et_address);//         wajib diisi
+        et_phone = (EditText)findViewById(R.id.et_phone);//             harus diisi
+        et_email = (EditText)findViewById(R.id.et_email); //            email min min 4 karater harus ada @
+        et_distributor = (EditText)findViewById(R.id.et_distributor);// wajib diisi
+        et_association = (EditText)findViewById(R.id.et_association);// wajib diisi
+        et_owner = (EditText)findViewById(R.id.et_owner);//             wajib diisi
         et_id = (EditText)findViewById(R.id.et_id);
-        et_username = (EditText)findViewById(R.id.et_username);
-        et_password = (EditText)findViewById(R.id.et_password);
-        et_password_confirm = (EditText)findViewById(R.id.et_password_confirm);
-        act_city = (AutoCompleteTextView)findViewById(R.id.act_city);
-        act_state = (AutoCompleteTextView)findViewById(R.id.act_state);
-        et_company = (EditText)findViewById(R.id.et_company);
+        et_username = (EditText)findViewById(R.id.et_username);//       username minimal 4 karakter dan harus terdiri dari huruf dan angka
+        et_password = (EditText)findViewById(R.id.et_password);//       password minimal 4 karakter harus terdiri dari huruf dan angka
+        et_password_confirm = (EditText)findViewById(R.id.et_password_confirm);//   harus sama dengan password
+        act_city = (AutoCompleteTextView)findViewById(R.id.act_city);//             wajib diisi
+        act_state = (AutoCompleteTextView)findViewById(R.id.act_state);//           wajib diisi
+        et_company = (EditText)findViewById(R.id.et_company);//                     wajib diisi
 
-        txtisianBirth=(TextView)findViewById(R.id.txtisianBirth);
+        txtisianBirth=(TextView)findViewById(R.id.txtisianBirth);//                 wajib diisi
         calendar = Calendar.getInstance();
+
+        mFormView = findViewById(R.id.register_form);
+        mProgressView = findViewById(R.id.register_progress);
+
 
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
@@ -92,12 +104,357 @@ public class RegistrationFromActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_registration_form_tukang_bangunan);
     }
 
+
+
+
+//    ==============================================================================================
+//
+//    et_name = (EditText)findViewById(R.id.et_name);//               wajib diisi
+//    et_address = (EditText)findViewById(R.id.et_address);//         wajib diisi
+//    et_phone = (EditText)findViewById(R.id.et_phone);//             harus diisi
+//    et_email = (EditText)findViewById(R.id.et_email); //            email min min 4 karater harus ada @
+//    et_distributor = (EditText)findViewById(R.id.et_distributor);// wajib diisi
+//    et_association = (EditText)findViewById(R.id.et_association);// wajib diisi
+//    et_owner = (EditText)findViewById(R.id.et_owner);//             wajib diisi
+//    et_id = (EditText)findViewById(R.id.et_id);
+//    et_username = (EditText)findViewById(R.id.et_username);//       username minimal 4 karakter dan harus terdiri dari huruf dan angka
+//    et_password = (EditText)findViewById(R.id.et_password);//       password minimal 4 karakter harus terdiri dari huruf dan angka
+//    et_password_confirm = (EditText)findViewById(R.id.et_password_confirm);//   harus sama dengan password
+//    act_city = (AutoCompleteTextView)findViewById(R.id.act_city);//             wajib diisi
+//    act_state = (AutoCompleteTextView)findViewById(R.id.act_state);//           wajib diisi
+//    et_company = (EditText)findViewById(R.id.et_company);//                     wajib diisi
+//
+//    txtisianBirth=(TextView)findViewById(R.id.txtisianBirth);//                 wajib diisi
+//
+    private boolean isEmailValid(String email) {
+        //TODO: Replace this with your own logic
+        return email.length()>4;
+    }
+
+    private boolean isUsernameValid(String password) {
+        //TODO: Replace this with your own logic
+        return password.length() > 4;
+    }
+    private boolean isUsernameEmpty(String user) {
+        //TODO: Replace this with your own logic
+        return user.equals("");
+    }
+
+    private boolean isPasswordValid(String password) {
+        //TODO: Replace this with your own logic
+        return password.length() > 4;
+    }
+    private boolean isPasswordEmpty(String password) {
+        //TODO: Replace this with your own logic
+        return password.equals("");
+    }
+
+    private boolean isPasswordConfirmValid(String password, String passwordConfirm) {
+        //TODO: Replace this with your own logic
+        return password.equals(passwordConfirm);
+    }
+
+    private boolean isPasswordConfirmEmpty(String passwordConfirm) {
+        //TODO: Replace this with your own logic
+        return passwordConfirm.equals("");
+    }
+
+    private boolean isNameValid(String name) {
+        //TODO: Replace this with your own logic
+        return name.equals("");
+    }
+
+    private boolean isAddressValid(String address) {
+        //TODO: Replace this with your own logic
+        return address.equals("");
+    }
+
+    private boolean isPhoneValid(String phone) {
+        //TODO: Replace this with your own logic
+        return phone.equals("");
+    }
+
+    private boolean isDistributorValid(String distributor) {
+        //TODO: Replace this with your own logic
+        return distributor.equals("");
+    }
+
+    private boolean isOwnerValid(String owner) {
+        //TODO: Replace this with your own logic
+        return owner.equals("");
+    }
+
+    private boolean isCityValid(String city) {
+        //TODO: Replace this with your own logic
+        return city.equals("");
+    }
+
+    private boolean isStateValid(String state) {
+        //TODO: Replace this with your own logic
+        return state.equals("");
+    }
+
+    private boolean isCompanyValid(String company) {
+        //TODO: Replace this with your own logic
+        return company.equals("");
+    }
+
+    private boolean isIdValid(String id) {
+        //TODO: Replace this with your own logic
+        return id.equals("");
+    }
+
+    private boolean isAssociationValid(String as) {
+        //TODO: Replace this with your own logic
+        return as.equals("");
+    }
+
+
+    /**
+     * dalam satu fungsi ngecek semua edit text
+     * Attempts to sign in or register the account specified by the login next_menu.
+     * If there are next_menu errors (invalid email, missing fields, etc.), the
+     * errors are presented and no actual login attempt is made.
+     */
+    private void attemptRegister() {
+        if (registerTask != null) {
+            return;
+        }
+
+        // Reset errors.
+        et_email.setError(null);
+        et_password.setError(null);
+        et_password_confirm.setError(null);
+        et_username.setError(null);
+
+        et_name.setError(null);
+        et_company.setError(null);
+//        et_owner.setError(null);
+//        et_distributor.setError(null); // perusahaan
+        et_address.setError(null);
+        act_city.setError(null);
+        act_state.setError(null);
+        et_phone.setError(null);
+        et_association.setError(null);
+        et_id.setError(null);
+
+        // Store values at the time of the login attempt.
+        String email = et_email.getText().toString();
+        String password = et_password.getText().toString();
+        String passwordConfirm = et_password_confirm.getText().toString();
+        String username = et_username.getText().toString();
+        String name = et_name.getText().toString();
+//        String company = et_company.getText().toString();
+//        String owner = et_owner.getText().toString();
+//        String distributor = et_distributor.getText().toString(); // perusahaan
+        String address = et_address.getText().toString();
+        String city = act_city.getText().toString();
+        String state = act_state.getText().toString();
+        String phone = et_phone.getText().toString();
+        String association = et_association.getText().toString();
+        String id = et_id.getText().toString();
+
+
+        boolean cancel = false;
+        View focusView = null;
+
+        // Check for a valid password, if the user entered one.
+        if (isPasswordEmpty(password)) {
+            et_password.setError(getString(R.string.error_field_required));
+            focusView = et_password;
+            cancel = true;
+        }else if (!isPasswordValid(password)) {
+            et_password.setError(getString(R.string.error_invalid_password));
+            focusView = et_password;
+            cancel = true;
+        }
+
+        // Check for a valid username.  ============================================================ kedepannya if username sudah pernah di pakai maka tampilakan sudah terpakai
+        if (isUsernameEmpty(username)) {
+            et_username.setError(getString(R.string.error_field_required));
+            focusView = et_username;
+            cancel = true;
+        }else if (!isUsernameValid(username)) {
+            et_username.setError(getString(R.string.error_field_required));
+            focusView = et_username;
+            cancel = true;
+        }
+
+        // Check for a valid name.
+        if (isNameValid(name)) {
+            et_name.setError(getString(R.string.error_field_required));
+            focusView = et_name;
+            cancel = true;
+        }
+
+        // Check for a valid address.
+        if (isAddressValid(address)) {
+            et_address.setError(getString(R.string.error_field_required));
+            focusView = et_address;
+            cancel = true;
+        }
+
+        // Check for a valid city.
+        if (isCityValid(city)) {
+            act_city.setError(getString(R.string.error_field_required));
+            focusView = act_city;
+            cancel = true;
+        }
+
+        // Check for a valid state.
+        if (isStateValid(state)) {
+            act_state.setError(getString(R.string.error_field_required));
+            focusView = act_state;
+            cancel = true;
+        }
+
+        // Check for a valid phone.
+        if (isPhoneValid(phone)) {
+            et_phone.setError(getString(R.string.error_field_required));
+            focusView = et_phone;
+            cancel = true;
+        }
+
+        // Check for a valid association.
+        if (isAssociationValid(association)) {
+            et_association.setError(getString(R.string.error_field_required));
+            focusView = et_association;
+            cancel = true;
+        }
+//
+//        // Check for a valid company.
+//        if (isCompanyValid(company)) {
+//            et_company.setError(getString(R.string.error_field_required));
+//            focusView = et_company;
+//            cancel = true;
+//        }
+//
+//        // Check for a valid distributor.
+//        if (isDistributorValid(distributor)) {
+//            et_distributor.setError(getString(R.string.error_field_required));
+//            focusView = et_distributor;
+//            cancel = true;
+//        }
+//
+//        // Check for a valid id.
+//        if (isOwnerValid(owner)) {
+//            et_owner.setError(getString(R.string.error_field_required));
+//            focusView = et_owner;
+//            cancel = true;
+//        }
+
+        // Check for a valid id.
+        if (isIdValid(id)) {
+            et_id.setError(getString(R.string.error_field_required));
+            focusView = et_id;
+            cancel = true;
+        }
+
+        // Check for a valid re password.
+        if (isPasswordConfirmEmpty(passwordConfirm)) {
+            et_password_confirm.setError(getString(R.string.error_field_required));
+            focusView = et_password_confirm;
+            cancel = true;
+        } else if (!isPasswordConfirmValid(password,passwordConfirm)) {
+            et_password_confirm.setError(getString(R.string.error_invalid_password_confirm));
+            focusView = et_password_confirm;
+            cancel = true;
+        }
+
+
+//        // Check for a valid Re password, if the user entered one.
+//        if (!TextUtils.isEmpty(passwordConfirm) && !isPasswordConfirmValid(password,passwordConfirm)) {
+//            et_password_confirm.setError(getString(R.string.error_invalid_password_confirm));
+//            focusView = et_password;
+//            cancel = true;
+//        }
+
+
+
+        // Check for a valid email address.
+        if (TextUtils.isEmpty(email)) {
+            et_email.setError(getString(R.string.error_field_required));
+            focusView = et_email;
+            cancel = true;
+        } else if (!isEmailValid(email)) {
+            et_email.setError(getString(R.string.error_invalid_email));
+            focusView = et_email;
+            cancel = true;
+        }
+
+        if (cancel) {
+            // There was an error; don't attempt login and focus the first
+            // next_menu field with an error.
+            focusView.requestFocus();
+        } else {
+            // Show a progress spinner, and kick off a background task to
+            // perform the user login attempt.
+            showProgress(true);
+//            disini kita show progreess apapun itu dan di setiap
+
+            //Toast.makeText(this, "password : " + password , Toast.LENGTH_LONG).show();
+            registerTask= new RegisterTask();
+            registerTask.execute((Void) null);
+        }
+    }
+
+
+    /**
+     * Shows the progress UI and hides the login next_menu.
+     */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            mFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+            mFormView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });
+
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mProgressView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void onClickRegistrationForm(View v){
         Intent i;
         switch (v.getId()){
             case R.id.btnSubmitRegistrationForm:
-                i = new Intent(this, VerificationPageActivity.class);
-                startActivity(i);
+                attemptRegister();
+//                registerTask = new RegisterTask();
+//                registerTask .execute((Void)null);
                 break;
         }
     }
@@ -222,9 +579,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
                     status = json.getString("status");
                     if(status.compareToIgnoreCase("success")==0){
                         cityJson = json.getJSONArray("data");
-                        if(parsingState(stateJson)&&parsingCity(cityJson)){
-
-                        }
+                        return true;
                     }
                 }
                 if(json.has("message"))errorMessage = json.getString("message");
@@ -238,6 +593,8 @@ public class RegistrationFromActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(final Boolean success) {
             pg.dismiss();
+            parsingState(stateJson);
+            parsingCity(cityJson);
             Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show();
         }
     }
@@ -286,12 +643,13 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
         private ApiWeb apiWeb;
         private String errorMessage = "Koneksi Error";
-        private String username, password, email, name, address, hp_no, birth_date,distribution_name, owner_name, id_no, id_no_type, company_name, association_name;
+        private String username, password, password_comfirmation, email, name, address, hp_no, birth_date,distribution_name, owner_name, id_no, id_no_type, company_name, association_name;
 
         RegisterTask() {
             apiWeb = new ApiWeb();
             username = et_username.getText().toString();
             password = et_password.getText().toString();
+            password_comfirmation = et_password_confirm.getText().toString();
             email = et_email.getText().toString();
             name = et_name.getText().toString();
             address = et_address.getText().toString();
@@ -316,9 +674,9 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
             String result = null;
             if(pil.compareToIgnoreCase("tukang bangunan")==0){
-                result = apiWeb.RegisterApplicator("applicator", username, password, email, name, address, ""+states_id, ""+city_id, hp_no, company_name, birth_date, association_name, id_no, id_no_type);
+                result = apiWeb.RegisterApplicator("applicator", username, password, password_comfirmation, email, name, address, ""+states_id, ""+city_id, hp_no, company_name, birth_date, association_name, id_no, id_no_type);
             } else if (pil.compareToIgnoreCase("retailer tradisional")==0) {
-                result = apiWeb.RegisterRetailer("retailer",username, password, email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, distribution_name, owner_name, id_no, id_no_type);
+                result = apiWeb.RegisterRetailer("retailer",username, password, password_comfirmation,email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, distribution_name, owner_name, id_no, id_no_type);
             }
 
             if(result==null){
@@ -328,6 +686,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
                 if(status.compareToIgnoreCase("success")==0){
+
                     return true;
                 }
                 if(json.has("message"))errorMessage = json.getString("message");
@@ -342,6 +701,11 @@ public class RegistrationFromActivity extends AppCompatActivity {
         protected void onPostExecute(final Boolean success) {
             if (success) {
                 //SESSION
+                Intent i;
+                i = new Intent(context, VerificationPageActivity.class);
+                i.putExtra("email", email);
+                startActivity(i);
+
             } else {
 
             }

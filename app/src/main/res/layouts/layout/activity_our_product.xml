@@ -44,7 +44,7 @@
                 android:layout_centerInParent="true"
                 android:textColor="#fff"
                 android:textSize="30dp"
-                android:text="ONDUVILA®"/>
+                android:text="@string/onduvilla"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -62,7 +62,7 @@
                 android:layout_centerInParent="true"
                 android:textColor="#fff"
                 android:textSize="30dp"
-                android:text="ONDULINE®"/>
+                android:text="@string/onduline"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 android:layout_centerInParent="true"
                 android:textColor="#fff"
                 android:textSize="30dp"
-                android:text="BARDULINE®"/>
+                android:text="@string/bardoline"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -98,7 +98,7 @@
                 android:layout_centerInParent="true"
                 android:textColor="#fff"
                 android:textSize="30dp"
-                android:text="BITULINE®"/>
+                android:text="@string/bituline"/>
         </RelativeLayout>
 
         <RelativeLayout
