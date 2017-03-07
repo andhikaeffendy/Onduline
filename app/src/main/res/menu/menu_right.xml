@@ -5,11 +5,11 @@
             android:id="@+id/nav_TotalPoin"
             android:title="Total Poin" />
         <item
-            android:id="@+id/nav_TotalOrder"
-            android:title="Total Order" />
+            android:id="@+id/nav_sumProjectPhotod"
+            android:title="@string/sum_project_photos" />
         <item
-            android:id="@+id/nav_History"
-            android:title="History" />
+            android:id="@+id/nav_sumOrder"
+            android:title="@string/sum_order" />
         <item
             android:id="@+id/nav_Logout"
             android:title="Logout" />

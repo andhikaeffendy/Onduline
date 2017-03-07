@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">onduline_applicator</string>
+    <string name="app_name">Onduline</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -7,18 +7,68 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_welcome">Home Screen</string>
-    <string name="next">NEXT</string>
-    <string name="skip">SKIP</string>
-    <string name="start">GOT IT</string>
-    <string name="neworder">NEW ORDER</string>
+    <string name="next">LANJUT</string>
+    <string name="skip">LOMPATI</string>
+    <string name="start">LANJUT</string>
+    <string name="neworder">ORDER BARU</string>
+    <string name="state">Provinsi*</string>
     <string name="history">HISTORY</string>
+    <string name="qna">Q and A</string>
     <string name="history_surat_jalan">HISTORY SURAT JALAN</string>
-    <string name="history_proyek_saya">PROYEK SAYA</string>
+    <string name="history_proyek_saya">HISTORY PROYEK ANDA</string>
+
+    <string name="signature">Alamat PT. Onduline Indonesia: \nAlam Sutra Town Centre (ASTC) Blok 10C No.3, \n \nJl.Boulevard Alam Sutra \nSerpong, Tangerang 15325 \n\nP : +6221 29211490\nF : +6221 29211545\n\n Email : teknik@ondulineindonesia.com\n Facebook : www.facebook.com/ondulinepro/</string>
+    <string name="signatureContact">P : +6221 29211490\nF : +6221 29211545\nEmail : teknik@ondulineindonesia.com</string>
+
+    <!-- Onduline Instalation Guide -->
+    <string name="kemiringan_5_sampai_10">Kemiringan 5° - 10°</string>
+    <string name="kemiringan_10_sampai_15">Kemiringan 10° - 15°</string>
+    <string name="kemiringan_15_lebih">Kemiringan 15° Lebih</string>
+
+    <!-- simulator atap -->
+    <string name="simulation_tittle">SIMULATOR ATAP</string>
+
+
+    <!--right menu navigation -->
+    <string name="sum_project_photos">Total Foto Proyek</string>
+    <string name="sum_order">Jumlah Order</string>
+
+    <!--program -->
+    <string name="list_program">PILIHAN PROGRAM</string>
+    <string name="ondulucky">Ondulucky</string>
+    <string name="photoContest">Kontes Photo Proyek</string>
+
+    <!--no 02129211440 / email : teknik@ondulineindonesia.com-->
+
+    <!--Q and A-->
+    <string name="q1">1. Apakah dibawah genteng ONDUVILLA perlu dipasang insulasi penahan panas seperti rockwool atau aluminium foil?</string>
+    <string name="a1">Sistem genteng ONDUVILLA telah dibuat agar udara dibawah atap bersirkulasi dengan baik agar udara dibawah atap tidak terlalu panas. Untuk penahan panas tambahan dapat menggunakan aluminium foil.</string>
+    <string name="q2">2. Apakah genteng ONDUVILLA melindungi dari panas? Dari dingin?</string>
+    <string name="a2">Pengukuran menunjukkan konduktivitas termal 0.098 W / mC °. Nilai ini dekat dengan gabus. Sebagai perbandingan, nilai baja stainless adalah 52 W / mC °, 525 kali lebih tinggi. Bahan genteng ONDUVILLA adalah tipe bahan yang menyerap panas, dimana metal bertipe memantulkan.</string>
+    <string name="q3">3. Apakah genteng ONDUVILLA dapat terbakar?</string>
+    <string name="a3">Dalam Standar Eropa, ONDUVILLA masuk dalam klasifikasi E, yang adalah "normal untuk menyala". Diperbolehkan untuk digunakan pada berbagai jenis bangunan. Tapi kasus-kasus ketika sumber api terletak di atas atap sangat jarang. Dan jika rumah terbakar, itu berarti bahwa hampir setiap jenis atap cladding terbakar dan mencair.</string>
+    <string name="q4">4. Apakah wajib untuk menggunakan Speedy Screw atau Safe Top Nail?</string>
+    <string name="a4">Sekrup dan paku kami telah dirancang khusus untuk genteng ONDUVILLA. Kepala sekrup dan paku genteng ONDUVILLA sudah dilapisi bahan anti UV dan didesain untuk menahan gaya uplift pada atap.</string>
+    <string name="q5">5. Apakah perlu untuk memasang setiap lembar dengan jumlah sekrup atau paku sesuai brosur / katalog?</string>
+    <string name="a5">Ya , perlu. Instalasi atap akan lebih tahan cuaca terutama terhadap angin kencang.</string>
+    <string name="q6">6. Dimana genteng ONDUVILLA diproduksi ?</string>
+    <string name="a6">Saat ini Onduline memiliki 11 pabrik di seluruh dunia . Semua pabrik ISO9001 bersertifikat , yang menjamin tingkat yang kualitas yang sama dimanapun Onduline diproduksi.</string>
+    <string name="q7">7. Apa Keunggulan Produk ONDUVILLA ?</string>
+    <string name="a7">ONDUVILLA  menawarkan genteng yang ringan, tidak membebani rangka, tahan segala cuaca, dan mudah untuk dipasang. Fleksibilitas bahan bitumen dan serat selulosa membuat genteng ini dapat diaplikasikan pada berbagai bentuk rangka atap, bahkan berbentuk lengkung maupun rumah gadang.</string>
+    <string name="q8">8. Genteng ONDUVILLA terbuat dari bahan apa ?</string>
+    <string name="a8">Salah satu komponen genteng ONDUVILLAadalah serat selulosa. Serat selulosa dapat diekstraksi dari berbagai sumber, termasuk kayu pulp atau kertas daur ulang. Selain serat selulosa, genteng ONDUVILLA juga terdiri dari aspal, mineral aditif. Serat selulosa sendiri adalah bahan yang sangat kuat (juga digunakan dalam semen dan beton untuk meningkatkan daya tahan). Bitumen membuat kedap air, pigmen memberikan warna, resin dan bahan tambahan lainnya meningkatkan daya tahan terhadap cuaca.</string>
+    <string name="q9">9. Bagimana keawetan dari genteng ONDUVILLA?</string>
+    <string name="a9">Ketahanan tergantung pada kondisi eksternal seperti cuaca dan iklim. Apabila terpasang dengan benar material genteng ONDUVILLA dijamin tahan air selama 10 tahun dengan ketentuan pemasangan yang di anjurkan</string>
+
+
+    <string name="RegistrationApplicator">Tukang Baja Ringan / Kontraktor</string>
+    <string name="RegistarsiRetailTradisional">Registrasi Toko</string>
+    <string name="RegistarsiIndividu">Registrasi Individu</string>
     <string name="finish">selesai</string>
     <string name="proccess">proses</string>
     <string name="onduline">ONDULINE®</string>
     <string name="onduvilla">ONDUVILLA®</string>
-    <string name="bardoline">BARDOLINE®</string>
+    <string name="bardoline">BARDOLINE® PRO</string>
     <string name="bituline">BITULINE®</string>
     <string name="minimum_username">minimal 8 digit berupa huruf dan angka</string>
 
@@ -32,12 +82,11 @@
 
     <!-- REGISTER ACTIVITY -->
     <string name="title_register">Sign Up</string>
-    <string name="prompt_password_confirm">tulis ulang password</string>
-    <string name="prompt_password_create">tulis password yang anda inginkan</string>
+    <string name="prompt_password_confirm">tulis ulang password * </string>
+    <string name="prompt_password_create">tulis password yang anda inginkan * </string>
     <string name="prompt_email">Email</string>
     <string name="prompt_full_name">Full Name</string>
     <string name="action_have_user">Already Have User?</string>
-
 
 
     <!-- Strings related to login -->
@@ -50,6 +99,9 @@
     <string name="error_server">Error Connection to server</string>
     <string name="error_parsing_json">Error Parsing data</string>
     <string name="action_sign_in_short">Sign in</string>
+
+    <!-- verifikasi sms akan di kirm ke no -->
+    <string name="send_sms_to_no">Selamat! Data registrasi anda sudah kami terima\n Silakan aktivasi akun anda dengan memasukkan kode aktivasi yang akan kami kirim ke nomor </string>
 
 
     <!-- kalkulator -->
@@ -68,13 +120,12 @@
 
 
     <!-- color simulator atap onduvila -->
-    <string name="EBONYBLACK">EBONY BLACK</string>
-    <string name="TERRACOTA">TERRACOTA</string>
-    <string name="FORESTGREEN">FOREST GREEN</string>
-    <string name="CLASSICRED">CLASSIC RED</string>
-    <string name="ANTHRACITEBLACK">ANTHRACITE BLACK</string>
-    <string name="SHADEDBROWN">SHADED BROWN</string>
-
+    <string name="EBONYBLACK">Ebony Black</string>
+    <string name="TERRACOTA">Terracotta 3D</string>
+    <string name="FORESTGREEN">Forest Green 3D</string>
+    <string name="CLASSICRED">Classic Red 3D</string>
+    <string name="ANTHRACITEBLACK">Antrachite Black</string>
+    <string name="SHADEDBROWN">Shaded Brown</string>
 
 
     <!-- array String untuk simulasi atap -->
@@ -87,6 +138,7 @@
         <item> - Pilih Atap - </item>
         <item>Modern Roof</item>
         <item>Round Roof</item>
+        <item>Traditional Roof</item>
     </string-array>
     <string-array name="pilih_atap_onduvila_array">
         <item> - Pilih Atap - </item>
@@ -141,6 +193,56 @@
         <item>ONDUVILLA</item>
     </string-array>
 
+
+    <!-- Permintaan produk -->
+    <string-array name="product_demand_brand">
+        <item> - Pilih Produk - </item>
+        <item>ONDULINE</item>
+        <item>ONDUVILLA</item>
+        <item>ONDUCLAIR</item>
+        <item>ONDUVILLA CLEAR TILE</item>
+    </string-array>
+    <string-array name="product_order_project_brand">
+        <item> - Pilih Produk - </item>
+        <item>ONDULINE</item>
+        <item>ONDUVILLA</item>
+        <item>BARDOLINE</item>
+        <item>BITULINE</item>
+    </string-array>
+    <string-array name="product_demand_color_onduvilla">
+        <item>SHADED RED</item>
+        <item>SHADED GREEN</item>
+        <item>SHADED BROWN</item>
+        <item>ANTRACHITE BLACK</item>
+        <item>CLASSIC RED 3D</item>
+        <item>FOREST GREEN 3D</item>
+        <item>TERRACOTTA 3D</item>
+        <item>EBONY BLACK</item>
+    </string-array>
+    <string-array name="product_demand_color_onduline">
+        <item>RED</item>
+        <item>BLACK</item>
+        <item>BROWN</item>
+        <item>GREEN</item>
+    </string-array>
+    <string-array name="product_demand_color_bardoline">
+        <item>BARDOLINE PRO RECTANGULAR 3 TONE BROWN</item>
+        <item>BARDOLINE PRO RECTANGULER BLACK</item>
+        <item>BARDOLINE PRO BEAVER TERRACOTTA</item>
+        <item>BARDOLINE PRO BEAVER SLATE GREY</item>
+    </string-array>
+    <string-array name="product_demand_color_bituline">
+        <item>BITULINE PP 300</item>
+        <item>BITULINE EP 400 ANTI RACINE</item>
+        <item>BITULINE PP 40 M RED GRANULE</item>
+        <item>BITULINE PP 40 M GREY GRANULE</item>
+    </string-array>
+    <string-array name="product_demand_color_onduclair">
+        <item>TRANSPARANT</item>
+    </string-array>
+    <string-array name="product_demand_color_onduvilla_clear_tile">
+        <item>TRANSPARANT</item>
+    </string-array>
 
     <!-- detail produk -->
     <string name="DescriptionOnduvilla">Genteng ONDUVILLA® adalah genteng berbahan ringan, dibuat dengan teknologi tinggi yang menggabungkan berbagai keunggulan teknis, ekonomis dan estetika.Genteng ONDUVILLA® dirancang khusus agar dapat memenuhi keinginan dan kepuasan pelanggan akan estetika pada atap rumah dan bangunan. Genteng ONDUVILLA® yang memiliki kombinasi warna yang unik dan elegan serta didukung oleh keistimewaan desain Italia, menjadikan genteng ini lebih eksklusif.</string>
@@ -207,7 +309,6 @@
     <string name="Tembaga">Tembaga</string>
     <string name="BiruLaut">Biru Laut</string>
     <string name="Hijau">Hijau</string>
-
 
 
     <!-- advantages -->

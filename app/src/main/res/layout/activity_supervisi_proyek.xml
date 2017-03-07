@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_supervisi_proyek"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wiradipa.ondulineApplicator.SupervisiProyekActivity">
+
+
+    <ProgressBar
+        android:id="@+id/register_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_02"
+        android:weightSum="10"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorTextLight"
+                android:textSize="24dp"
+                android:text="DUKUNGAN TEKNISI"/>
+        </RelativeLayout>
+
+
+
+        <ScrollView
+            android:id="@+id/register_form"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="20dp">
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold"
+                        android:layout_centerInParent="true"
+                        android:textSize="24dp"
+                        android:text="Supervisi Proyek"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:text="Nama Proyek *"/>
+                <EditText
+                    android:id="@+id/et_supervisionProjectNama"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="isi nama proyek"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:text="Alamat Proyek *"/>
+                <EditText
+                    android:id="@+id/et_supervisionProjectAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="isi alamat lengkap proyek"/>
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="@color/colorBlackAlpha"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:text="Provinsi * "/>-->
+                <!--<AutoCompleteTextView-->
+                    <!--android:id="@+id/act_state"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:hint="Isi propinsi "/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="@color/colorBlackAlpha"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:text="Kota * "/>-->
+                <!--<AutoCompleteTextView-->
+                    <!--android:id="@+id/act_city"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:hint="Isi kota "/>-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:text="No HP PIC *"/>
+                <EditText
+                    android:id="@+id/et_supervisionProjectPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:inputType="phone"
+                    android:hint="isi no HP"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:text="Nama Pemilik * "/>
+                <EditText
+                    android:id="@+id/et_supervisionProjectOwnerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="isi nama pemilik"/>
+
+
+                <!-- edit text supervisi -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="6">
+                    <LinearLayout
+                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold"
+                            android:text="Keterangan : "/>
+                        <EditText
+                            android:id="@+id/et_supervisionProjectDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <Button
+                    android:id="@+id/btn_supervisionProject"
+                    android:onClick="onClickSupervisionProject"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kirim"
+                    android:background="@drawable/ps__button_youtube"
+                    android:textColor="@color/colorTextLight"
+                    android:layout_centerInParent="true"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

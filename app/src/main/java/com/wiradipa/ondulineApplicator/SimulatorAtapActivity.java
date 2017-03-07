@@ -23,44 +23,44 @@ public class SimulatorAtapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_simulator_atap);
 
         imgSimulator = (ImageView)findViewById(R.id.imgSimulator);
-        spnProduk = (Spinner)findViewById(R.id.spnProdukSimulatorAtap);
+//        spnProduk = (Spinner)findViewById(R.id.spnProdukSimulatorAtap);
         spnAtap = (Spinner)findViewById(R.id.spnAtapSimulatorAtap);
         LinearColorButton = (LinearLayout)findViewById(R.id.LinearColorButton);
 
         LinearColorButton.setVisibility(View.GONE);
 
-        spnAtap.setEnabled(false);
+//        spnAtap.setEnabled(false);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
-        adapterSpnProduk = ArrayAdapter.createFromResource(this, R.array.pilih_produk_array, android.R.layout.simple_spinner_item);
+//        adapterSpnProduk = ArrayAdapter.createFromResource(this, R.array.pilih_produk_array, android.R.layout.simple_spinner_item);
         adapterSpnAtap = ArrayAdapter.createFromResource(this, R.array.pilih_atap_onduline_array, android.R.layout.simple_spinner_item);
 
         // Specify the layout to use when the list of choices appears
-        adapterSpnProduk.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        adapterSpnProduk.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterSpnAtap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // Apply the adapter to the spinner
-        spnProduk.setAdapter(adapterSpnProduk);
+//        spnProduk.setAdapter(adapterSpnProduk);
         spnAtap.setAdapter(adapterSpnAtap);
 
-        spnProduk.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-               Toast.makeText(SimulatorAtapActivity.this, spnProduk.getSelectedItem().toString() , Toast.LENGTH_LONG).show();
-                //setRoofTypeSpinner(spnProduk.getSelectedItem().toString());
-                simulatorCOntroller(spnProduk.getSelectedItem().toString());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+//        spnProduk.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//               Toast.makeText(SimulatorAtapActivity.this, spnProduk.getSelectedItem().toString() , Toast.LENGTH_LONG).show();
+//                //setRoofTypeSpinner(spnProduk.getSelectedItem().toString());
+//                simulatorCOntroller(spnProduk.getSelectedItem().toString());
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
         spnAtap.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(SimulatorAtapActivity.this, spnAtap.getSelectedItem().toString() , Toast.LENGTH_LONG).show();
+//                Toast.makeText(SimulatorAtapActivity.this, spnAtap.getSelectedItem().toString() , Toast.LENGTH_LONG).show();
                 simulatorCOntroller(spnAtap.getSelectedItem().toString());
             }
 
@@ -102,11 +102,16 @@ public class SimulatorAtapActivity extends AppCompatActivity {
             case "Modern Roof":
                 LinearColorButton.setVisibility(View.VISIBLE);
                 imgChooser=stat;
-                imgSimulator.setImageResource(R.drawable.maisonmoderne_h1_ebony_black_v1);
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_modern_house_h3_ebony_black_v1);
                 break;
             case "Round Roof":
                 LinearColorButton.setVisibility(View.VISIBLE);
                 imgSimulator.setImageResource(R.drawable.maisonronde_h1_ebony_black_v1);
+                imgChooser=stat;
+                break;
+            case "Traditional Roof":
+                LinearColorButton.setVisibility(View.VISIBLE);
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_traditional_house_h3_ebony_black_v2_tm_2016);
                 imgChooser=stat;
                 break;
         }
@@ -141,94 +146,101 @@ public class SimulatorAtapActivity extends AppCompatActivity {
                 break;
             case "BROWN":
                 imgSimulator.setImageResource(R.drawable.odl_brown);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_brown));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_brown);
                 break;
             case "BLACK":
                 imgSimulator.setImageResource(R.drawable.odl_black);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_black));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_black);
                 break;
             case "RED":
                 imgSimulator.setImageResource(R.drawable.odl_red);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_red));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_red);
                 break;
             case "GREEN":
                 imgSimulator.setImageResource(R.drawable.odl_green);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
                 break;
 
 
             case "EBONY BLACK Modern Roof":
-                imgSimulator.setImageResource(R.drawable.maisonmoderne_h1_ebony_black_v1);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_modern_house_h3_ebony_black_v1);
                 break;
             case "TERRACOTA Modern Roof":
-                imgSimulator.setImageResource(R.drawable.maisonmoderne_g1_terracotta_v2);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_modern_house_g3_terracotta_v2_tm_2016);
                 break;
             case "FOREST GREEN Modern Roof":
-                imgSimulator.setImageResource(R.drawable.maisonmoderne_f1_forest_green_v2);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_modern_house_f3_forest_green_v2_tm_2016);
                 break;
             case "CLASSIC RED Modern Roof":
-                imgSimulator.setImageResource(R.drawable.maisonmoderne_e1_classic_red_v2);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_modern_house_e3_classic_red_v2_tm_2016);
                 break;
             case "ANTHRACITE BLACK Modern Roof":
-                imgSimulator.setImageResource(R.drawable.maisonmoderne_d1_antracite_black_v1);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_modern_house_d3_antracite_black_v1_tm_2016);
                 break;
             case "SHADED BROWN Modern Roof":
-                imgSimulator.setImageResource(R.drawable.maisonmoderne_c1_shaded_brown_v1);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_modern_house_c3_shaded_brown_v1_tm_2016);
+                break;
+            case "SHADED GREEN Modern Roof":
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_modern_house_b3_shaded_green_v1_tm_2016);
+                break;
+            case "SHADED RED Modern Roof":
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_modern_house_a3_shaded_red_v1);
                 break;
 
 
             case "EBONY BLACK Round Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_h1_ebony_black_v1);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
                 break;
             case "TERRACOTA Round Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_g1_terracotta_v1);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
                 break;
             case "FOREST GREEN Round Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_f1_forest_green_v1);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
                 break;
             case "CLASSIC RED Round Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_e1_classic_red_v1);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
                 break;
             case "ANTHRACITE BLACK Round Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_d1_antracite_black_v1);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
                 break;
             case "SHADED BROWN Round Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_c1_shaded_brown_v1);
-                //imgSimulator.setImageDrawable(getResources().getDrawable(R.drawable.odl_green));
-                //imgSimulator.setBackgroundResource(R.drawable.odl_green);
+                break;
+            case "SHADED GREEN Round Roof":
+                imgSimulator.setImageResource(R.drawable.maisonronde_b1_shaded_green_v1_0);
+                break;
+            case "SHADED RED Round Roof":
+                imgSimulator.setImageResource(R.drawable.maisonronde_a1_shaded_red_v1);
+                break;
+
+
+
+            case "EBONY BLACK Traditional Roof":
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_traditional_house_h3_ebony_black_v2_tm_2016);
+                break;
+            case "TERRACOTA Traditional Roof":
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_traditional_house_g3_terracotta_v2_tm_2016);
+                break;
+            case "FOREST GREEN Traditional Roof":
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_traditional_house_f3_forest_green_v2_tm_2016);
+                break;
+            case "CLASSIC RED Traditional Roof":
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_traditional_house_e3_classic_red_v1_tm_2016);
+                break;
+            case "ANTHRACITE BLACK Traditional Roof":
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_traditional_house_d3_anthracite_black_v1_tm_2016);
+                break;
+            case "SHADED BROWN Traditional Roof":
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_traditional_house_c3_shaded_brown_v1_tm_2016);
+                break;
+            case "SHADED GREEN Traditional Roof":
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_traditional_house_b3_shaded_green_v1_tm_2016);
+                break;
+            case "SHADED RED Traditional Roof":
+                imgSimulator.setImageResource(R.drawable.onduvilla_3d_traditional_house_a3_shaded_red_v1_tm_2016);
                 break;
         }
     }
     public void simulator(View v){
         switch (v.getId()){
             case R.id.btnEbonyBlack:
-                Toast.makeText(SimulatorAtapActivity.this, "EBONY BLACK "+imgChooser , Toast.LENGTH_LONG).show();
+//                Toast.makeText(SimulatorAtapActivity.this, "EBONY BLACK "+imgChooser , Toast.LENGTH_LONG).show();
                 setImageSimulator("EBONY BLACK "+imgChooser);
                 break;
             case R.id.btnTerracota:
@@ -245,6 +257,12 @@ public class SimulatorAtapActivity extends AppCompatActivity {
                 break;
             case R.id.btnShadedBrown:
                 setImageSimulator("SHADED BROWN "+imgChooser);
+                break;
+            case R.id.btnShadedRed:
+                setImageSimulator("SHADED RED "+imgChooser);
+                break;
+            case R.id.btnShadedGreen:
+                setImageSimulator("SHADED GREEN "+imgChooser);
                 break;
         }
     }

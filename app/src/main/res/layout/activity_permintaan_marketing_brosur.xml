@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_permintaan_marketing_produk"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wiradipa.ondulineApplicator.PermintaanMarketingActivity">
+
+    <ProgressBar
+        android:id="@+id/register_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_02"
+        android:orientation="vertical"
+        android:weightSum="10">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextLight"
+                android:textAlignment="center"
+                android:layout_centerInParent="true"
+                android:textSize="24dp"
+                android:layout_centerHorizontal="true"
+                android:text="PERMINTAAN BROSUR"
+                android:id="@+id/textView2" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/register_form"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <!--&lt;!&ndash;TARUH DISINI&ndash;&gt;-->
+                <!--&lt;!&ndash; checkbox brosur onduvila &ndash;&gt;-->
+                <!--<LinearLayout-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:weightSum="6">-->
+                    <!--<CheckBox-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_gravity="center"/>-->
+                    <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/colorBlackAlpha"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:layout_weight="3"-->
+                        <!--android:textSize="20dp"-->
+                        <!--android:text="Brosur Onduvila"/>-->
+                    <!--<EditText-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="2"-->
+                        <!--android:textSize="14dp"-->
+                        <!--android:hint="jumlah brosur"/>-->
+                <!--</LinearLayout>-->
+
+                <!--&lt;!&ndash; checkbox brosur onduline &ndash;&gt;-->
+                <!--<LinearLayout-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:weightSum="6">-->
+                    <!--<CheckBox-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_gravity="center"/>-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="3"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/colorBlackAlpha"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:textSize="20dp"-->
+                        <!--android:text="Brosur onduline"/>-->
+                    <!--<EditText-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="2"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:hint="jumlah brosur"-->
+                        <!--android:textSize="14dp"/>-->
+                <!--</LinearLayout>-->
+
+                <!--&lt;!&ndash; checkbox brosur Borduline &ndash;&gt;-->
+                <!--<LinearLayout-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:weightSum="6">-->
+                    <!--<CheckBox-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_gravity="center"/>-->
+
+
+                    <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="3"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/colorBlackAlpha"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:textSize="20dp"-->
+                        <!--android:text="Brosur Borduline"/>-->
+                    <!--<EditText-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="2"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:hint="jumlah brosur"-->
+                        <!--android:textSize="14dp"/>-->
+
+                <!--</LinearLayout>-->
+
+                <!--&lt;!&ndash; checkbox brosur Bituline &ndash;&gt;-->
+                <!--<LinearLayout-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:weightSum="6">-->
+                    <!--<CheckBox-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_gravity="center"/>-->
+
+
+                    <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="3"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/colorBlackAlpha"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:textSize="20dp"-->
+                        <!--android:text="Brosur Bituline"/>-->
+                    <!--<EditText-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="2"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:hint="jumlah brosur"-->
+                        <!--android:textSize="14dp"/>-->
+
+                <!--</LinearLayout>-->
+
+                <!--&lt;!&ndash; checkbox Technical Book &ndash;&gt;-->
+                <!--<LinearLayout-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:weightSum="6">-->
+                    <!--<CheckBox-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_gravity="center"/>-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="3"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/colorBlackAlpha"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:textSize="20dp"-->
+                        <!--android:text="Technical Book"/>-->
+                    <!--<EditText-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="2"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:hint="jumlah buku"-->
+                        <!--android:textSize="14dp"/>-->
+
+                <!--</LinearLayout>-->
+
+                <!--&lt;!&ndash; checkbox lain-lain &ndash;&gt;-->
+                <!--<LinearLayout-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:weightSum="6">-->
+                    <!--<CheckBox-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_gravity="center"/>-->
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="5"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<EditText-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="150dp"-->
+                            <!--android:hint="Lain-Lain"-->
+                            <!--android:textSize="20dp"/>-->
+                        <!--<EditText-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:hint="jumlah"-->
+                            <!--android:textSize="14dp"/>-->
+                    <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:text="Pilihan Brosur"
+                    android:textAlignment="center"/>
+                <ListView
+                    android:id="@+id/lv_Marketing"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp">
+                </ListView>
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:onClick="onClickMarketing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:background="@drawable/ps__button_youtube"
+                    android:textColor="@color/colorTextLight"
+                    android:text="KIRIM PERMINTAAN"
+                    android:layout_gravity="center"/>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+
+
+
+    <!--=================================================================================-->
+
+
+</RelativeLayout>

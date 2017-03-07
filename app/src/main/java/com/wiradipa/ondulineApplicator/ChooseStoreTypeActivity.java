@@ -17,22 +17,25 @@ public class ChooseStoreTypeActivity extends AppCompatActivity {
     public void onClickChooseStore(View v){
 
         Intent i;
+        i = new Intent(this, RegistrationFromActivity.class);
         switch (v.getId()){
             case R.id.btnTokoTradisional:
-                i = new Intent(this, RegistrationFromActivity.class);
-                i.putExtra("pil", "retailer tradisional");
+                i.putExtra("pil", "retailer");
+                i.putExtra("retailer_type", "Toko Bahan Bangunan / Toko Tradisional");
                 startActivity(i);
-                Toast.makeText(this, "btnTokoTradisional", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "btnTokoTradisional", Toast.LENGTH_LONG).show();
                 break;
             case R.id.btnBajaRingan:
-                /*i = new Intent(this, RegistrationFromActivity.class);
-                startActivity(i);*/
-                Toast.makeText(this, "btnBajaRingan", Toast.LENGTH_LONG).show();
+                i.putExtra("pil", "retailer");
+                i.putExtra("retailer_type", "Toko Baja Ringan / Depo keramik");
+                startActivity(i);
+//                Toast.makeText(this, "btnBajaRingan", Toast.LENGTH_LONG).show();
                 break;
             case R.id.btnSupermarket:
-                /*i = new Intent(this, HomeActivity.class);
-                startActivity(i);*/
-                Toast.makeText(this, "btnSupermarket", Toast.LENGTH_LONG).show();
+                i.putExtra("pil", "retailer");
+                i.putExtra("retailer_type", "Supermarket Bahan Bangunan");
+                startActivity(i);
+//                Toast.makeText(this, "btnSupermarket", Toast.LENGTH_LONG).show();
                 break;
         }
     }

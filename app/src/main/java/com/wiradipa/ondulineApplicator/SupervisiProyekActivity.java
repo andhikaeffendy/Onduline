@@ -1,9 +1,13 @@
 package com.wiradipa.ondulineApplicator;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +26,8 @@ public class SupervisiProyekActivity extends AppCompatActivity {
     private Context context;
     private AppSession session;
     private SupervisiProjectTask supervisiProjectTask;
+    private View mProgressView;
+    private View mFormView;
 
     private EditText et_supervisionProjectNama, et_supervisionProjectAddress, et_supervisionProjectPhone, et_supervisionProjectOwnerName, et_supervisionProjectDetail;
     private String token;
@@ -38,6 +44,8 @@ public class SupervisiProyekActivity extends AppCompatActivity {
         et_supervisionProjectOwnerName = (EditText)findViewById(R.id.et_supervisionProjectOwnerName);
         et_supervisionProjectDetail = (EditText)findViewById(R.id.et_supervisionProjectDetail);
 
+        mFormView = findViewById(R.id.register_form);
+        mProgressView = findViewById(R.id.register_progress);
 
         context = this;
         session = new AppSession(context);
@@ -47,9 +55,124 @@ public class SupervisiProyekActivity extends AppCompatActivity {
     }
 
 
+    private boolean isProjectNameNotEmpty(String address) {
+        //TODO: Replace this with your own logic
+        return address.equals("");
+    }
+    private boolean isProjectAddressNotEmpty(String address) {
+        //TODO: Replace this with your own logic
+        return address.equals("");
+    }
+    private boolean isProjectPhoneNotEmpty(String address) {
+        //TODO: Replace this with your own logic
+        return address.equals("");
+    }
+    private boolean isProjectOwnerNameNotEmpty(String address) {
+        //TODO: Replace this with your own logic
+        return address.equals("");
+    }
+    private boolean isProjectDetailNotEmpty(String address) {
+        //TODO: Replace this with your own logic
+        return address.equals("");
+    }
+
+
+    /**
+     * Attempts to sign in or register the account specified by the login next_menu.
+     * If there are next_menu errors (invalid email, missing fields, etc.), the
+     * errors are presented and no actual login attempt is made.
+     */
+    private void attemptSubmiSupervisiProyek() {
+        if (supervisiProjectTask != null) {
+            return;
+        }
+
+        // Reset errors.
+        et_supervisionProjectNama.setError(null);
+        et_supervisionProjectAddress.setError(null);
+        et_supervisionProjectPhone.setError(null);
+        et_supervisionProjectOwnerName.setError(null);
+        et_supervisionProjectDetail.setError(null);
+//        img_AddNew.setError
+
+        // Store values at the time of the submit attempt.
+        String name     = et_supervisionProjectNama.getText().toString();
+        String address  = et_supervisionProjectAddress.getText().toString();
+        String phone    = et_supervisionProjectPhone.getText().toString();
+        String ownerName= et_supervisionProjectOwnerName.getText().toString();
+        String detail   = et_supervisionProjectDetail.getText().toString();
+
+        boolean cancel = false;
+        View focusView = null;
+//
+
+        if (isProjectNameNotEmpty(name)) {
+            et_supervisionProjectNama.setError(getString(R.string.error_field_required));
+            focusView = et_supervisionProjectNama;
+            cancel = true;
+        }
+        if (isProjectAddressNotEmpty(address)) {
+            et_supervisionProjectAddress.setError(getString(R.string.error_field_required));
+            focusView = et_supervisionProjectAddress;
+            cancel = true;
+        }
+        if (isProjectPhoneNotEmpty(phone)) {
+            et_supervisionProjectPhone.setError(getString(R.string.error_field_required));
+            focusView = et_supervisionProjectPhone;
+            cancel = true;
+        }
+        if (isProjectOwnerNameNotEmpty(ownerName)) {
+            et_supervisionProjectOwnerName.setError(getString(R.string.error_field_required));
+            focusView = et_supervisionProjectOwnerName;
+            cancel = true;
+        }
+        if (isProjectDetailNotEmpty(detail)) {
+            et_supervisionProjectDetail.setError(getString(R.string.error_field_required));
+            focusView = et_supervisionProjectDetail;
+            cancel = true;
+        }
+
+
+        if (cancel) {
+            // There was an error; don't attempt login and focus the first
+            // next_menu field with an error.
+            focusView.requestFocus();
+        } else {
+            // Show a progress spinner, and kick off a background task to
+            // perform the user login attempt.
+            showProgress(true);
+//            disini kita show progreess apapun itu dan di setiap
+
+            supervisiProjectTask = new SupervisiProjectTask();
+            supervisiProjectTask.execute((Void)null);
+        }
+    }
+
+
+    public void popupAllert(String allert){
+        new AlertDialog.Builder(this)
+                .setTitle("Error")
+                .setMessage(allert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        //MapsActivity.super.onBackPressed();
+                        //finish();
+                        // System.exit(0);
+
+                        Intent intent = new Intent(context, SupervisiProyekActivity.class);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+
+                        startActivity(intent);
+                        finish();
+                    }
+                }).create().show();
+    }
+
     public void popupSuccess(){
         new AlertDialog.Builder(this)
-                .setTitle("Pngiriman sukses")
+                .setTitle("Pengiriman sukses")
                 .setMessage("Selamat pesan anda telah terkirim")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
@@ -75,12 +198,52 @@ public class SupervisiProyekActivity extends AppCompatActivity {
         switch (v.getId()){
             case R.id.btn_supervisionProject:
 
-                supervisiProjectTask = new SupervisiProjectTask();
-                supervisiProjectTask.execute((Void)null);
+                attemptSubmiSupervisiProyek();
+//                supervisiProjectTask = new SupervisiProjectTask();
+//                supervisiProjectTask.execute((Void)null);
                 break;
         }
 
     }
+
+    /**
+     * Shows the progress UI and hides the login next_menu.
+     */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            mFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+            mFormView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });
+
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mProgressView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+    }
+
+
+
 
     /**
      * Represents an asynchronous login/registration task used to authenticate
@@ -134,15 +297,9 @@ public class SupervisiProyekActivity extends AppCompatActivity {
                 //SESSION
 
                 popupSuccess();
-//
-//                Intent i;
-//                i = new Intent(context, LoginActivity.class);
-//                startActivity(i);
-
-                //disini ada popup sukses..:D
 
             } else {
-
+                popupAllert(errorMessage);
 
             }
         }

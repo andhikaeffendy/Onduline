@@ -83,5 +83,18 @@ public class calc_formula {
         return hasil;
     }
 
+    //    jenis rangka 1==kayu 2==baja
+    public double sumOfNokOndulineBubungan(int frametype, int sumOfNok){
+
+        double hasil = 0;
+
+        if(frametype==1){
+            hasil = 16 * sumOfNok;
+        }else {
+            hasil = 8 * sumOfNok;
+        }
+
+        return hasil;
+    }
 
 }

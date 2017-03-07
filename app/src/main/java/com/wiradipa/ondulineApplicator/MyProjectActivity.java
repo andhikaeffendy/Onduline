@@ -19,7 +19,7 @@ public class MyProjectActivity extends AppCompatActivity {
         Intent i;
         switch (v.getId()) {
             case R.id.btnNewProject:
-                Toast.makeText(this, "btnNewProject", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "btnNewProject", Toast.LENGTH_LONG).show();
                 i = new Intent(this, NewProjectActivity.class);
                 startActivity(i);
                 break;

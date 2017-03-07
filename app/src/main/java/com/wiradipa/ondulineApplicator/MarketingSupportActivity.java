@@ -18,7 +18,7 @@ public class MarketingSupportActivity extends AppCompatActivity {
         Intent i;
         switch (v.getId()) {
             case R.id.btnPermintaanProduk:
-                Toast.makeText(this, "btnPermintaanProduk", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "btnPermintaanProduk", Toast.LENGTH_LONG).show();
 
                 /** disini kita kirim data melalui intent untuk menentukan "PermintaanMarketingActivity" membuka xml yang mana*/
 
@@ -27,13 +27,13 @@ public class MarketingSupportActivity extends AppCompatActivity {
                 startActivity(i);
                 break;
             case R.id.btnPermintaanBrosur:
-                Toast.makeText(this, "btnPermintaanProduk", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "btnPermintaanProduk", Toast.LENGTH_LONG).show();
                 i = new Intent(this, PermintaanMarketingActivity.class);
                 i.putExtra("pil", "brosur");
                 startActivity(i);
                 break;
             case R.id.btnPermintaanSouvenir:
-                Toast.makeText(this, "btnPermintaanSouvenir", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "btnPermintaanSouvenir", Toast.LENGTH_LONG).show();
                 i = new Intent(this, PermintaanMarketingActivity.class);
                 i.putExtra("pil", "souvenir");
                 startActivity(i);

@@ -1,9 +1,13 @@
 package com.wiradipa.ondulineApplicator;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +33,8 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
 
     private Button btn_instalationGuideComplain;
     private EditText et_instalationGuideComplain,et_productComplain;
+    private View mProgressView;
+    private View mFormView;
 
     private String token, pil;
 
@@ -46,6 +52,8 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
         et_instalationGuideComplain=(EditText) findViewById(R.id.et_instalationGuideComplain);
         et_productComplain=(EditText) findViewById(R.id.et_productComplain);
 
+        mFormView = findViewById(R.id.register_form);
+        mProgressView = findViewById(R.id.submit_progress);
 
 
         context = this;
@@ -54,9 +62,166 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
         token = session.getToken();
     }
 
+
+    private boolean isInstalationGuideComplainNotEmpty(String et) {
+        //TODO: Replace this with your own logic
+        return et.equals("");
+    }
+    private boolean isProductComplainNotEmpty(String et) {
+        //TODO: Replace this with your own logic
+        return et.equals("");
+    }
+
+
+
+    /**
+     * Attempts to sign in or register the account specified by the login next_menu.
+     * If there are next_menu errors (invalid email, missing fields, etc.), the
+     * errors are presented and no actual login attempt is made.
+     */
+    private void attemptSubmitInstalationGuideComplain() {
+        if ( instalationGuideComplainTask!= null) {
+            return;
+        }
+
+        // Reset errors.
+        et_instalationGuideComplain.setError(null);
+//        img_AddNew.setError
+
+        // Store values at the time of the submit attempt.
+        String et     = et_instalationGuideComplain.getText().toString();
+
+        boolean cancel = false;
+        View focusView = null;
+//
+
+        if (isInstalationGuideComplainNotEmpty(et)) {
+            et_instalationGuideComplain.setError(getString(R.string.error_field_required));
+            focusView = et_instalationGuideComplain;
+            cancel = true;
+        }
+        if (cancel) {
+            // There was an error; don't attempt login and focus the first
+            // next_menu field with an error.
+            focusView.requestFocus();
+        } else {
+            // Show a progress spinner, and kick off a background task to
+            // perform the user login attempt.
+            showProgress(true);
+//            disini kita show progreess apapun itu dan di setiap
+
+
+            instalationGuideComplainTask = new InstalationGuideComplainTask();
+            instalationGuideComplainTask.execute((Void)null);
+
+        }
+    }
+
+
+    /**
+     * Attempts to sign in or register the account specified by the login next_menu.
+     * If there are next_menu errors (invalid email, missing fields, etc.), the
+     * errors are presented and no actual login attempt is made.
+     */
+    private void attemptSubmitproductComplain() {
+        if ( productComplaineTask!= null) {
+            return;
+        }
+
+        // Reset errors.
+        et_productComplain.setError(null);
+//        img_AddNew.setError
+
+        // Store values at the time of the submit attempt.
+        String et     = et_productComplain.getText().toString();
+
+        boolean cancel = false;
+        View focusView = null;
+//
+
+        if (isProductComplainNotEmpty(et)) {
+            et_productComplain.setError(getString(R.string.error_field_required));
+            focusView = et_productComplain;
+            cancel = true;
+        }
+        if (cancel) {
+            // There was an error; don't attempt login and focus the first
+            // next_menu field with an error.
+            focusView.requestFocus();
+        } else {
+            // Show a progress spinner, and kick off a background task to
+            // perform the user login attempt.
+            showProgress(true);
+//            disini kita show progreess apapun itu dan di setiap
+
+
+            productComplaineTask = new ProductComplaineTask();
+            productComplaineTask.execute((Void)null);
+        }
+    }
+
+
+    /**
+     * Shows the progress UI and hides the login next_menu.
+     */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            mFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+            mFormView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });
+
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mProgressView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+    }
+
+
+    public void popupAllert(String allert){
+        new AlertDialog.Builder(this)
+                .setTitle("Error")
+                .setMessage(allert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        //MapsActivity.super.onBackPressed();
+                        //finish();
+                        // System.exit(0);
+
+                        Intent intent = new Intent(context, SupervisiProyekActivity.class);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+
+                        startActivity(intent);
+                        finish();
+                    }
+                }).create().show();
+    }
+
     public void popupSuccess(){
         new AlertDialog.Builder(this)
-                .setTitle("PEngiriman sukses")
+                .setTitle("Pengiriman sukses")
                 .setMessage("Selamat pesan anda telah terkirim")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
@@ -81,12 +246,12 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
         if (pil.equals("InstalationComplain")){
 
             setContentView(R.layout.activity_instalation_complain);
-            Toast.makeText(this, "activity_instalation_guide", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "activity_instalation_guide", Toast.LENGTH_LONG).show();
 
         }else if (pil.equals("ProductComplain")){
 
             setContentView(R.layout.activity_product_complain);
-            Toast.makeText(this, "activity_product_complain", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "activity_product_complain", Toast.LENGTH_LONG).show();
 
         }
 
@@ -97,15 +262,17 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
         switch (v.getId()){
             case R.id.btn_instalationGuideComplain:
 
-                instalationGuideComplainTask = new InstalationGuideComplainTask();
-                instalationGuideComplainTask.execute((Void)null);
+                attemptSubmitInstalationGuideComplain();
+//                instalationGuideComplainTask = new InstalationGuideComplainTask();
+//                instalationGuideComplainTask.execute((Void)null);
 
                 break;
             case R.id.btn_produckComplain:
 
-                Toast.makeText(this, "btn_produckComplain", Toast.LENGTH_LONG).show();
-                productComplaineTask = new ProductComplaineTask();
-                productComplaineTask.execute((Void)null);
+                attemptSubmitproductComplain();
+//                Toast.makeText(this, "btn_produckComplain", Toast.LENGTH_LONG).show();
+//                productComplaineTask = new ProductComplaineTask();
+//                productComplaineTask.execute((Void)null);
 
                 break;
         }
@@ -159,6 +326,7 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
                 //SESSION
 
                 popupSuccess();
+                showProgress(false);
 //                Intent i;
 //                i = new Intent(context, LoginActivity.class);
 //                startActivity(i);
@@ -167,6 +335,8 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
 
             } else {
 
+                popupAllert(errorMessage);
+                showProgress(false);
 
             }
         }
@@ -222,6 +392,7 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
 
 
                 popupSuccess();
+                showProgress(false);
 //
 //                Intent i;
 //                i = new Intent(context, LoginActivity.class);
@@ -231,6 +402,8 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
 
             } else {
 
+                popupAllert(errorMessage);
+                showProgress(false);
 
             }
         }

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_registration_from"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_login"
+    android:layout_height="match_parent"
+    tools:context="com.wiradipa.ondulineApplicator.RegistrationFromActivity">
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/register_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextLight"
+                android:textAlignment="center"
+                android:layout_centerInParent="true"
+                android:textSize="24dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/RegistarsiIndividu"
+                android:id="@+id/textView2" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/register_form"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_02"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:layout_margin="5dp"
+                    android:text="Nama * "/>
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Isi nama anda"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:layout_margin="5dp"
+                    android:text="Alamat"/>
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Isi Alamat Lengkap perusahaan anda"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:layout_margin="5dp"
+                    android:text="Propinsi * "/>
+                <AutoCompleteTextView
+                    android:id="@+id/act_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Isi propinsi domisili perusahaan anda"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:layout_margin="5dp"
+                    android:text="Kota * "/>
+                <AutoCompleteTextView
+                    android:id="@+id/act_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Isi kota domisili perusahaan anda"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:layout_margin="5dp"
+                    android:text="No HandPhone * "/>
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:layout_margin="5dp"
+                    android:hint="Isi no handphone anda"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:layout_margin="5dp"
+                    android:text="Email * "/>
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:layout_margin="5dp"
+                    android:hint="Isi email anda"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txtTittleBirth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold"
+                        android:text="Tanggal lahir * "/>
+                    <TextView
+                        android:id="@+id/txtisianBirth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtTittleBirth"
+                        android:visibility="gone"
+                        android:textSize="20dp"
+                        android:text="00/00/00"/>
+                    <TextView
+                        android:id="@+id/txtisianBirthView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtTittleBirth"
+                        android:textSize="20dp"
+                        android:text="00/00/00"/>
+                    <Button
+                        android:id="@+id/btnDatePicker"
+                        android:onClick="setDate"
+                        android:background="@drawable/ps__button_youtube"
+                        android:textColor="@color/colorTextLight"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanggal Lahir"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:text="No ID(KTP/SIM) * "/>
+                <EditText
+                    android:id="@+id/et_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Isi ID(KTP/SIM) anda"/>
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+                    android:weightSum="2">
+                    <RadioButton
+                        android:id="@+id/rbKTP"
+                        android:onClick="onRBSignupClicked"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="KTP"/>
+
+                    <RadioButton
+                        android:id="@+id/rbSIM"
+                        android:onClick="onRBSignupClicked"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="SIM"/>
+                </RadioGroup>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:text="Username * "/>
+                <EditText
+                    android:id="@+id/et_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="@string/minimum_username"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:text="@string/prompt_password_create"/>
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_margin="5dp"
+                    android:inputType="textPassword"
+                    android:layout_height="wrap_content"
+                    android:hint="isi password anda"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:text="@string/prompt_password_confirm"/>
+                <EditText
+                    android:id="@+id/et_password_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:inputType="textPassword"
+                    android:hint="@string/prompt_password_confirm"/>
+
+                <Button
+                    android:id="@+id/btnSubmitRegistrationFormIndividu"
+                    android:onClick="onClickRegistrationForm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ps__button_youtube"
+                    android:textColor="@color/colorTextLight"
+                    android:text="kirim"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

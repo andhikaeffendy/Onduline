@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_simulator_atap"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wiradipa.ondulineApplicator.SimulatorAtapActivity">
+
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/colorPrimary"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_02"
+        android:weightSum="13"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorTextLight"
+                android:textSize="24dp"
+                android:text="@string/simulation_tittle"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:background="@drawable/layer_list"
+            android:src="@drawable/maisonmoderne_c1_shaded_brown_v1"
+            android:scaleType="centerCrop"
+            android:id="@+id/imgSimulator" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true">
+
+
+                        <TextView
+                            android:layout_margin="10dp"
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jenis Atap : "/>
+                        <Spinner
+                            android:id="@+id/spnAtapSimulatorAtap"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_margin="10dp"/>
+
+
+                        <!--============================= pilihan button ===\=========================-->
+                        <LinearLayout
+                            android:id="@+id/LinearColorButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="580dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <!-- ================= Layout Vertical 1 ===================== -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_weight="1"
+                                android:weightSum="4">
+
+                                <!-- button 1-->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_centerInParent="true">
+
+                                        <ImageView
+                                            android:id="@+id/btnEbonyBlack"
+                                            android:onClick="simulator"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/ebony_black"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/colorBlackAlpha"
+                                            android:padding="5dp"
+                                            android:layout_gravity="center"
+                                            android:text="@string/EBONYBLACK"/>
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+
+                                <!-- button 2-->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_centerInParent="true">
+
+                                        <ImageView
+                                            android:id="@+id/btnForestGreen"
+                                            android:onClick="simulator"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/forest_green"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/colorBlackAlpha"
+                                            android:padding="5dp"
+                                            android:layout_gravity="center"
+                                            android:text="@string/FORESTGREEN"/>
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+
+                                <!-- button 3-->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_centerInParent="true">
+
+                                        <ImageView
+                                            android:id="@+id/btnAntraciteBlack"
+                                            android:onClick="simulator"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/antracite_black"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/colorBlackAlpha"
+                                            android:padding="5dp"
+                                            android:layout_gravity="center"
+                                            android:text="@string/AntrachiteBlack"/>
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+                                <!-- button 4-->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_centerInParent="true">
+
+                                        <ImageView
+                                            android:id="@+id/btnShadedRed"
+                                            android:onClick="simulator"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/shaded_red_0_0"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:textColor="@color/colorBlackAlpha"
+                                            android:padding="5dp"
+                                            android:text="@string/ShadedRed"
+                                            android:id="@+id/textView5" />
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <!--=====================================================-->
+                            <!-- ================= Layout Vertical 2 ===================== -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_weight="1"
+                                android:weightSum="4">
+
+                                <!-- button 1-->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_centerInParent="true">
+
+                                        <ImageView
+                                            android:id="@+id/btnTerracota"
+                                            android:onClick="simulator"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/terracota"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/colorBlackAlpha"
+                                            android:padding="5dp"
+                                            android:layout_gravity="center"
+                                            android:text="@string/TERRACOTA"/>
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+
+                                <!-- button 2-->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_centerInParent="true">
+
+                                        <ImageView
+                                            android:id="@+id/btnRedClassic"
+                                            android:onClick="simulator"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/red_classic"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/colorBlackAlpha"
+                                            android:padding="5dp"
+                                            android:layout_gravity="center"
+                                            android:text="@string/CLASSICRED"/>
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+
+                                <!-- button 3-->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_centerInParent="true">
+
+                                        <ImageView
+                                            android:id="@+id/btnShadedBrown"
+                                            android:onClick="simulator"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/shaded_brown"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/colorBlackAlpha"
+                                            android:padding="5dp"
+                                            android:layout_gravity="center"
+                                            android:text="@string/SHADEDBROWN"/>
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+
+
+                                <!-- button 4-->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_centerInParent="true">
+
+                                        <ImageView
+                                            android:id="@+id/btnShadedGreen"
+                                            android:onClick="simulator"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/shaded_green_0_0"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:textColor="@color/colorBlackAlpha"
+                                            android:padding="5dp"
+                                            android:text="@string/ShadedGreen" />
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <!--=====================================================-->
+                        </LinearLayout>
+                        <!--=========================  ending pilihan button =========================-->
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -35,7 +35,7 @@ public class HistoryActivity extends AppCompatActivity {
         Intent i;
         switch (v.getId()) {
             case R.id.btnAddNew:
-                Toast.makeText(this, "btnMyOrder", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "btnMyOrder", Toast.LENGTH_LONG).show();
                 i = new Intent(this, AddNewActivity.class);
                 i.putExtra("pil", pil);
                 startActivity(i);

@@ -17,10 +17,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.wiradipa.ondulineApplicator.lib.AppSession;
 
 public class ProgramActivity extends AppCompatActivity {
-
-
 
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
@@ -28,19 +29,25 @@ public class ProgramActivity extends AppCompatActivity {
     private TextView[] dots;
     private int[] layouts;
     private Button btnSkip, btnNext;
-    //private Session session;
+    private AppSession session;
+    private Context context;
+    private String pil;
 
-    String pil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        context = this;
         // Checking for first time launch - before calling setContentView()
-        //session = new Session(this);
-        //if (!session.isFirstTimeLaunch()) {
-        //    launchHomeScreen();
-        //    finish();
-        //}
+        session = new AppSession(this);
+
+        Bundle extras = getIntent().getExtras();
+        pil = extras.getString("pil");
+
+//        if (!session.isFirstTimeLaunch().equals("true")) {
+//            launchHomeScreen();
+//            finish();
+//        }
 
         // Making notification bar transparent
         if (Build.VERSION.SDK_INT >= 21) {
@@ -57,10 +64,11 @@ public class ProgramActivity extends AppCompatActivity {
 
         // layouts of all welcome sliders
         // add few more layouts if you want
-        layouts = new int[]{
-                R.layout.welcome_program_1,
-                R.layout.welcome_program_2,
-                R.layout.welcome_program_3};
+        setLayout(pil);
+//        layouts = new int[]{
+//                R.layout.welcome_intro_1,
+//                R.layout.welcome_intro_2,
+//                R.layout.welcome_intro_3};
 
         // adding bottom dots
         addBottomDots(0);
@@ -95,6 +103,35 @@ public class ProgramActivity extends AppCompatActivity {
         });
     }
 
+    public void setLayout(String pil){
+//        Bundle extras = getIntent().getExtras();
+//        pil = extras.getString("pil");
+        if (pil.equals("ondulucky")){
+            layouts = new int[]{
+                    R.layout.welcome_program_ondulucky_1,
+                    R.layout.welcome_program_ondulucky_2,
+                    R.layout.welcome_program_ondulucky_3};
+        } else if (pil.equals("ondulucky toko")){
+            layouts = new int[]{
+                    R.layout.welcome_program_ondulucky_toko_1,
+                    R.layout.welcome_program_ondulucky_toko_2,
+                    R.layout.welcome_program_ondulucky_toko_3,
+                    R.layout.welcome_program_ondulucky_toko_4,
+                    R.layout.welcome_program_ondulucky_toko_5};
+            pil = "retailer";
+        } else if (pil.equals("photoContest")){
+            layouts = new int[]{
+                    R.layout.welcome_program_kontes_foto_1,
+                    R.layout.welcome_program_kontes_foto_2,
+                    R.layout.welcome_program_kontes_foto_3};
+        }else {
+            layouts = new int[]{
+                    R.layout.welcome_program_1,
+                    R.layout.welcome_program_2,
+                    R.layout.welcome_program_3};
+        }
+    }
+
     private void addBottomDots(int currentPage) {
         dots = new TextView[layouts.length];
 
@@ -119,11 +156,7 @@ public class ProgramActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        //session.setFirstTimeLaunch(false);
-        //startActivity(new Intent(ProgramActivity.this, HomeActivity.class));
         Intent i;
-        Bundle extras = getIntent().getExtras();
-        pil = extras.getString("pil");
         i = new Intent(this, HomeActivity.class);
         i.putExtra("pil", pil);
         startActivity(i);

@@ -49,7 +49,7 @@ public class CaraPemasanganActivity extends AppCompatActivity {
 
     public void popupSuccess(){
         new AlertDialog.Builder(this)
-                .setTitle("PEngiriman sukses")
+                .setTitle("Pengiriman sukses")
                 .setMessage("Selamat pesan anda telah terkirim")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
@@ -69,12 +69,35 @@ public class CaraPemasanganActivity extends AppCompatActivity {
 
     }
 
+
+    public void popupAllert(String allert){
+        new AlertDialog.Builder(this)
+                .setTitle("Error")
+                .setMessage(allert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        //MapsActivity.super.onBackPressed();
+                        //finish();
+                        // System.exit(0);
+
+                        Intent intent = new Intent(context, SupervisiProyekActivity.class);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+
+                        startActivity(intent);
+                        finish();
+                    }
+                }).create().show();
+    }
+
+
     public void onClickinstalationGuide(View v){
 
         switch (v.getId()){
             case R.id.btn_instalationGuide:
 
-                Toast.makeText(this, "btn_instalationGuide", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "btn_instalationGuide", Toast.LENGTH_LONG).show();
                 instalationGuideTask = new InstalationGuideTask();
                 instalationGuideTask.execute((Void)null);
 
@@ -139,6 +162,7 @@ public class CaraPemasanganActivity extends AppCompatActivity {
 
             } else {
 
+                popupAllert(errorMessage);
 
             }
         }

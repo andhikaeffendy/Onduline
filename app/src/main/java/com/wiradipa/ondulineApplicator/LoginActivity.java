@@ -4,9 +4,13 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,7 +32,7 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
 
 
-    private String pil;
+    private String pil, intro;
     private calc_formula formula;
 
     /**
@@ -55,6 +59,9 @@ public class LoginActivity extends AppCompatActivity {
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
+        if (!isNetworkAvailable()){
+            popupNoInternet();
+        }
         context = this;
         session = new AppSession(this);
         if(session.is_login()){
@@ -74,6 +81,40 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+
+    // cek ada internet apa gak..
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    @Override
+    public void onBackPressed() {
+        popupLogout();
+//        super.onBackPressed();
+    }
+
+
+
+    public void popupNoInternet(){
+        new AlertDialog.Builder(this)
+                .setTitle("Tidak Ada Koneksi Internet")
+                .setMessage("Periksa koneksi internet anda")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        int pid = android.os.Process.myPid();
+                        android.os.Process.killProcess(pid);
+                        System.exit(0);
+                        finish();
+                    }
+                }).create().show();
     }
 
     private boolean isEmailValid(String email) {
@@ -181,17 +222,38 @@ public class LoginActivity extends AppCompatActivity {
 
 
     //    sementara untuk activation
-    public void activation(View v){
+    public void onClickForgotPassword(View v){
         Intent i;
-        i = new Intent(this, VerificationPageActivity.class);
+        i = new Intent(this, ForgotPasswordActivity.class);
 
         switch (v.getId()){
-            case R.id.linkSignup:
-                i.putExtra("email", "");
+            case R.id.forgot_password:
                 startActivity(i);
                 break;
 
         }
+    }
+
+    public void popupLogout(){
+
+
+        new AlertDialog.Builder(context)
+                .setTitle("Keluar")
+                .setMessage("Apakah anda yakin ingin keluar?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+                        startActivity(intent);
+                        finish();
+                        System.exit(0);
+                    }
+                }).create().show();
+
     }
 
 
@@ -232,12 +294,15 @@ public class LoginActivity extends AppCompatActivity {
 
         private final String username;
         private final String mPassword;
+        private String shop_name;
         private String name;
         private String email;
         private String usertype;
+        private String retailertype;
         private ApiWeb apiWeb;
         private String errorMessage = getString(R.string.error_incorrect_password);
         private String token = "";
+        private boolean reLogin = false;
         private long userid;
 
         UserLoginTask(String email, String password) {
@@ -245,6 +310,7 @@ public class LoginActivity extends AppCompatActivity {
             mPassword = password;
             apiWeb = new ApiWeb();
         }
+
 
         @Override
         protected Boolean doInBackground(Void... params) {
@@ -259,12 +325,28 @@ public class LoginActivity extends AppCompatActivity {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
                 if(status.compareToIgnoreCase("success")==0){
-                    userid = json.getLong("user_id");
                     token = json.getString("token");
-                    name = json.getString("name");
-                    email = json.getString("email");
                     usertype = json.getString("user_type");
-                    return true;
+                    if (!token.equals("null")){
+                        userid = json.getLong("user_id");
+                        name = json.getString("name");
+                        email = json.getString("email");
+                        token = json.getString("token");
+                        if(usertype.equals("applicator")){
+                            return true;
+                        }else if(usertype.equals("individu")){
+                            return true;
+                        }else if(usertype.equals("retailer")){
+                            retailertype = json.getString("retailer_type");
+                            userid = json.getLong("user_id");
+                            shop_name = json.getString("shop_name");
+                            email = json.getString("email");
+                            token = json.getString("token");
+                            return true;
+                        }
+
+                    }
+                    reLogin = true;
                 }
                 if(json.has("message"))errorMessage = json.getString("message");
             } catch (JSONException e) {
@@ -280,13 +362,24 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(false);
 
             if (success) {
-                session.login(userid, username, usertype, token, name, email);
-                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                if (usertype.equals("retailer")){
+                    session.login(userid, username, usertype, token, shop_name, shop_name, email, retailertype);
+                }else if (usertype.equals("applicator")){
+                    session.login(userid, username, usertype, token, name, email);
+                }else if (usertype.equals("individu")){
+                    session.login(userid, username, usertype, token, name, email);
+                }
+                Intent i = new Intent(LoginActivity.this, ProgramActivity.class);
+                i.putExtra("pil","ondulucky");
                 startActivity(i);
                 finish();
             } else {
-                editTextLoginEmail.setError(errorMessage);
-                editTextLoginEmail.requestFocus();
+                if (reLogin){
+                    attemptLogin();
+                }else {
+                    editTextLoginEmail.setError(errorMessage);
+                    editTextLoginEmail.requestFocus();
+                }
             }
         }
 
