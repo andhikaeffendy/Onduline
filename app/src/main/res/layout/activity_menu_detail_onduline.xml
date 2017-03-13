@@ -43,7 +43,7 @@
                         android:id="@+id/btnOnduline"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"/>
+                        android:background="@drawable/bg_nav_drawer"/>
                     <TextView
                         android:id="@+id/txtMenuProductName"
                         android:layout_width="wrap_content"
@@ -97,9 +97,9 @@
                     android:id="@+id/btnDetailInstalationGuide"
                     android:onClick="ProductDetail"
                     android:text="panduan pemasangan"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:background="@drawable/bg_btn_menu_detil"
                     android:textColor="@color/colorBlack"  />
                 <Button

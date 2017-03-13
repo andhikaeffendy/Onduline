@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.wiradipa.ondulineApplicator.lib.ApiWeb;
 import com.wiradipa.ondulineApplicator.lib.AppSession;
 import com.wiradipa.ondulineApplicator.lib.AutoCompleteAdapter;
+import com.wiradipa.ondulineApplicator.lib.FixedHoloDatePickerDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -273,7 +274,7 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(allert)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();
@@ -295,9 +296,9 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
 
     public void popupSuccess(){
         new AlertDialog.Builder(this)
-                .setTitle("Pengiriman sukses")
-                .setMessage("Selamat pesan anda telah terkirim")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setTitle("Pengiriman sukses!")
+                .setMessage("Selamat permintaan training anda telah terkirim")
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();
@@ -338,7 +339,7 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
     protected Dialog onCreateDialog(int id) {
         // TODO Auto-generated method stub
         if (id == 999) {
-            return new DatePickerDialog(this,
+            return new FixedHoloDatePickerDialog(this,
                     myDateListener, year, month, day);
         }
         return null;

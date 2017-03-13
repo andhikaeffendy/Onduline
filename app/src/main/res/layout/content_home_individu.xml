@@ -41,27 +41,25 @@
                     android:background="@color/colorPrimaryDark"/>
 
                 <ImageView
-                    android:id="@+id/iv_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/program_ondulucky_tukang_baja_ringan"
-                    android:background="@color/bg_screen1"/>
-
-                <ImageView
                     android:id="@+id/iv_3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/program_ondulucky_toko"
+                    android:src="@drawable/program_slider_ondululine"
                     android:background="@color/bg_screen2" />
-
                 <ImageView
                     android:id="@+id/iv_4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/program_kontes_foto_proyek"
+                    android:src="@drawable/program_slider_bardoline_pro"
+                    android:background="@color/bg_screen2" />
+                <ImageView
+                    android:id="@+id/iv_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/program_slider_bituline"
                     android:background="@color/bg_screen2" />
 
             </ViewFlipper>
@@ -116,16 +114,8 @@
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10dp"/>
                 </RelativeLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:weightSum="2"
-                android:orientation="vertical">
-
                 <RelativeLayout
-                    android:id="@+id/btnContactOnduline"
+                    android:id="@+id/btnSimulatorAtap"
                     android:onClick="onClickHome"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -148,17 +138,95 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/onduline_contact"/>
+                        android:src="@drawable/ic_simulasi_atap_white_24dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kontak Onduline"
+                        android:text="Simulasi Atap"
                         android:textSize="12dp"
                         android:textStyle="bold"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10dp"/>
                 </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/btnCalculator"
+                    android:onClick="onClickHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="0.5dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:paddingLeft="4dp"
+                        android:paddingTop="4dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/bg_cyrcle_shadow"/>
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/bg_cyrcle"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_calculator_white_24dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kalkulator Kebutuhan Atap"
+                        android:textSize="12dp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="10dp"/>
+                </RelativeLayout><RelativeLayout
+                android:id="@+id/btnContactOnduline"
+                android:onClick="onClickHome"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="0.5dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:paddingLeft="4dp"
+                    android:paddingTop="4dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/bg_cyrcle_shadow"/>
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/bg_cyrcle"/>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/onduline_contact"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kontak Onduline"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"/>
+            </RelativeLayout>
 
             </LinearLayout>
         </LinearLayout>

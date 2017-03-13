@@ -96,7 +96,7 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AddNewActivity"
+            android:name=".AddNewProjectAndOrderActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
@@ -117,7 +117,7 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CaraPemasanganActivity"
+            android:name=".InstalationGuideActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
@@ -129,7 +129,7 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".KeluhanActivity"
+            android:name=".ComplainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity

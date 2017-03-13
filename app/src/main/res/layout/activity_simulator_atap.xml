@@ -26,13 +26,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/bg_nav_drawer"
             android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textColor="@color/colorTextLight"
+                android:textStyle="bold"
                 android:textSize="24dp"
                 android:text="@string/simulation_tittle"/>
         </RelativeLayout>

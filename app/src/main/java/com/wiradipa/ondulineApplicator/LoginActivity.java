@@ -103,9 +103,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void popupNoInternet(){
         new AlertDialog.Builder(this)
-                .setTitle("Tidak Ada Koneksi Internet")
+                .setTitle("Tidak Ada Koneksi Internet!")
                 .setMessage("Periksa koneksi internet anda")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
 
@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Check for a valid password, if the user entered one.
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            editTextLoginEmail.setError(getString(R.string.error_invalid_password));
+            editTextLoginPassword.setError(getString(R.string.error_invalid_password));
             focusView = editTextLoginPassword;
             cancel = true;
         }
@@ -238,10 +238,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
         new AlertDialog.Builder(context)
-                .setTitle("Keluar")
+                .setTitle("Keluar!")
                 .setMessage("Apakah anda yakin ingin keluar?")
-                .setNegativeButton(android.R.string.no, null)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setNegativeButton("tidak", null)
+                .setPositiveButton("ya", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
 
@@ -251,6 +251,27 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                         System.exit(0);
+                    }
+                }).create().show();
+
+    }
+
+    public void popupError(String error){
+
+
+        new AlertDialog.Builder(context)
+                .setTitle("Error!")
+                .setMessage(error)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+//
+//                        Intent intent = new Intent(Intent.ACTION_MAIN);
+//                        intent.addCategory(Intent.CATEGORY_HOME);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+//                        startActivity(intent);
+//                        finish();
+//                        System.exit(0);
                     }
                 }).create().show();
 
@@ -369,15 +390,16 @@ public class LoginActivity extends AppCompatActivity {
                 }else if (usertype.equals("individu")){
                     session.login(userid, username, usertype, token, name, email);
                 }
-                Intent i = new Intent(LoginActivity.this, ProgramActivity.class);
-                i.putExtra("pil","ondulucky");
+                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+//                i.putExtra("pil","ondulucky");
                 startActivity(i);
                 finish();
             } else {
                 if (reLogin){
                     attemptLogin();
                 }else {
-                    editTextLoginEmail.setError(errorMessage);
+//                    editTextLoginEmail.setError(errorMessage);
+                    popupError(errorMessage);
                     editTextLoginEmail.requestFocus();
                 }
             }

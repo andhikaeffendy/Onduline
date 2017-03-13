@@ -155,9 +155,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     public void popupSuccess(){
         new AlertDialog.Builder(this)
-                .setTitle("Permintaan terikirm")
-                .setMessage("Periksa email anda untuk mendapatkan password baru anda")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setTitle("Permintaan terikirm!")
+                .setMessage("tunggu beberapa saat untuk sms password baru anda")
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();
@@ -179,14 +179,14 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(allert)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();
                         //finish();
                         // System.exit(0);
 
-//                        Intent intent = new Intent(context, AddNewActivity.class);
+//                        Intent intent = new Intent(context, AddNewProjectAndOrderActivity.class);
 //                        intent.putExtra("pil",pil);
 //                        intent.addCategory(Intent.CATEGORY_HOME);
 //                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
@@ -248,11 +248,13 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 //SESSION
                 popupSuccess();
                 showProgress(false);
+                forgotPasswordTask= null;
 
             } else {
 
                 popupAllert(errorMessage);
                 showProgress(false);
+                forgotPasswordTask= null;
 
             }
         }

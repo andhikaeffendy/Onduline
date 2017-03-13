@@ -115,6 +115,8 @@ public class DetilViewActivity extends AppCompatActivity {
                 };
                 break;
             case "ONDUVILLAINSTALATIONGUIDE":
+
+                txtMenuProductName.setText("Panduan Pemasangan "+pil + "®");
                 Gbr = new String[] {
                         Integer.toString(R.drawable.instalation_guide_onduvilla_1),
                         Integer.toString(R.drawable.instalation_guide_onduvilla_2),
@@ -180,7 +182,8 @@ public class DetilViewActivity extends AppCompatActivity {
                 Gbr = new String[] {
                         Integer.toString(R.drawable.instalation_guide_onduline_5_10_1),
                         Integer.toString(R.drawable.instalation_guide_onduline_5_10_2),
-                        Integer.toString(R.drawable.instalation_guide_onduline_5_10_3)
+                        Integer.toString(R.drawable.instalation_guide_onduline_5_10_3),
+                        Integer.toString(R.drawable.instalation_guide_onduline_10_15_5)
                 };
                 break;
             case "ONDULINEINSTALATIONGUIDE10-15":
@@ -238,8 +241,9 @@ public class DetilViewActivity extends AppCompatActivity {
                 };
                 break;
             case "BARDOLINEINSTALATIONGUIDETYPEBEAVER":
+
+                txtMenuProductName.setText(pil);
                 Gbr = new String[] {
-                        Integer.toString(R.drawable.instalation_guide_bardoline_1),
                         Integer.toString(R.drawable.instalation_guide_bardoline_2),
                         Integer.toString(R.drawable.instalation_guide_bardoline_3),
                         Integer.toString(R.drawable.instalation_guide_bardoline_4),
@@ -253,8 +257,8 @@ public class DetilViewActivity extends AppCompatActivity {
                 };
                 break;
             case "BARDOLINEINSTALATIONGUIDETYPERECTANGULAR":
+                txtMenuProductName.setText(pil);
                 Gbr = new String[] {
-                        Integer.toString(R.drawable.instalation_guide_bardoline_1),
                         Integer.toString(R.drawable.instalation_guide_bardoline_12),
                         Integer.toString(R.drawable.instalation_guide_bardoline_13),
                         Integer.toString(R.drawable.instalation_guide_bardoline_14),

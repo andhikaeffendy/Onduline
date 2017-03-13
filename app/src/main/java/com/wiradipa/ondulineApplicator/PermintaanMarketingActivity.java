@@ -22,11 +22,9 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wiradipa.ondulineApplicator.lib.ApiWeb;
 import com.wiradipa.ondulineApplicator.lib.AppSession;
-import com.wiradipa.ondulineApplicator.lib.AutoCompleteAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -389,9 +387,9 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 
     public void popupSuccess(){
         new AlertDialog.Builder(this)
-                .setTitle("Permintaan "+pil+" Sukses")
+                .setTitle("Permintaan "+pil+" Sukses!")
                 .setMessage("Selamat "+pil+" anda telah terkirim")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
 
@@ -411,14 +409,14 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(allert)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();
                         //finish();
                         // System.exit(0);
 
-                        Intent intent = new Intent(context, AddNewActivity.class);
+                        Intent intent = new Intent(context, AddNewProjectAndOrderActivity.class);
                         intent.putExtra("pil",pil);
                         intent.addCategory(Intent.CATEGORY_HOME);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
@@ -539,6 +537,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 
             for(int i=0;i<data.length();i++){
                 JSONObject jason = data.getJSONObject(i);
+
                 int tmp = jason.getInt("id");
                 itemKey[i] = tmp + "";
                 itemName[i] = jason.getString("name");

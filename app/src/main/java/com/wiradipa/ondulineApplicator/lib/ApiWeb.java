@@ -303,10 +303,11 @@ public class ApiWeb {
 	//product_id, order_date, address, color_id, amount
 
 	/** Fungsi OrderApplicator untuk apk*/										//product_complaint
-	public String Order(String token,String receipt,String product_id,String order_date,String address,String distributor,String store_name,String color_id,String amount,String city_id,String states_id){
+	public String Order(String token,String receipt,String order_date,String distributor,String store_name,String color_id,String city_id,String states_id,String onduvilla_amount,String onduline_amount,String onduclair_amount){
 		String url = apiurl+"orders";
 
-		return PostOrderFile(url, receipt,token,product_id,order_date,address,distributor,store_name, color_id,amount,city_id,states_id);
+//		return PostOrderFile(url, receipt,token,product_id,order_date,address,distributor,store_name, color_id,amount,city_id,states_id);
+		return PostOrderFile(url,receipt,token,order_date,distributor,store_name,color_id,city_id,states_id,onduvilla_amount,onduline_amount,onduclair_amount);
 	}
 
 	/** Fungsi OrderApplicator untuk apk*/										//product_complaint
@@ -355,10 +356,10 @@ public class ApiWeb {
 		return null;
 	}
 	/** Fungsi technical support supervisi proyek untuk apk*/
-	public String ForgotPassword(String email){
+	public String ForgotPassword(String hp_no){
 		try {
 			String url = apiurl+"users/forgot_password";
-			String params = "email=" + URLEncoder.encode(email, "UTF-8");
+			String params = "hp_no=" + URLEncoder.encode(hp_no, "UTF-8");
 			return PostHttp(url, params);
 		} catch (UnsupportedEncodingException e) {
 			responseCode = 500;
@@ -458,7 +459,8 @@ public class ApiWeb {
 		return GetHttp(url);
 	}
 
-	public String PostOrderFile (String complete_url, String file, String token,String product_id,String order_date,String address,String distributor,String store_name,String color_id,String amount,String city_id,String states_id) {
+	//																								retailler			applicator			dikosongin
+	public String PostOrderFile (String complete_url, String file, String token,String order_date,String distributor,String store_name,String color_id,String city_id,String states_id, String onduvilla_amount,String onduline_amount,String onduclair_amount) {
 		String boundary = "*****";
 		File selectedFile = new File(file);
 		String contenttype="image/png";
@@ -470,15 +472,15 @@ public class ApiWeb {
 
 		/** disamain sama order parameter */
 		entityBuilder.addTextBody("token", token);
-		entityBuilder.addTextBody("product_id", product_id);
 		entityBuilder.addTextBody("order_date", order_date);
-		entityBuilder.addTextBody("address", address);
 		entityBuilder.addTextBody("store_name", store_name);
 		entityBuilder.addTextBody("distributor_name", distributor);
 		entityBuilder.addTextBody("color_id", color_id);
-		entityBuilder.addTextBody("amount", amount);
 		entityBuilder.addTextBody("city_id", city_id);
 		entityBuilder.addTextBody("state_id", states_id);
+		entityBuilder.addTextBody("onduvilla_amount", onduvilla_amount);
+		entityBuilder.addTextBody("onduline_amount", onduline_amount);
+		entityBuilder.addTextBody("onduclair_amount", onduclair_amount);
 
 		entityBuilder.setBoundary(boundary);
 		HttpEntity entity = entityBuilder.build();
@@ -534,6 +536,83 @@ public class ApiWeb {
 
 		return null;
 	}
+
+//	public String PostOrderFile (String complete_url, String file, String token,String product_id,String order_date,String address,String distributor,String store_name,String color_id,String amount,String city_id,String states_id) {
+//		String boundary = "*****";
+//		File selectedFile = new File(file);
+//		String contenttype="image/png";
+//		if(file.substring(file.length()-3).compareToIgnoreCase("png")!=0)contenttype="image/jpeg";
+//		MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create();
+//		entityBuilder.setCharset(MIME.UTF8_CHARSET);
+//		entityBuilder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+//		entityBuilder.addBinaryBody("receipt", selectedFile, ContentType.create(contenttype), selectedFile.getName());
+//
+//		/** disamain sama order parameter */
+//		entityBuilder.addTextBody("token", token);
+//		entityBuilder.addTextBody("product_id", product_id);
+//		entityBuilder.addTextBody("order_date", order_date);
+//		entityBuilder.addTextBody("address", address);
+//		entityBuilder.addTextBody("store_name", store_name);
+//		entityBuilder.addTextBody("distributor_name", distributor);
+//		entityBuilder.addTextBody("color_id", color_id);
+//		entityBuilder.addTextBody("amount", amount);
+//		entityBuilder.addTextBody("city_id", city_id);
+//		entityBuilder.addTextBody("state_id", states_id);
+//
+//		entityBuilder.setBoundary(boundary);
+//		HttpEntity entity = entityBuilder.build();
+//		try {
+//			System.out.println("Getting Data From :" + complete_url);
+//			URL url = new URL(complete_url);
+//			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+//			conn.setRequestMethod("POST");
+//			conn.setDoInput(true);//Allow Inputs
+//			conn.setDoOutput(true);//Allow Outputs
+//			conn.setUseCaches(false);//Don't use a cached Copy
+//			conn.setRequestMethod("POST");
+//			conn.setRequestProperty("Connection", "Keep-Alive");
+//			conn.setRequestProperty("ENCTYPE", "multipart/form-data");
+//			conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
+//
+//			entity.writeTo(conn.getOutputStream());
+//
+//			System.out.println("Response Code :" + conn.getResponseCode());
+//			System.out.println("Response Message :" + conn.getResponseMessage());
+//
+//			responseCode = conn.getResponseCode();
+//
+//			if(conn.getResponseCode()==200) {
+//
+//				InputStream inputStream = new BufferedInputStream(conn.getInputStream());
+//
+//				InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+//
+//				BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+//
+//				StringBuilder stringBuilder = new StringBuilder();
+//
+//				String bufferedStrChunk = null;
+//
+//				while ((bufferedStrChunk = bufferedReader.readLine()) != null) {
+//					stringBuilder.append(bufferedStrChunk);
+//				}
+//
+//				System.out.println("Response Data :" + stringBuilder.toString());
+//
+//				return stringBuilder.toString();
+//			}
+//
+//		} catch (MalformedURLException e) {
+//			e.printStackTrace();
+//		} catch (ProtocolException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//
+//
+//		return null;
+//	}
 
 	public String PostProjectFile (String complete_url, String file,String token,String project_type ,String address ,String order_date ,String city_id ,String states_id ,String product_id ,String color_id ,String roof_width ) {
 		String boundary = "*****";

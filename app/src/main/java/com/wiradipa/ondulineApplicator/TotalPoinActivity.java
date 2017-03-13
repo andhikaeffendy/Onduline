@@ -14,6 +14,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.wiradipa.ondulineApplicator.lib.ApiWeb;
@@ -52,7 +53,7 @@ public class TotalPoinActivity extends AppCompatActivity {
     HashMap<String, String> map;
     ArrayList<HashMap<String, String>> mylist;
     String[] list_id, ProductName, colorName, stateName, cityName, image, orderDate;
-    private String productName, productColor, productWidth, productState, productCity, productAddress, productImage, productAmount, storeName;
+    private String productName, productColor, productWidth, productState, productCity, productAddress, productImage, productAmount, storeName, productImageId, company_name, shop_name, owner_name, order_date, transaction_value, store_name, onduline_amount, onduvilla_amount, onduclair_amount;
 
     String pil, pil_detil;
     private String token;
@@ -165,8 +166,11 @@ public class TotalPoinActivity extends AppCompatActivity {
         txt_state.setText(state);
         txt_city.setText(city);
         txt_address.setText(address);
+
+                Toast.makeText(context, "imageurl : " + imageUrl, Toast.LENGTH_LONG).show();
+
         Picasso.with(dialog.getContext())
-                .load("http://onduline-mobile.wiradipa.com"+imageUrl)
+                .load("http://128.199.142.101"+imageUrl)
                 .error( R.drawable.ic_error_outline_black_24dp )
                 .placeholder( R.drawable.progress_animation )
                 .resize(450, 150)
@@ -187,11 +191,14 @@ public class TotalPoinActivity extends AppCompatActivity {
     }
 
 
-    public void showOrderDetil(String id, String productName,String productColor, String storeName,String amount, String state,String city, String imageUrl){
+    public void showOrderDetil(String shop_name,String owner_name, String order_date,String city_name, String state_name,String receipt_no, String receipt_url, String transaction_value, String store_name, String onduline_amount, String onduvilla_amount, String onduclair_amount){
+
+//        Toast.makeText(context, "productState : " + state_name, Toast.LENGTH_LONG).show();
+//        Toast.makeText(context, "productCity : " + city_name, Toast.LENGTH_LONG).show();
 
         final Dialog dialog=new Dialog(context);
         dialog.setTitle("Detil Order");
-        dialog.setContentView(R.layout.list_detil_order);
+        dialog.setContentView(R.layout.list_detil_order_new);
 
         int width = (int)(getResources().getDisplayMetrics().widthPixels*0.90);
         int height = (int)(getResources().getDisplayMetrics().heightPixels*0.90);
@@ -200,28 +207,41 @@ public class TotalPoinActivity extends AppCompatActivity {
 
 //        Toast.makeText(context, "productName : " + productName, Toast.LENGTH_LONG).show();
         ImageView img_detil = (ImageView)dialog.findViewById(R.id.img_detil);
-        TextView txt_productName = (TextView)dialog.findViewById(R.id.txt_productName);
-        TextView txt_productColor = (TextView)dialog.findViewById(R.id.txt_productColor);
-        TextView txt_state = (TextView)dialog.findViewById(R.id.txt_state);
-        TextView txt_city = (TextView)dialog.findViewById(R.id.txt_city);
-        TextView txt_roofProductTotal = (TextView)dialog.findViewById(R.id.txt_roofProductTotal);
+        TextView txt_shop_name = (TextView)dialog.findViewById(R.id.txt_shop_name);
+        TextView txt_state_name = (TextView)dialog.findViewById(R.id.txt_state_name);
+        TextView txt_city_name = (TextView)dialog.findViewById(R.id.txt_city_name);
+        TextView txt_order_date = (TextView)dialog.findViewById(R.id.txt_order_date);
+        TextView txt_onduvilla_amount = (TextView)dialog.findViewById(R.id.txt_onduvilla_amount);
+        TextView txt_onduline_amount = (TextView)dialog.findViewById(R.id.txt_onduline_amount);
+        TextView txt_onduclair_amount = (TextView)dialog.findViewById(R.id.txt_onduclair_amount);
+        TextView txt_owner_name = (TextView)dialog.findViewById(R.id.txt_owner_name);
 
-        if (pil_detil.equals("applicator")){
-            TextView txt_storeName = (TextView)dialog.findViewById(R.id.txt_storeName);
-            txt_storeName.setText("Nama Toko : "+storeName);
-        }else {
-            TextView txt_storeName = (TextView)dialog.findViewById(R.id.txt_storeName);
-            txt_storeName.setVisibility(View.GONE);
-        }
+//        TextView txt_productName = (TextView)dialog.findViewById(R.id.txt_productName);
+//        TextView txt_productColor = (TextView)dialog.findViewById(R.id.txt_productColor);
+//        TextView txt_roofProductTotal = (TextView)dialog.findViewById(R.id.txt_roofProductTotal);
+
+//        if (pil_detil.equals("applicator")){
+//            TextView txt_storeName = (TextView)dialog.findViewById(R.id.txt_storeName);
+//            txt_storeName.setText("Nama Toko : "+storeName);
+//        }else {
+//            TextView txt_storeName = (TextView)dialog.findViewById(R.id.txt_storeName);
+//            txt_storeName.setVisibility(View.GONE);
+//        }
 
 
-        txt_productName.setText(productName);
-        txt_productColor.setText("Warna Atap : "+productColor);
-        txt_roofProductTotal.setText("Jumlah : "+amount);
-        txt_state.setText(state);
-        txt_city.setText(city);
+        txt_shop_name.setText(shop_name);
+        txt_state_name.setText(state_name);
+        txt_city_name.setText(city_name);
+        txt_order_date.setText(order_date);
+        txt_owner_name.setText(owner_name);
+        txt_onduvilla_amount.setText("ONDUVILLA : "+onduvilla_amount);
+        txt_onduline_amount.setText("ONDULINE : "+onduline_amount);
+        txt_onduclair_amount.setText("ONDUCLAIR : "+onduclair_amount);
+
+//        Toast.makeText(context, "imageurl : " + imageUrl, Toast.LENGTH_LONG).show();
+
         Picasso.with(dialog.getContext())
-                .load("http://onduline-mobile.wiradipa.com"+imageUrl)
+                .load("http://128.199.142.101"+receipt_url)
                 .error( R.drawable.ic_error_outline_black_24dp )
                 .placeholder( R.drawable.progress_animation )
                 .resize(450, 150).into(img_detil);
@@ -412,7 +432,7 @@ public class TotalPoinActivity extends AppCompatActivity {
             }
             try {
                 JSONObject json = new JSONObject(result);
-                String status = json.getString("product_name");
+                String status = json.getString("id");
                 if(!status.equals("")){
                     productName = json.getString("product_name");
                     productColor = json.getString("color_name");
@@ -526,15 +546,23 @@ public class TotalPoinActivity extends AppCompatActivity {
             }
             try {
                 JSONObject json = new JSONObject(result);
-                String status = json.getString("product_name");
+                String status = json.getString("receipt_url");
                 if(!status.equals("")){
-                    productName = json.getString("product_name");
-                    productColor = json.getString("color_name");
+                    storeName = json.getString("store_name");       //null
+                    store_name = json.getString("store_name");      //null
+                    company_name = json.getString("company_name");  //null
+
+                    productImage = json.getString("receipt_url");
+                    productImageId = json.getString("receipt_no");
                     productState = json.getString("state_name");
                     productCity = json.getString("city_name");
-                    productImage = json.getString("receipt_url");
-                    productAmount = json.getString("amount");
-                    storeName = json.getString("store_name");
+                    shop_name = json.getString("shop_name");
+                    owner_name = json.getString("owner_name");
+                    order_date = json.getString("order_date");
+                    transaction_value = json.getString("transaction_value");
+                    onduline_amount = json.getString("onduline_amount");
+                    onduvilla_amount = json.getString("onduvilla_amount");
+                    onduclair_amount = json.getString("onduclair_amount");
 
                     return true;
 
@@ -549,7 +577,9 @@ public class TotalPoinActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(final Boolean success) {
             pg.dismiss();
-            showOrderDetil(list_id,productName,productColor,storeName,productAmount,productState,productCity,productImage);
+
+//            Toast.makeText(context, "productState : " + productState, Toast.LENGTH_LONG).show();
+            showOrderDetil(shop_name,owner_name,order_date,productCity,productState,"",productImage,"",store_name,onduline_amount,onduvilla_amount, onduclair_amount);
 
         }
     }

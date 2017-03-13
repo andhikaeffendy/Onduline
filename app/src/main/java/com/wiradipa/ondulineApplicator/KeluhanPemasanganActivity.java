@@ -202,7 +202,7 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(allert)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();
@@ -221,9 +221,9 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
 
     public void popupSuccess(){
         new AlertDialog.Builder(this)
-                .setTitle("Pengiriman sukses")
+                .setTitle("Pengiriman sukses!")
                 .setMessage("Selamat pesan anda telah terkirim")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();

@@ -32,7 +32,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/bg_nav_drawer"
             android:layout_weight="1">
 
             <TextView
@@ -44,6 +44,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
                 android:text="Permintaan Training"
+                android:textStyle="bold"
                 android:id="@+id/textView2" />
         </RelativeLayout>
 
@@ -203,7 +204,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/ps__button_youtube"
                     android:textColor="@color/colorTextLight"
-                    android:text="Kirim"/>
+                    android:text="@string/submit"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

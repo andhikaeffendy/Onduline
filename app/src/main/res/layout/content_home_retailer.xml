@@ -63,6 +63,27 @@
                     android:scaleType="fitXY"
                     android:src="@drawable/home_tukang_baja_ringan_sni"
                     android:background="@color/bg_screen2" />
+                <ImageView
+                    android:id="@+id/iv_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/program_slider_ondululine"
+                    android:background="@color/bg_screen2" />
+                <ImageView
+                    android:id="@+id/iv_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/program_slider_bardoline_pro"
+                    android:background="@color/bg_screen2" />
+                <ImageView
+                    android:id="@+id/iv_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/program_slider_bituline"
+                    android:background="@color/bg_screen2" />
 
             </ViewFlipper>
         </LinearLayout>

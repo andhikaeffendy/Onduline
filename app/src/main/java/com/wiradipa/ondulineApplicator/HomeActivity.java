@@ -3,6 +3,7 @@ package com.wiradipa.ondulineApplicator;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -32,6 +34,7 @@ public class HomeActivity extends AppCompatActivity{
     private Context context;
     private AppSession session;
     TextView txtProfilName, txtUserType, txt_totalPoint;
+    ImageView imgProfil;
 
 //    untuk menu gerak
     private ViewFlipper viewFlipper;
@@ -77,9 +80,9 @@ public class HomeActivity extends AppCompatActivity{
 
     public void popupNoInternet(){
         new AlertDialog.Builder(this)
-                .setTitle("Tidak Ada Koneksi Internet")
+                .setTitle("Tidak Ada Koneksi Internet!")
                 .setMessage("Periksa koneksi internet anda")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
 
@@ -120,7 +123,11 @@ public class HomeActivity extends AppCompatActivity{
             case R.id.btnProgram:
 //                Toast.makeText(this, "btnProgram", Toast.LENGTH_LONG).show();
                 if (pil.equals("applicator")){
-                    i = new Intent(this, ListProgram.class);
+//                    i = new Intent(this, ListProgram.class);
+
+                    i = new Intent(this, DetilViewActivity.class);
+                    i.putExtra("pil","Program");
+                    i.putExtra("pilDetilView","ondulucky baja ringan");
                     startActivity(i);
                 }else {
                     i = new Intent(this, DetilViewActivity.class);
@@ -129,12 +136,12 @@ public class HomeActivity extends AppCompatActivity{
                     startActivity(i);
                 }
                 break;
-            case R.id.btnProyekSaya:
-//                Toast.makeText(this, "btnProyekSaya", Toast.LENGTH_LONG).show();
-                i = new Intent(this, HistoryActivity.class);
-                i.putExtra("pil","project " + pil); //---------------------
-                startActivity(i);
-                break;
+//            case R.id.btnProyekSaya:
+////                Toast.makeText(this, "btnProyekSaya", Toast.LENGTH_LONG).show();
+//                i = new Intent(this, HistoryActivity.class);
+//                i.putExtra("pil","project " + pil); //---------------------
+//                startActivity(i);
+//                break;
             case R.id.btnTechnicalSupport:
 //                Toast.makeText(this, "btnTechnicalSupport", Toast.LENGTH_LONG).show();
                 i = new Intent(this, TechnicalSupportActivity.class);
@@ -155,6 +162,14 @@ public class HomeActivity extends AppCompatActivity{
                 i = new Intent(this, ContactOndulineActivity.class);
                 startActivity(i);
                 break;
+            case R.id.btnCalculator:
+                i = new Intent(this, CalculatorActivity.class);
+                startActivity(i);
+                break;
+            case R.id.btnSimulatorAtap:
+                i = new Intent(this, SimulatorAtapActivity.class);
+                startActivity(i);
+                break;
         }
     }
 
@@ -164,10 +179,10 @@ public class HomeActivity extends AppCompatActivity{
 
 
         new AlertDialog.Builder(context)
-                .setTitle("Verifikasi Logout")
-                .setMessage("Apakah anda yakin ingin Logout?")
-                .setNegativeButton(android.R.string.no, null)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setTitle("Keluar!")
+                .setMessage("Apakah anda yakin ingin keluar?")
+                .setNegativeButton("tidak", null)
+                .setPositiveButton("ya", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
 
@@ -223,10 +238,10 @@ public class HomeActivity extends AppCompatActivity{
 
     public void exitApp(){
         new AlertDialog.Builder(this)
-                .setTitle("Keluar")
+                .setTitle("Keluar!")
                 .setMessage("Apakah anda yakin ingin keluar?")
-                .setNegativeButton(android.R.string.no, null)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setNegativeButton("tidak", null)
+                .setPositiveButton("ya", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();
@@ -294,6 +309,8 @@ public class HomeActivity extends AppCompatActivity{
         View header=navigationView.getHeaderView(0);
         txtProfilName = (TextView)header.findViewById(R.id.txtProfilName);
         txtUserType = (TextView)header.findViewById(R.id.txtUserType);
+        imgProfil   = (ImageView)header.findViewById(R.id.imgProfil);
+        imgProfil.setImageDrawable(getResources().getDrawable(R.drawable.avatar_applicator));
         txtProfilName.setText("Halo "+session.getName());
         txtUserType.setText(session.getUSERTYPE());
 
@@ -350,12 +367,12 @@ public class HomeActivity extends AppCompatActivity{
                         i.putExtra("pil",pil);
                         startActivity(i);
                         break;
-                    case R.id.nav_sumProjectPhotod:
-//                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, TotalPoinActivity.class);
-                        i.putExtra("pilListView","project");
-                        startActivity(i);
-                        break;
+//                    case R.id.nav_sumProjectPhotod:
+////                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
+//                        i = new Intent(HomeActivity.this, TotalPoinActivity.class);
+//                        i.putExtra("pilListView","project");
+//                        startActivity(i);
+//                        break;
                     case R.id.nav_Logout:
 //                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
                         popupLogout();
@@ -401,6 +418,8 @@ public class HomeActivity extends AppCompatActivity{
         View header=navigationView.getHeaderView(0);
         txtProfilName = (TextView)header.findViewById(R.id.txtProfilName);
         txtUserType = (TextView)header.findViewById(R.id.txtUserType);
+        imgProfil   = (ImageView)header.findViewById(R.id.imgProfil);
+        imgProfil.setImageDrawable(getResources().getDrawable(R.drawable.avatar_retailer));
         txtProfilName.setText("Halo "+session.getName());
         txtUserType.setText(session.getRetailerType());
 
@@ -499,6 +518,8 @@ public class HomeActivity extends AppCompatActivity{
         View header=navigationView.getHeaderView(0);
         txtProfilName = (TextView)header.findViewById(R.id.txtProfilName);
         txtUserType = (TextView)header.findViewById(R.id.txtUserType);
+        imgProfil   = (ImageView)header.findViewById(R.id.imgProfil);
+        imgProfil.setImageDrawable(getResources().getDrawable(R.drawable.avatar_individu));
         txtProfilName.setText("Halo "+session.getName());
         txtUserType.setText(session.getUSERTYPE());
 

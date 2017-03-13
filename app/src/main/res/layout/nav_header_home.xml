@@ -26,6 +26,11 @@
                 android:paddingTop="4dp"
                 android:src="@drawable/bg_cyrcle_shadow"/>
             <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/bg_cyrcle_white"/>
+            <ImageView
                 android:id="@+id/imgProfil"
                 android:layout_width="80dp"
                 android:layout_height="80dp"

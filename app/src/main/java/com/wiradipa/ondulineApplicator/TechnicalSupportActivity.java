@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.wiradipa.ondulineApplicator.lib.AppSession;
 
@@ -69,7 +68,7 @@ public class TechnicalSupportActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.btnCaraPemasangan:
 //                Toast.makeText(this, "btnCaraPemasangan", Toast.LENGTH_LONG).show();
-//                i = new Intent(this, CaraPemasanganActivity.class);
+//                i = new Intent(this, InstalationGuideActivity.class);
 
                 i = new Intent(this, OurProductActivity.class);
                 i.putExtra("stat","instalation guide");
@@ -77,7 +76,7 @@ public class TechnicalSupportActivity extends AppCompatActivity {
                 break;
             case R.id.btnKeluhan:
 //                Toast.makeText(this, "btnKeluhan", Toast.LENGTH_LONG).show();
-                i = new Intent(this, KeluhanActivity.class);
+                i = new Intent(this, ComplainActivity.class);
                 startActivity(i);
                 break;
             case R.id.btnSupervisiProyek:

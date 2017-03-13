@@ -9,24 +9,30 @@
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">LANJUT</string>
     <string name="skip">LOMPATI</string>
+    <string name="submit">Kirim</string>
     <string name="start">LANJUT</string>
-    <string name="neworder">ORDER BARU</string>
+    <string name="neworder">Order Baru</string>
     <string name="state">Provinsi*</string>
     <string name="history">HISTORY</string>
+    <string name="total_point">Total Poin</string>
+    <string name="tecnical_support">Dukungan Teknis</string>
     <string name="qna">Q and A</string>
     <string name="history_surat_jalan">HISTORY SURAT JALAN</string>
     <string name="history_proyek_saya">HISTORY PROYEK ANDA</string>
+    <string name="instalation_guide_onduline">Panduan Pemasangan ONDULINE®</string>
+    <string name="instalation_guide_bardoline">Panduan Pemasangan BARDOLINE®</string>
 
-    <string name="signature">Alamat PT. Onduline Indonesia: \nAlam Sutra Town Centre (ASTC) Blok 10C No.3, \n \nJl.Boulevard Alam Sutra \nSerpong, Tangerang 15325 \n\nP : +6221 29211490\nF : +6221 29211545\n\n Email : teknik@ondulineindonesia.com\n Facebook : www.facebook.com/ondulinepro/</string>
+
+    <string name="signature">Contact us :\nShowroom : Komplek Spectra Block 23 C No. 19\nTelepon : (021) 29211490\nwebsite:www.onduline.co.id\n\nfacebook  : www.facebook.com/OndulineIndonesia\ninstagram : www.instagram.com/ondulineid\ntwitter   : www.twitter.com/ondulineID</string>
     <string name="signatureContact">P : +6221 29211490\nF : +6221 29211545\nEmail : teknik@ondulineindonesia.com</string>
 
     <!-- Onduline Instalation Guide -->
     <string name="kemiringan_5_sampai_10">Kemiringan 5° - 10°</string>
     <string name="kemiringan_10_sampai_15">Kemiringan 10° - 15°</string>
-    <string name="kemiringan_15_lebih">Kemiringan 15° Lebih</string>
+    <string name="kemiringan_15_lebih">Kemiringan 15° - Lebih</string>
 
     <!-- simulator atap -->
-    <string name="simulation_tittle">SIMULATOR ATAP</string>
+    <string name="simulation_tittle">Simulator Atap</string>
 
 
     <!--right menu navigation -->

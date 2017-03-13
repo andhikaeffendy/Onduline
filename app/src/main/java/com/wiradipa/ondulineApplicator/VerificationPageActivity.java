@@ -80,9 +80,9 @@ public class VerificationPageActivity extends AppCompatActivity {
     }
     public void popupSuccess(){
         new AlertDialog.Builder(this)
-                .setTitle("Verifikasi sukses")
-                .setMessage("Selamat akun anda telah aktif")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setTitle("Verifikasi sukses!")
+                .setMessage("Selamat akun anda telah aktif, lanjutkan ke halaman Login")
+                .setPositiveButton("lanjutkan", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();
@@ -101,9 +101,9 @@ public class VerificationPageActivity extends AppCompatActivity {
 
     public void popupResendSuccess(){
         new AlertDialog.Builder(this)
-                .setTitle("Kirim Ulang Kode sukses")
+                .setTitle("Kirim Ulang Kode sukses!")
                 .setMessage("Tunggu sms kode aktivasi kembali sekitar 1 sampai 5 menit.")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();
@@ -124,7 +124,7 @@ public class VerificationPageActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(allert)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         //MapsActivity.super.onBackPressed();

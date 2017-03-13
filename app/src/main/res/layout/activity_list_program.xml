@@ -32,6 +32,7 @@
                 android:layout_centerInParent="true"
                 android:textColor="@color/colorTextLight"
                 android:textSize="24dp"
+                android:textStyle="bold"
                 android:text="@string/list_program"/>
         </RelativeLayout>
     </LinearLayout>

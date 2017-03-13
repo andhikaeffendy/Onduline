@@ -3,9 +3,6 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_produk"
-            android:title="Produk" />
-        <item
             android:id="@+id/nav_Dukungan"
             android:title="Dukungan Teknis" />
         <item

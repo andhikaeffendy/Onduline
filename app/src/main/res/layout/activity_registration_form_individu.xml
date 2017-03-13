@@ -26,7 +26,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/bg_nav_drawer"
             android:layout_weight="1">
 
             <TextView
@@ -37,6 +37,7 @@
                 android:layout_centerInParent="true"
                 android:textSize="24dp"
                 android:layout_centerHorizontal="true"
+                android:textStyle="bold"
                 android:text="@string/RegistarsiIndividu"
                 android:id="@+id/textView2" />
         </RelativeLayout>
@@ -70,6 +71,19 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:hint="Isi nama anda"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:layout_margin="5dp"
+                    android:text="Profesi"/>
+                <Spinner
+                    android:id="@+id/spn_profession"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -176,23 +190,29 @@
                         android:text="Tanggal Lahir"/>
                 </RelativeLayout>
 
+
+                <!-- ktp sim dihilangkan -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorBlackAlpha"
+                    android:visibility="gone"
                     android:textStyle="bold"
                     android:text="No ID(KTP/SIM) * "/>
                 <EditText
                     android:id="@+id/et_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:layout_margin="5dp"
+                    android:inputType="number"
                     android:hint="Isi ID(KTP/SIM) anda"/>
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:layout_margin="5dp"
                     android:weightSum="2">
                     <RadioButton
@@ -215,6 +235,7 @@
                         android:layout_height="wrap_content"
                         android:text="SIM"/>
                 </RadioGroup>
+                <!-- ktp sim dihilangkan -->
 
 
                 <TextView
@@ -268,7 +289,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/ps__button_youtube"
                     android:textColor="@color/colorTextLight"
-                    android:text="kirim"/>
+                    android:text="@string/submit"/>
 
             </LinearLayout>
         </ScrollView>

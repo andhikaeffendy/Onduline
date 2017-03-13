@@ -35,7 +35,7 @@ public class CalculatorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calculator);
 
         Bundle extras = getIntent().getExtras();
-        pil = extras.getString("pil");
+//        pil = extras.getString("pil");
         txtMenuProductName = (TextView)findViewById(R.id.txtMenuProductName);
         txtLuasAtap = (TextView)findViewById(R.id.txtLuasAtap);
         txtJumlahAtap = (TextView)findViewById(R.id.txtJumlahAtap);
@@ -58,7 +58,7 @@ public class CalculatorActivity extends AppCompatActivity {
         spnJenisRangka = (Spinner)findViewById(R.id.spnJenisRangka);
         spnNokOnduline = (Spinner)findViewById(R.id.spnNokOnduline);
 
-        txtMenuProductName.setText(pil + "®");
+//        txtMenuProductName.setText(pil + "®");
 
 
 

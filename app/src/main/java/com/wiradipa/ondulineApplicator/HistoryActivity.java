@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,7 +35,7 @@ public class HistoryActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.btnAddNew:
 //                Toast.makeText(this, "btnMyOrder", Toast.LENGTH_LONG).show();
-                i = new Intent(this, AddNewActivity.class);
+                i = new Intent(this, AddNewProjectAndOrderActivity.class);
                 i.putExtra("pil", pil);
                 startActivity(i);
                 break;

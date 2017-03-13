@@ -4,9 +4,9 @@
         <item
             android:id="@+id/nav_TotalPoin"
             android:title="Total Poin" />
-        <item
-            android:id="@+id/nav_sumProjectPhotod"
-            android:title="@string/sum_project_photos" />
+        <!--<item-->
+            <!--android:id="@+id/nav_sumProjectPhotod"-->
+            <!--android:title="@string/sum_project_photos" />-->
         <item
             android:id="@+id/nav_sumOrder"
             android:title="@string/sum_order" />

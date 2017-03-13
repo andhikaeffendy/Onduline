@@ -4,7 +4,7 @@
     android:id="@+id/activity_new_order"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.wiradipa.ondulineApplicator.AddNewActivity">
+    tools:context="com.wiradipa.ondulineApplicator.AddNewProjectAndOrderActivity">
 
     <!-- Login progress -->
     <ProgressBar
@@ -33,13 +33,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/bg_nav_drawer"
             android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textColor="@color/colorTextLight"
+                android:textStyle="bold"
                 android:textSize="24dp"
                 android:text="@string/neworder"/>
         </RelativeLayout>
@@ -121,15 +122,21 @@
                             android:text="Upload Surat Jalan"/>
                     </LinearLayout>
 
+
+
+
+                        <!-- di hilangkan -->
                     <TextView
                         android:layout_margin="5dp"
                         android:textColor="@color/colorBlackAlpha"
                         android:textStyle="bold"
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Jenis Produk"/>
                     <Spinner
                         android:layout_margin="5dp"
+                        android:visibility="gone"
                         android:id="@+id/spn_product_demand_brand"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
@@ -137,17 +144,21 @@
                         android:layout_margin="5dp"
                         android:textColor="@color/colorBlackAlpha"
                         android:textStyle="bold"
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Warna Produk"/>
 
                     <Spinner
                         android:layout_margin="5dp"
+                        android:visibility="gone"
                         android:id="@+id/spn_product_demand_color"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
+
                     <LinearLayout
                         android:layout_margin="5dp"
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -168,6 +179,77 @@
                             android:hint="masukan jumlah"
                             android:inputType="number"/>
                     </LinearLayout>
+                    <!-- batas di hilangkan -->
+
+
+
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold"
+                            android:text="Jumlah Produk ONDUVILLA: "
+                            android:layout_gravity="center"/>
+                        <EditText
+                            android:id="@+id/et_onduvilla_amount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="6"
+                            android:hint="masukan jumlah"
+                            android:inputType="number"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold"
+                            android:text="Jumlah Produk ONDULINE : "
+                            android:layout_gravity="center"/>
+                        <EditText
+                            android:id="@+id/et_onduline_amount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="6"
+                            android:hint="masukan jumlah"
+                            android:inputType="number"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold"
+                            android:text="Jumlah Produk ONDUCLAIR : "
+                            android:layout_gravity="center"/>
+                        <EditText
+                            android:id="@+id/et_onduclair_amount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="6"
+                            android:hint="masukan jumlah"
+                            android:inputType="number"/>
+                    </LinearLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -219,17 +301,21 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:hint="Isi Alamat Lengkap Pembelian"/>
+
+                    <!--Provinsi dan kota hi hilangkan -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorBlackAlpha"
                         android:textStyle="bold"
+                        android:visibility="gone"
                         android:layout_margin="5dp"
                         android:text="@string/state"/>
                     <AutoCompleteTextView
                         android:id="@+id/act_state"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:layout_margin="5dp"
                         android:hint="Isi provinsi Pembelian"/>
                     <TextView
@@ -237,21 +323,25 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorBlackAlpha"
                         android:textStyle="bold"
+                        android:visibility="gone"
                         android:layout_margin="5dp"
                         android:text="Kota"/>
                     <AutoCompleteTextView
                         android:id="@+id/act_city"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:layout_margin="5dp"
                         android:hint="Isi kota Pembelian"/>
+                    <!--Provinsi dan kota di hilangkan -->
+
                     <TextView
                         android:layout_margin="5dp"
                         android:textColor="@color/colorBlackAlpha"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nama Distributor"/>
+                        android:text="Nama Distributor*"/>
                     <EditText
                         android:id="@+id/et_distributor"
                         android:layout_margin="5dp"
@@ -267,7 +357,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorTextLight"
                         android:background="@drawable/ps__button_youtube"
-                        android:text="Submit"/>
+                        android:text="@string/submit"/>
 
                 </LinearLayout>
 

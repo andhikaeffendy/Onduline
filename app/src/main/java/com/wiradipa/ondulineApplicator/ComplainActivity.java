@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class KeluhanActivity extends AppCompatActivity {
+public class ComplainActivity extends AppCompatActivity {
 
     private String pil;
     @Override

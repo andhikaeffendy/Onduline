@@ -29,15 +29,16 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/bg_nav_drawer"
             android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textColor="@color/colorTextLight"
+                android:textStyle="bold"
                 android:textSize="24dp"
-                android:text="DUKUNGAN TEKNISI"/>
+                android:text="@string/tecnical_support"/>
         </RelativeLayout>
 
 
@@ -79,7 +80,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:textSize="18dp"
-                        android:text="Silahkan sampaikan keluhan pemasangan anda seputar produk kami"/>
+                        android:text="Silahkan sampaikan keluhan Anda terkait pemasangan produk kami"/>
                 </LinearLayout>
 
                 <!-- edit text cara pemasangan -->
@@ -113,7 +114,7 @@
                         android:onClick="onClickinstalationGuideComplain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kirim"
+                        android:text="@string/submit"
                         android:background="@drawable/ps__button_youtube"
                         android:textColor="@color/colorTextLight"
                         android:layout_centerInParent="true"/>

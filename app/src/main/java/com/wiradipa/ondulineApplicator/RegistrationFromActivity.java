@@ -17,10 +17,13 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +37,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.security.acl.Owner;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class RegistrationFromActivity extends AppCompatActivity {
 
@@ -45,12 +50,13 @@ public class RegistrationFromActivity extends AppCompatActivity {
     private int year, month, day;
 
     private TextView txtisianBirth, txtisianBirthView;
+    private Spinner spn_profession;
 
     private EditText et_name, et_address, et_phone, et_email, et_distributor, et_association, et_owner, et_id, et_username, et_password, et_password_confirm, et_company;
 
     private Context context;
 
-    private String[] statesName, citiesName;
+    private String[] statesName, citiesName, listProfession;
     private long[] statesIds, citiesIds;
 
     private AutoCompleteTextView act_city, act_state;
@@ -63,6 +69,14 @@ public class RegistrationFromActivity extends AppCompatActivity {
     private View mProgressView;
     private View mFormView;
     private AppSession session;
+
+
+
+    protected ListAdapter adapter;
+    ArrayAdapter Adapter;
+    HashMap<String, String> map;
+    ArrayList<HashMap<String, String>> mylist;
+    String[] subject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,9 +174,9 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
     public void popupSuccess(final String email_regis, final String no_hp_regis){
         new AlertDialog.Builder(this)
-                .setTitle("Registrasi Sukses")
-                .setMessage("Selamat registrasi anda berhasil, lanjutkan ke halaman aktivasi?")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setTitle("Registrasi Sukses!")
+                .setMessage("Selamat registrasi anda berhasil, lanjutkan ke halaman aktivasi")
+                .setPositiveButton("lanjutkan", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         Intent intent = new Intent(context, VerificationPageActivity.class);
@@ -183,7 +197,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(allert)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         finish();
@@ -281,6 +295,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
         mFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
+        spn_profession = (Spinner) findViewById(R.id.spn_profession);
         et_name = (EditText)findViewById(R.id.et_name);//               wajib diisi
         et_address = (EditText)findViewById(R.id.et_address);//         wajib diisi
         act_city = (AutoCompleteTextView)findViewById(R.id.act_city);//             wajib diisi
@@ -294,6 +309,26 @@ public class RegistrationFromActivity extends AppCompatActivity {
         et_username = (EditText)findViewById(R.id.et_username);//       username minimal 4 karakter dan harus terdiri dari huruf dan angka
         et_password = (EditText)findViewById(R.id.et_password);//       password minimal 4 karakter harus terdiri dari huruf dan angka
         et_password_confirm = (EditText)findViewById(R.id.et_password_confirm);//   harus sama dengan password
+
+
+        listProfession = new String[] {"Perorangan", "Konsultan", "Kontraktor", "Arsitek", "Lain-lain"};
+
+//        mylist = new ArrayList<HashMap<String,String>>();
+//
+//        for (int i = 0; i < listProfession.length; i++){
+//            map = new HashMap<String, String>();
+//            map.put("list", subject[i]);
+//            mylist.add(map);
+//        }
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        Adapter = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, listProfession);
+        // Specify the layout to use when the list of choices appears
+        Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spn_profession.setAdapter(Adapter);
+
+
 
         calendar = Calendar.getInstance();
 
@@ -1157,7 +1192,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
                 result = apiWeb.RegisterRetailer(retailerType,"retailer",username, password, password_comfirmation,email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, distributor_name, owner_name, id_no, id_no_type);
                 // retailer type ada tradisional dll ada 3
             }else if (pil.compareToIgnoreCase("individu")==0) {//user_type, username, password, password_confirmation, email, name, address, states_id, city_id, hp_no, birth_date, id_no, id_no_type
-                result = apiWeb.RegisterIndividu("individu",username, password, password_comfirmation, email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, id_no, id_no_type);
+                result = apiWeb.RegisterIndividu("individu",username, password, password_comfirmation, email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, "", "");
                 // retailer type ada tradisional dll ada 3
             }
 

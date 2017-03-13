@@ -5,25 +5,41 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.wiradipa.ondulineApplicator.lib.AppSession;
 
 public class MenuDetailActivity extends AppCompatActivity {
 
 
-    Context context;
+    private Context context;
+    private AppSession session;
+    private String usertype;
     String pil;
     //Button btnDetaiPDescriptionProduct;
     TextView txtMenuProductName, txtDescriptionProduct;
+    Button btnDetailInstalationGuide;
     LinearLayout LinearDescription, LinearProductSpecification, LinearColorSelection, LinearAdvantages,LinearAccessories,LinearInstalationGuide,LinearSubtainability;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        context = this;
+        session = new AppSession(context);
+        session.checkSession();
+        usertype = session.getUSERTYPE();
+
         context=this;
         Bundle extras = getIntent().getExtras();
         pil = extras.getString("pil");
         chooselayout(pil);
+
+        if(usertype.equals("individu")){
+            btnDetailInstalationGuide =(Button) findViewById(R.id.btnDetailInstalationGuide);
+            btnDetailInstalationGuide.setVisibility(View.VISIBLE);
+        }
 //        txtDescriptionProduct = (TextView)findViewById(R.id.txtDescriptionProduct);
 
         //btnDetaiPDescriptionProduct =(Button)findViewById(R.id.btnDetaiPDescriptionProduct);
@@ -33,7 +49,6 @@ public class MenuDetailActivity extends AppCompatActivity {
 //        LinearColorSelection = (LinearLayout)findViewById(R.id.LinearColorSelection);
 //        LinearAdvantages = (LinearLayout)findViewById(R.id.LinearAdvantages);
 //        LinearAccessories = (LinearLayout)findViewById(R.id.LinearAccessories);
-//        LinearInstalationGuide =(LinearLayout)findViewById(R.id.LinearInstalationGuide);
 //        LinearSubtainability =(LinearLayout)findViewById(R.id.LinearSubtainability);
 
 //        CloseAllInformation();
@@ -50,46 +65,64 @@ public class MenuDetailActivity extends AppCompatActivity {
 //                LinearDescription.setVisibility(View.VISIBLE);
                 i.putExtra("pil",pil );
                 i.putExtra("pilDetilView",pil + "DESCRIPTION");
+                startActivity(i);
                 break;
             case R.id.btnDetailProductSpecification:
 //                CloseAllInformation();
 //                LinearProductSpecification.setVisibility(View.VISIBLE);
                 i.putExtra("pil",pil );
                 i.putExtra("pilDetilView",pil + "SPECIFICATION");
+                startActivity(i);
                 break;
             case R.id.btnDetailColorSelection:
 //                CloseAllInformation();
 //                LinearColorSelection.setVisibility(View.VISIBLE);
                 i.putExtra("pil",pil );
                 i.putExtra("pilDetilView",pil + "COLORSELECTION");
+                startActivity(i);
                 break;
             case R.id.btnDetailAdvantages:
 //                CloseAllInformation();
 //                LinearAdvantages.setVisibility(View.VISIBLE);
                 i.putExtra("pil",pil );
                 i.putExtra("pilDetilView",pil + "ADVANTAGES");
+                startActivity(i);
                 break;
             case R.id.btnDetailAccessories:
 //                CloseAllInformation();
 //                LinearAccessories.setVisibility(View.VISIBLE);
                 i.putExtra("pil",pil );
                 i.putExtra("pilDetilView",pil + "ACCESSORIES");
+                startActivity(i);
                 break;
             case R.id.btnDetailInstalationGuide:
-//                CloseAllInformation();
-//                LinearInstalationGuide.setVisibility(View.VISIBLE);
-                i.putExtra("pil",pil );
-                i.putExtra("pilDetilView",pil + "INSTALATIONGUIDE");
+
+                if(pil.equals("ONDULINE")){
+                    i = new Intent(this, ListOndulineInstalationGuide.class);
+                    i.putExtra("pil","ONDULINE");
+                    startActivity(i);
+
+                }else if(pil.equals("BARDOLINE")){
+                    i = new Intent(this, ListOndulineInstalationGuide.class);
+                    i.putExtra("pil","BARDOLINE");
+                    startActivity(i);
+
+                }else {
+                    i.putExtra("pil",pil );
+                    i.putExtra("pilDetilView",pil + "INSTALATIONGUIDE");
+                    startActivity(i);
+                }
+
                 break;
             case R.id.btnDetailSubtainability:
 //                CloseAllInformation();
 //                LinearSubtainability.setVisibility(View.VISIBLE);
                 i.putExtra("pil",pil );
                 i.putExtra("pilDetilView",pil + "SUSTAINABILIT");
+                startActivity(i);
                 break;
         }
 
-        startActivity(i);
     }
 
     public void CloseAllInformation(){

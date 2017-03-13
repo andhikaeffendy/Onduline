@@ -45,7 +45,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:background="@null"
-        android:text="LOMPATI"
+        android:text="LEWATI"
         android:textColor="@color/colorTextLight" />
 
 </RelativeLayout>
