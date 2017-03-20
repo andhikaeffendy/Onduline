@@ -22,9 +22,11 @@ public class AppSession {
     public final String USERID = "userid";
     public final String USERTYPE = "user_type";
     public final String AVATAR = "avatar";
+    public final String POIN = "poin";
     public final String RETAILERTYPE = "retailer_type";
     public final String SHOPNAME = "shop_name";
     public final String EMAILFORM = "email_form";
+    public final String HPNOFORM = "hp_no_form";
 
     public final String DEVICEID = "device_id";
     public final String REGISTRATIONID = "registration_id";
@@ -45,7 +47,7 @@ public class AppSession {
         editor.clear().apply();
     }
 
-    public void login(long userid, String username, String usertype, String token, String shop_name, String name, String email, String retailertype){
+    public void login(long userid, String username, String usertype, String token, String shop_name, String name, String email, String retailertype, String poin){
         editor = sharedPreferences.edit();
         editor.putString(USERNAMEKEY, username);
         editor.putString(SHOPNAME, shop_name);
@@ -53,6 +55,7 @@ public class AppSession {
         editor.putString(EMAILKEY,email);
         editor.putString(TOKENKEY,token);
         editor.putString(USERTYPE, usertype);
+        editor.putString(POIN, poin);
         editor.putLong(USERID, userid);
         editor.putString(RETAILERTYPE, retailertype);
         editor.apply();
@@ -62,13 +65,19 @@ public class AppSession {
         editor.putString(INTRO, intro);
         editor.apply();
     }
-    public void login(long userid, String username, String usertype, String token, String name, String email){
+    public void setPoin(String poin){
+        editor = sharedPreferences.edit();
+        editor.putString(POIN, poin);
+        editor.apply();
+    }
+    public void login(long userid, String username, String usertype, String token, String name, String email,String poin){
         editor = sharedPreferences.edit();
         editor.putString(USERNAMEKEY, username);
         editor.putString(NAMEKEY, name);
         editor.putString(EMAILKEY,email);
         editor.putString(TOKENKEY,token);
         editor.putString(USERTYPE, usertype);
+        editor.putString(POIN, poin);
         editor.putLong(USERID, userid);
         editor.apply();
     }
@@ -100,6 +109,9 @@ public class AppSession {
     public String getToken(){
         return sharedPreferences.getString(TOKENKEY,null);
     }
+    public String getPoin(){
+        return sharedPreferences.getString(POIN,null);
+    }
     public String getIntro(){
         return sharedPreferences.getString(INTRO,"0");
     }
@@ -110,6 +122,14 @@ public class AppSession {
     public void setEmailForm(String email){
         editor = sharedPreferences.edit();
         editor.putString(EMAILFORM, email);
+        editor.apply();
+    }
+    public String getHpNoForm(){
+        return sharedPreferences.getString(HPNOFORM,"null");
+    }
+    public void setHpNoForm(String hp_no){
+        editor = sharedPreferences.edit();
+        editor.putString(HPNOFORM, hp_no);
         editor.apply();
     }
 

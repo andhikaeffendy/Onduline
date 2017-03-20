@@ -7,14 +7,6 @@
     tools:context="com.wiradipa.ondulineApplicator.RegistrationFromActivity">
 
     <!-- Login progress -->
-    <ProgressBar
-        android:id="@+id/register_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true"
-        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -95,7 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="isi propinsi domisili toko "/>
+                    android:hint="isi provinsi domisili toko "/>
 
 
                 <TextView
@@ -319,5 +311,13 @@
 
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/register_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

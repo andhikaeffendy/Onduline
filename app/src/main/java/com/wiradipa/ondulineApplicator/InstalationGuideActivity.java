@@ -81,12 +81,12 @@ public class InstalationGuideActivity extends AppCompatActivity {
                         //finish();
                         // System.exit(0);
 
-                        Intent intent = new Intent(context, SupervisiProyekActivity.class);
-                        intent.addCategory(Intent.CATEGORY_HOME);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
-
-                        startActivity(intent);
-                        finish();
+//                        Intent intent = new Intent(context, SupervisiProyekActivity.class);
+//                        intent.addCategory(Intent.CATEGORY_HOME);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+//
+//                        startActivity(intent);
+//                        finish();
                     }
                 }).create().show();
     }

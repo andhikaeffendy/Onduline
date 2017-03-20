@@ -45,14 +45,6 @@
                     android:background="@color/bg_screen1"/>
 
                 <ImageView
-                    android:id="@+id/iv_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/home_tukang_baja_ringan_kontes_foto"
-                    android:background="@color/bg_screen2" />
-
-                <ImageView
                     android:id="@+id/iv_4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

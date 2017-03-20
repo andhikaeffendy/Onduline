@@ -15,16 +15,17 @@
     <string name="state">Provinsi*</string>
     <string name="history">HISTORY</string>
     <string name="total_point">Total Poin</string>
+    <string name="total_Order">Total Order</string>
     <string name="tecnical_support">Dukungan Teknis</string>
-    <string name="qna">Q and A</string>
+    <string name="qna">Tanya Jawab</string>
     <string name="history_surat_jalan">HISTORY SURAT JALAN</string>
     <string name="history_proyek_saya">HISTORY PROYEK ANDA</string>
     <string name="instalation_guide_onduline">Panduan Pemasangan ONDULINE®</string>
     <string name="instalation_guide_bardoline">Panduan Pemasangan BARDOLINE®</string>
 
 
-    <string name="signature">Contact us :\nShowroom : Komplek Spectra Block 23 C No. 19\nTelepon : (021) 29211490\nwebsite:www.onduline.co.id\n\nfacebook  : www.facebook.com/OndulineIndonesia\ninstagram : www.instagram.com/ondulineid\ntwitter   : www.twitter.com/ondulineID</string>
-    <string name="signatureContact">P : +6221 29211490\nF : +6221 29211545\nEmail : teknik@ondulineindonesia.com</string>
+    <string name="signature">Contact us :\nShowroom : Komplek Spectra Block 23 C No. 19\nTelepon : (021) 29211490\nwebsite:www.onduline.co.id\nMarketing email : Info@ondulineindonesia.com\nTeknikal email : Teknik@ondulineindonesia.com\n\nfacebook  : www.facebook.com/OndulineIndonesia\ninstagram : www.instagram.com/ondulineid\ntwitter   : www.twitter.com/ondulineID</string>
+    <string name="signatureContact">Telepon : (021) 29211490\nMarketing email : Info@ondulineindonesia.com\nTeknikal email : Teknik@ondulineindonesia.com</string>
 
     <!-- Onduline Instalation Guide -->
     <string name="kemiringan_5_sampai_10">Kemiringan 5° - 10°</string>

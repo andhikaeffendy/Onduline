@@ -281,13 +281,13 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
                         //finish();
                         // System.exit(0);
 
-                        Intent intent = new Intent(context, TechnicalSupportActivity.class);
-//                        intent.putExtra("pil",pil);
-                        intent.addCategory(Intent.CATEGORY_HOME);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
-
-                        startActivity(intent);
-                        finish();
+//                        Intent intent = new Intent(context, TechnicalSupportActivity.class);
+////                        intent.putExtra("pil",pil);
+//                        intent.addCategory(Intent.CATEGORY_HOME);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+//
+//                        startActivity(intent);
+//                        finish();
                     }
                 }).create().show();
 
@@ -542,8 +542,9 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
 
             phone = et_phone.getText().toString();
             totalPeserta = et_totalPeserta.getText().toString();
-            state = act_state.getText().toString();
-            city = act_city.getText().toString();
+//            state = act_state.getText().toString();
+            city = adapter_city.getItemId(act_city.getText().toString())+"";
+//            city=act_city.getText().toString();
             address = et_address.getText().toString();
             keterangan = et_keterangan.getText().toString();
             date = txtisianTraining.getText().toString();
@@ -556,7 +557,7 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = null;
-            result = apiWeb.TechnicalSupportTrainingRequest(token,phone,date,totalPeserta,state,city,address,keterangan);
+            result = apiWeb.TechnicalSupportTrainingRequest(token,phone,date,totalPeserta,states_id+"",city,address,keterangan);
 
             if(result==null){
                 return false;
@@ -590,6 +591,7 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
             } else {
 
                 popupAllert(errorMessage);
+                trainingRequestTask = null;
                 showProgress(false);
             }
         }

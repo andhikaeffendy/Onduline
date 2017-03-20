@@ -51,13 +51,13 @@ public class VerificationPageActivity extends AppCompatActivity {
         context = this;
         session = new AppSession(context);
 
-        Bundle extras = getIntent().getExtras();
+//        Bundle extras = getIntent().getExtras();
 //        email = extras.getString("email");
-        hp_no = extras.getString("hp_no");
+//        hp_no = extras.getString("hp_no");
         textView.setText(getString(R.string.send_sms_to_no) +" "+ hp_no);
 
         et_activation_email.setText(session.getEmailForm());
-        et_activation_phone.setText(hp_no);
+        et_activation_phone.setText(session.getHpNoForm());
 
 //        if(email.equals("")){
 //

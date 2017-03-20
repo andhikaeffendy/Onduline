@@ -209,12 +209,12 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
                         //finish();
                         // System.exit(0);
 
-                        Intent intent = new Intent(context, SupervisiProyekActivity.class);
-                        intent.addCategory(Intent.CATEGORY_HOME);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
-
-                        startActivity(intent);
-                        finish();
+//                        Intent intent = new Intent(context, SupervisiProyekActivity.class);
+//                        intent.addCategory(Intent.CATEGORY_HOME);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+//
+//                        startActivity(intent);
+//                        finish();
                     }
                 }).create().show();
     }
@@ -336,6 +336,8 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
             } else {
 
                 popupAllert(errorMessage);
+                instalationGuideComplainTask = null;
+                productComplaineTask = null;
                 showProgress(false);
 
             }
@@ -403,6 +405,8 @@ public class KeluhanPemasanganActivity extends AppCompatActivity {
             } else {
 
                 popupAllert(errorMessage);
+                instalationGuideComplainTask = null;
+                productComplaineTask = null;
                 showProgress(false);
 
             }

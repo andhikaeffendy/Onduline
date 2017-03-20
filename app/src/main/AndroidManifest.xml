@@ -19,7 +19,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/onduline_icon_v2"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -88,7 +88,7 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TotalPoinActivity"
+            android:name=".TotalOrderActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
@@ -174,9 +174,11 @@
             android:name=".ForgotPasswordActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".ListOndulineInstalationGuide"
+        <activity
+            android:name=".ListOndulineInstalationGuide"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity android:name=".TotalPointActivity"></activity>
     </application>
 
 </manifest>

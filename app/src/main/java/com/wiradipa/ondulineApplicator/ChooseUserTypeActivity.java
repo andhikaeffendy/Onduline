@@ -1,17 +1,32 @@
 package com.wiradipa.ondulineApplicator;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.wiradipa.ondulineApplicator.lib.AppSession;
+
 public class ChooseUserTypeActivity extends AppCompatActivity {
+
+
+    private AppSession session;
+    private Context context;
+    private String emailRegister = null;
+    private String hpnoRegister = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_user_type);
+
+        context = this;
+        session = new AppSession(context);
+        emailRegister = session.getEmailForm();
+        hpnoRegister = session.getHpNoForm();
+
     }
     public void onClickChooseUser(View v){
 
@@ -35,10 +50,13 @@ public class ChooseUserTypeActivity extends AppCompatActivity {
 //                Toast.makeText(ChooseUserTypeActivity.this, "btnAplikator", Toast.LENGTH_LONG).show();
 //                Toast.makeText(ChooseUserTypeActivity.this, "btnIndividu", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.btnLanjut:
-                /*i = new Intent(this, HomeActivity.class);
-                startActivity(i);
-                */
+            case R.id.btnAktivasiAkun:
+                if (!emailRegister.equals("null")){
+                    i = new Intent(this, VerificationPageActivity.class);
+//                    i.putExtra("hp_no", "");
+                    startActivity(i);
+                }
+
 //                Toast.makeText(ChooseUserTypeActivity.this, "btnLanjut", Toast.LENGTH_LONG).show();
                 break;
         }

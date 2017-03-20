@@ -20,10 +20,25 @@ public class CalculatorActivity extends AppCompatActivity {
 
 
     String pil;
-    TextView txtMenuProductName, txtLuasAtap,txtJumlahAtap, txtresultSumOfNok, txtLastSumOfScrup, txtLastSumOfNok, txtLastSumOfRoof, txtSumOfScrup;
-    EditText edittextTiltAngle, etPanjangBubungan, etPanjangJuraiLuar, etPanjangJuraiDalam, scrupOndulineForRoof, scrupOndulineForBubungan;
-    Spinner spnJenisRangka, spnJenisAtap, spnNokOnduline;
-    ArrayAdapter<CharSequence> adapterspnJenisRangka, adapterspnJenisAtap, adapterspnNokOnduline;
+
+//    Spinner bagian atas
+    Spinner spnJenisRangka, spnJenisAtap;
+
+    //    EditText TextView Onduline / Onduvilla Sheet
+    EditText et_pitchAngle, et_roofArea;
+    TextView txtJumlahAtap,txtLastSumOfRoof;
+
+    //    EditText TextView Onduline Ridges
+    EditText et_ridgeLength, et_hipLength;
+    TextView txtresultSumOfNok,txtLastSumOfRidges;
+
+    //    EditText TextView Onduline Screws
+    TextView et_screwsForRoof, et_screwsForRidge;
+    TextView txtSumOfScrup,txtLastSumOfScrews;
+
+    TextView txt_sumOFRoof;
+
+   ArrayAdapter<CharSequence> adapterspnJenisRangka, adapterspnJenisAtap, adapterspnNokOnduline;
 
     calc_formula formula;
     private int statRoof, statFrame;   // digunakan untuk mendefinisikan onduline ==1 atau onduvila ==2
@@ -34,50 +49,84 @@ public class CalculatorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
 
-        Bundle extras = getIntent().getExtras();
-//        pil = extras.getString("pil");
-        txtMenuProductName = (TextView)findViewById(R.id.txtMenuProductName);
-        txtLuasAtap = (TextView)findViewById(R.id.txtLuasAtap);
-        txtJumlahAtap = (TextView)findViewById(R.id.txtJumlahAtap);
-        txtresultSumOfNok = (TextView)findViewById(R.id.txtresultSumOfNok);
-
-        txtLastSumOfRoof = (TextView)findViewById(R.id.txtLastSumOfRoof);
-        txtLastSumOfNok = (TextView)findViewById(R.id.txtLastSumOfNok);
-        txtLastSumOfScrup = (TextView)findViewById(R.id.txtLastSumOfScrup);
-
-        txtSumOfScrup = (TextView)findViewById(R.id.txtSumOfScrup);
-
-        etPanjangBubungan = (EditText)findViewById(R.id.etPanjangBubungan);
-        etPanjangJuraiLuar = (EditText)findViewById(R.id.etPanjangJuraiLuar);
-        etPanjangJuraiDalam = (EditText)findViewById(R.id.etPanjangJuraiDalam);
-        scrupOndulineForRoof = (EditText)findViewById(R.id.scrupOndulineForRoof);
-        scrupOndulineForBubungan = (EditText)findViewById(R.id.scrupOndulineForBubungan);
-        edittextTiltAngle = (EditText)findViewById(R.id.edittextTiltAngle);
         formula = new calc_formula();
+
+
+        //    EditText TextView Onduline / Onduvilla Sheet
+        et_pitchAngle= (EditText) findViewById(R.id.et_pitchAngle);
+        et_roofArea= (EditText) findViewById(R.id.et_roofArea);
+        txtJumlahAtap= (TextView) findViewById(R.id.txtJumlahAtap);
+        txtLastSumOfRoof= (TextView) findViewById(R.id.txtLastSumOfRoof);
+
+        //    EditText TextView Onduline Ridges
+        et_ridgeLength= (EditText) findViewById(R.id.et_ridgeLength);
+        et_hipLength= (EditText) findViewById(R.id.et_hipLength);
+        txtresultSumOfNok= (TextView) findViewById(R.id.txtresultSumOfNok);
+        txtLastSumOfRidges= (TextView) findViewById(R.id.txtLastSumOfRidges);
+
+        //    EditText TextView Onduline Screws
+        et_screwsForRoof= (TextView) findViewById(R.id.et_screwsForRoof);
+        et_screwsForRidge= (TextView) findViewById(R.id.et_screwsForRidge);
+        txtSumOfScrup= (TextView) findViewById(R.id.txtSumOfScrup);
+        txtLastSumOfScrews= (TextView) findViewById(R.id.txtLastSumOfScrews);
+
+        txt_sumOFRoof = (TextView)findViewById(R.id.txt_sumOFRoof);
+
         spnJenisAtap = (Spinner)findViewById(R.id.spnJenisAtap);
         spnJenisRangka = (Spinner)findViewById(R.id.spnJenisRangka);
-        spnNokOnduline = (Spinner)findViewById(R.id.spnNokOnduline);
-
-//        txtMenuProductName.setText(pil + "®");
-
-
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         adapterspnJenisAtap = ArrayAdapter.createFromResource(this, R.array.pilih_jenis_atap_array, android.R.layout.simple_spinner_item);
         adapterspnJenisRangka = ArrayAdapter.createFromResource(this, R.array.pilih_jenis_rangka_array, android.R.layout.simple_spinner_item);
-        adapterspnNokOnduline = ArrayAdapter.createFromResource(this, R.array.yes_or_no_array, android.R.layout.simple_spinner_item);
 
         // Specify the layout to use when the list of choices appears
         adapterspnJenisAtap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterspnJenisRangka.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapterspnNokOnduline.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // Apply the adapter to the spinner
         spnJenisAtap.setAdapter(adapterspnJenisAtap);
         spnJenisRangka.setAdapter(adapterspnJenisRangka);
-        spnNokOnduline.setAdapter(adapterspnNokOnduline);
 
-        edittextTiltAngle.addTextChangedListener(new TextWatcher() {
+        et_roofArea.setText("0");
+        et_pitchAngle.setText("0");
+        et_ridgeLength.setText("0");
+        et_hipLength.setText("0");
+        txt_sumOFRoof.setText("JUMLAH ATAP ONDULINE®");
+
+
+        spnJenisAtap.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getSumOfRoofForPitchAngle(et_pitchAngle.getText());
+
+
+//            txt_sumOFRoof.setText("JUMLAH ATAP ONDULINE®");
+//        Toast.makeText(CalculatorActivity.this, id + "", Toast.LENGTH_LONG).show();
+                if (id==0){
+                    txt_sumOFRoof.setText("JUMLAH ATAP ONDULINE®");
+                }else {
+                    txt_sumOFRoof.setText("JUMLAH ATAP ONDUVILLA®");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        spnJenisRangka.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getSumOfRoofForPitchAngle(et_pitchAngle.getText());
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        et_pitchAngle.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -90,27 +139,111 @@ public class CalculatorActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                getSumOfRoof(s);
+                getSumOfRoofForPitchAngle(s);
+            }
+        });
+        et_roofArea.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                getSumOfRoofForRoofArea(s);
+            }
+        });
+
+
+        et_ridgeLength.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                getSumOfRidgesForRidgesLength(s);
+            }
+        });
+        et_hipLength.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                getSumOfRidgesForHipLength(s);
             }
         });
 
     }
 
-    public void onClickcalculator(View v){
-        switch (v.getId()){
-            case R.id.btnSumOfNok:
-                getSumOfNok();
-                lastsumOfBubunganOnduline = formula.sumOfNokOndulineBubungan(statFrame,(int) Math.ceil(lastSumOfNok));
-                scrupOndulineForBubungan.setText(lastsumOfBubunganOnduline+"");
-                break;
-            case R.id.btnSumOfScrup:
-                txtSumOfScrup.setText((lastsumOfBubunganOnduline + lastSumOfScrup) + " skrup");
-                txtLastSumOfScrup.setText((int) (lastsumOfBubunganOnduline + lastSumOfScrup) + "");
+    public void refreshFormula(){
 
+        //cek memilih onduline atau onduvilla
+        if(spnJenisAtap.getSelectedItem().toString().equals("ONDULINE")){
+            statRoof=1;
+//            txt_sumOFRoof.setText("JUMLAH ATAP ONDULINE®");
+//        Toast.makeText(CalculatorActivity.this, "JUMLAH ATAP ONDULINE®" , Toast.LENGTH_LONG).show();
+        }else {
+            statRoof=2;
+//            txt_sumOFRoofTOt(CalculatorActivity.this, "JUMLAH ATAP ONDUVILLA®" , Toast.LENGTH_LONG).show();
         }
+        //cek frame kayu dan besi
+        if(spnJenisRangka.getSelectedItem().toString().equals("RANGKA KAYU")){
+            statFrame=1;
+        }else {
+            statFrame=2;
+        }
+
+
+//        F ; sumOfRoof
+        double totalSheet =formula.sumOfRoof(statRoof,Integer.parseInt(et_pitchAngle.getText().toString()),Integer.parseInt(et_roofArea.getText().toString()));
+//        Toast.makeText(CalculatorActivity.this, Integer.parseInt(et_pitchAngle.getText().toString()) + "" , Toast.LENGTH_LONG).show();
+        txtJumlahAtap.setText((int)Math.ceil(totalSheet) + " Lembar");
+        txtLastSumOfRoof.setText((int)Math.ceil(totalSheet) + " Lembar");
+
+//        F ; sumOfRidges
+        double totalRidges = formula.sumOfRidges(Integer.parseInt(et_ridgeLength.getText().toString()),Integer.parseInt(et_hipLength.getText().toString()));
+        txtresultSumOfNok.setText((int)Math.ceil(totalRidges) + " Lembar");
+        txtLastSumOfRidges.setText((int)Math.ceil(totalRidges) + " Lembar");
+
+//        F ; sumOfScrewsForRoof
+        double sumOfScrewsForRoof = formula.sumOfScrewsForRoof(statFrame,statRoof,Integer.parseInt(et_pitchAngle.getText().toString()),(int) Math.ceil(totalSheet));
+        et_screwsForRoof.setText(sumOfScrewsForRoof + "");
+
+//        F ; sumOfScrewsForRidge
+        double sumOfScrewsForRidge = formula.sumOfScrewsForRidge((int) Math.ceil(totalRidges));
+        et_screwsForRidge.setText(sumOfScrewsForRidge + "");
+
+//        F ; sumOfScrews
+        int totalScrews = (int)Math.ceil(formula.sumOfScrews(sumOfScrewsForRoof,sumOfScrewsForRidge));
+        txtSumOfScrup.setText(totalScrews + " Buah");
+        txtLastSumOfScrews.setText(totalScrews + " Buah");
+
+
+
     }
 
-    public void getSumOfRoof(Editable s){
+
+    public void getSumOfRoofForPitchAngle(Editable s){
 
         int jumlahAtap;
 
@@ -130,50 +263,43 @@ public class CalculatorActivity extends AppCompatActivity {
 
         //perhitungan sesuai dengan pilihan user
         if(s.toString().isEmpty()){
-            txtLuasAtap.setText("");
+            et_pitchAngle.setText("0");
             txtJumlahAtap.setText("Jumlah Atap adalah \n...");
         }else if (statRoof==2 && Integer.parseInt(s.toString())<15 ){
             txtJumlahAtap.setText("Onduvilla minimal 15 derajat");
+            et_screwsForRoof.setText("0");
         }else if(Integer.parseInt(s.toString())<5){
-            txtLuasAtap.setText("");
             txtJumlahAtap.setText("Jumlah Atap adalah \n...");
         }else {
-            luasAtap = formula.luas(Double.parseDouble(s.toString()));
-            txtLuasAtap.setText((int) Math.ceil(luasAtap)+ "");
-
-            lastSumOfRoof = formula.sumOfRoof(statRoof,Integer.parseInt(edittextTiltAngle.getText().toString()),luasAtap);
-            lastSumOfScrup = formula.sumOfScrup(statFrame,statRoof,Integer.parseInt(edittextTiltAngle.getText().toString()),(int) Math.ceil(lastSumOfRoof));
-            lastsumOfBubunganOnduline = formula.sumOfNokOndulineBubungan(statFrame,(int) Math.ceil(lastSumOfNok));
-
-            jumlahAtap=(int) Math.ceil(lastSumOfRoof);
-            txtJumlahAtap.setText("Jumlah Atap " + spnJenisAtap.getSelectedItem().toString() + "\n" + jumlahAtap + " Lembar" );
-            txtLastSumOfRoof.setText(jumlahAtap + "" );
-
-
-            scrupOndulineForRoof.setText(lastSumOfScrup+"");
-            scrupOndulineForBubungan.setText(lastsumOfBubunganOnduline+"");
-            //Toast.makeText(SimulatorAtapActivity.this, spnProduk.getSelectedItem().toString() , Toast.LENGTH_LONG).show();
-            //setColorSpinner(spnProduk.getSelectedItem().toString());
+            refreshFormula();
         }
     }
+    public void getSumOfRoofForRoofArea(Editable s){
 
-    public void getSumOfNok(){
-
-
-        int statNok, panjangBubungan, panjangJuraiLuar, panjangJuraiDalam;
-        panjangBubungan=Integer.parseInt(etPanjangBubungan.getText().toString());
-        panjangJuraiLuar=Integer.parseInt(etPanjangJuraiLuar.getText().toString());
-        panjangJuraiDalam=Integer.parseInt(etPanjangJuraiDalam.getText().toString());
-
-        if (spnNokOnduline.getSelectedItem().toString().equals("ya")){
-            statNok=1;
+        //perhitungan sesuai dengan pilihan user
+        if(s.toString().isEmpty()){
+            et_roofArea.setText("0");
         }else {
-            statNok=2;
+            refreshFormula();
         }
-
-        lastSumOfNok  = formula.sumOfNok(statNok,panjangBubungan,panjangJuraiLuar,panjangJuraiDalam);
-        txtresultSumOfNok.setText(Math.ceil(formula.sumOfNok(statNok,panjangBubungan,panjangJuraiLuar,panjangJuraiDalam)) + " lembar");
-        txtLastSumOfNok.setText((int) Math.ceil(formula.sumOfNok(statNok,panjangBubungan,panjangJuraiLuar,panjangJuraiDalam)) + "");
-
     }
+    public void getSumOfRidgesForRidgesLength(Editable s){
+
+        //perhitungan sesuai dengan pilihan user
+        if(s.toString().isEmpty()){
+            et_ridgeLength.setText("0");
+        }else {
+            refreshFormula();
+        }
+    }
+    public void getSumOfRidgesForHipLength(Editable s){
+
+        //perhitungan sesuai dengan pilihan user
+        if(s.toString().isEmpty()){
+            et_hipLength.setText("0");
+        }else {
+            refreshFormula();
+        }
+    }
+
 }

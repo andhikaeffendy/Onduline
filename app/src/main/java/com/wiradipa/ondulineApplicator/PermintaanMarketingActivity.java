@@ -169,37 +169,37 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         }
 
         // Reset errors.
-        et_totalNail.setError(null);
-        et_totalNok.setError(null);
-        et_totalScrup.setError(null);
+//        et_totalNail.setError(null);
+//        et_totalNok.setError(null);
+//        et_totalScrup.setError(null);
 //        img_AddNew.setError
 
         // Store values at the time of the submit attempt.
-        String totalNail = et_totalNail.getText().toString();
-        String totalNok= et_totalNok.getText().toString();
-        String totalScrup= et_totalScrup.getText().toString();
+//        String totalNail = et_totalNail.getText().toString();
+//        String totalNok= et_totalNok.getText().toString();
+//        String totalScrup= et_totalScrup.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 //
-        // Check for a valid address store.
-        if (isTotalNailEmpty(totalNail)) {
-            et_totalNail.setError(getString(R.string.error_field_required));
-            focusView = et_totalNail;
-            cancel = true;
-        }
-        // Check for a valid address store.
-        if (isTotalNokEmpty(totalNok)) {
-            et_totalNok.setError(getString(R.string.error_field_required));
-            focusView = et_totalNail;
-            cancel = true;
-        }
-        // Check for a valid address store.
-        if (isTotalScrupEmpty(totalScrup)) {
-            et_totalScrup.setError(getString(R.string.error_field_required));
-            focusView = et_totalScrup;
-            cancel = true;
-        }
+//        // Check for a valid address store.
+//        if (isTotalNailEmpty(totalNail)) {
+//            et_totalNail.setError(getString(R.string.error_field_required));
+//            focusView = et_totalNail;
+//            cancel = true;
+//        }
+//        // Check for a valid address store.
+//        if (isTotalNokEmpty(totalNok)) {
+//            et_totalNok.setError(getString(R.string.error_field_required));
+//            focusView = et_totalNail;
+//            cancel = true;
+//        }
+//        // Check for a valid address store.
+//        if (isTotalScrupEmpty(totalScrup)) {
+//            et_totalScrup.setError(getString(R.string.error_field_required));
+//            focusView = et_totalScrup;
+//            cancel = true;
+//        }
 
 
         if (cancel) {
@@ -388,7 +388,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
     public void popupSuccess(){
         new AlertDialog.Builder(this)
                 .setTitle("Permintaan "+pil+" Sukses!")
-                .setMessage("Selamat "+pil+" anda telah terkirim")
+                .setMessage("Selamat permintaan "+pil+" Anda telah terkirim")
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
@@ -416,7 +416,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
                         //finish();
                         // System.exit(0);
 
-                        Intent intent = new Intent(context, AddNewProjectAndOrderActivity.class);
+                        Intent intent = new Intent(context, MarketingSupportActivity.class);
                         intent.putExtra("pil",pil);
                         intent.addCategory(Intent.CATEGORY_HOME);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
@@ -994,9 +994,30 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 
         OrderProductTask() {
             apiWeb = new ApiWeb();
-            nok = et_totalNok.getText().toString();
-            nail = et_totalNail.getText().toString();
-            scrup = et_totalScrup.getText().toString();
+
+
+            if(et_totalNok.getText().toString().equals("")){
+                nok="0";
+            }else {
+                nok    = et_totalNok.getText().toString()+"";
+            }
+
+            if(et_totalNail.getText().toString().equals("")){
+                nail="0";
+            }else {
+                nail     = et_totalNail.getText().toString()+"";
+            }
+
+            if(et_totalScrup.getText().toString().equals("")){
+                scrup="0";
+            }else {
+                scrup    = et_totalScrup.getText().toString()+"";
+            }
+
+
+//            nok = et_totalNok.getText().toString();
+//            nail = et_totalNail.getText().toString();
+//            scrup = et_totalScrup.getText().toString();
             etc = et_etc.getText().toString();
             product_id = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition()) + "";
             color_id= spinnerMapColor.get(spn_product_demand_color.getSelectedItemPosition()) + "";

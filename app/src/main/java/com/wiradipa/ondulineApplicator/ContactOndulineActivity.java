@@ -61,7 +61,11 @@ public class ContactOndulineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_onduline);
+
         context = this;
+        session = new AppSession(context);
+        session.checkSession();
+        token = session.getToken();
 
         spn_contactUs = (Spinner) findViewById(R.id.spn_contactUs);
         et_contactUs = (EditText)findViewById(R.id.et_contactUs);
@@ -197,12 +201,12 @@ public class ContactOndulineActivity extends AppCompatActivity {
                         //finish();
                         // System.exit(0);
 
-                        Intent intent = new Intent(context, ContactOndulineActivity.class);
-                        intent.addCategory(Intent.CATEGORY_HOME);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
-
-                        startActivity(intent);
-                        finish();
+//                        Intent intent = new Intent(context, ContactOndulineActivity.class);
+//                        intent.addCategory(Intent.CATEGORY_HOME);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+//
+//                        startActivity(intent);
+//                        finish();
                     }
                 }).create().show();
     }
@@ -252,7 +256,7 @@ public class ContactOndulineActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = null;
-//            result = apiWeb.TechnicalSupportInstalationGuideComplain(token, detail,"installation_complaint");
+            result = apiWeb.contactUs(token,subject_type,detail);
 
 
             if(result==null){

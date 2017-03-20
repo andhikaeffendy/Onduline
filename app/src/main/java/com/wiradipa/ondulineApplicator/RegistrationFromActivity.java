@@ -52,7 +52,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
     private TextView txtisianBirth, txtisianBirthView;
     private Spinner spn_profession;
 
-    private EditText et_name, et_address, et_phone, et_email, et_distributor, et_association, et_owner, et_id, et_username, et_password, et_password_confirm, et_company;
+    private EditText et_name, et_address, et_phone, et_email, et_distributor, et_association, et_owner, et_id, et_username, et_password, et_password_confirm, et_company, et_officePhone;
 
     private Context context;
 
@@ -180,9 +180,10 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         Intent intent = new Intent(context, VerificationPageActivity.class);
-                        intent.putExtra("email", email_regis);
+//                        intent.putExtra("email", email_regis);
                         session.setEmailForm(email_regis);
-                        intent.putExtra("hp_no", no_hp_regis);
+                        session.setHpNoForm(no_hp_regis);
+//                        intent.putExtra("hp_no", no_hp_regis);
                         intent.addCategory(Intent.CATEGORY_HOME);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
 
@@ -200,7 +201,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
-                        finish();
+//                        finish();
                     }
                 }).create().show();
 
@@ -260,6 +261,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         act_city = (AutoCompleteTextView)findViewById(R.id.act_city);//             wajib diisi
         act_state = (AutoCompleteTextView)findViewById(R.id.act_state);//           wajib diisi
         et_phone = (EditText)findViewById(R.id.et_phone);//             harus diisi
+        et_officePhone = (EditText) findViewById(R.id.et_officePhone);
         et_email = (EditText)findViewById(R.id.et_email); //            email min min 4 karater harus ada @
 
         txtisianBirth=(TextView)findViewById(R.id.txtisianBirth);//                 wajib diisi
@@ -725,7 +727,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         act_city.setError(null);                //city_id
         act_state.setError(null);               //states_id
         et_phone.setError(null);                //hp_no
-        et_id.setError(null);                   //id_no
+//        et_id.setError(null);                   //id_no
 
         // Store values at the time of the login attempt.
         String email = et_email.getText().toString();                       //email
@@ -737,7 +739,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         String city = act_city.getText().toString();                        //city_id
         String state = act_state.getText().toString();                      //states_id
         String phone = et_phone.getText().toString();                       //hp_no
-        String id = et_id.getText().toString();                             //id_no
+//        String id = et_id.getText().toString();                             //id_no
 
 
         boolean cancel = false;
@@ -802,11 +804,11 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
 
         // Check for a valid id.
-        if (isIdValid(id)) {
-            et_id.setError(getString(R.string.error_field_required));
-            focusView = et_id;
-            cancel = true;
-        }
+//        if (isIdValid(id)) {
+//            et_id.setError(getString(R.string.error_field_required));
+//            focusView = et_id;
+//            cancel = true;
+//        }
 
         // Check for a valid re password.
         if (isPasswordConfirmEmpty(passwordConfirm)) {
@@ -1153,7 +1155,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         private ApiWeb apiWeb;
         private String errorMessage = "Koneksi Error";
         private String statusError = "Koneksi Error";
-        private String retailerType, username, password, password_comfirmation, email, name, address, hp_no, birth_date,distributor_name, owner_name, id_no, id_no_type, company_name, association_name;
+        private String retailerType, username, password, password_comfirmation, email, name, address, hp_no, birth_date,distributor_name, owner_name, id_no, id_no_type, company_name, association_name,officePhone,occupation, city_id,state_id;
 
         RegisterApplicatorTask() {
             apiWeb = new ApiWeb();
@@ -1165,14 +1167,19 @@ public class RegistrationFromActivity extends AppCompatActivity {
             address = et_address.getText().toString();
             hp_no = et_phone.getText().toString();
             birth_date = txtisianBirth.getText().toString();
+
+            city_id         = adapter_city.getItemId(act_city.getText().toString())+"";
+            state_id        = adapter_state.getItemId(act_state.getText().toString())+"";
+
             id_no = et_id.getText().toString();
             id_no_type = gender;
             if (pil.compareToIgnoreCase("individu")==0){
-
+                occupation=spn_profession.getSelectedItem().toString();
             }else if(pil.compareToIgnoreCase("tukang bangunan")==0){
                 company_name = et_company.getText().toString();
                 association_name = et_association.getText().toString();
             } else {
+                officePhone=et_officePhone.getText().toString();
                 distributor_name = et_distributor.getText().toString();
                 owner_name = et_owner.getText().toString();
                 retailerType = retailer_type;
@@ -1189,10 +1196,10 @@ public class RegistrationFromActivity extends AppCompatActivity {
             if(pil.compareToIgnoreCase("tukang bangunan")==0){
                 result = apiWeb.RegisterApplicator("applicator", username, password, password_comfirmation, email, name, address, ""+states_id, ""+city_id, hp_no, company_name, birth_date, association_name, id_no, id_no_type);
             } else if (pil.compareToIgnoreCase("retailer")==0) {
-                result = apiWeb.RegisterRetailer(retailerType,"retailer",username, password, password_comfirmation,email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, distributor_name, owner_name, id_no, id_no_type);
+                result = apiWeb.RegisterRetailer(retailerType,"retailer",username, password, password_comfirmation,email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, distributor_name, owner_name, id_no, id_no_type, officePhone);
                 // retailer type ada tradisional dll ada 3
             }else if (pil.compareToIgnoreCase("individu")==0) {//user_type, username, password, password_confirmation, email, name, address, states_id, city_id, hp_no, birth_date, id_no, id_no_type
-                result = apiWeb.RegisterIndividu("individu",username, password, password_comfirmation, email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, "", "");
+                result = apiWeb.RegisterIndividu("individu",username, password, password_comfirmation, email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, "", "", occupation);
                 // retailer type ada tradisional dll ada 3
             }
 
@@ -1226,6 +1233,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
                 popupSuccess(email,hp_no);
                 showProgress(false);
+                registerApplicatorTask=null;
 //                Intent i;
 //                i = new Intent(context, VerificationPageActivity.class);
 //                i.putExtra("email", email);
@@ -1236,6 +1244,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
                 popupAllert(errorMessage);
                 showProgress(false);
+                registerApplicatorTask=null;
 //                editTextLoginEmail.setError(errorMessage);
 //                editTextLoginEmail.requestFocus();
 

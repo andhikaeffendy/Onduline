@@ -1,11 +1,12 @@
 package com.wiradipa.ondulineApplicator;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -22,10 +23,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.wiradipa.ondulineApplicator.lib.ApiWeb;
 import com.wiradipa.ondulineApplicator.lib.AppSession;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class HomeActivity extends AppCompatActivity{
 
@@ -36,11 +41,12 @@ public class HomeActivity extends AppCompatActivity{
     TextView txtProfilName, txtUserType, txt_totalPoint;
     ImageView imgProfil;
 
+    private UpdateTask updateTask;
 //    untuk menu gerak
     private ViewFlipper viewFlipper;
     private Animation fadeIn, fadeOut;
 
-    String pil;
+    private String pil, token, poin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,7 @@ public class HomeActivity extends AppCompatActivity{
         session = new AppSession(context);
         session.checkSession();
         pil=session.getUSERTYPE();
+        token=session.getToken();
         //class ini memuat xml sesuai dengan user masuk sebagai aplikator atau retailer
         setLayout(pil);
 
@@ -66,6 +73,8 @@ public class HomeActivity extends AppCompatActivity{
         if (!isNetworkAvailable()){
             popupNoInternet();
         }
+
+
     }
 
 
@@ -304,6 +313,9 @@ public class HomeActivity extends AppCompatActivity{
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+//        get poin
+        updateTask = new UpdateTask();
+        updateTask.execute((Void)null);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_right_view);
         View header=navigationView.getHeaderView(0);
@@ -347,7 +359,7 @@ public class HomeActivity extends AppCompatActivity{
 
         //edit text pada menu navigasi sebelah kanan
         Menu menuRight = navigationView.getMenu();
-        menuRight.findItem(R.id.nav_TotalPoin).setTitle("Total Poin Anda : 0");
+        menuRight.findItem(R.id.nav_TotalPoin).setTitle("Total Poin Anda : " + session.getPoin());
         rightNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -356,20 +368,20 @@ public class HomeActivity extends AppCompatActivity{
                 switch (item.getItemId()) {
                     case R.id.nav_TotalPoin:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalPoin", Toast.LENGTH_LONG).show();
-//                        i = new Intent(HomeActivity.this, TotalPoinActivity.class);
+//                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
 //                        i.putExtra("pilListView","project");
 //                        startActivity(i);
                         break;
                     case R.id.nav_sumOrder:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalOrder", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, TotalPoinActivity.class);
+                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
                         i.putExtra("pilListView","order");
                         i.putExtra("pil",pil);
                         startActivity(i);
                         break;
 //                    case R.id.nav_sumProjectPhotod:
 ////                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
-//                        i = new Intent(HomeActivity.this, TotalPoinActivity.class);
+//                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
 //                        i.putExtra("pilListView","project");
 //                        startActivity(i);
 //                        break;
@@ -413,6 +425,9 @@ public class HomeActivity extends AppCompatActivity{
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+//        get poin
+        updateTask = new UpdateTask();
+        updateTask.execute((Void)null);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_right_view);
         View header=navigationView.getHeaderView(0);
@@ -458,7 +473,7 @@ public class HomeActivity extends AppCompatActivity{
         NavigationView rightNavigationView = (NavigationView) findViewById(R.id.nav_right_view);
         //edit text pada menu navigasi sebelah kanan
         Menu menuRight = navigationView.getMenu();
-        menuRight.findItem(R.id.nav_TotalPoin).setTitle("Total Poin Anda : 0");
+        menuRight.findItem(R.id.nav_TotalPoin).setTitle("Total Poin Anda : " + session.getPoin());
         rightNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -467,13 +482,13 @@ public class HomeActivity extends AppCompatActivity{
                 switch (item.getItemId()) {
                     case R.id.nav_TotalPoin:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalPoin", Toast.LENGTH_LONG).show();
-//                        i = new Intent(HomeActivity.this, TotalPoinActivity.class);
+//                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
 //                        i.putExtra("pilListView","project");
 //                        startActivity(i);
                         break;
                     case R.id.nav_TotalOrder:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalOrder", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, TotalPoinActivity.class);
+                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
                         i.putExtra("pilListView","order");
                         i.putExtra("pil",pil);
                         startActivity(i);
@@ -564,7 +579,7 @@ public class HomeActivity extends AppCompatActivity{
                 switch (item.getItemId()) {
                     case R.id.nav_TotalPoin:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalPoin", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, TotalPoinActivity.class);
+                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
                         startActivity(i);
                         break;
                     case R.id.nav_TotalOrder:
@@ -588,4 +603,82 @@ public class HomeActivity extends AppCompatActivity{
 
 
     }
+
+
+//    coba get point
+
+//    private boolean parsingState(JSONArray data){
+//        try {
+//            total_point = new String[data.length()];
+//            for(int i=0;i<data.length();i++){
+//                JSONObject jason = data.getJSONObject(i);
+//                statesIds[i] = jason.getLong("id");
+//                statesName[i] = jason.getString("name");
+//            }
+//            adapter_state = new AutoCompleteAdapter(context, android.R.layout.simple_list_item_1, statesName, statesIds);
+//            act_state.setAdapter(adapter_state);
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+//        return true;
+//    }
+
+
+    /**
+     * Represents an asynchronous login/registration task used to authenticate
+     * the user.
+     */
+    public class UpdateTask extends AsyncTask<Void, Void, Boolean> {
+
+        private ApiWeb apiWeb;
+        private String errorMessage = "Koneksi Error";
+        private String statusError = "Koneksi Error";
+        private String userPoint;
+        private ProgressDialog pg;
+        private JSONArray stateJson;
+        private JSONArray cityJson;
+
+        UpdateTask() {
+            apiWeb = new ApiWeb();
+            pg = new ProgressDialog(context);
+            pg.setTitle("Ambil Data");
+            pg.setMessage("Ambil Data");
+            pg.show();
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            // TODO: attempt authentication against a network service.
+
+            String result = apiWeb.getPoint(token);
+            if(result==null){
+                return false;
+            }
+            try {
+                JSONObject json = new JSONObject(result);
+                String status = json.getString("status");
+                if(status.compareToIgnoreCase("success")==0){
+                    userPoint = json.getString("total_point");
+
+                    return true;
+
+                }
+//                if(json.has("message"))errorMessage = json.getString("message");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return false;
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            pg.dismiss();
+            session.setPoin(userPoint);
+//            Toast.makeText(context, "poin anda : " + poin, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

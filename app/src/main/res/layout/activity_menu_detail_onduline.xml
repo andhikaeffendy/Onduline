@@ -105,7 +105,7 @@
                 <Button
                     android:id="@+id/btnDetailSubtainability"
                     android:onClick="ProductDetail"
-                    android:text="subtainability"
+                    android:text="sustainability"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_btn_menu_detil"

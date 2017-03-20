@@ -102,16 +102,27 @@ public class ApiWeb {
 
 	/** Fungsi register untuk retailer
 	 * belum ada retailer type */
-	public String RegisterRetailer(String retailer_type,String user_type,String username, String password,String password_comfirmation, String email, String shop_name, String shop_address, String states_id, String city_id, String hp_no, String birth_date, String distributor_name, String owner_name, String id_no, String id_no_type){
+	public String RegisterRetailer(String retailer_type,String user_type,String username, String password,String password_comfirmation, String email, String shop_name, String shop_address, String states_id, String city_id, String hp_no, String birth_date, String distributor_name, String owner_name, String id_no, String id_no_type,String phone){
 		try {
 			String url = apiurl+"users/create";
 
-			String params = "retailer_type="+ URLEncoder.encode(retailer_type, "UTF-8")+"&user_type="+ URLEncoder.encode(user_type, "UTF-8")+" &username="+ URLEncoder.encode( username, "UTF-8")+ "&password="+ URLEncoder.encode(password, "UTF-8")+ "&password_comfirmation="+ URLEncoder.encode(password_comfirmation, "UTF-8")
-					+ "&email="+ URLEncoder.encode(email, "UTF-8")+"&shop_name="+ URLEncoder.encode(shop_name, "UTF-8")+"&shop_address="+ URLEncoder.encode(shop_address, "UTF-8")
-					+ "&states_id="+ URLEncoder.encode(states_id, "UTF-8") + "&city_id="+ URLEncoder.encode(city_id, "UTF-8")+"&hp_no="+ URLEncoder.encode(hp_no, "UTF-8")
-					+ "&birth_date="+ URLEncoder.encode(birth_date, "UTF-8") + "&distributor_name="+ URLEncoder.encode(distributor_name, "UTF-8") + "&owner_name="+ URLEncoder.encode(owner_name, "UTF-8")
-					+ "&id_no="+ URLEncoder.encode(id_no, "UTF-8") + "&id_no_type="+ URLEncoder.encode(id_no_type, "UTF-8");
-
+			String params = "retailer_type="+ URLEncoder.encode(retailer_type, "UTF-8")
+					+"&user_type="+ URLEncoder.encode(user_type, "UTF-8")
+					+" &username="+ URLEncoder.encode( username, "UTF-8")
+					+ "&password="+ URLEncoder.encode(password, "UTF-8")
+					+ "&password_comfirmation="+ URLEncoder.encode(password_comfirmation, "UTF-8")
+					+ "&email="+ URLEncoder.encode(email, "UTF-8")
+					+"&shop_name="+ URLEncoder.encode(shop_name, "UTF-8")
+					+"&shop_address="+ URLEncoder.encode(shop_address, "UTF-8")
+					+ "&states_id="+ URLEncoder.encode(states_id, "UTF-8")
+					+ "&city_id="+ URLEncoder.encode(city_id, "UTF-8")
+					+"&phone="+ URLEncoder.encode(phone, "UTF-8")
+					+"&hp_no="+ URLEncoder.encode(hp_no, "UTF-8")
+					+ "&birth_date="+ URLEncoder.encode(birth_date, "UTF-8")
+					+ "&distributor_name="+ URLEncoder.encode(distributor_name, "UTF-8")
+					+ "&owner_name="+ URLEncoder.encode(owner_name, "UTF-8")
+					+ "&id_no="+ URLEncoder.encode(id_no, "UTF-8")
+					+ "&id_no_type="+ URLEncoder.encode(id_no_type, "UTF-8");
 
 			return PostHttp(url, params);
 		} catch (UnsupportedEncodingException e) {
@@ -123,14 +134,24 @@ public class ApiWeb {
 
 	/** Fungsi register untuk retailer
 	 * belum ada retailer type */   //user_type, 			username, 		password, 		password_confirmation, 		  email, 		name, 		 address, 		 states_id, 	   city_id, 	   hp_no, 		 birth_date, 		id_no, 		  id_no_type
-	public String RegisterIndividu(String user_type,String username, String password,String password_comfirmation, String email, String name, String address, String states_id, String city_id, String hp_no, String birth_date, String id_no, String id_no_type){
+	public String RegisterIndividu(String user_type,String username, String password,String password_comfirmation, String email, String name, String address, String states_id, String city_id, String hp_no, String birth_date, String id_no, String id_no_type, String occupation){
 		try {
 			String url = apiurl+"users/create";
 
-			String params = "user_type="+ URLEncoder.encode(user_type, "UTF-8")+" &username="+ URLEncoder.encode( username, "UTF-8")+ "&password="+ URLEncoder.encode(password, "UTF-8")+ "&password_comfirmation="+ URLEncoder.encode(password_comfirmation, "UTF-8")
-					+ "&email="+ URLEncoder.encode(email, "UTF-8")+"&name="+ URLEncoder.encode(name, "UTF-8")+"&address="+ URLEncoder.encode(address, "UTF-8")
-					+ "&states_id="+ URLEncoder.encode(states_id, "UTF-8") + "&city_id="+ URLEncoder.encode(city_id, "UTF-8")+"&hp_no="+ URLEncoder.encode(hp_no, "UTF-8")
-					+ "&birth_date="+ URLEncoder.encode(birth_date, "UTF-8") + "&id_no="+ URLEncoder.encode(id_no, "UTF-8") + "&id_no_type="+ URLEncoder.encode(id_no_type, "UTF-8");
+			String params = "user_type="+ URLEncoder.encode(user_type, "UTF-8")
+					+" &username="+ URLEncoder.encode( username, "UTF-8")
+					+ "&password="+ URLEncoder.encode(password, "UTF-8")
+					+ "&password_comfirmation="+ URLEncoder.encode(password_comfirmation, "UTF-8")
+					+ "&email="+ URLEncoder.encode(email, "UTF-8")
+					+ "&name="+ URLEncoder.encode(name, "UTF-8")
+					+ "&address="+ URLEncoder.encode(address, "UTF-8")
+					+ "&states_id="+ URLEncoder.encode(states_id, "UTF-8")
+					+ "&city_id="+ URLEncoder.encode(city_id, "UTF-8")
+					+"&hp_no="+ URLEncoder.encode(hp_no, "UTF-8")
+					+ "&birth_date="+ URLEncoder.encode(birth_date, "UTF-8")
+					+ "&id_no="+ URLEncoder.encode(id_no, "UTF-8")
+					+ "&occupation="+ URLEncoder.encode(occupation, "UTF-8")
+					+ "&id_no_type="+ URLEncoder.encode(id_no_type, "UTF-8");
 
 
 			return PostHttp(url, params);
@@ -335,6 +356,20 @@ public class ApiWeb {
 		}
 		return null;
 	}
+	/** Fungsi contact us untuk apk*/										//product_complaint
+	public String contactUs(String token, String subject, String detail){
+		try {
+			String url = apiurl+"feedbacks";
+			String params = "token="+ URLEncoder.encode(token, "UTF-8")
+					+"&subject=" + URLEncoder.encode(subject, "UTF-8")
+					+"&detail=" + URLEncoder.encode(detail, "UTF-8");
+			return PostHttp(url, params);
+		} catch (UnsupportedEncodingException e) {
+			responseCode = 500;
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	/** Fungsi technical support supervisi proyek untuk apk*/
 	public String TechnicalSupportTrainingRequest(String token, String Phone, String date,String totalPeserta, String stateId, String cityId, String Address, String keterangan){
@@ -360,6 +395,18 @@ public class ApiWeb {
 		try {
 			String url = apiurl+"users/forgot_password";
 			String params = "hp_no=" + URLEncoder.encode(hp_no, "UTF-8");
+			return PostHttp(url, params);
+		} catch (UnsupportedEncodingException e) {
+			responseCode = 500;
+			e.printStackTrace();
+		}
+		return null;
+	}
+	/** Fungsi get point untuk apk*/
+	public String getPoint(String token){
+		try {
+			String url = apiurl+"users/get_point";
+			String params = "token=" + URLEncoder.encode(token, "UTF-8");
 			return PostHttp(url, params);
 		} catch (UnsupportedEncodingException e) {
 			responseCode = 500;

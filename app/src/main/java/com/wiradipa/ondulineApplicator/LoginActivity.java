@@ -323,6 +323,7 @@ public class LoginActivity extends AppCompatActivity {
         private ApiWeb apiWeb;
         private String errorMessage = getString(R.string.error_incorrect_password);
         private String token = "";
+        private String poin = "";
         private boolean reLogin = false;
         private long userid;
 
@@ -354,6 +355,7 @@ public class LoginActivity extends AppCompatActivity {
                         email = json.getString("email");
                         token = json.getString("token");
                         if(usertype.equals("applicator")){
+                            poin = json.getString("total_point");
                             return true;
                         }else if(usertype.equals("individu")){
                             return true;
@@ -363,6 +365,7 @@ public class LoginActivity extends AppCompatActivity {
                             shop_name = json.getString("shop_name");
                             email = json.getString("email");
                             token = json.getString("token");
+                            poin = json.getString("total_point");
                             return true;
                         }
 
@@ -384,11 +387,11 @@ public class LoginActivity extends AppCompatActivity {
 
             if (success) {
                 if (usertype.equals("retailer")){
-                    session.login(userid, username, usertype, token, shop_name, shop_name, email, retailertype);
+                    session.login(userid, username, usertype, token, shop_name, shop_name, email, retailertype,poin);
                 }else if (usertype.equals("applicator")){
-                    session.login(userid, username, usertype, token, name, email);
+                    session.login(userid, username, usertype, token, name, email,poin);
                 }else if (usertype.equals("individu")){
-                    session.login(userid, username, usertype, token, name, email);
+                    session.login(userid, username, usertype, token, name, email,poin);
                 }
                 Intent i = new Intent(LoginActivity.this, HomeActivity.class);
 //                i.putExtra("pil","ondulucky");
