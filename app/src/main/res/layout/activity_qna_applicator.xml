@@ -53,7 +53,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Apa yang membedakan produk ONDULINE® dari Pesaingnya?"
+                    android:text="@string/question_app_ind_1"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -66,7 +66,8 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="ONDULINE® menawarkan jangkauan terluas lembaran bitumen-selulosa dengan berbagai pilihan warna. ONDULINE® menggunakan struktur monolayer yang lebih tahan lama dan solid."/>
+                    android:text="@string/answer_app_ind_1"/>
+
                 <!--qnaActivity 2-->
                 <TextView
                     android:layout_width="match_parent"
@@ -75,7 +76,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Apakah Wajib untuk menggunakan Speedy Screw atau Safe Top Nail?"
+                    android:text="@string/question_app_ind_2"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -88,7 +89,8 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Sekrup dan paku ONDULINE® telah dirancang khusus untuk atap ONDULINE®. Kepala sekrup dan paku ONDULINE® sudah dilapisi bahan anti UV dan didesain untuk menahan gaya uplift pada atap. Sekrup dan paku lain dapat digunakan namun diluar rekomendasi dan garansi ONDULINE®."/>
+                    android:text="@string/answer_app_ind_2"/>
+
                 <!--qnaActivity 3-->
                 <TextView
                     android:layout_width="match_parent"
@@ -97,7 +99,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Atap ONDULINE® terbuat dari apa?"
+                    android:text="@string/question_app_ind_3"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -110,7 +112,8 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Salah satu komponen ONDULINE® adalah serat selulosa. Serat selulosa dapat diekstraksi dari berbagai sumber, termasuk kayu pulp atau kertas daur ulang. Selain serat selulosa, ONDULINE® juga terdiri dari aspal, mineral aditif. Serat selulosa sendiri adalah bahan yang sangat kuat (juga digunakan dalam semen dan beton untuk meningkatkan daya tahan). Bitumen membuat kedap air, pigmen memberikan warna, resin dan bahan tambahan lainnya meningkatkan daya tahan terhadap cuaca."/>
+                    android:text="@string/answer_app_ind_3"/>
+
                 <!--qnaActivity 4-->
                 <TextView
                     android:layout_width="match_parent"
@@ -119,7 +122,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Apakah dibawah atap ONDULINE® perlu dipasang insulasi penahan panas seperti rockwoll atau aluminium foil ?"
+                    android:text="@string/question_app_ind_4"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -132,7 +135,8 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Sistem ONDULINE® telah dibuat agar udara dibawah atap bersirkulasi dengan baik agar udara dibawah atap tidak terlalu panas. Untuk penahan panas tambahan dapat menggunakan aluminium foil."/>
+                    android:text="@string/answer_app_ind_4"/>
+
                 <!--qnaActivity 5-->
                 <TextView
                     android:layout_width="match_parent"
@@ -141,7 +145,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Apakah ONDULINE® tahan terhadap korosi akibat bahan kimia ?"
+                    android:text="@string/question_app_ind_5"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -154,7 +158,8 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Karena terbuat dari selulosa-aspal lembaran jenuh, ONDULINE® tahan korosi dan sebagian besar produk kimia. (Uji laboratorium dilakukan pada CSTB - Perancis)"/>
+                    android:text="@string/answer_app_ind_5"/>
+
                 <!--qnaActivity 6-->
                 <TextView
                     android:layout_width="match_parent"
@@ -163,7 +168,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Apa jaminan atap ONDULINE® saya?"
+                    android:text="@string/question_app_ind_6"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -176,7 +181,8 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Waterproofing. ONDULINE® menjamin produk-produknya dalam hal kekedapan air selama 10 tahun. Produk harus dipasang menurut spesifikasi. Jaminan terbatas pada pertukaran produk."/>
+                    android:text="@string/answer_app_ind_6"/>
+
                 <!--qnaActivity 7-->
                 <TextView
                     android:layout_width="match_parent"
@@ -185,7 +191,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Dapatkah saya berjalan disebuat atap ONDULINE®?"
+                    android:text="@string/question_app_ind_7"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -198,7 +204,8 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Seperti atap lainnya, ONDULINE® tidak dibuat untuk dapat berjalan diatasnya. Jadi, Anda harus mengikuti prosedur keselamatan ketika bekerja di atas atap. Apabila pekerjaan diatas atap harus dilakukan, maka berjalanlah diatas reng dan overlap. Harap membawa dua buah papan sebagai pijakan sewaktu bekerja (working platform)."/>
+                    android:text="@string/answer_app_ind_7"/>
+
                 <!--qnaActivity 8-->
                 <TextView
                     android:layout_width="match_parent"
@@ -207,7 +214,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Dapatkah saya menginstal ONDULINE® pada rangka metal ?pada beton atau kayu decking?"
+                    android:text="@string/question_app_ind_8"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -220,7 +227,8 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Ya. ONDULINE® dapat dipasang pada rangka metal atau decking. Untuk pemasangan pada rangka metal baja ringan jarak reng harus mengikuti standar pemasangan dari pabrik."/>
+                    android:text="@string/answer_app_ind_8"/>
+
                 <!--qnaActivity 9-->
                 <TextView
                     android:layout_width="match_parent"
@@ -229,7 +237,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Dapatkah saya mewarnai atap ONDULINE®"
+                    android:text="@string/question_app_ind_9"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -242,8 +250,9 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Atap ONDULINE® diwarnai pra-pigmented dan ONDULINE® juga memiliki varian yang dicat dari pabrik. Sangat mungkin untuk mengecat kembali lembaran ONDULINE® pada kedua sisi. Hindari penggunaan cat minyak dengan pelarut, gunakanlah cat berbahan dasar ait. Silahkan hubungi Departemen Teknis untuk keterangan lebih lanjut."/>
-                <!--qnaActivity 9-->
+                    android:text="@string/answer_app_ind_9"/>
+
+                <!--qnaActivity 10-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -251,7 +260,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Apakah atap ONDULINE® dapat berlumut"
+                    android:text="@string/question_app_ind_10"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -264,8 +273,9 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Dengan perawatan yang benar atap ONDULINE® tidak akan berlumut. Hindari penumpukan daun pada atap yang, apabila dibiarkan, dapat menyebabkan tumbuhnya lumut pada atap."/>
-                <!--qnaActivity 9-->
+                    android:text="@string/answer_app_ind_10"/>
+
+                <!--qnaActivity 11-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -273,7 +283,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Saya mencium bau pada atap ONDULINE®, apakah normal?"
+                    android:text="@string/question_app_ind_11"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -286,8 +296,9 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Bau yang ditimbulkan pada ONDULINE® disebabkan bahan penyusun ONDULINE®. Hal tersebut normal dan bau akan hilang setelah kurang lebih satu minggu terpasang. Pastikan pemasangan dengan benar dan udara dibawah atap tersirkulasi dengan baik sehingga bau akan lebih cepat hilang."/>
-                <!--qnaActivity 9-->
+                    android:text="@string/answer_app_ind_11"/>
+
+                <!--qnaActivity 12-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -295,7 +306,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Apakah ONDULINE® dapat dipasang di proyek peternakan? Bagaimana Ketahanan material ONDULINE® terhadap amonia dari kotoran hewan ?"
+                    android:text="@string/question_app_ind_12"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -308,8 +319,9 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Ya. ONDULINE® dapat dipasang di proyek peternakan, seperti peternakan sapi dan ayam. Karena bahan ONDULINE® tidak mengandung unsur metal, maka ONDULINE® tidak akan berkarat. Namun untuk sekrup atau paku harap menggunakan bahan dari stainless steel. ONDULINE® memiliki ketahanan sedang terhadap senyawa alkaline, seperti misalnya amonia pada peternakan, dikarenakan pengaruh kadar amonia dan sistem ventilasi udara yang digunakan."/>
-                <!--qnaActivity 9-->
+                    android:text="@string/answer_app_ind_12"/>
+
+                <!--qnaActivity 13-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -317,7 +329,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Apakah air limpasan dari atap ONDULINE® aman untuk ditamping dan dibuta air minum ?"
+                    android:text="@string/question_app_ind_13"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -330,7 +342,77 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="18dp"
-                    android:text="Air hujan dari limpasan atap dapat dikelola lagi untuk digunakan dalam berbagai hal (siram tanaman, cuci-cuci, flush toilet dll), tidak untuk minum. Air minum memiliki persyaratan yang tealah ditetapkan oleh Departemen Kesehatan. Untuk dapat diminum, air hujan memerlukan perlakukan khusus untuk dihilangkan kandungan berbahaya (logam, bahan kimia lainnya) di dalamnya."/>
+                    android:text="@string/answer_app_ind_13"/>
+
+                <!--qnaActivity 14-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/question_app_ind_14"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18dp"
+                    android:text="@string/answer_app_ind_14"/>
+
+                <!--qnaActivity 15-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/question_app_ind_15"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18dp"
+                    android:text="@string/answer_app_ind_15"/>
+
+                <!--qnaActivity 16-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/question_app_ind_16"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18dp"
+                    android:text="@string/answer_app_ind_16"/>
+
             </LinearLayout>
 
         </ScrollView>

@@ -163,7 +163,7 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ContactOndulineActivity"
+            android:name=".ContactOndulineIndividuActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
@@ -178,7 +178,15 @@
             android:name=".ListOndulineInstalationGuide"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".TotalPointActivity"></activity>
+        <activity android:name=".TotalPointActivity" />
+        <activity
+            android:name=".ContactOndulineActivity"
+            android:label="@string/title_activity_contact_onduline"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".DetilOndulineGreenRoofAwardActivity" />
+        <activity android:name=".DataProyekActivity" />
+        <activity android:name=".DokumenActivity" />
+        <activity android:name=".InputInformasiProyekActivity"></activity>
     </application>
 
 </manifest>

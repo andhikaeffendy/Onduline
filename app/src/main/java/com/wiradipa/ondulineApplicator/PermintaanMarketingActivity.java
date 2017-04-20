@@ -393,7 +393,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface arg0, int arg1) {
 
-                        Intent intent = new Intent(context, MarketingSupportActivity.class);
+                        Intent intent = new Intent(context, PermintaanMarketingActivity.class);
                         intent.putExtra("pil",pil);
                         intent.addCategory(Intent.CATEGORY_HOME);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***

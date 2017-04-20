@@ -8,6 +8,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.wiradipa.ondulineApplicator.HomeActivity"
     tools:showIn="@layout/app_bar_home">
+
+    <!--tempat ViewFlipper-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,14 +37,6 @@
                     android:scaleType="fitXY"
                     android:src="@drawable/program_onduvilla_genteng_pinter"
                     android:background="@color/colorPrimaryDark"/>
-
-                <ImageView
-                    android:id="@+id/iv_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/home_tukang_baja_ringan_ondulucky"
-                    android:background="@color/bg_screen1"/>
 
                 <ImageView
                     android:id="@+id/iv_4"
@@ -76,220 +70,138 @@
             </ViewFlipper>
         </LinearLayout>
 
-
+        <!--tempat button-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_weight="3.8"
             android:weightSum="2">
+
+            <!--button program dan dukungan marketing-->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:weightSum="2"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-
+                <!--button produk-->
                 <RelativeLayout
-                    android:id="@+id/btnProgram"
-                    android:onClick="onClickHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_margin="0.5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1">
 
-
                     <ImageView
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:id="@+id/btnProduk"
+                        android:onClick="onClickHome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:paddingLeft="4dp"
-                        android:paddingTop="4dp"
-                        android:src="@drawable/bg_cyrcle_shadow"/>
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/bg_cyrcle"/>
+                        android:layout_margin="25dp"
+                        android:src="@drawable/btn_home_produk" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Program"
-                        android:textSize="12dp"
-                        android:textStyle="bold"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_margin="10dp"
-                        android:id="@+id/textView9" />
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_program_white_24dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignLeft="@+id/textView9"
-                        android:layout_alignStart="@+id/textView9"
-                        android:id="@+id/imageView4" />
-
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/home_product"
+                        android:textStyle="bold" />
                 </RelativeLayout>
 
+
+                <!--button kalkulator-->
                 <RelativeLayout
-                    android:id="@+id/btnProduk"
-                    android:onClick="onClickHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_margin="0.5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:id="@+id/btnCalculator"
+                        android:onClick="onClickHome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:paddingLeft="4dp"
-                        android:paddingTop="4dp"
-                        android:src="@drawable/bg_cyrcle_shadow"/>
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/bg_cyrcle"/>
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/ic_roof_white_24dp"/>
+                        android:layout_margin="25dp"
+                        android:src="@drawable/btn_home_kalkulator" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Produk"
-                        android:textSize="12dp"
-                        android:textStyle="bold"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_margin="10dp"/>
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/home_calculator"
+                        android:textStyle="bold" />
                 </RelativeLayout>
-                <!---->
-                <!--<RelativeLayout-->
-                    <!--android:id="@+id/btnProyekSaya"-->
-                    <!--android:onClick="onClickHome"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:visibility="gone"-->
-                    <!--android:layout_height="0dp"-->
-                    <!--android:layout_margin="0.5dp"-->
-                    <!--android:layout_weight="1">-->
 
-                    <!--<ImageView-->
-                        <!--android:layout_width="75dp"-->
-                        <!--android:layout_height="75dp"-->
-                        <!--android:layout_centerInParent="true"-->
-                        <!--android:paddingLeft="4dp"-->
-                        <!--android:paddingTop="4dp"-->
-                        <!--android:src="@drawable/bg_cyrcle_shadow"/>-->
-                    <!--<ImageView-->
-                        <!--android:layout_width="70dp"-->
-                        <!--android:layout_height="70dp"-->
-                        <!--android:layout_centerInParent="true"-->
-                        <!--android:src="@drawable/project_icon"/>-->
-                    <!--<ImageView-->
-                        <!--android:layout_width="50dp"-->
-                        <!--android:layout_height="50dp"-->
-                        <!--android:visibility="gone"-->
-                        <!--android:layout_centerInParent="true"-->
-                        <!--android:src="@drawable/project_icon"/>-->
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="Proyek"-->
-                        <!--android:textSize="12dp"-->
-                        <!--android:textStyle="bold"-->
-                        <!--android:layout_alignParentBottom="true"-->
-                        <!--android:layout_centerHorizontal="true"-->
-                        <!--android:layout_margin="10dp"/>-->
-                <!--</RelativeLayout>-->
             </LinearLayout>
+
+            <!--button produk dan pemesanan produk-->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:weightSum="2"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:weightSum="2">
 
+                <!--button dukungan teknis-->
                 <RelativeLayout
-                    android:id="@+id/btnTechnicalSupport"
-                    android:onClick="onClickHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_margin="0.5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:id="@+id/btnTechnicalSupport"
+                        android:onClick="onClickHome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:paddingLeft="4dp"
-                        android:paddingTop="4dp"
-                        android:src="@drawable/bg_cyrcle_shadow"/>
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/bg_cyrcle"/>
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/ic_technical_support_white_24dp"/>
+                        android:layout_margin="25dp"
+                        android:src="@drawable/btn_home_dukungan_teknis" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dukungan Teknis"
-                        android:textSize="12dp"
-                        android:textStyle="bold"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_margin="10dp"/>
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/home_technical_support"
+                        android:textStyle="bold" />
                 </RelativeLayout>
+
+                <!--button kontak onduline-->
                 <RelativeLayout
-                    android:id="@+id/btnOrderSaya"
-                    android:onClick="onClickHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_margin="0.5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:id="@+id/btnContactOnduline"
+                        android:onClick="onClickHome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:paddingLeft="4dp"
-                        android:paddingTop="4dp"
-                        android:src="@drawable/bg_cyrcle_shadow"/>
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/order_icon"/>
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:visibility="gone"
-                        android:src="@drawable/ic_my_order_white_24dp"
-                        android:layout_centerVertical="true"
-                        android:layout_centerHorizontal="true" />
+                        android:layout_margin="25dp"
+                        android:src="@drawable/btn_home_kontak_onduline" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Order"
-                        android:textSize="12dp"
-                        android:textStyle="bold"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_margin="10dp" />
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/home_contact_onduline"
+                        android:textStyle="bold" />
                 </RelativeLayout>
             </LinearLayout>
+
         </LinearLayout>
+
+
+
     </LinearLayout>
 
     <RelativeLayout

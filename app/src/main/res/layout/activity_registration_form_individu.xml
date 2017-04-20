@@ -56,20 +56,33 @@
                     android:textColor="@color/colorBlackAlpha"
                     android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="Nama * "/>
+                    android:text="@string/name"/>
                 <EditText
                     android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="Isi nama anda"/>
+                    android:hint="@string/hint_input_your_name"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorBlackAlpha"
                     android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="Profesi"/>
+                    android:text="@string/company_name"/>
+                <EditText
+                    android:id="@+id/et_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="@string/hint_input_your_company_name"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold"
+                    android:layout_margin="5dp"
+                    android:text="@string/profesion"/>
                 <Spinner
                     android:id="@+id/spn_profession"
                     android:layout_width="match_parent"
@@ -82,26 +95,26 @@
                     android:textColor="@color/colorBlackAlpha"
                     android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="Alamat"/>
+                    android:text="@string/company_address"/>
                 <EditText
                     android:id="@+id/et_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="Isi Alamat Lengkap Anda"/>
+                    android:hint="@string/hint_input_your_company_address"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorBlackAlpha"
                     android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="Provinsi * "/>
+                    android:text="@string/state"/>
                 <AutoCompleteTextView
                     android:id="@+id/act_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="Isi provinsi domisili Anda"/>
+                    android:hint="@string/hint_input_your_state"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -109,13 +122,13 @@
                     android:textColor="@color/colorBlackAlpha"
                     android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="Kota * "/>
+                    android:text="@string/city"/>
                 <AutoCompleteTextView
                     android:id="@+id/act_city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="Isi kota domisili Anda"/>
+                    android:hint="@string/hint_input_your_city"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -123,32 +136,33 @@
                     android:textColor="@color/colorBlackAlpha"
                     android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="No HandPhone * "/>
+                    android:text="@string/phone_number"/>
                 <EditText
                     android:id="@+id/et_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:layout_margin="5dp"
-                    android:hint="Isi no handphone anda"/>
+                    android:hint="@string/hint_input_your_phone_number"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorBlackAlpha"
                     android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="Email * "/>
+                    android:text="@string/email"/>
                 <EditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:layout_margin="5dp"
-                    android:hint="Isi email anda"/>
+                    android:hint="@string/hint_input_your_email"/>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_margin="5dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
                     <TextView
                         android:id="@+id/txtTittleBirth"
                         android:layout_width="match_parent"
@@ -191,7 +205,7 @@
                     android:textColor="@color/colorBlackAlpha"
                     android:visibility="gone"
                     android:textStyle="bold"
-                    android:text="No ID(KTP/SIM) * "/>
+                    android:text="@string/no_id"/>
                 <EditText
                     android:id="@+id/et_id"
                     android:layout_width="match_parent"
@@ -236,41 +250,41 @@
                     android:layout_margin="5dp"
                     android:textColor="@color/colorBlackAlpha"
                     android:textStyle="bold"
-                    android:text="Username * "/>
+                    android:text="@string/username"/>
                 <EditText
                     android:id="@+id/et_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/minimum_username"/>
+                    android:hint="@string/hint_input_your_username"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textColor="@color/colorBlackAlpha"
                     android:textStyle="bold"
-                    android:text="@string/prompt_password_create"/>
+                    android:text="@string/password"/>
                 <EditText
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_margin="5dp"
                     android:inputType="textPassword"
                     android:layout_height="wrap_content"
-                    android:hint="isi password anda"/>
+                    android:hint="@string/hint_input_your_password"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textColor="@color/colorBlackAlpha"
                     android:textStyle="bold"
-                    android:text="@string/prompt_password_confirm"/>
+                    android:text="@string/re_password"/>
                 <EditText
                     android:id="@+id/et_password_confirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:inputType="textPassword"
-                    android:hint="@string/prompt_password_confirm"/>
+                    android:hint="@string/hint_input_your_re_password"/>
 
                 <Button
                     android:id="@+id/btnSubmitRegistrationFormIndividu"

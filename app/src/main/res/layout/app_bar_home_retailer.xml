@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_home_retailer" />
+    <include layout="@layout/content_home_retailer_tbb_tbr" />
 
 
 </android.support.design.widget.CoordinatorLayout>

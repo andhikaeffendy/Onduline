@@ -30,86 +30,98 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="9">
+            android:layout_weight="8">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp">
+
                     <ImageView
                         android:id="@+id/btnOnduvila"
-                        android:onClick="onClickOurProduct"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:background="@drawable/bg_nav_drawer"/>
+                        android:background="@drawable/bg_nav_drawer"
+                        android:onClick="onClickOurProduct" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:text="@string/onduvilla"
                         android:textColor="#fff"
-                        android:textSize="30dp"
-                        android:text="@string/onduvilla"/>
+                        android:textSize="30dp" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp">
+
                     <ImageView
                         android:id="@+id/btnOnduline"
-                        android:onClick="onClickOurProduct"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:background="@drawable/bg_nav_drawer"/>
+                        android:background="@drawable/bg_nav_drawer"
+                        android:onClick="onClickOurProduct" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:text="@string/onduline"
                         android:textColor="#fff"
-                        android:textSize="30dp"
-                        android:text="@string/onduline"/>
+                        android:textSize="30dp" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/rv_barduline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp">
+
                     <ImageView
                         android:id="@+id/btnBarduline"
-                        android:onClick="onClickOurProduct"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:background="@drawable/bg_nav_drawer"/>
+                        android:background="@drawable/bg_nav_drawer"
+                        android:onClick="onClickOurProduct" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:text="@string/bardoline"
                         android:textColor="#fff"
-                        android:textSize="30dp"
-                        android:text="@string/bardoline"/>
+                        android:textSize="30dp" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/rv_bituline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp">
+
                     <ImageView
                         android:id="@+id/btnBituline"
-                        android:onClick="onClickOurProduct"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:background="@drawable/bg_nav_drawer"/>
+                        android:background="@drawable/bg_nav_drawer"
+                        android:onClick="onClickOurProduct" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:text="@string/bituline"
                         android:textColor="#fff"
-                        android:textSize="30dp"
-                        android:text="@string/bituline"/>
+                        android:textSize="30dp" />
                 </RelativeLayout>
 
 
@@ -117,7 +129,6 @@
         </ScrollView>
 
     </LinearLayout>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -127,4 +138,6 @@
         android:layout_margin="10dp"
         android:textColor="@color/colorBlackAlpha"
         android:text="@string/signatureContact"/>
+
+
 </RelativeLayout>

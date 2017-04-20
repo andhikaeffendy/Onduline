@@ -6,6 +6,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
@@ -24,12 +26,11 @@ import org.json.JSONObject;
 
 public class VerificationPageActivity extends AppCompatActivity {
 
-    private String email, hp_no;
     private Context context;
     private EditText et_activation_code,et_activation_email,et_activation_phone;
     private VerificationTask verivicationTask;
     private ResendCode resendCode;
-    private TextView textView;
+    private TextView textView, txt_emailForm;
     private Button btnReSendCode;
     private View mProgressView;
     private View mFormView;
@@ -46,38 +47,64 @@ public class VerificationPageActivity extends AppCompatActivity {
         mFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.submit_progress);
         textView            =(TextView)findViewById(R.id.textView);
+        txt_emailForm       =(TextView)findViewById(R.id.txt_emailForm);
         btnReSendCode       =(Button)findViewById(R.id.btnReSendCode);
 
         context = this;
+
+        //session bila session g ada maka semua form di aktifkan
         session = new AppSession(context);
 
-//        Bundle extras = getIntent().getExtras();
-//        email = extras.getString("email");
-//        hp_no = extras.getString("hp_no");
-        textView.setText(getString(R.string.send_sms_to_no) +" "+ hp_no);
+        if (session.getHpNoForm()!=null){
+            textView.setText(getString(R.string.send_sms_to_no) +" "+ session.getHpNoForm());
+            et_activation_email.setText(session.getEmailForm());
+            et_activation_phone.setText(session.getHpNoForm());
+        }else {
+            et_activation_email.setVisibility(View.VISIBLE);
+            txt_emailForm.setVisibility(View.VISIBLE);
+        }
 
-        et_activation_email.setText(session.getEmailForm());
-        et_activation_phone.setText(session.getHpNoForm());
+        //cek koneksi internet bila internet g ada maka aplikasi keluar
+        if (!isNetworkAvailable()){
+            popupNoInternet();
+        }
 
-//        if(email.equals("")){
-//
-//        }else{
-////            et_activation_email.setText(email);
-//            et_activation_email.setText(session.getEmailForm());
-//            et_activation_phone.setText(hp_no);
-//        }
 
         btnReSendCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                resendCode = new ResendCode();
-//                resendCode.execute((Void)null);
 
                 attemptSubmitresendCode();
             }
         });
 
     }
+
+    // cek ada internet apa gak..
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+
+    public void popupNoInternet(){
+        new AlertDialog.Builder(this)
+                .setTitle("Tidak Ada Koneksi Internet!")
+                .setMessage("Periksa koneksi internet anda")
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        int pid = android.os.Process.myPid();
+                        android.os.Process.killProcess(pid);
+                        System.exit(0);
+                        finish();
+                    }
+                }).create().show();
+    }
+
     public void popupSuccess(){
         new AlertDialog.Builder(this)
                 .setTitle("Verifikasi sukses!")
@@ -110,12 +137,6 @@ public class VerificationPageActivity extends AppCompatActivity {
                         //finish();
                         // System.exit(0);
 
-////                        Intent intent = new Intent(context, LoginActivity.class);
-//                        intent.addCategory(Intent.CATEGORY_HOME);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
-//
-//                        startActivity(intent);
-//                        finish();
                     }
                 }).create().show();
     }
@@ -131,12 +152,6 @@ public class VerificationPageActivity extends AppCompatActivity {
                         //finish();
                         // System.exit(0);
 
-//                        Intent intent = new Intent(context, SupervisiProyekActivity.class);
-//                        intent.addCategory(Intent.CATEGORY_HOME);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
-//
-//                        startActivity(intent);
-//                        finish();
                     }
                 }).create().show();
     }
@@ -147,11 +162,6 @@ public class VerificationPageActivity extends AppCompatActivity {
             case R.id.btnActivation:
 
                 attemptSubmitverivicationTask();
-//                verivicationTask = new VerificationTask();
-//                verivicationTask.execute((Void)null);
-
-//                i = new Intent(this, LoginActivity.class);
-//                startActivity(i);
                 break;
         }
     }
@@ -220,7 +230,6 @@ public class VerificationPageActivity extends AppCompatActivity {
         // Reset errors.
         et_activation_code.setError(null);
         et_activation_email.setError(null);
-//        img_AddNew.setError
 
         // Store values at the time of the submit attempt.
         String activation_code  = et_activation_code.getText().toString();
@@ -228,7 +237,6 @@ public class VerificationPageActivity extends AppCompatActivity {
 
         boolean cancel = false;
         View focusView = null;
-//
 
         if (isActivationcodeNotEmpty(activation_code)) {
             et_activation_code.setError(getString(R.string.error_field_required));
@@ -249,14 +257,12 @@ public class VerificationPageActivity extends AppCompatActivity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-//            disini kita show progreess apapun itu dan di setiap
+            //disini kita show progreess apapun itu dan di setiap
 
 
             verivicationTask = new VerificationTask();
             verivicationTask.execute((Void)null);
 
-//            instalationGuideComplainTask = new InstalationGuideComplainTask();
-//            instalationGuideComplainTask.execute((Void)null);
 
         }
     }
@@ -275,10 +281,11 @@ public class VerificationPageActivity extends AppCompatActivity {
 
         // Reset errors.
         et_activation_phone.setError(null);
-//        img_AddNew.setError
+        et_activation_email.setError(null);
 
         // Store values at the time of the submit attempt.
         String phone    = et_activation_phone.getText().toString();
+        String email    = et_activation_email.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -287,6 +294,11 @@ public class VerificationPageActivity extends AppCompatActivity {
         if (isPhoneNotEmpty(phone)) {
             et_activation_phone.setError("masukan no telepon yang dituju");
             focusView = et_activation_phone;
+            cancel = true;
+        }
+        if (isEmailNotEmpty(email)) {
+            et_activation_email.setError("masukan email akun anda");
+            focusView = et_activation_email;
             cancel = true;
         }
 
@@ -298,17 +310,12 @@ public class VerificationPageActivity extends AppCompatActivity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-//            disini kita show progreess apapun itu dan di setiap
+            // disini kita show progreess apapun itu dan di setiap
 
 
             resendCode = new ResendCode();
             resendCode.execute((Void)null);
 
-//            verivicationTask = new VerificationTask();
-//            verivicationTask.execute((Void)null);
-
-//            instalationGuideComplainTask = new InstalationGuideComplainTask();
-//            instalationGuideComplainTask.execute((Void)null);
 
         }
     }
@@ -402,7 +409,6 @@ public class VerificationPageActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = null;
-//            result = apiWeb.ResendActivatiionCode(activation_email);
             result = apiWeb.ResendActivatiionCode(activation_email,activation_phone);
 
 
@@ -429,6 +435,7 @@ public class VerificationPageActivity extends AppCompatActivity {
             if (success) {
                 //SESSION
                 popupResendSuccess();
+                textView.setText(getString(R.string.send_sms_to_no) +" "+ activation_phone);
                 showProgress(false);
                 verivicationTask=null;
                 resendCode=null;

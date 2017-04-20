@@ -13,48 +13,6 @@
 
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="18dp"
-        android:text="@string/send_sms_to_no"
-        android:id="@+id/textView" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tidak menerima sms?"
-            android:layout_gravity="center"/>
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:text="Pastikan no handphone anda benar untuk mengisim ulang kode aktivasi"/>
-        <EditText
-            android:id="@+id/et_activation_phone"
-            android:textAlignment="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nomor Telepon"/>
-        <Button
-            android:id="@+id/btnReSendCode"
-            android:layout_gravity="center"
-            android:background="@drawable/ps__button_youtube"
-            android:textColor="@color/colorTextLight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="kirim ulang kode aktivasi"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/register_form"
@@ -64,6 +22,33 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/send_sms_to_no"
+            android:id="@+id/textView" />
+
+
+
+        <TextView
+            android:id="@+id/txt_emailForm"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:text="Masukan email terlebih dahulu"/>
+        <EditText
+            android:id="@+id/et_activation_email"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"
+            android:hint="Email"/>
 
         <TextView
             android:layout_marginTop="20dp"
@@ -78,21 +63,6 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:hint="Kode Aktivasi"/>
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:text="Pastikan email anda benar"/>
-        <EditText
-            android:id="@+id/et_activation_email"
-            android:textAlignment="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:visibility="gone"
-            android:hint="Email"/>
         <Button
             android:id="@+id/btnActivation"
             android:onClick="onClickVerivication"
@@ -101,7 +71,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
             android:text="aktifkan"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Tidak menerima sms?\nIsi di bawah ini untuk kirim ulang kode aktivasi anda."
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:text="Pastikan no handphone anda benar untuk mengirim ulang kode aktivasi"/>
+        <EditText
+            android:id="@+id/et_activation_phone"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Nomor Telepon"/>
+        <Button
+            android:id="@+id/btnReSendCode"
+            android:layout_gravity="center"
+            android:background="@drawable/ps__button_youtube"
+            android:textColor="@color/colorTextLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kirim ulang kode aktivasi"/>
 
     </LinearLayout>
     <ProgressBar

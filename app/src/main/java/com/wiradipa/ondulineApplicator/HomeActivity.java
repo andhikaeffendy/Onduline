@@ -22,7 +22,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.wiradipa.ondulineApplicator.lib.ApiWeb;
@@ -40,6 +42,7 @@ public class HomeActivity extends AppCompatActivity{
     private AppSession session;
     TextView txtProfilName, txtUserType, txt_totalPoint;
     ImageView imgProfil;
+    private RelativeLayout rl_btnOrderingProduct, rl_btnTechnicalSupport;
 
     private UpdateTask updateTask;
 //    untuk menu gerak
@@ -123,34 +126,30 @@ public class HomeActivity extends AppCompatActivity{
     public void onClickHome(View v) {
         Intent i;
         switch (v.getId()) {
-            case R.id.btnOrderSaya:
-//                Toast.makeText(this, "btnOrderSaya", Toast.LENGTH_LONG).show();
-                i = new Intent(this, HistoryActivity.class);
-                i.putExtra("pil", "order " + pil);
-                startActivity(i);
-                break;
-            case R.id.btnProgram:
-//                Toast.makeText(this, "btnProgram", Toast.LENGTH_LONG).show();
-                if (pil.equals("applicator")){
-//                    i = new Intent(this, ListProgram.class);
-
-                    i = new Intent(this, DetilViewActivity.class);
-                    i.putExtra("pil","Program");
-                    i.putExtra("pilDetilView","ondulucky baja ringan");
-                    startActivity(i);
-                }else {
-                    i = new Intent(this, DetilViewActivity.class);
-                    i.putExtra("pil","Program");
-                    i.putExtra("pilDetilView","toko");
-                    startActivity(i);
-                }
-                break;
-//            case R.id.btnProyekSaya:
-////                Toast.makeText(this, "btnProyekSaya", Toast.LENGTH_LONG).show();
+//            case R.id.btnOrderSaya:
+////                Toast.makeText(this, "btnOrderSaya", Toast.LENGTH_LONG).show();
 //                i = new Intent(this, HistoryActivity.class);
-//                i.putExtra("pil","project " + pil); //---------------------
+//                i.putExtra("pil", "order " + pil);
 //                startActivity(i);
 //                break;
+            case R.id.btnProgram:
+//                Toast.makeText(this, "btnProgram", Toast.LENGTH_LONG).show();
+//                if (pil.equals("applicator")){
+//                    i = new Intent(this, DetilViewActivity.class);
+//                    i.putExtra("pil","Program");
+//                    i.putExtra("pilDetilView","ondulucky baja ringan");
+//                    startActivity(i);
+//                }else {
+//                    i = new Intent(this, DetilViewActivity.class);
+//                    i.putExtra("pil","Program");
+//                    i.putExtra("pilDetilView","toko");
+//                    startActivity(i);
+//                }
+                i = new Intent(HomeActivity.this, TotalPointActivity.class);
+                i.putExtra("pilListView","project");
+                startActivity(i);
+
+                break;
             case R.id.btnTechnicalSupport:
 //                Toast.makeText(this, "btnTechnicalSupport", Toast.LENGTH_LONG).show();
                 i = new Intent(this, TechnicalSupportActivity.class);
@@ -168,7 +167,7 @@ public class HomeActivity extends AppCompatActivity{
                 startActivity(i);
                 break;
             case R.id.btnContactOnduline:
-                i = new Intent(this, ContactOndulineActivity.class);
+                i = new Intent(this, ContactOndulineIndividuActivity.class);
                 startActivity(i);
                 break;
             case R.id.btnCalculator:
@@ -179,6 +178,21 @@ public class HomeActivity extends AppCompatActivity{
                 i = new Intent(this, SimulatorAtapActivity.class);
                 startActivity(i);
                 break;
+            case R.id.btnOrderingProduct:
+                i = new Intent(this, PermintaanMarketingActivity.class);
+                i.putExtra("pil", "produk");
+                startActivity(i);
+                break;
+            case R.id.btnSayembaraOgra:
+                i = new Intent(this, DetilOndulineGreenRoofAwardActivity.class);
+                startActivity(i);
+                break;
+            case R.id.btnDataProyek:
+                i = new Intent(this, DataProyekActivity.class);
+                startActivity(i);
+                break;
+
+
         }
     }
 
@@ -209,28 +223,6 @@ public class HomeActivity extends AppCompatActivity{
     @Override
     public void onBackPressed() {
 
-
-//
-//        new AlertDialog.Builder(this)
-//                .setTitle("Keluar")
-//                .setMessage("Apakah anda yakin ingin keluar?")
-//                .setNegativeButton(android.R.string.no, null)
-//                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-//
-//                    public void onClick(DialogInterface arg0, int arg1) {
-//                        //MapsActivity.super.onBackPressed();
-//                        //finish();
-//                        // System.exit(0);
-//
-//                        Intent intent = new Intent(Intent.ACTION_MAIN);
-//                        intent.addCategory(Intent.CATEGORY_HOME);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
-//                        startActivity(intent);
-//                        finish();
-//                        System.exit(0);
-//                    }
-//                }).create().show();
-//
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else if (drawer.isDrawerOpen(GravityCompat.END)) {  /*Closes the Appropriate Drawer*/
@@ -333,17 +325,6 @@ public class HomeActivity extends AppCompatActivity{
 
                 Intent i;
                 switch (item.getItemId()) {
-                    case R.id.nav_produk:
-//                        Toast.makeText(HomeActivity.this, "nav_produk", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, OurProductActivity.class);
-                        i.putExtra("stat","");
-                        startActivity(i);
-                        break;
-                    case R.id.nav_marketingsupport:
-//                        Toast.makeText(HomeActivity.this, "nav_marketingsupport", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, MarketingSupportActivity.class);
-                        startActivity(i);
-                        break;
                     case R.id.nav_QandA:
 //                        Toast.makeText(HomeActivity.this, "nav_QandA", Toast.LENGTH_LONG).show();
                         i = new Intent(HomeActivity.this, qnaActivity.class);
@@ -357,32 +338,28 @@ public class HomeActivity extends AppCompatActivity{
 
         NavigationView rightNavigationView = (NavigationView) findViewById(R.id.nav_right_view);
 
-        //edit text pada menu navigasi sebelah kanan
-        Menu menuRight = navigationView.getMenu();
-        menuRight.findItem(R.id.nav_TotalPoin).setTitle("Total Poin Anda : " + session.getPoin());
         rightNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 Intent i;
                 switch (item.getItemId()) {
-                    case R.id.nav_TotalPoin:
+//                    case R.id.nav_TotalPoin:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalPoin", Toast.LENGTH_LONG).show();
-//                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
+//                        i = new Intent(HomeActivity.this, TotalPointActivity.class);
 //                        i.putExtra("pilListView","project");
 //                        startActivity(i);
-                        break;
-                    case R.id.nav_sumOrder:
+//                        break;
+//                    case R.id.nav_sumOrder:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalOrder", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
-                        i.putExtra("pilListView","order");
-                        i.putExtra("pil",pil);
-                        startActivity(i);
-                        break;
-//                    case R.id.nav_sumProjectPhotod:
-////                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
 //                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
-//                        i.putExtra("pilListView","project");
+//                        i.putExtra("pilListView","order");
+//                        i.putExtra("pil",pil);
+//                        startActivity(i);
+//                        break;
+//                    case R.id.nav_contactOnduline:
+//                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
+//                        i = new Intent(HomeActivity.this, ContactOndulineActivity.class);
 //                        startActivity(i);
 //                        break;
                     case R.id.nav_Logout:
@@ -391,18 +368,6 @@ public class HomeActivity extends AppCompatActivity{
                         break;
                 }
 
-//                <item
-//                android:id="@+id/nav_sumProjectPhotod"
-//                android:title="@string/sum_project_photos" />
-//                <item
-//                android:id="@+id/nav_sumOrder"
-//                android:title="@string/sum_order" />
-//                <item
-//                android:id="@+id/nav_TotalPoin"
-//                android:title="Total Poin" />
-//                <item
-//                android:id="@+id/nav_Logout"
-//                android:title="Logout" />
                 return false;
             }
         });
@@ -415,15 +380,6 @@ public class HomeActivity extends AppCompatActivity{
         /** xml untuk retailer */
         setContentView(R.layout.activity_home_retailer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setTitle(session.getRetailerType());
-        toolbar.setTitle("Toko Bangunan");
-        setSupportActionBar(toolbar);
-
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
 
 //        get poin
         updateTask = new UpdateTask();
@@ -431,6 +387,9 @@ public class HomeActivity extends AppCompatActivity{
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_right_view);
         View header=navigationView.getHeaderView(0);
+        rl_btnOrderingProduct = (RelativeLayout)findViewById(R.id.rl_btnOrderingProduct);    //pemesanan produk untuk toko baja ringan dan toko bahan bangunan / tradisional
+        rl_btnTechnicalSupport = (RelativeLayout)findViewById(R.id.rl_btnTechnicalSupport);  //dukungan teknis untuk modern outlet
+
         txtProfilName = (TextView)header.findViewById(R.id.txtProfilName);
         txtUserType = (TextView)header.findViewById(R.id.txtUserType);
         imgProfil   = (ImageView)header.findViewById(R.id.imgProfil);
@@ -439,21 +398,41 @@ public class HomeActivity extends AppCompatActivity{
         txtUserType.setText(session.getRetailerType());
 
         NavigationView leftNavigationView = (NavigationView) findViewById(R.id.nav_left_view);
+        Menu menuLeft = leftNavigationView.getMenu();
+
+        if (session.getRetailerType().equals("Supermarket Bahan Bangunan")){
+//            Toast.makeText(HomeActivity.this, session.getRetailerType()+ "\n Supermarket Bahan Bangunan", Toast.LENGTH_LONG).show();
+            menuLeft.findItem(R.id.nav_Dukungan).setVisible(false);
+            toolbar.setTitle(R.string.modern_outlet);
+            rl_btnTechnicalSupport.setVisibility(View.VISIBLE);
+            rl_btnOrderingProduct.setVisibility(View.GONE);
+        }else if (session.getRetailerType().equals("Toko Baja Ringan / Depo keramik")){
+//            Toast.makeText(HomeActivity.this, session.getRetailerType() + "\nToko Baja Ringan / Depo Keramik", Toast.LENGTH_LONG).show();
+            toolbar.setTitle(R.string.toko_baja_ringan);
+            rl_btnTechnicalSupport.setVisibility(View.GONE);
+            rl_btnOrderingProduct.setVisibility(View.VISIBLE);
+        }else {
+//            Toast.makeText(HomeActivity.this, session.getRetailerType()+ "\nToko Bahan Bangunan", Toast.LENGTH_LONG).show();
+            toolbar.setTitle(R.string.toko_bahan_bangunan);
+            rl_btnTechnicalSupport.setVisibility(View.GONE);
+            rl_btnOrderingProduct.setVisibility(View.VISIBLE);
+        }
+
+        setSupportActionBar(toolbar);
+
+
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
         leftNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 Intent i;
                 switch (item.getItemId()) {
-                    case R.id.nav_produk:
-//                        Toast.makeText(HomeActivity.this, "nav_produk", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, OurProductActivity.class);
-                        i.putExtra("stat","");
-                        startActivity(i);
-                        break;
-                    case R.id.nav_marketingsupport:
-//                        Toast.makeText(HomeActivity.this, "nav_marketingsupport", Toast.LENGTH_LONG).show();
-                        break;
                     case R.id.nav_QandA:
 //                        Toast.makeText(HomeActivity.this, "nav_QandA", Toast.LENGTH_LONG).show();
                         i = new Intent(HomeActivity.this, qnaActivity.class);
@@ -462,6 +441,11 @@ public class HomeActivity extends AppCompatActivity{
                     case R.id.nav_Dukungan:
 //                        Toast.makeText(HomeActivity.this, "nav_Dukungan", Toast.LENGTH_LONG).show();
                         i = new Intent(HomeActivity.this, TechnicalSupportActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_contactOnduline:
+//                        Toast.makeText(HomeActivity.this, "nav_Dukungan", Toast.LENGTH_LONG).show();
+                        i = new Intent(HomeActivity.this, ContactOndulineIndividuActivity.class);
                         startActivity(i);
                         break;
                 }
@@ -482,9 +466,9 @@ public class HomeActivity extends AppCompatActivity{
                 switch (item.getItemId()) {
                     case R.id.nav_TotalPoin:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalPoin", Toast.LENGTH_LONG).show();
-//                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
+                        i = new Intent(HomeActivity.this, TotalPointActivity.class);
 //                        i.putExtra("pilListView","project");
-//                        startActivity(i);
+                        startActivity(i);
                         break;
                     case R.id.nav_TotalOrder:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalOrder", Toast.LENGTH_LONG).show();
@@ -498,6 +482,11 @@ public class HomeActivity extends AppCompatActivity{
 //                        i = new Intent(HomeActivity.this, HistoryActivity.class);
 //                        i.putExtra("pil","project " + pil);
 //                        startActivity(i);
+                        break;
+                    case R.id.nav_contactOnduline:
+//                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
+                        i = new Intent(HomeActivity.this, ContactOndulineActivity.class);
+                        startActivity(i);
                         break;
                     case R.id.nav_Logout:
 //                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
@@ -545,23 +534,14 @@ public class HomeActivity extends AppCompatActivity{
 
                 Intent i;
                 switch (item.getItemId()) {
-                    case R.id.nav_produk:
-//                        Toast.makeText(HomeActivity.this, "nav_produk", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, OurProductActivity.class);
-                        i.putExtra("stat","");
-                        startActivity(i);
-                        break;
-                    case R.id.nav_marketingsupport:
-//                        Toast.makeText(HomeActivity.this, "nav_marketingsupport", Toast.LENGTH_LONG).show();
-                        break;
                     case R.id.nav_QandA:
 //                        Toast.makeText(HomeActivity.this, "nav_QandA", Toast.LENGTH_LONG).show();
                         i = new Intent(HomeActivity.this, qnaActivity.class);
                         startActivity(i);
                         break;
-                    case R.id.nav_Dukungan:
+                    case R.id.nav_contactOnduline:
 //                        Toast.makeText(HomeActivity.this, "nav_Dukungan", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, TechnicalSupportActivity.class);
+                        i = new Intent(HomeActivity.this, ContactOndulineIndividuActivity.class);
                         startActivity(i);
                         break;
                 }
@@ -579,7 +559,8 @@ public class HomeActivity extends AppCompatActivity{
                 switch (item.getItemId()) {
                     case R.id.nav_TotalPoin:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalPoin", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
+                        i = new Intent(HomeActivity.this, TotalPointActivity.class);
+//                        i.putExtra("pilListView","project");
                         startActivity(i);
                         break;
                     case R.id.nav_TotalOrder:

@@ -104,7 +104,7 @@ public class SimulatorAtapActivity extends AppCompatActivity {
                 imgChooser=stat;
                 imgSimulator.setImageResource(R.drawable.onduvilla_3d_modern_house_h3_ebony_black_v1);
                 break;
-            case "Round Roof":
+            case "Curve Roof":
                 LinearColorButton.setVisibility(View.VISIBLE);
                 imgSimulator.setImageResource(R.drawable.maisonronde_h1_ebony_black_v1);
                 imgChooser=stat;
@@ -184,28 +184,28 @@ public class SimulatorAtapActivity extends AppCompatActivity {
                 break;
 
 
-            case "EBONY BLACK Round Roof":
+            case "EBONY BLACK Curve Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_h1_ebony_black_v1);
                 break;
-            case "TERRACOTA Round Roof":
+            case "TERRACOTA Curve Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_g1_terracotta_v1);
                 break;
-            case "FOREST GREEN Round Roof":
+            case "FOREST GREEN Curve Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_f1_forest_green_v1);
                 break;
-            case "CLASSIC RED Round Roof":
+            case "CLASSIC RED Curve Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_e1_classic_red_v1);
                 break;
-            case "ANTHRACITE BLACK Round Roof":
+            case "ANTHRACITE BLACK Curve Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_d1_antracite_black_v1);
                 break;
-            case "SHADED BROWN Round Roof":
+            case "SHADED BROWN Curve Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_c1_shaded_brown_v1);
                 break;
-            case "SHADED GREEN Round Roof":
+            case "SHADED GREEN Curve Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_b1_shaded_green_v1_0);
                 break;
-            case "SHADED RED Round Roof":
+            case "SHADED RED Curve Roof":
                 imgSimulator.setImageResource(R.drawable.maisonronde_a1_shaded_red_v1);
                 break;
 

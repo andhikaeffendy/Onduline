@@ -50,15 +50,6 @@ public class ChooseUserTypeActivity extends AppCompatActivity {
 //                Toast.makeText(ChooseUserTypeActivity.this, "btnAplikator", Toast.LENGTH_LONG).show();
 //                Toast.makeText(ChooseUserTypeActivity.this, "btnIndividu", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.btnAktivasiAkun:
-                if (!emailRegister.equals("null")){
-                    i = new Intent(this, VerificationPageActivity.class);
-//                    i.putExtra("hp_no", "");
-                    startActivity(i);
-                }
-
-//                Toast.makeText(ChooseUserTypeActivity.this, "btnLanjut", Toast.LENGTH_LONG).show();
-                break;
         }
     }
 }

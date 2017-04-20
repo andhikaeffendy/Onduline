@@ -36,101 +36,81 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:layout_weight="12"
+            android:layout_weight="11"
             android:gravity="center"
-            android:weightSum="8">
+            android:weightSum="6">
             <RelativeLayout
+                android:id="@+id/rl_PermintaanBrosur"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2">
-                <ImageView
-                    android:id="@+id/btnPermintaanProduk"
-                    android:onClick="onClickMarketingSupport"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/bg_cyrcle"/>
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/ic_pemesanan_produk_white_24dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pemesanan Produk"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_margin="10dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2">
+
+
                 <ImageView
                     android:id="@+id/btnPermintaanBrosur"
                     android:onClick="onClickMarketingSupport"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/bg_cyrcle"/>
+                    android:layout_margin="25dp"
+                    android:src="@drawable/btn_home_pemesanan_brosur" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Permintaan Brosur"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_margin="10dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/order_brochure"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_pemesanan_brosur_white_24dp"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/imageView2" />
+
+
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/rl_PermintaanSouvenir"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2">
+
+
                 <ImageView
                     android:id="@+id/btnPermintaanSouvenir"
                     android:onClick="onClickMarketingSupport"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/bg_cyrcle"/>
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/ic_permintaan_souvenir_white_24dp"/>
+                    android:layout_margin="25dp"
+                    android:src="@drawable/btn_home_pemesanan_souvenir" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Permintaan Souvenir"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_margin="10dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/order_souvenir"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
             </RelativeLayout>
 
         </LinearLayout>
 
     </LinearLayout>
-
-    <RelativeLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="@color/colorPrimary"/>
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlackAlpha"
+        android:text="@string/signatureContact"/>
+
+
 
 
 </RelativeLayout>

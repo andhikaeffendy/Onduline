@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_03"
-    tools:context="com.wiradipa.ondulineApplicator.ContactOndulineActivity">
+    tools:context="com.wiradipa.ondulineApplicator.ContactOndulineIndividuActivity">
 
 
     <!-- sample complain -->
@@ -58,12 +58,79 @@
                     android:textSize="30dp"
                     android:text="@string/onduline"/>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:textColor="@color/colorBlack"
                     android:text="@string/signature"/>
+                <!--tempat sosmed-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/sosmed_fb"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:layout_gravity="center"
+                        android:text="@string/sosmed_fb"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18dp"/>
+
+                </LinearLayout>
+                <!--tempat sosmed-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/sosmed_ig"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:layout_gravity="center"
+                        android:text="@string/sosmed_ig"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18dp"/>
+
+                </LinearLayout>
+                <!--tempat sosmed-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/sosmed_twitter"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:layout_gravity="center"
+                        android:text="@string/sosmed_twitter"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18dp"/>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_gravity="center"

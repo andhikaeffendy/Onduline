@@ -284,28 +284,14 @@ public class LoginActivity extends AppCompatActivity {
 
         switch (v.getId()){
             case R.id.btnLogin:
-
                 attemptLogin();
-
-//                switch (editTextLoginEmail.getText().toString()){
-//                    case "app@gmail.com":
-//                        pil="applicator";
-//                        i.putExtra("pil", pil);
-//                        startActivity(i);
-//                        break;
-//                    case "retail@gmail.com":
-//                        pil="retailer";
-//                        i.putExtra("pil", pil);
-//                        startActivity(i);
-//                        break;
-//                    default:
-//                        Toast.makeText(this, "email tidak terdaftar", Toast.LENGTH_LONG).show();
-//                        break;
-//                }
-
                 break;
             case R.id.btnRegister:
                 i = new Intent(this, ChooseUserTypeActivity.class);;
+                startActivity(i);
+                break;
+            case R.id.btnActivation:
+                i = new Intent(this, VerificationPageActivity.class);
                 startActivity(i);
                 break;
         }

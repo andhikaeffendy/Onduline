@@ -27,7 +27,7 @@
                 android:textColor="@color/colorTextLight"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                android:text="Kalkulator"/>
+                android:text="@string/calc_calculator"/>
         </RelativeLayout>
 
         <ScrollView
@@ -56,7 +56,7 @@
                         android:layout_centerInParent="true"
                         android:textColor="#fff"
                         android:textSize="30dp"
-                        android:text="ONDULINE®"/>
+                        android:text="@string/onduline"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -89,46 +89,6 @@
                         android:gravity="center"
                         android:background="@color/colorBlackAlpha"
                         android:textColor="@color/colorTextLight"/>
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="Proyek"/>-->
-                    <!--<Spinner-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"/>-->
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="Lokasi"/>-->
-                    <!--<EditText-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:hint="isi lokasi anda"/>-->
-                    <!--<RelativeLayout-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content">-->
-                        <!--<TextView-->
-                            <!--android:id="@+id/txtTittleDateCalculator"-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="Tanggal lahir"/>-->
-                        <!--<TextView-->
-                            <!--android:id="@+id/txtisianTanggalKalkulator"-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_below="@id/txtTittleDateCalculator"-->
-                            <!--android:textSize="20dp"-->
-                            <!--android:text="00/00/00"/>-->
-                        <!--<Button-->
-                            <!--android:id="@+id/btnDatePickerCalculator"-->
-                            <!--android:layout_alignParentRight="true"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:padding="5dp"-->
-                            <!--android:text="pilih Tanggal"-->
-                            <!--android:background="@drawable/ps__button_youtube"-->
-                            <!--android:textColor="@color/colorTextLight"/>-->
-                    <!--</RelativeLayout>-->
                     <LinearLayout
                         android:layout_margin="5dp"
                         android:layout_width="match_parent"
@@ -139,7 +99,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:text="Jenis Rangka"/>
+                            android:text="@string/calc_typeRoofFrame"/>
                         <Spinner
                             android:id="@+id/spnJenisRangka"
                             android:layout_margin="10dp"
@@ -149,7 +109,7 @@
                             android:layout_margin="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Jenis Atap"/>
+                            android:text="@string/calc_typeRoof"/>
                         <Spinner
                             android:layout_margin="10dp"
                             android:id="@+id/spnJenisAtap"
@@ -192,7 +152,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="6"
-                            android:text="Sudut Kemiringan Atap* :  "/>
+                            android:text="@string/calc_roofPitchAngle"/>
                         <EditText
                             android:id="@+id/et_pitchAngle"
                             android:layout_width="0dp"
@@ -215,7 +175,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="6"
-                            android:text="Luas Atap (panjang x lebar)* :  "/>
+                            android:text="@string/calc_roofArea"/>
 
                         <EditText
                             android:id="@+id/et_roofArea"
@@ -237,7 +197,7 @@
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total Atap "/>
+                        android:text="@string/calc_sumOfRoof"/>
                     <TextView
                         android:layout_margin="10dp"
                         android:id="@+id/txtJumlahAtap"
@@ -281,7 +241,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="6"
-                            android:text="Panjang nok* "/>
+                            android:text="@string/calc_ridgeLength"/>
                         <EditText
                             android:id="@+id/et_ridgeLength"
                             android:layout_width="0dp"
@@ -305,7 +265,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="6"
-                            android:text="Panjang Jurai Luar* "/>
+                            android:text="@string/calc_hipLength"/>
                         <EditText
                             android:id="@+id/et_hipLength"
                             android:layout_width="0dp"
@@ -324,7 +284,7 @@
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total Nok Onduline "/>
+                        android:text="@string/calc_totalNokOnduline"/>
                     <TextView
                         android:id="@+id/txtresultSumOfNok"
                         android:layout_margin="5dp"
@@ -368,7 +328,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:text="Sekrup Onduline untuk atap "/>
+                        android:text="@string/calc_ondulineScrewsForRoof"/>
                     <TextView
                         android:id="@+id/et_screwsForRoof"
                         android:layout_width="0dp"
@@ -391,7 +351,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:text="Sekrup Onduline untuk nok"/>
+                        android:text="@string/calc_ondulineScrewsForRidge"/>
                     <TextView
                         android:id="@+id/et_screwsForRidge"
                         android:layout_width="0dp"
@@ -408,7 +368,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jumlah sekrup total "/>
+                    android:text="@string/calc_totalScrews"/>
                 <TextView
                     android:id="@+id/txtSumOfScrup"
                     android:layout_margin="5dp"
@@ -450,10 +410,11 @@
                     android:layout_margin="15dp"
                     android:weightSum="10">
                     <TextView
+                        android:id="@+id/txt_resumeSumRoof"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="7"
-                        android:text="Jumlah Atap Onduline"/>
+                        android:text="@string/calc_sumOFRoofOduline"/>
                     <TextView
                         android:id="@+id/txtLastSumOfRoof"
                         android:layout_width="0dp"
@@ -467,10 +428,11 @@
                     android:orientation="horizontal"
                     android:weightSum="10">
                     <TextView
+                        android:id="@+id/txt_resumeSumRidges"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="7"
-                        android:text="Jumlah Nok Onduline"/>
+                        android:text="@string/calc_sumOFRidgeOduline"/>
                     <TextView
                         android:id="@+id/txtLastSumOfRidges"
                         android:layout_width="0dp"
@@ -484,6 +446,7 @@
                     android:orientation="horizontal"
                     android:weightSum="10">
                     <TextView
+                        android:id="@+id/txt_resumeSumScrews"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="7"

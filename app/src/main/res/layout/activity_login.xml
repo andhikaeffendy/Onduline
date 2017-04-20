@@ -110,72 +110,66 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:textStyle="bold" />
-            <LinearLayout
-                android:padding="10dp"
+            <Button
+                android:id="@+id/btnRegister"
+                android:onClick="onClickLogin"
+                android:background="#99000000"
+                android:textColor="@color/colorTextLight"
+                android:text="Registrasi baru"
+                style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:weightSum="2"
                 android:orientation="horizontal">
                 <!--sementara untuk activation-->
                 <TextView
-                    android:layout_margin="10dp"
                     android:id="@+id/forgot_password"
                     android:onClick="onClickForgotPassword"
-                    android:background="@drawable/ps__button_youtube"
+                    android:background="#99000000"
                     android:textColor="@color/colorTextLight"
+                    android:layout_marginRight="2dp"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="lupa password?"
-                    android:gravity="center"
-                    android:textSize="16dip"/>
+                    android:gravity="center"/>
 
 
                 <TextView
-                    android:id="@+id/btnRegister"
+                    android:id="@+id/btnActivation"
                     android:onClick="onClickLogin"
                     android:textColor="@color/colorTextLight"
-                    android:background="@drawable/ps__button_youtube"
+                    android:layout_marginLeft="2dp"
+                    android:background="#99000000"
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="40dp"
-                    android:text="Daftar Baru"
-                    android:textSize="18dp"/>
-
-                <!--sementara visibility di gone -->
-                <!--<LinearLayout-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="70dp"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:layout_margin="5dp"-->
-                    <!--android:visibility="gone"-->
-                    <!--android:background="@drawable/ps__button_youtube"-->
-                    <!--android:orientation="vertical">-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_gravity="center"-->
-                        <!--android:textColor="@color/colorTextLight"-->
-                        <!--android:text="Belum memiliki akun? "/>-->
-                    <!--<TextView-->
-                        <!--android:id="@+id/btnRegister"-->
-                        <!--android:onClick="onClickLogin"-->
-                        <!--android:textColor="@color/colorTextLight"-->
-                        <!--android:layout_gravity="center"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="Daftar Sekarang"-->
-                        <!--android:textSize="18dp"/>-->
-
-
-                <!--</LinearLayout>-->
+                    android:text="belum aktivasi?"/>
 
             </LinearLayout>
 
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version 1.0.7"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/contact_Login"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

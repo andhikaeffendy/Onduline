@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Onduline</string>
 
+    <string name="contact_Login">CONTACT SERVICE : 0822 97 345 789\nwww.onduline.co.id / www.onduvilla.co.id</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -12,7 +14,6 @@
     <string name="submit">Kirim</string>
     <string name="start">LANJUT</string>
     <string name="neworder">Order Baru</string>
-    <string name="state">Provinsi*</string>
     <string name="history">HISTORY</string>
     <string name="total_point">Total Poin</string>
     <string name="total_Order">Total Order</string>
@@ -23,9 +24,259 @@
     <string name="instalation_guide_onduline">Panduan Pemasangan ONDULINE®</string>
     <string name="instalation_guide_bardoline">Panduan Pemasangan BARDOLINE®</string>
 
+    <!--home button-->
+    <string name="home_program">Program</string>
+    <string name="home_marketing_support">Dukungan Marketing</string>
+    <string name="home_technical_support">Dukungan Teknis</string>
+    <string name="home_product">Produk</string>
+    <string name="home_calculator">Kalkulator</string>
+    <string name="home_contact_onduline">Kontak ONDULINE®</string>
+    <string name="home_ordering_product">Pemesanan Produk</string>
+    <string name="home_ogra">Sayembara Desain</string>
+    <string name="home_data_proyek">Data Proyek</string>
 
-    <string name="signature">Contact us :\nShowroom : Komplek Spectra Block 23 C No. 19\nTelepon : (021) 29211490\nwebsite:www.onduline.co.id\nMarketing email : Info@ondulineindonesia.com\nTeknikal email : Teknik@ondulineindonesia.com\n\nfacebook  : www.facebook.com/OndulineIndonesia\ninstagram : www.instagram.com/ondulineid\ntwitter   : www.twitter.com/ondulineID</string>
-    <string name="signatureContact">Telepon : (021) 29211490\nMarketing email : Info@ondulineindonesia.com\nTeknikal email : Teknik@ondulineindonesia.com</string>
+    <!--Marketing support button-->
+    <string name="order_brochure">Permintaan Brosur</string>
+    <string name="order_souvenir">Permintaan Suvenir</string>
+
+    <!--retailer type-->
+    <string name="modern_outlet">Modern Outlet</string>
+    <string name="toko_bahan_bangunan">Toko Bahan Bangunan</string>
+    <string name="toko_baja_ringan">Toko Baja Ringan</string>
+
+    <!--Total Poin-->
+    <string name="btn_upload_surat_jalan">Upload Surat Jalan</string>
+    <string name="keterangan_btn_upload_surat_jalan">Dapatkan Poin dengan cara\nmengupload surat jalan baru</string>
+
+    <!--Data Proyek-->
+    <string name="tittle_header_data_proyek">Data Proyek</string>
+    <string name="note_data_proyek">permintaan data dokumen dapat mengirimkan\nemail ke info@ondulineindonesia.com </string>
+    <!--Dokumen Teknis-->
+    <string name="tittle_header_dokumen_teknis">Dokumen Teknis</string>
+    <string name="btn_dokumen_teknis">DOKUMEN TEKNIS</string>
+    <string name="btn_input_informasi_proyek">INPUT INFORMASI PROYEK</string>
+    <string name="tittle_produk_onduline">Download Dokumen Produk ONDULINE®</string>
+    <string name="tittle_produk_onduvilla">Download Dokumen Produk ONDUVILLA®</string>
+    <string name="tittle_produk_bituline">Download Dokumen Produk BITULINE®</string>
+    <string name="tittle_produk_bardoline">Download Dokumen Produk BARDOLINE®</string>
+    <string name="data_proyek_green_certification">Green Certification</string>
+    <string name="data_proyek_tds_onduline">TDS ONDULINE</string>
+    <string name="data_proyek_rks_onduline">RKS Onduline</string>
+    <string name="data_proyek_sertifikat_sni">Sertifikat SNI</string>
+    <string name="data_proyek_sni_pemasangan">SNI PEMASANGAN 7711-2-2012</string>
+    <string name="data_proyek_sound_test">Sound Test</string>
+    <string name="data_proyek_wind_testing_onduline">Wind Testing Onduline</string>
+    <string name="data_proyek_rks_onduvilla">RKS Onduvilla</string>
+    <string name="data_proyek_wind_testing_onduvilla">Wind Testing Onduvilla</string>
+    <string name="data_proyek_tds_onduvilla">TDS Onduvilla</string>
+    <string name="data_proyek_technical_data_onduvilla_pphr_3d">Technical Data Onduvilla PPHR 3D</string>
+    <string name="data_proyek_tds_bituline">TDS BITULINE</string>
+    <string name="data_proyek_tds_bardoline_beaver">TDS BARDOLINE BEAVER</string>
+    <string name="data_proyek_tds_bardoline_rectangular">TDS BARDOLINE RECTANGULAR</string>
+    <!--input informasi proyek-->
+    <string name="tittle_header_input_informasi_proyek">Input Informasi Proyek</string>
+    <string name="project_name">Nama Proyek</string>
+    <string name="location">Lokasi</string>
+    <string name="roof_area">Luas Atap</string>
+    <string name="roof_type">Jenis Atap</string>
+    <string name="hint_project_name">Masukan nama proyek anda</string>
+    <string name="hint_location">Masukan lokasi proyek anda</string>
+    <string name="hint_roof_area">Masukan luas atap</string>
+
+    <!--input informasi proyek-->
+    <string name="project_address">Alamat Lengkap Proyek*</string>
+    <string name="hint_project_address">Masukan alamat lengkap proyek anda</string>
+    <string name="project_state">Provinsi Proyek*</string>
+    <string name="hint_project_state">Masukan provinsi proyek anda</string>
+    <string name="project_city">Kota Proyek*</string>
+    <string name="hint_project_city">Masukan kota proyek anda</string>
+
+
+
+
+    <!--Onduline Green Roof Award-->
+    <string name="header_onduvilla_green_roof_award">Onduline Green Roof Award</string>
+    <string name="tittle_onduvilla_green_roof_award">SAYEMBARA DESAIN ATAP PONDOK WISATA TEPI PANTAI</string>
+    <string name="ogra_tittle_persyaratan_karya">PERSYARATAN KARYA</string>
+
+    <string name="ogra_periode">Periode Sayembara : 1 April – 30 September 2017</string>
+    <string name="ogra_intro">Setelah sukses pada program Onduline Green Roof Award yang pertama pada 2013 dan 2015 yang lalu, PT Onduline Indonesia kembali mewujudkan apresiasinya terhadap pengembangan dan kemajuan arsitek Indonesia dengan meluncurkan program OGRA2017 yang bekerja sama dengan dan Green Building Council Indonesia (GBCI). Sayembara merancang desain bangunan atau arsitektur ini ditujukan untuk perorangan profesional di bidang arsitek, design interior, developer, konsultan perencana dan kontraktor pelaksana yang telah berprofesi minimal satu tahun.</string>
+    <string name="ogra_tema">Tahun ini Tema yang diangkat adalah “Desain Atap Pondok Wisata Pinggir Pantai”. Fokus penilaian desain terletak pada bentuk dan fungsi atap pondok wisata yang cocok untuk wilayah pinggir pantai. Peserta bebas menentukan desain penyelesaian dan instalasi bentuk atap sesuai dengan iklim tropis Indonesia, namun tetap dapat diaplikasikan di lapangan, serta memiliki panduan pemasangan yang baik dan benar.</string>
+    <string name="ogra_tittle_juri">Berlaku sebagai tim juri adalah :</string>
+    <string name="ogra_juri">Berlaku sebagai tim juri adalah :\n
+1. Tatok Prijobodo, Country Director PT Onduline Indonesia\n
+2. Naning Adiwoso, Core Founder dan Chair Person Green Building Council Indonesia\n
+3. Sigit Kusumawijaya, Director dan Principal architect of sigit.kusumawijaya\n</string>
+    <string name="ogra_tittle_penghargaan_hadiah_pemenang">HADIAH PENGHARGAAN :</string>
+    <string name="ogra_penghargaan_hadiah_pemenang">Hadiah pemenang Onduline Green Roof Award 2017 :\n
+1. Pemenang pertama mendapatkan : Uang Tunai Rp 40.000.000\n
+2. Pemenang kedua mendapatkan : Uang Tunai Rp 20.000.000\n
+3. Pemenang ketiga mendapatkan : Uang Tunai Rp 15.000.000\n
+4. Dua pemenang harapan masing-masing mendapatkan hadiah 1 buah IPAD AIR\n
+</string>
+    <string name="ogra_download_panduan_sayembara">Panduan sayembara download disini</string>
+    <string name="ogra_download_formulir_pendaftaran">Formulir pendaftaran download disini</string>
+    <!--untuk semntara ogra yang ini g kepake..-->
+    <string name="ogra_persyaratan_karya">1. Peserta bebas menentukan desain penyelesaian dan instalasi bentuk atap sesuai dengan Iklim Tropis Indonesia, namun dapat tetap diaplikasikan di lapangan, serta mempunyai panduan pemasangan dan atap harus terekspos jelas. Desain harus memperlihatkan bentuk atap.\n\n
+2. Pilihan lokasi pondok wisata mengambil salah satu tempat dari 8 Destinasi Wisata Kementerian Pariwisata yang ada di bawah ini : \n
+2.1 Pantai di area Kepulauan Seribu\n
+2.2 Tanjung Kelayang, Bangka – Belitung\n
+2.3 Tanjung Lesung, Banten\n
+2.4 Mandalika, Lombok NTB\n
+2.5 Labuan Bajo, Flores NTT\n
+2.6 Wakatobi, Sulawesi Utara\n
+2.7 Morotai, Maluku Utara\n
+2.8 Bunaken, Manado\n
+Note : Pemilihan Destinasi wisata bisa 1 tempat atau lebih.\n\n
+3. Desain pondok wisata mencerminkan budaya lokal dari lokasi yang dipilih\n\n
+4. Bahan atap ringan dan relatif aman terhadap gempa dan tahan karat\n\n
+5. Pemilihan desain mengangkat konsep : \n
+• Future Green Roof Design \n
+• Climate Change \n
+• Alternative Energy : Desain bangunan yang memiliki energi alternatif yang berasal dari energi terbarukan seperti sel surya atau mini-hydro \n
+• Healthy : Desain atap yang dapat memberikan kenyamanan dan kesehatan bagi penghuni pondok wisata \n
+• Micro Climate : Memilih material atap yang mampu mengurangi efek panas yang diterima bangunan (Reducing heat island effect dan albedo) \n
+• Rain harvesting : Atap didesain agar secara efisien mampu mengalirkan limpasan air hujan yang jatuh ke penampungan air hujan (penampungan air hujan tidak harus berada di atap) \n
+• Cross ventilation : mendesain atap yang mampu memberikan sirkulasi silang udara pada bangunan \n
+• Environmental friendly material : Menggunakan material atap yang merupakan material yang bersifat renewable/reuse/ ISO 14001\n\n
+6. Diperbolehkan untuk menggunakan teknologi alternatif pendukung seperti “Green Roof” atau sejenisnya yang dapat menambah perolehan nilai dalam faktor desain dan kreatifitas.\n\n
+7. Bahan bangunan atap yang digunakan harus mempunyai fungsi untuk dapat mengurangi panas yang masuk ke dalam bangunan, mudah pemeliharaanya dan memiliki nilai estetik dalam arsitektural sehingga indah dilihat. \n\n
+8. Desain menggunakan produk Onduline atau jenis bahan bangunan lainnya yang digabungkan dengan produk Onduline untuk penyelesaian atap. \n\n
+9. Desain bangunan dan atap memenuhi kaidah SNI yang berlaku. Seperti SNI untuk :\n
+• SNI 03-1726-2002 Tata Cara Perencanaan Ketahanan Gempa Untuk Rumah dan Gedung.\n
+• SNI 03-2396-2001 mengenai Tata cara perancangan sistem pencahayaan alami pada bangunan gedung\n
+• SNI 03-6575-2001 mengenai Tata cara perancangan sistem pencahayaan buatan pada bangunan gedung\n
+• SNI 03-6572-2001 mengenai Tata cara perancangan sistem ventilasi dan pengkondisian udara pada bangunan gedung\n\n
+10. Luasan bangunan minimum 150 m2 dan maximum 300 m2. \n\n
+11. Bentukan pondok wisata dengan peruntukan ruang sebagai berikut: \n
+• Teras \n
+• Ruang Keluarga \n
+• Kamar Tidur \n
+• Kamar Mandi \n
+• Dapur \n
+• Area jemur pakaian\n
+• Toilet \n\n
+12. Ukuran kertas harus menggunakan kertas ukuran A3 dengan maximal 5 lembar.\n\n
+13. Skala ukuran yang digunakan bebas menyesuaikan ukuran bangunan.\n\n
+14. Konsep atas pemilihan material dan bentuk rancangan diharapkan yang berbasis riset dan yang mampu menyertakan data pendukung seperti nilai albedo material atap, sertifikat sistem manajemen ramah lingkungan (ISO 14001), dan lain-lain\n\n
+</string>
+    <string name="ogra_tittle_syarat_dan_ketentuan">SYARAT DAN KETENTUAN</string>
+    <string name="ogra_syarat_dan_ketentuan">1. Peserta adalah Warga Negara Indonesia, perorangan dibidang arsitek, desainer interior, developer (pengembang), konsultan perencana, kontraktor pelaksana yang telah berprofesi minimal 1 tahun (non mahasiswa). \n\n
+2. Gagasan desain adalah karya asli peserta dan belum pernah dipublikasikan dan diikutsertakan dalam lomba apapun. Bagi karya yang sudah diimplementasikan dalam bentuk bangunan jadi (rill) dengan batas waktu pembangunan berjalan maksimal 1 tahun.\n\n
+3. Karya yang masuk tidak akan dikembalikan dan penyelenggara berhak mempublikasikan karya tersebut.\n\n
+4. Hak Cipta atas karya tetap melekat pada perancang\n\n
+5. Karya yang diikutsertakan adalah karya perorangan yang belum pernah dipublikasikan untuk kepentingan apapun.\n\n
+6. Setiap satu formulir hanya berlaku untuk satu karya, apabila terdapat lebih dari satu karya, maka harus disertakan formulir secara terpisah dengan nomor formulir pendaftaran yang berbeda untuk memudahkan kami dalam proses administrative dan dokumentasi.\n\n
+</string>
+    <string name="ogra_tittle_pemasukan_karya">PEMASUKAN KARYA</string>
+    <string name="ogra_pemasukan_karya">1. Media penyajian dibuat dalam bentuk file PDF (maksimal 5MB) atau sketsa.\n\n
+2. Materi desain dikirimkan melalu email ke greenroofaward@onduline.co.id dan sketsa dapat dikirimkan ke alamat :\n
+Komplek Spectra Blok 23C No.19 Jl. Jalur Sutera, Alam Sutera Serpong, Tangerang 15143\n
+Telp : 021-29211490\n
+Up : PANITIA PENYELENGGARA SAYEMBARA DESAIN ATAP PONDOK WISATA TEPI PANTAI\n\n
+3. Materi desain yang dikirimkan tanpa identitas asli peserta, identitas yang dicantumkan hanya pada formulir pendaftaran \n\n
+4. Identitas peserta dilengkapi dengan mengisi formulir yang dapat di download di website www.onduline.co.id atau www.onduvilla.co.id\n\n
+5. Batas waktu peyerahan karya paling lambat 30 September 2017 (peserta yang mengirimkan hasil karya akan mendapatkan konfirmasi dari pihak enyelenggara)\n\n
+</string>
+    <string name="ogra_tittle_tim_juri">TIM JURI</string>
+    <string name="ogra_tim_juri">1. Tatok Prijobodo\n
+Country Director PT Onduline Indonesia\n\n
+2. Naning Adiwoso\n
+Core Founder dan Chair Person Green Building Council Indonesia\n\n
+3. Sigit Kusumawijaya\n
+Director dan Principal architect of sigit.kusumawijaya\n\n</string>
+    <string name="ogra_tittle_penghargaan">PENGHARGAAN</string>
+    <string name="ogra_penghargaan">1. Karya desain terpilih dari lomba ONDULINE GREEN ROOF AWARD 2017 akan dibukukan secara ekslusif dalam buku “TROPICAL GREEN ROOF DESIGN” dan didistribusikan secara Nasional.\n\n
+2. Semua peserta yang mengirimkan hasil karya, namanya akan dicantumkan dalam buku eksklusif dan ditampilkan dalam website www.onduline.co.id dan www.onduvilla.co.id\n\n
+3. Seluruh peserta yang mengirimkan karya akan mendapatkan Piagam dari PT Onduline Indonesia dan Green Building Council Indonesia \n\n
+4. Publikasi pemenang melalui media cetak.\n\n
+</string>
+    <string name="ogra_tittle_pengumuman_pemenang">PENGUMUMAN PEMENANG</string>
+    <string name="ogra_pengumuman_pemenang">1. Panitia menentukan 3 pemenang utama dan 2 pemenang harapan setelah dilakukan penilaian oleh dewan juri dan pengumuman hasil akan dilaksanakan pada 10 Oktober 2017.\n\n
+2. Penguruman Pemenang tanggal 16 Oktober 2017. Para pemenang akan dihubungi oleh panitia sayembara\n\n
+3. Panitia diberikan hak sepenuhnya untuk mempublikasikan 50 karya terbaik, baik dalam bentuk media cetak, digital, siaran radio, televisi maupun media lainnya.\n\n
+4. Hadiah tidak dapat diganti dengan hadiah lainnya atau dipindahtangankan. \n\n
+5. Keputusan Panitia dan Dewan Juri tidak dapat diganggu gugat.\n\n
+6. Panitia tidak bertanggungjawab atas segala penipuan yang terjadi.\n\n</string>
+    <string name="ogra_tittle_hadiah">HADIAH</string>
+    <string name="ogra_hadiah">Hadiah pemenang Onduline Green Roof Award 2017 :\n\n
+1. Pemenang pertama mendapatkan : Uang Tunai Rp 40.000.000\n\n
+2. Pemenang kedua mendapatkan : Uang Tunai Rp 20.000.000\n\n
+3. Pemenang ketiga mendapatkan : Uang Tunai Rp 15.000.000\n\n
+4. Dua pemenang harapan masing-masing mendapatkan hadiah 1 buah IPAD AIR\n\n
+</string>
+
+
+    <!--form registrasi-->
+    <string name="state">Provinsi*</string>
+    <string name="city">Kota*</string>
+    <string name="email">Email*</string>
+    <string name="email_tokoBahanBangunan_dan_TokoTradisional">Email (isi dengan : namalengkap@gmail.com)</string>
+    <string name="store_name">Nama Toko*</string>
+    <string name="name">Nama*</string>
+    <string name="store_address">Alamat Toko*</string>
+    <string name="phone_number">Nomor Handphone*</string>
+    <string name="phone_number_store">Nomor Telepon Toko</string>
+    <string name="phone_number_store_tokoBahanBangunan_dan_TokoTradisional">Nomor Telepon Toko (jika ada)</string>
+    <string name="distributor_name">Nama Distributor (jika mengetahui)</string>
+    <string name="asosiasi">Asosiasi (jika ada)</string>
+    <string name="company_name">Nama Perusahaan (jika ada)</string>
+    <string name="company_address">Alamat Perusahaan (jika ada)</string>
+    <string name="owner_name">Nama Owner*</string>
+    <string name="no_id">No ID(KTP/SIM)*</string>
+    <string name="username">Username*</string>
+    <string name="password">Password* (kombinasi huruf dan angka)</string>
+    <string name="profesion">Profesi*</string>
+    <string name="re_password">Tulis ulang password*</string>
+    <string name="hint_input_your_store_address">Isi alamat lengkap toko anda</string>
+    <string name="hint_input_your_state">Isi provinsi domisili anda</string>
+    <string name="hint_input_your_city">Isi provinsi domisili anda</string>
+    <string name="hint_input_your_company_state">Isi provinsi domisili perusahaan anda</string>
+    <string name="hint_input_your_company_city">Isi kota domisili perusahaan anda</string>
+    <string name="hint_input_your_store_state">Isi provinsi domisili toko </string>
+    <string name="hint_input_your_store_city">Isi kota domisili toko anda</string>
+    <string name="hint_input_your_store_name">Isi nama toko anda</string>
+    <string name="hint_input_your_name">Isi nama anda</string>
+    <string name="hint_input_your_phone_number">Isi nomor handphone anda</string>
+    <string name="hint_input_your_phone_number_store">Isi nomor telepon toko anda</string>
+    <string name="hint_input_your_email">Isi Email anda</string>
+    <string name="hint_input_your_distributor_name">Isi nama distributor anda</string>
+    <string name="hint_input_your_asosiasi">Isi nama Asosiasi anda tergabung</string>
+    <string name="hint_input_your_company_name">Isi nama perusahaan anda</string>
+    <string name="hint_input_your_company_address">Isi alamat lengkap perusahaan anda</string>
+    <string name="hint_input_your_owner_name">Isi nama Owner anda</string>
+    <string name="hint_input_your_no_id">Isi no ID(KTP/SIM) anda</string>
+    <string name="hint_input_your_username">Isi username pilihan anda</string>
+    <string name="hint_input_your_username_tokoBahanBangunan_dan_TokoTradisional">Isi dengan username yang anda inginkan dan mudah diingat </string>
+    <string name="hint_input_your_password">Isi password pilihan anda</string>
+    <string name="hint_input_your_password_tokoBahanBangunan_dan_TokoTradisional">Isi password yang mudah diingat</string>
+    <string name="hint_input_your_re_password">Tulis ulang password</string>
+
+
+    <!--Kalkulator-->
+    <string name="calc_calculator">Kalkulator</string>
+    <string name="calc_typeRoofFrame">Jenis Rangka</string>
+    <string name="calc_typeRoof">Jenis Atap</string>
+    <string name="calc_roofPitchAngle">Sudut Kemiringan Atap* :  </string>
+    <string name="calc_roofArea">Luas Atap (panjang x lebar)* :  </string>
+    <string name="calc_sumOfRoof">Total Atap </string>
+    <string name="calc_ridgeLength">Panjang nok* : </string>
+    <string name="calc_hipLength">Panjang Jurai Luar* : </string>
+    <string name="calc_totalNokOnduline">Total Nok Onduline </string>
+    <string name="calc_ondulineScrewsForRoof">Sekrup Onduline untuk atap : </string>
+    <string name="calc_ondulineScrewsForRidge">Sekrup Onduline untuk nok : </string>
+    <string name="calc_totalScrews">Jumlah sekrup total </string>
+    <string name="calc_sumOFRoofOduline">Jumlah Atap ONDULINE®</string>
+    <string name="calc_sumOFRoofOnduvilla">Jumlah Atap ONDUVILLA®</string>
+    <string name="calc_sumOFRidgeOduline">Jumlah Nok ONDULINE®</string>
+    <string name="calc_sumOFRidgeOnduvilla">Jumlah Nok ONDUVILLA®</string>
+
+
+    <string name="signature">Showroom :\nKomplek Spectra Blok 23C No.19\nJalur Sutera, Alam Sutera\nSerpong, Tangerang 15143\nT   : 021 2921 1490\nF   :  021 2931 5051\nMarketing Email : info@ondulineindonesia.com\nTeknikal Email : teknik@ondulineindonesia.com\n\nWebsite :\nwww.onduline.co.id \nwww.onduvilla.co.id\n\nFollow Social Media Onduline </string>
+    <string name="signatureContact">Contact Service :\nTelepon : (021) 292 11 490\nHandphone : 0822 97 345 789\nEmail : info@ondulineindonesia.com</string>
+    <string name="sosmed_fb">OndulineIndonesia</string>
+    <string name="sosmed_ig">ondulineid</string>
+    <string name="sosmed_twitter">onduline ID</string>
 
     <!-- Onduline Instalation Guide -->
     <string name="kemiringan_5_sampai_10">Kemiringan 5° - 10°</string>
@@ -45,27 +296,68 @@
     <string name="ondulucky">Ondulucky</string>
     <string name="photoContest">Kontes Photo Proyek</string>
 
+    <!--total poin-->
+    <string name="informasi_ondulucky">Informasi Ondulucky</string>
+    <string name="total_surat_jalan">Total Surat Jalan</string>
+
+
     <!--no 02129211440 / email : teknik@ondulineindonesia.com-->
 
-    <!--Q and A-->
-    <string name="q1">1. Apakah dibawah genteng ONDUVILLA perlu dipasang insulasi penahan panas seperti rockwool atau aluminium foil?</string>
-    <string name="a1">Sistem genteng ONDUVILLA telah dibuat agar udara dibawah atap bersirkulasi dengan baik agar udara dibawah atap tidak terlalu panas. Untuk penahan panas tambahan dapat menggunakan aluminium foil.</string>
-    <string name="q2">2. Apakah genteng ONDUVILLA melindungi dari panas? Dari dingin?</string>
-    <string name="a2">Pengukuran menunjukkan konduktivitas termal 0.098 W / mC °. Nilai ini dekat dengan gabus. Sebagai perbandingan, nilai baja stainless adalah 52 W / mC °, 525 kali lebih tinggi. Bahan genteng ONDUVILLA adalah tipe bahan yang menyerap panas, dimana metal bertipe memantulkan.</string>
-    <string name="q3">3. Apakah genteng ONDUVILLA dapat terbakar?</string>
-    <string name="a3">Dalam Standar Eropa, ONDUVILLA masuk dalam klasifikasi E, yang adalah "normal untuk menyala". Diperbolehkan untuk digunakan pada berbagai jenis bangunan. Tapi kasus-kasus ketika sumber api terletak di atas atap sangat jarang. Dan jika rumah terbakar, itu berarti bahwa hampir setiap jenis atap cladding terbakar dan mencair.</string>
-    <string name="q4">4. Apakah wajib untuk menggunakan Speedy Screw atau Safe Top Nail?</string>
-    <string name="a4">Sekrup dan paku kami telah dirancang khusus untuk genteng ONDUVILLA. Kepala sekrup dan paku genteng ONDUVILLA sudah dilapisi bahan anti UV dan didesain untuk menahan gaya uplift pada atap.</string>
-    <string name="q5">5. Apakah perlu untuk memasang setiap lembar dengan jumlah sekrup atau paku sesuai brosur / katalog?</string>
-    <string name="a5">Ya , perlu. Instalasi atap akan lebih tahan cuaca terutama terhadap angin kencang.</string>
-    <string name="q6">6. Dimana genteng ONDUVILLA diproduksi ?</string>
-    <string name="a6">Saat ini Onduline memiliki 11 pabrik di seluruh dunia . Semua pabrik ISO9001 bersertifikat , yang menjamin tingkat yang kualitas yang sama dimanapun Onduline diproduksi.</string>
-    <string name="q7">7. Apa Keunggulan Produk ONDUVILLA ?</string>
-    <string name="a7">ONDUVILLA  menawarkan genteng yang ringan, tidak membebani rangka, tahan segala cuaca, dan mudah untuk dipasang. Fleksibilitas bahan bitumen dan serat selulosa membuat genteng ini dapat diaplikasikan pada berbagai bentuk rangka atap, bahkan berbentuk lengkung maupun rumah gadang.</string>
-    <string name="q8">8. Genteng ONDUVILLA terbuat dari bahan apa ?</string>
-    <string name="a8">Salah satu komponen genteng ONDUVILLAadalah serat selulosa. Serat selulosa dapat diekstraksi dari berbagai sumber, termasuk kayu pulp atau kertas daur ulang. Selain serat selulosa, genteng ONDUVILLA juga terdiri dari aspal, mineral aditif. Serat selulosa sendiri adalah bahan yang sangat kuat (juga digunakan dalam semen dan beton untuk meningkatkan daya tahan). Bitumen membuat kedap air, pigmen memberikan warna, resin dan bahan tambahan lainnya meningkatkan daya tahan terhadap cuaca.</string>
-    <string name="q9">9. Bagimana keawetan dari genteng ONDUVILLA?</string>
-    <string name="a9">Ketahanan tergantung pada kondisi eksternal seperti cuaca dan iklim. Apabila terpasang dengan benar material genteng ONDUVILLA dijamin tahan air selama 10 tahun dengan ketentuan pemasangan yang di anjurkan</string>
+    <!--Q AND A-->
+    <string name="question_retail_1">1. Apa yang memberdakan produk-produk ONDULINE® dari Pesaingnya?</string>
+    <string name="question_retail_2">2. Apakah Wajib untuk menggunakan Speedy Screw atau Safe Top Nail?</string>
+    <string name="question_retail_3">3. Atap ONDULINE® dan genteng ONDUVILLA® terbuat dari apa?</string>
+    <string name="question_retail_4">4. Apakah dibawah atap ONDULINE® dan genteng ONDUVILLA® perlu dipasang insulasi penahan panas seperti rockwoll atau aluminium foil ?</string>
+    <string name="question_retail_5">5. Apakah ONDULINE® tahan terhadap korosi akibat bahan kimia ?</string>
+    <string name="question_retail_6">6. Apakah genteng ONDUVILLA® melindungi dari kebisingan? Terutama dalam hal suara hujan.</string>
+    <string name="question_retail_7">7. Apa jaminan jika saya membeli produk atap ONDULINE®?</string>
+    <string name="question_retail_8">8. Dapatkah saya berjalan di sebuah atap ONDULINE® dan genteng ONDUVILLA®?</string>
+    <string name="question_retail_9">9. Dapatkah pemasangan atap dapat dilakukan pada rangka metal? Pada beton atau kayu decking?</string>
+    <string name="question_retail_10">10. Saya mencium bau pada produk atap ONDULINE®, apakah normal?</string>
+    <string name="question_retail_11">11. Bagaimana garansi terhadap pemasangan yang menggunakan sekrup dan paku bahan stainless steel (tidak menggunakan sekrup dan paku dari ONDULINE®)?</string>
+    <string name="answer_retail_1">produk-produk atap dari ONDULINE® menawarkan lembaran atap ringan, fleksible yang ramah lingkungan karena terbebas 100% dari unsur ASBESTOS dan tidak mengandung metal / besi sehingga tidak mengandung karat dan korosi.</string>
+    <string name="answer_retail_2">Sekrup dan paku kami telah dirancang khusus untuk atap ONDULINE® dan genteng ONDUVILLA®. Kepala sekrup dan paku sudah dilapisi bahan anti UV dan didesain untuk menahan gaya uplift pada atap.</string>
+    <string name="answer_retail_3">Salah satu komponen atap ONDULINE® dan genteng ONDUVILLA® adalah selulosa bitumen. Serat selulosa sendiri adalah bahan yang sangat kuat (juga digunakan dalam semen dan beton untuk meningkatkan daya tahan). Bitumen membuat kedap air, pigmen memberikan warna, resin dan bahan tambahan lainnya meningkatkan daya tahan terhadap cuaca.</string>
+    <string name="answer_retail_4">Sistem atap ONDULINE® dan genteng ONDUVILLA® telah dibuat agar udara dibawah atap bersirkulasi dengan baik agar udara dibawah atap tidak terlalu panas. Tetapi jika ingin memerlukan penahan panas tambahanan dapat menggunakan aluminium foil.</string>
+    <string name="answer_retail_5">Karena terbuat dari selulosa-aspal lembaran jenuh, atap ONDULINE® dan genteng ONDUVILLA® tahan korosi serta sebagian besar produk kimia. (Uji laboratorium dilakukan pada CSTB - Perancis)</string>
+    <string name="answer_retail_6">Pengujian dilakukan di Laboratorium Penelitian Sound Ltd (Inggris) menunjukkan suara yang baik penyerapan atap ONDULINE® dan genteng ONDUVILLA® dengan nilai Rw = 28 dB. Sehingga suara hujan yang diserap jauh lebih baik dibandingkan bahan dari metal.</string>
+    <string name="answer_retail_7">Jaminan Waterproofing. Atap ONDULINE® dan genteng ONDUVILLA® menjamin produk-produknya dalam hal kekedapan air selama 10 tahun. Produk harus dipasang menurut spesifikasi ketentuan pemasangan yang berlaku.</string>
+    <string name="answer_retail_8">Seperti atap lainnya, atap ONDULINE® dan genteng ONDUVILLA® tidak dibuat untuk dapat berjalan diatasnya. Jadi, Anda harus mengikuti prosedur keselamatan ketika bekerja di atas atap. Apabila pekerjaan diatas atap harus dilakukan, maka berjalanlah diatas reng dan overlap. Harap membawa dua buah papan sebagai pijakan sewaktu bekerja (working platform).</string>
+    <string name="answer_retail_9">Ya. Pemasangan atap dapat dipasang pada rangka metal atau decking. Untuk pemasangan pada rangka metal baja ringan jarak reng harus mengikuti standar pemasangan dari pabrik.</string>
+    <string name="answer_retail_10">Bau yang ditimbulkan oleh produk atap dari ONDULINE® disebabkan bahan penyusun atap. Hal tersebut normal dan bau akan hilang setelah kurang lebih satu minggu terpasang. Pastikan pemasangan dengan benar dan udara dibawah atap tersirkulasi dengan baik sehingga bau akan lebih cepat hilang.</string>
+    <string name="answer_retail_11">Pemasangan atap wajib menggunakan sekrup atau paku dari ONDULINE®. Dan, garansi hanya diberikan terhadap bangunan umum, dalam kondisi lingkungan normal, bukan bangunan tertentu yang ada paparan bahan kimia yang intensif. Jika memerlukan garansi dapat dikonsultasikan terlebih dahulu kepada tim teknis kami.</string>
+    <string name="question_app_ind_1">1. Apa yang memberdakan produk ONDULINE® dari Pesaingnya?</string>
+    <string name="question_app_ind_2">2. Apakah Wajib untuk menggunakan Speedy Screw atau Safe Top Nail?</string>
+    <string name="question_app_ind_3">3. Atap ONDULINE® dan genteng ONDUVILLA® terbuat dari apa?</string>
+    <string name="question_app_ind_4">4. Apakah dibawah atap ONDULINE® dan genteng ONDUVILLA® perlu dipasang insulasi penahan panas seperti rockwoll atau aluminium foil ?</string>
+    <string name="question_app_ind_5">5. Apakah ONDULINE® tahan terhadap korosi akibat bahan kimia ?</string>
+    <string name="question_app_ind_6">6. Apakah genteng ONDUVILLA® melindungi dari kebisingan? Terutama dalam hal suara hujan.</string>
+    <string name="question_app_ind_7">7. Dapatkah saya berjalan disebuat atap ONDULINE®?</string>
+    <string name="question_app_ind_8">8. Dapatkah saya berjalan di sebuah atap ONDULINE® dan genteng ONDUVILLA®?</string>
+    <string name="question_app_ind_9">9. Dapatkah pemasangan atap dapat dilakukan pada rangka metal? Pada beton atau kayu decking?</string>
+    <string name="question_app_ind_10">10. Apakah pemasangan atap dapat dipasang di rangka baja kanal C?</string>
+    <string name="question_app_ind_11">11. Dapatkah saya mewarnai atap ONDULINE® dan genteng ONDUVILLA®?</string>
+    <string name="question_app_ind_12">12. Apakah atap ONDULINE® dan genteng ONDUVILLA® dapat berlumut?</string>
+    <string name="question_app_ind_13">13. Saya mencium bau pada produk atap ONDULINE®, apakah normal?</string>
+    <string name="question_app_ind_14">14. Apakah dapat dipasang di proyek peternakan? Bagaimana ketahanan material produk atap ONDULINE® terhadap amonia dari kotoran hewan?</string>
+    <string name="question_app_ind_15">15. Bagaimana garansi terhadap pemasangan yang menggunakan sekrup dan paku bahan stainless steel (tidak menggunakan sekrup dan paku dari ONDULINE®)?</string>
+    <string name="question_app_ind_16">16. Material baja mengalami muai susut. Apakah ini sama dengan atap ONDULINE® dan genteng ONDUVILLA®?</string>
+    <string name="answer_app_ind_1">produk-produk atap dari ONDULINE® menawarkan lembaran atap ringan, fleksible yang ramah lingkungan karena terbebas 100% dari unsur ASBESTOS dan tidak mengandung metal / besi sehingga tidak mengandung karat dan korosi.</string>
+    <string name="answer_app_ind_2">Sekrup dan paku kami telah dirancang khusus untuk atap ONDULINE® dan genteng ONDUVILLA®. Kepala sekrup dan paku sudah dilapisi bahan anti UV dan didesain untuk menahan gaya uplift pada atap.</string>
+    <string name="answer_app_ind_3">Salah satu komponen atap ONDULINE® dan genteng ONDUVILLA® adalah selulosa bitumen. Serat selulosa sendiri adalah bahan yang sangat kuat (juga digunakan dalam semen dan beton untuk meningkatkan daya tahan). Bitumen membuat kedap air, pigmen memberikan warna, resin dan bahan tambahan lainnya meningkatkan daya tahan terhadap cuaca.</string>
+    <string name="answer_app_ind_4">Sistem atap ONDULINE® dan genteng ONDUVILLA® telah dibuat agar udara dibawah atap bersirkulasi dengan baik agar udara dibawah atap tidak terlalu panas. Tetapi jika ingin memerlukan penahan panas tambahanan dapat menggunakan aluminium foil.</string>
+    <string name="answer_app_ind_5">Karena terbuat dari selulosa-aspal lembaran jenuh, atap ONDULINE® dan genteng ONDUVILLA® tahan korosi serta sebagian besar produk kimia. (Uji laboratorium dilakukan pada CSTB - Perancis)</string>
+    <string name="answer_app_ind_6">Pengujian dilakukan di Laboratorium Penelitian Sound Ltd (Inggris) menunjukkan suara yang baik penyerapan atap ONDULINE® dan genteng ONDUVILLA® dengan nilai Rw = 28 dB. Sehingga suara hujan yang diserap jauh lebih baik dibandingkan bahan dari metal.</string>
+    <string name="answer_app_ind_7">Jaminan Waterproofing. Atap ONDULINE® dan genteng ONDUVILLA® menjamin produk-produknya dalam hal kekedapan air selama 10 tahun. Produk harus dipasang menurut spesifikasi ketentuan pemasangan yang berlaku.</string>
+    <string name="answer_app_ind_8">Seperti atap lainnya, atap ONDULINE® dan genteng ONDUVILLA® tidak dibuat untuk dapat berjalan diatasnya. Jadi, Anda harus mengikuti prosedur keselamatan ketika bekerja di atas atap. Apabila pekerjaan diatas atap harus dilakukan, maka berjalanlah diatas reng dan overlap. Harap membawa dua buah papan sebagai pijakan sewaktu bekerja (working platform).</string>
+    <string name="answer_app_ind_9">Ya. Pemasangan atap dapat dipasang pada rangka metal atau decking. Untuk pemasangan pada rangka metal baja ringan jarak reng harus mengikuti standar pemasangan dari pabrik.</string>
+    <string name="answer_app_ind_10">Ya. dapat dipasang di gording dengan rangka baja kanal C sampai dengan ketebalan 3mm.</string>
+    <string name="answer_app_ind_11">Atap kami diwarnai pra-pigmented dan juga memiliki varian yang dicat dari pabrik. Sangat mungkin untuk mengecat kembali pada kedua sisi. Hindari penggunaan cat minyak dengan pelarut, gunakanlah cat berbahan dasar ait. Silahkan hubungi Departemen Teknis untuk keterangan lebih lanjut.</string>
+    <string name="answer_app_ind_12">Dengan perawatan yang benar atap ONDULINE® dan genteng ONDUVILLA® tidak akan berlumut. Hindari penumpukan daun pada atap yang, apabila dibiarkan, dapat menyebabkan tumbuhnya lumut pada atap.</string>
+    <string name="answer_app_ind_13">Bau yang ditimbulkan oleh produk atap dari ONDULINE® disebabkan bahan penyusun atap. Hal tersebut normal dan bau akan hilang setelah kurang lebih satu minggu terpasang. Pastikan pemasangan dengan benar dan udara dibawah atap tersirkulasi dengan baik sehingga bau akan lebih cepat hilang.</string>
+    <string name="answer_app_ind_14">Ya. dapat dipasang di proyek peternakan, seperti peternakan sapi dan ayam. Karena bahan atap ONDULINE® dan genteng ONDUVILLA® tidak mengandung unsur metal, maka tidak akan berkarat. Namun untuk sekrup atau paku harap menggunakan bahan dari stainless steel. Produk atap ONDULINE® memiliki ketahanan sedang terhadap senyawa alkaline, seperti misalnya amonia pada peternakan, dikarenakan pengaruh kadar amonia dan sistem ventilasi udara yang digunakan.</string>
+    <string name="answer_app_ind_15">Pemasangan atap wajib menggunakan sekrup atau paku dari ONDULINE®. Dan, garansi hanya diberikan terhadap bangunan umum, dalam kondisi lingkungan normal, bukan bangunan tertentu yang ada paparan bahan kimia yang intensif. Jika memerlukan garansi dapat dikonsultasikan terlebih dahulu kepada tim teknis kami.</string>
+    <string name="answer_app_ind_16">Sementara baja memuai dan menyusut di bawah aksi panas dan dingin, stabilitas dimensi ONDULINE® tidak terpengaruh. Test dilakukan di Laboratorium Pengujian Nasional Perancis.</string>
 
 
     <string name="RegistrationApplicator">Tukang Baja Ringan / Kontraktor</string>
@@ -103,6 +395,8 @@
     <string name="error_invalid_password_confirm">password tidak sama</string>
     <string name="error_incorrect_password">This username/password is incorrect</string>
     <string name="error_field_required">wajib diisi</string>
+    <string name="error_field_city_required">pastikan kota benar</string>
+    <string name="error_field_state_required">pastikan provinsi benar</string>
     <string name="error_server">Error Connection to server</string>
     <string name="error_parsing_json">Error Parsing data</string>
     <string name="action_sign_in_short">Sign in</string>
@@ -144,13 +438,13 @@
     <string-array name="pilih_atap_onduline_array">
         <item> - Pilih Atap - </item>
         <item>Modern Roof</item>
-        <item>Round Roof</item>
+        <item>Curve Roof</item>
         <item>Traditional Roof</item>
     </string-array>
     <string-array name="pilih_atap_onduvila_array">
         <item> - Pilih Atap - </item>
         <item>Modern Roof</item>
-        <item>Round Roof</item>
+        <item>Curve Roof</item>
     </string-array>
 
     <string-array name="pilih_warna_onduvila_array">
@@ -196,16 +490,16 @@
         <item>RANGKA BAJA</item>
     </string-array>
     <string-array name="pilih_jenis_atap_array">
-        <item>ONDULINE</item>
-        <item>ONDUVILLA</item>
+        <item>ONDULINE®</item>
+        <item>ONDUVILLA®</item>
     </string-array>
 
 
     <!-- Permintaan produk -->
     <string-array name="product_demand_brand">
         <item> - Pilih Produk - </item>
-        <item>ONDULINE</item>
-        <item>ONDUVILLA</item>
+        <item>ONDULINE®</item>
+        <item>ONDUVILLA®</item>
         <item>ONDUCLAIR</item>
         <item>ONDUVILLA CLEAR TILE</item>
     </string-array>
@@ -437,5 +731,6 @@
     <string name="odl_subtainability_3">Komprehensif dan hasil yang akurat. EPD adalah salah satu yang paling komprehensif dalam semua eco-label memberikan dengan produk di dunia. Berdasarkan standar ISO 14025, EPDs mempertimbangkan dampak lingkungan secara keseluruhan dari produk melalui siklus hidup seluruh nya.\n\n</string>
     <string name="odl_subtainability_4">Sebanding. Ini tranparently menyajikan dampak lingkungan dengan parameter terukur. Hal ini terbuka untuk semua orang dan deklarasi dimengerti dan memungkinkan untuk membuat perbandingan antara bahan konstruksi. Ini adalah cara yang paling komprehensif untuk menyorot produk kami fitur lingkungan.\n\n</string>
     <string name="odl_subtainability_5">Handal. Ini bukan deklarasi diri, harus diverifikasi oleh pihak ketiga yang independen dan dipublikasikan oleh otoritas.\n\n</string>
+    <string name="title_activity_contact_onduline">ContactOndulineActivity</string>
 
 </resources>

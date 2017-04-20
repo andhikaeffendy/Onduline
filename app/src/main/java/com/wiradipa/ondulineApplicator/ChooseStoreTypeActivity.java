@@ -21,19 +21,19 @@ public class ChooseStoreTypeActivity extends AppCompatActivity {
         switch (v.getId()){
             case R.id.btnTokoTradisional:
                 i.putExtra("pil", "retailer");
-                i.putExtra("retailer_type", "Toko Bahan Bangunan / Toko Tradisional");
+                i.putExtra("retailer_type", "3");
                 startActivity(i);
 //                Toast.makeText(this, "btnTokoTradisional", Toast.LENGTH_LONG).show();
                 break;
             case R.id.btnBajaRingan:
                 i.putExtra("pil", "retailer");
-                i.putExtra("retailer_type", "Toko Baja Ringan / Depo keramik");
+                i.putExtra("retailer_type", "1");
                 startActivity(i);
 //                Toast.makeText(this, "btnBajaRingan", Toast.LENGTH_LONG).show();
                 break;
             case R.id.btnSupermarket:
                 i.putExtra("pil", "retailer");
-                i.putExtra("retailer_type", "Supermarket Bahan Bangunan");
+                i.putExtra("retailer_type", "2");
                 startActivity(i);
 //                Toast.makeText(this, "btnSupermarket", Toast.LENGTH_LONG).show();
                 break;

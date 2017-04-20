@@ -102,20 +102,10 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/btnAktivasiAkun"
             android:layout_width="match_parent"
-            android:onClick="onClickChooseUser"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@drawable/bg_nav_drawer">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:textSize="24dp"
-                android:textStyle="bold"
-                android:textColor="#fff"
-                android:text="Aktivasi Akun"/>
         </RelativeLayout>
     </LinearLayout>
 

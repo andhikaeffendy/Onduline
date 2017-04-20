@@ -134,7 +134,7 @@ public class ApiWeb {
 
 	/** Fungsi register untuk retailer
 	 * belum ada retailer type */   //user_type, 			username, 		password, 		password_confirmation, 		  email, 		name, 		 address, 		 states_id, 	   city_id, 	   hp_no, 		 birth_date, 		id_no, 		  id_no_type
-	public String RegisterIndividu(String user_type,String username, String password,String password_comfirmation, String email, String name, String address, String states_id, String city_id, String hp_no, String birth_date, String id_no, String id_no_type, String occupation){
+	public String RegisterIndividu(String user_type,String username, String password,String password_comfirmation, String email, String name, String address, String states_id, String city_id, String hp_no, String birth_date, String id_no, String id_no_type, String occupation, String company_name){
 		try {
 			String url = apiurl+"users/create";
 
@@ -145,9 +145,10 @@ public class ApiWeb {
 					+ "&email="+ URLEncoder.encode(email, "UTF-8")
 					+ "&name="+ URLEncoder.encode(name, "UTF-8")
 					+ "&address="+ URLEncoder.encode(address, "UTF-8")
+					+ "&company_name="+ URLEncoder.encode(company_name, "UTF-8")
 					+ "&states_id="+ URLEncoder.encode(states_id, "UTF-8")
 					+ "&city_id="+ URLEncoder.encode(city_id, "UTF-8")
-					+"&hp_no="+ URLEncoder.encode(hp_no, "UTF-8")
+					+ "&hp_no="+ URLEncoder.encode(hp_no, "UTF-8")
 					+ "&birth_date="+ URLEncoder.encode(birth_date, "UTF-8")
 					+ "&id_no="+ URLEncoder.encode(id_no, "UTF-8")
 					+ "&occupation="+ URLEncoder.encode(occupation, "UTF-8")
@@ -167,11 +168,21 @@ public class ApiWeb {
 		try {
 			String url = apiurl+"users/create";
 			String params =
-					"&user_type="+ URLEncoder.encode(user_type, "UTF-8")+" &username="+ URLEncoder.encode( username, "UTF-8")+ "&password="+ URLEncoder.encode(password, "UTF-8")+ "&password_comfirmation="+ URLEncoder.encode(password_comfirmation, "UTF-8")
-							+ "&email="+ URLEncoder.encode(email, "UTF-8")+"&name="+ URLEncoder.encode(name, "UTF-8")+"&address="+ URLEncoder.encode(address, "UTF-8")
-							+ "&states_id="+ URLEncoder.encode(states_id, "UTF-8") + "&city_id="+ URLEncoder.encode(city_id, "UTF-8")+"&hp_no="+ URLEncoder.encode(hp_no, "UTF-8")
-							+ "&birth_date="+ URLEncoder.encode(birth_date, "UTF-8") + "&company_name="+ URLEncoder.encode(company_name, "UTF-8") + "&association_name="+ URLEncoder.encode(association_name, "UTF-8")
-							+ "&id_no="+ URLEncoder.encode(id_no, "UTF-8") + "&id_no_type="+ URLEncoder.encode(id_no_type, "UTF-8");
+					"&user_type="+ URLEncoder.encode(user_type, "UTF-8")
+							+" &username="+ URLEncoder.encode( username, "UTF-8")
+							+ "&password="+ URLEncoder.encode(password, "UTF-8")
+							+ "&password_comfirmation="+ URLEncoder.encode(password_comfirmation, "UTF-8")
+							+ "&email="+ URLEncoder.encode(email, "UTF-8")
+							+"&name="+ URLEncoder.encode(name, "UTF-8")
+							+"&address="+ URLEncoder.encode(address, "UTF-8")
+							+ "&states_id="+ URLEncoder.encode(states_id, "UTF-8")
+							+ "&city_id="+ URLEncoder.encode(city_id, "UTF-8")
+							+"&hp_no="+ URLEncoder.encode(hp_no, "UTF-8")
+							+ "&birth_date="+ URLEncoder.encode(birth_date, "UTF-8")
+							+ "&company_name="+ URLEncoder.encode(company_name, "UTF-8")
+							+ "&association_name="+ URLEncoder.encode(association_name, "UTF-8")
+							+ "&id_no="+ URLEncoder.encode(id_no, "UTF-8")
+							+ "&id_no_type="+ URLEncoder.encode(id_no_type, "UTF-8");
 
 
 
@@ -331,11 +342,31 @@ public class ApiWeb {
 		return PostOrderFile(url,receipt,token,order_date,distributor,store_name,color_id,city_id,states_id,onduvilla_amount,onduline_amount,onduclair_amount);
 	}
 
-	/** Fungsi OrderApplicator untuk apk*/										//product_complaint
+	/** Fungsi OrderApplicator untuk apk*/
 	public String NewProject(String token,String receipt, String project_type,String address,String order_date, String city_id,String states_id,String product_id,String color_id,String roof_width){
 		String url = apiurl+"projects";
 
 		return PostProjectFile (url ,receipt ,token ,project_type ,address ,order_date ,city_id ,states_id ,product_id ,color_id ,roof_width );
+	}
+
+	/** Fungsi OrderApplicator untuk apk*/
+	public String inputProjectInformation(String token, String project_name, String roof_type, String address, String city_id,String states_id,String roof_width){
+
+		try {
+			String url = apiurl+"project_infos";
+			String params = "token="+ URLEncoder.encode(token, "UTF-8")
+					+"&name=" + URLEncoder.encode(project_name, "UTF-8")
+					+"&product_id=" + URLEncoder.encode(roof_type, "UTF-8")
+					+"&city_id=" + URLEncoder.encode(city_id, "UTF-8")
+					+"&state_id=" + URLEncoder.encode(states_id, "UTF-8")
+					+"&address=" + URLEncoder.encode(address, "UTF-8")
+					+"&roof_width=" + URLEncoder.encode(roof_width, "UTF-8");
+			return PostHttp(url, params);
+		} catch (UnsupportedEncodingException e) {
+			responseCode = 500;
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 

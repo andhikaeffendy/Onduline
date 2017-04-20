@@ -33,7 +33,7 @@
                 android:textColor="@color/colorTextLight"
                 android:textStyle="bold"
                 android:textSize="24dp"
-                android:text="@string/neworder"/>
+                android:text="@string/btn_upload_surat_jalan"/>
         </RelativeLayout>
 
         <ScrollView

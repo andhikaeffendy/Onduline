@@ -7,6 +7,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wiradipa.ondulineApplicator.lib.AppSession;
 
@@ -39,6 +40,7 @@ public class DetilViewActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         pil = extras.getString("pil");
         pilView = extras.getString("pilDetilView");
+//        Toast.makeText(this, "pilDetilView : " + pilView, Toast.LENGTH_LONG).show();
 
         lv = (ListView)findViewById(R.id.lv_detailView);
         txtMenuProductName = (TextView)findViewById(R.id.txtMenuProductName);
@@ -90,7 +92,10 @@ public class DetilViewActivity extends AppCompatActivity {
                 break;
             case "ONDUVILLAADVANTAGES":
                 Gbr = new String[] {
-                        Integer.toString(R.drawable.onduvilla_detil_advanatges)
+                        Integer.toString(R.drawable.onduvilla_detil_advantages_0),
+                        Integer.toString(R.drawable.onduvilla_detil_advantages_1),
+                        Integer.toString(R.drawable.onduvilla_detil_advantages_2),
+                        Integer.toString(R.drawable.onduvilla_detil_advantages_3)
                 };
                 break;
             case "ONDUVILLAACCESSORIES":

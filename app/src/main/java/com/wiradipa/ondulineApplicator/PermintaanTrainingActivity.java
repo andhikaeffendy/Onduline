@@ -49,6 +49,8 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
     private String[] statesName, citiesName;
     private long[] statesIds, citiesIds;
     long states_id, city_id;
+    private boolean bool_state = false;
+    private boolean bool_city = false;
 
     private UpdateTask updateTask;
     private UpdateCityTask updateCityTask;
@@ -95,9 +97,19 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
         act_state.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                memberikan tanda bahwa city telah terisi dengan benar
+                bool_state= true;
                 states_id = adapter_state.getItemId(act_state.getText().toString());
                 updateCityTask = new UpdateCityTask(states_id+"");
                 updateCityTask.execute((Void)null);
+            }
+        });
+        act_city.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                memberikan tanda bahwa city telah terisi dengan benar
+                bool_city= true;
+                city_id = adapter_city.getItemId(act_city.getText().toString());
             }
         });
 
@@ -183,6 +195,20 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
             focusView = et_totalPeserta;
             cancel = true;
         }
+
+        // Check for a valid city store.
+        if (!bool_city) {
+            act_city.setError(getString(R.string.error_field_city_required));
+            focusView = act_city;
+            cancel = true;
+        }
+        // Check for a valid state store.
+        if (!bool_state) {
+            act_state.setError(getString(R.string.error_field_state_required));
+            focusView = act_state;
+            cancel = true;
+        }
+
         // Check for a valid city.
         if (isCityEmpty(city)) {
             act_city.setError(getString(R.string.error_field_required));
@@ -197,12 +223,6 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        // Check for a valid city.
-        if (isCityEmpty(city)) {
-            act_city.setError(getString(R.string.error_field_required));
-            focusView = act_city;
-            cancel = true;
-        }
         // Check for a valid address.
         if (isAddressEmpty(address)) {
             et_address.setError(getString(R.string.error_field_required));
@@ -543,7 +563,7 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
             phone = et_phone.getText().toString();
             totalPeserta = et_totalPeserta.getText().toString();
 //            state = act_state.getText().toString();
-            city = adapter_city.getItemId(act_city.getText().toString())+"";
+//            city = adapter_city.getItemId(act_city.getText().toString())+"";
 //            city=act_city.getText().toString();
             address = et_address.getText().toString();
             keterangan = et_keterangan.getText().toString();
@@ -557,7 +577,7 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = null;
-            result = apiWeb.TechnicalSupportTrainingRequest(token,phone,date,totalPeserta,states_id+"",city,address,keterangan);
+            result = apiWeb.TechnicalSupportTrainingRequest(token,phone,date,totalPeserta,states_id+"",city_id+"",address,keterangan);
 
             if(result==null){
                 return false;
@@ -587,6 +607,7 @@ public class PermintaanTrainingActivity extends AppCompatActivity {
                 //SESSION
                 popupSuccess();
                 showProgress(false);
+                bool_city = bool_state = false;
 
             } else {
 

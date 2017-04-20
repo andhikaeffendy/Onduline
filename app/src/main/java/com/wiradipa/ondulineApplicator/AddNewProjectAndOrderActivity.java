@@ -19,6 +19,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.IntegerRes;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -75,13 +76,16 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
     private EditText et_AddressStore, et_amount,et_distributor,et_ProjectAddress,et_SpaciousRoof,et_StoreName,et_address,et_onduvilla_amount,et_onduline_amount,et_onduclair_amount;
     private AutoCompleteTextView act_City, act_State;
     private LinearLayout btn_ImageAddNew;
-    private String token, state_id;
+    private String token;
     private Bitmap imageBitmapShare;
 
-    private AutoCompleteAdapter adapter_state, adapter_city;
+    private AutoCompleteAdapter adapter_state = null;
+    private AutoCompleteAdapter adapter_city= null;
     private String[] statesName, citiesName;
     private long[] statesIds, citiesIds;
-    private long states_id, city_id;
+    private long state_id, city_id;
+    private boolean bool_state = false;
+    private boolean bool_city = false;
     private UpdateTask updateTask;
     private UpdateCityTask updateCityTask;
     private View mProgressView;
@@ -117,17 +121,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
-                        //MapsActivity.super.onBackPressed();
-                        //finish();
-                        // System.exit(0);
-
-//                        Intent intent = new Intent(context, AddNewActivity.class);
-//                        intent.putExtra("pil",pil);
-//                        intent.addCategory(Intent.CATEGORY_HOME);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
-//
-//                        startActivity(intent);
-//                        finish();
                     }
                 }).create().show();
     }
@@ -138,9 +131,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                 .setPositiveButton("kembali", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
-                        //MapsActivity.super.onBackPressed();
-                        //finish();
-                        // System.exit(0);
 
                         Intent intent = new Intent(context, AddNewProjectAndOrderActivity.class);
                         intent.putExtra("pil",pil);
@@ -266,6 +256,16 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         //TODO: Replace this with your own logic
         return large.equals("");
     }
+    private boolean isAdapterStateValid(String State) {
+        //TODO: Replace this with your own logic
+        int large = Integer.parseInt(State);
+        return large>0;
+    }
+    private boolean isAdapterCityValid(String City) {
+        //TODO: Replace this with your own logic
+        int large = Integer.parseInt(City);
+        return large>0;
+    }
     private boolean isProductTypeValid(String product) {
         //TODO: Replace this with your own logic
         return product.equals("");
@@ -359,18 +359,14 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         // Reset errors.
         et_AddressStore.setError(null);
         et_StoreName.setError(null);
-//        et_amount.setError(null);
         act_City.setError(null);
         act_State.setError(null);
-//        img_AddNew.setError
 
         // Store values at the time of the submit attempt.
         String addressStore = et_AddressStore.getText().toString();
         String storeName = et_StoreName.getText().toString();
-//        String amount= et_amount.getText().toString();
         String city = act_City.getText().toString();
         String state = act_State.getText().toString();
-
         boolean cancel = false;
         View focusView = null;
 //
@@ -386,12 +382,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             focusView = et_StoreName;
             cancel = true;
         }
-//        // Check for a valid Amount.
-//        if (isamountValid(amount)) {
-//            et_amount.setError(getString(R.string.error_field_required));
-//            focusView = et_amount;
-//            cancel = true;
-//        }
+
         // Check for a valid address store.
         if (isCityValid(city)) {
             act_City.setError(getString(R.string.error_field_required));
@@ -401,6 +392,19 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         // Check for a valid address store.
         if (isStateValid(state)) {
             act_State.setError(getString(R.string.error_field_required));
+            focusView = act_State;
+            cancel = true;
+        }
+
+        // Check for a valid city store.
+        if (!bool_city) {
+            act_City.setError(getString(R.string.error_field_city_required));
+            focusView = act_City;
+            cancel = true;
+        }
+        // Check for a valid state store.
+        if (!bool_state) {
+            act_State.setError(getString(R.string.error_field_state_required));
             focusView = act_State;
             cancel = true;
         }
@@ -501,17 +505,9 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 
         // Reset errors.
         et_distributor.setError(null);
-//        et_amount.setError(null);
-//        act_City.setError(null);
-//        act_State.setError(null);
-//        et_address.setError(null);
 
         // Store values at the time of the submit attempt.
         String distributor= et_distributor.getText().toString();
-//        String amount= et_amount.getText().toString();
-//        String city = act_City.getText().toString();
-//        String state = act_State.getText().toString();
-//        String address = et_address.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -522,30 +518,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             focusView = et_distributor;
             cancel = true;
         }
-        // Check for a valid Amount.
-//        if (isamountValid(amount)) {
-//            et_amount.setError(getString(R.string.error_field_required));
-//            focusView = et_amount;
-//            cancel = true;
-//        }
-        // Check for a valid address store.
-//        if (isCityValid(city)) {
-//            act_City.setError(getString(R.string.error_field_required));
-//            focusView = act_City;
-//            cancel = true;
-//        }
-//        // Check for a valid address store.
-//        if (isStateValid(state)) {
-//            act_State.setError(getString(R.string.error_field_required));
-//            focusView = act_State;
-//            cancel = true;
-//        }
-        // Check for a valid address store.
-//        if (isAddressValid(address)) {
-//            et_address.setError(getString(R.string.error_field_required));
-//            focusView = et_address;
-//            cancel = true;
-//        }
 
 
         if (cancel) {
@@ -571,17 +543,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
-                        //MapsActivity.super.onBackPressed();
-                        //finish();
-                        // System.exit(0);
-
-//                        Intent intent = new Intent(context, AddNewActivity.class);
-//                        intent.putExtra("pil",pil);
-//                        intent.addCategory(Intent.CATEGORY_HOME);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
-//
-//                        startActivity(intent);
-//                        finish();
                     }
                 }).create().show();
     }
@@ -683,11 +644,23 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         act_State.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                states_id = adapter_state.getItemId(act_State.getText().toString());
-                updateCityTask = new UpdateCityTask(states_id+"");
+//              kondisi dimana state telah dipilih
+                bool_state = true;
+
+                state_id = adapter_state.getItemId(act_State.getText().toString());
+                updateCityTask = new UpdateCityTask(state_id+"");
                 updateCityTask.execute((Void)null);
             }
         });
+        act_City.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//              kondisi dimana city telah dipilih
+                bool_city= true;
+                city_id = adapter_city.getItemId(act_City.getText().toString());
+            }
+        });
+
         context = this;
         session = new AppSession(context);
         session.checkSession();
@@ -842,17 +815,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                     ProductsJson = json.getJSONArray("data");
                     return true;
 
-//
-//                    result = apiWeb.GetCities();
-//                    if(result==null){
-//                        return false;
-//                    }
-//                    json = new JSONObject(result);
-//                    status = json.getString("status");
-//                    if(status.compareToIgnoreCase("success")==0){
-//                        cityJson = json.getJSONArray("data");
-//                        return true;
-//                    }
                 }
 //                if(json.has("message"))errorMessage = json.getString("message");
             } catch (JSONException e) {
@@ -954,12 +916,24 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         updateTask = new UpdateTask();
         updateTask.execute((Void)null);
 
+
         act_State.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                states_id = adapter_state.getItemId(act_State.getText().toString());
-                updateCityTask = new UpdateCityTask(states_id+"");
+//              kondisi dimana state telah dipilih
+                bool_state = true;
+
+                state_id = adapter_state.getItemId(act_State.getText().toString());
+                updateCityTask = new UpdateCityTask(state_id+"");
                 updateCityTask.execute((Void)null);
+            }
+        });
+        act_City.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//              kondisi dimana city telah dipilih
+                bool_city= true;
+                city_id = adapter_city.getItemId(act_City.getText().toString());
             }
         });
         context = this;
@@ -979,17 +953,11 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         btn_Submit      = (Button) findViewById(R.id.btn_submit);
         et_distributor  = (EditText) findViewById(R.id.et_distributor);
         et_address  = (EditText) findViewById(R.id.et_address);
-//        spn_ProductType = (Spinner) findViewById(R.id.spn_product_demand_brand);// onduline, onduvilla, bituline, bardoline
-//        spn_ProductColorType= (Spinner) findViewById(R.id.spn_product_demand_color);// onduline, onduvilla, bituline, bardoline
         et_amount       = (EditText) findViewById(R.id.et_amount);
-//        act_City        = (AutoCompleteTextView) findViewById(R.id.act_city);
-//        act_State       = (AutoCompleteTextView) findViewById(R.id.act_state);
         btn_ImageAddNew = (LinearLayout)findViewById(R.id.btn_ImageAddNew);
         et_onduvilla_amount  = (EditText) findViewById(R.id.et_onduvilla_amount);
         et_onduline_amount   = (EditText) findViewById(R.id.et_onduline_amount);
         et_onduclair_amount  = (EditText) findViewById(R.id.et_onduclair_amount);
-
-//            et_onduvilla_amount,et_onduline_amount,et_onduclair_amount
 
 
 
@@ -1003,35 +971,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month+1, day);
-
-
-//        ------------------------------------------------------------------------------------------
-
-//        Spinner spn_product_demand_color, spn_product_demand_brand;
-//        spn_product_demand_color = (Spinner)findViewById(R.id.spn_product_demand_color);
-//        spn_product_demand_brand = (Spinner)findViewById(R.id.spn_product_demand_brand);
-
-//
-//        updateGetProductTask = new UpdateGetProductTask();
-//        updateGetProductTask.execute((Void)null);
-//
-//
-//        spn_product_demand_brand.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//
-//                Long product_id = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition());
-//                updateGetProductColorTask = new UpdateGetProductColorTask(product_id+"");
-//                updateGetProductColorTask.execute((Void)null);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-//        ------------------------------------------------------------------------------------------
-
 
 
         btn_Submit.setOnClickListener(new View.OnClickListener() {
@@ -1053,17 +992,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             }
         });
 
-//        updateTask = new UpdateTask();
-//        updateTask.execute((Void)null);
-//
-//        act_State.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                states_id = adapter_state.getItemId(act_State.getText().toString());
-//                updateCityTask = new UpdateCityTask(states_id+"");
-//                updateCityTask.execute((Void)null);
-//            }
-//        });
         context = this;
         session = new AppSession(context);
         session.checkSession();
@@ -1078,9 +1006,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
     @SuppressWarnings("deprecation")
     public void setDate(View view) {
         showDialog(999);
-//        Toast.makeText(getApplicationContext(), "ca",
-//                Toast.LENGTH_SHORT)
-//                .show();
     }
 
     private void showDate(int year, int month, int day) {
@@ -1293,8 +1218,8 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         private String colorId;
 //        private String amount;
         private String receipt;
-        private String city_id;
-        private String state_id;
+        private String city_id_send;
+        private String state_id_send;
         private String onduvilla_amount;
         private String onduline_amount;
         private String onduclair_amount;
@@ -1306,16 +1231,12 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                 apiWeb      = new ApiWeb();
                 token       = session.getToken();
                 receipt     =  mCurrentPhotoPath;
-//                productId   = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition()) + "";
                 orderDate   = txt_DatePicker.getText().toString();
                 distributor = "";
                 store_name  = et_StoreName.getText().toString();
-//                address     = et_AddressStore.getText().toString();
-                city_id     = adapter_city.getItemId(act_City.getText().toString())+"";
-                state_id    = adapter_state.getItemId(act_State.getText().toString())+"";
+                city_id_send = city_id+"";
+                state_id_send= state_id+"";
                 colorId     = "";     //colorId
-//                colorId     = spinnerMapColor.get(spn_product_demand_color.getSelectedItemPosition()) + "";
-//                amount      = et_amount.getText().toString();
 
                 if(et_onduvilla_amount.getText().toString().equals("")){
                     onduvilla_amount="0";
@@ -1334,25 +1255,16 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                 }else {
                     onduclair_amount    = et_onduclair_amount.getText().toString()+"";
                 }
-//
-
-//                onduvilla_amount    = et_onduvilla_amount.getText().toString()+"";
-//                onduline_amount     = et_onduline_amount.getText().toString()+"";
-//                onduclair_amount    = et_onduclair_amount.getText().toString()+"";
             }else if (pil.compareToIgnoreCase("order retailer")==0){
                 apiWeb      = new ApiWeb();                                                                     //apiWeb
                 token       = session.getToken();                                                               //token
                 receipt     = mCurrentPhotoPath;                                                               //receipt
-//                productId   = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition()) + "";   //productId
                 orderDate   = txt_DatePicker.getText().toString();                                              //orderDate
                 distributor = et_distributor.getText().toString();                                              //distributor
                 store_name  = "";                                                                               //store_name
-//                address     = "";                                             //address
-                city_id     = "";                         //city_id
-                state_id    = "";                       //state_id
-//                colorId     = spinnerMapColor.get(spn_product_demand_color.getSelectedItemPosition()) + "";     //colorId
+                city_id_send= "";                         //city_id
+                state_id_send= "";                       //state_id
                 colorId     = "";     //colorId
-//                amount      = et_amount.getText().toString();
 
                 if(et_onduvilla_amount.getText().toString().equals("")){
                     onduvilla_amount="0";
@@ -1372,9 +1284,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                     onduclair_amount    = et_onduclair_amount.getText().toString()+"";
                 }
 
-//                onduvilla_amount    = et_onduvilla_amount.getText().toString()+"";
-//                onduline_amount     = et_onduline_amount.getText().toString()+"";
-//                onduclair_amount    = et_onduclair_amount.getText().toString()+"";
             }else {
 
 //                project applicator
@@ -1388,7 +1297,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 
             String result = null;
 //            result = apiWeb.Order(token,receipt,productId,orderDate,address,distributor,store_name,colorId,amount,city_id,state_id);
-            result = apiWeb.Order(token,receipt,orderDate,distributor,store_name,colorId,city_id,state_id,onduvilla_amount,onduline_amount,onduclair_amount);
+            result = apiWeb.Order(token,receipt,orderDate,distributor,store_name,colorId,city_id_send,state_id_send,onduvilla_amount,onduline_amount,onduclair_amount);
 
 
             if(result==null){
@@ -1418,6 +1327,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 
                 popupSuccess();
                 showProgress(false);
+                bool_city = bool_state = false;
 
             } else {
                 popupAllert(errorMessage);
@@ -1438,8 +1348,8 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         private ApiWeb apiWeb;
         private String projectType;
         private String projectAddress;
-        private String city_id;
-        private String state_id;
+        private String city_id_send;
+        private String state_id_send;
         private String productId;
         private String colorId;
         private String spaciousRoof;
@@ -1454,8 +1364,8 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 //            projectType     = "1";//---------------------?? ini maksutnya tipe apa?
             projectType     = spinnerMapProjectType.get(spn_ProjectType.getSelectedItemPosition()) + "";
             projectAddress  = et_ProjectAddress.getText().toString();
-            city_id         = adapter_city.getItemId(act_City.getText().toString())+"";
-            state_id        = adapter_state.getItemId(act_State.getText().toString())+"";
+            city_id_send    = city_id+"";
+            state_id_send   = state_id+"";
 //            productId       = "1";//--------------------- maksutnya onduline dan apalah itu
 //            colorId         = "1";
 
@@ -1472,7 +1382,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = null;
-            result = apiWeb.NewProject(token,receipt,projectType,projectAddress,projectDate,city_id,state_id,productId,colorId,spaciousRoof);
+            result = apiWeb.NewProject(token,receipt,projectType,projectAddress,projectDate,city_id_send,state_id_send,productId,colorId,spaciousRoof);
 
 
             if(result==null){
@@ -1503,6 +1413,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                 popupSuccess();
                 showProgress(false);
                 mCurrentPhotoPath=null;
+                bool_city = bool_state = false;
 
             } else {
 

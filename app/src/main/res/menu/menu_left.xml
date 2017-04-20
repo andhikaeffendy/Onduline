@@ -3,13 +3,6 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_produk"
-            android:visible="false"
-            android:title="Produk" />
-        <item
-            android:id="@+id/nav_marketingsupport"
-            android:title="Dukungan Marketing" />
-        <item
             android:id="@+id/nav_QandA"
             android:title="Tanya Jawab" />
     </group>

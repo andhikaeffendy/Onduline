@@ -9,6 +9,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
@@ -49,7 +51,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
     private Calendar calendar;
     private int year, month, day;
 
-    private TextView txtisianBirth, txtisianBirthView;
+    private TextView txtisianBirth, txtisianBirthView, txt_distributor, txt_officePhone, txt_email;
     private Spinner spn_profession;
 
     private EditText et_name, et_address, et_phone, et_email, et_distributor, et_association, et_owner, et_id, et_username, et_password, et_password_confirm, et_company, et_officePhone;
@@ -61,6 +63,8 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
     private AutoCompleteTextView act_city, act_state;
     private AutoCompleteAdapter adapter_state, adapter_city;
+    private boolean bool_state = false;
+    private boolean bool_city = false;
     long states_id, city_id;
 
     private UpdateTask updateTask;
@@ -180,10 +184,8 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         Intent intent = new Intent(context, VerificationPageActivity.class);
-//                        intent.putExtra("email", email_regis);
-                        session.setEmailForm(email_regis);
-                        session.setHpNoForm(no_hp_regis);
-//                        intent.putExtra("hp_no", no_hp_regis);
+//                        session.setEmailForm(email_regis);
+//                        session.setHpNoForm(no_hp_regis);
                         intent.addCategory(Intent.CATEGORY_HOME);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
 
@@ -241,9 +243,19 @@ public class RegistrationFromActivity extends AppCompatActivity {
         act_state.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                memberikan tanda bahwa city telah terisi dengan benar
+                bool_state= true;
                 states_id = adapter_state.getItemId(act_state.getText().toString());
                 updateCityTask = new UpdateCityTask(states_id+"");
                 updateCityTask.execute((Void)null);
+            }
+        });
+        act_city.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                memberikan tanda bahwa city telah terisi dengan benar
+                bool_city= true;
+                city_id = adapter_city.getItemId(act_city.getText().toString());
             }
         });
 
@@ -256,22 +268,27 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
         mFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
-        et_name = (EditText)findViewById(R.id.et_name);//               wajib diisi
-        et_address = (EditText)findViewById(R.id.et_address);//         wajib diisi
-        act_city = (AutoCompleteTextView)findViewById(R.id.act_city);//             wajib diisi
-        act_state = (AutoCompleteTextView)findViewById(R.id.act_state);//           wajib diisi
-        et_phone = (EditText)findViewById(R.id.et_phone);//             harus diisi
+        et_name = (EditText)findViewById(R.id.et_name);
+        et_address = (EditText)findViewById(R.id.et_address);
+        act_city = (AutoCompleteTextView)findViewById(R.id.act_city);
+        act_state = (AutoCompleteTextView)findViewById(R.id.act_state);
+        et_phone = (EditText)findViewById(R.id.et_phone);
         et_officePhone = (EditText) findViewById(R.id.et_officePhone);
-        et_email = (EditText)findViewById(R.id.et_email); //            email min min 4 karater harus ada @
+        et_email = (EditText)findViewById(R.id.et_email);
 
-        txtisianBirth=(TextView)findViewById(R.id.txtisianBirth);//                 wajib diisi
-        txtisianBirthView=(TextView)findViewById(R.id.txtisianBirthView);//                 wajib diisi
-        et_distributor = (EditText)findViewById(R.id.et_distributor);// wajib diisi
-        et_owner = (EditText)findViewById(R.id.et_owner);//             wajib diisi
+        txtisianBirth=(TextView)findViewById(R.id.txtisianBirth);
+        txtisianBirthView=(TextView)findViewById(R.id.txtisianBirthView);
+        txt_distributor = (TextView)findViewById(R.id.txt_distributor);
+        et_distributor = (EditText)findViewById(R.id.et_distributor);
+        et_owner = (EditText)findViewById(R.id.et_owner);
         et_id = (EditText)findViewById(R.id.et_id);
-        et_username = (EditText)findViewById(R.id.et_username);//       username minimal 4 karakter dan harus terdiri dari huruf dan angka
-        et_password = (EditText)findViewById(R.id.et_password);//       password minimal 4 karakter harus terdiri dari huruf dan angka
-        et_password_confirm = (EditText)findViewById(R.id.et_password_confirm);//   harus sama dengan password
+
+        txt_officePhone = (TextView)findViewById(R.id.txt_officePhone);
+        txt_email= (TextView)findViewById(R.id.txt_email);
+
+        et_username = (EditText)findViewById(R.id.et_username);
+        et_password = (EditText)findViewById(R.id.et_password);
+        et_password_confirm = (EditText)findViewById(R.id.et_password_confirm);
 
         calendar = Calendar.getInstance();
 
@@ -280,12 +297,31 @@ public class RegistrationFromActivity extends AppCompatActivity {
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month+1, day);
 
+        //set form registrasi bila user akan registrasi sebagai supermarket bahan bangunan
+        if(retailer_type.equals("2")){
+            et_distributor.setVisibility(View.GONE);
+            txt_distributor.setVisibility(View.GONE);
+
+            txt_officePhone.setText(R.string.phone_number_store);
+            txt_email.setText(R.string.email);
+        }
+
         act_state.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                memberikan tanda bahwa city telah terisi dengan benar
+                bool_state= true;
                 states_id = adapter_state.getItemId(act_state.getText().toString());
                 updateCityTask = new UpdateCityTask(states_id+"");
                 updateCityTask.execute((Void)null);
+            }
+        });
+        act_city.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                memberikan tanda bahwa city telah terisi dengan benar
+                bool_city= true;
+                city_id = adapter_city.getItemId(act_city.getText().toString());
             }
         });
 
@@ -304,6 +340,8 @@ public class RegistrationFromActivity extends AppCompatActivity {
         act_state = (AutoCompleteTextView)findViewById(R.id.act_state);//           wajib diisi
         et_phone = (EditText)findViewById(R.id.et_phone);//             harus diisi
         et_email = (EditText)findViewById(R.id.et_email); //            email min min 4 karater harus ada @
+        et_company = (EditText)findViewById(R.id.et_company);
+        et_address = (EditText)findViewById(R.id.et_address);
 
         txtisianBirth=(TextView)findViewById(R.id.txtisianBirth);//                 wajib diisi
         txtisianBirthView=(TextView)findViewById(R.id.txtisianBirthView);//                 wajib diisi
@@ -314,14 +352,6 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
 
         listProfession = new String[] {"Perorangan", "Konsultan", "Kontraktor", "Arsitek", "Lain-lain"};
-
-//        mylist = new ArrayList<HashMap<String,String>>();
-//
-//        for (int i = 0; i < listProfession.length; i++){
-//            map = new HashMap<String, String>();
-//            map.put("list", subject[i]);
-//            mylist.add(map);
-//        }
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         Adapter = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, listProfession);
@@ -342,9 +372,19 @@ public class RegistrationFromActivity extends AppCompatActivity {
         act_state.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                memberikan tanda bahwa city telah terisi dengan benar
+                bool_state= true;
                 states_id = adapter_state.getItemId(act_state.getText().toString());
                 updateCityTask = new UpdateCityTask(states_id+"");
                 updateCityTask.execute((Void)null);
+            }
+        });
+        act_city.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                memberikan tanda bahwa city telah terisi dengan benar
+                bool_city= true;
+                city_id = adapter_city.getItemId(act_city.getText().toString());
             }
         });
 
@@ -371,14 +411,9 @@ public class RegistrationFromActivity extends AppCompatActivity {
         et_username.setError(null);
 
         et_name.setError(null);
-//        et_company.setError(null);
-//        et_owner.setError(null);
-//        et_distributor.setError(null); // perusahaan
-//        et_address.setError(null);
         act_city.setError(null);
         act_state.setError(null);
         et_phone.setError(null);
-//        et_association.setError(null);
         et_id.setError(null);
 
         // Store values at the time of the login attempt.
@@ -387,14 +422,9 @@ public class RegistrationFromActivity extends AppCompatActivity {
         String passwordConfirm = et_password_confirm.getText().toString();
         String username = et_username.getText().toString();
         String name = et_name.getText().toString();
-//        String company = et_company.getText().toString();
-//        String owner = et_owner.getText().toString();
-//        String distributor = et_distributor.getText().toString(); // perusahaan
-//        String address = et_address.getText().toString();
         String city = act_city.getText().toString();
         String state = act_state.getText().toString();
         String phone = et_phone.getText().toString();
-//        String association = et_association.getText().toString();
         String id = et_id.getText().toString();
 
 
@@ -429,13 +459,19 @@ public class RegistrationFromActivity extends AppCompatActivity {
             focusView = et_name;
             cancel = true;
         }
-//
-//        // Check for a valid address.
-//        if (isAddressValid(address)) {
-//            et_address.setError(getString(R.string.error_field_required));
-//            focusView = et_address;
-//            cancel = true;
-//        }
+
+        // Check for a valid city store.
+        if (!bool_city) {
+            act_city.setError(getString(R.string.error_field_city_required));
+            focusView = act_city;
+            cancel = true;
+        }
+        // Check for a valid state store.
+        if (!bool_state) {
+            act_state.setError(getString(R.string.error_field_state_required));
+            focusView = act_state;
+            cancel = true;
+        }
 
         // Check for a valid city.
         if (isCityValid(city)) {
@@ -450,6 +486,8 @@ public class RegistrationFromActivity extends AppCompatActivity {
             focusView = act_state;
             cancel = true;
         }
+
+
 
         // Check for a valid phone.
         if (isPhoneValid(phone)) {
@@ -560,14 +598,11 @@ public class RegistrationFromActivity extends AppCompatActivity {
         et_username.setError(null);
 
         et_name.setError(null);
-//        et_company.setError(null);
         et_owner.setError(null);
-//        et_distributor.setError(null); // perusahaan
         et_address.setError(null);
         act_city.setError(null);
         act_state.setError(null);
         et_phone.setError(null);
-//        et_association.setError(null);
         et_id.setError(null);
 
         // Store values at the time of the login attempt.
@@ -576,14 +611,11 @@ public class RegistrationFromActivity extends AppCompatActivity {
         String passwordConfirm = et_password_confirm.getText().toString();
         String username = et_username.getText().toString();
         String name = et_name.getText().toString();
-//        String company = et_company.getText().toString();
         String owner = et_owner.getText().toString();
-//        String distributor = et_distributor.getText().toString(); // perusahaan
         String address = et_address.getText().toString();
         String city = act_city.getText().toString();
         String state = act_state.getText().toString();
         String phone = et_phone.getText().toString();
-//        String association = et_association.getText().toString();
         String id = et_id.getText().toString();
 
 
@@ -620,6 +652,19 @@ public class RegistrationFromActivity extends AppCompatActivity {
         }
 
         // Check for a valid city.
+        if (!bool_city) {
+            act_city.setError(getString(R.string.error_field_city_required));
+            focusView = act_city;
+            cancel = true;
+        }
+        // Check for a valid state.
+        if (!bool_state) {
+            act_state.setError(getString(R.string.error_field_state_required));
+            focusView = act_state;
+            cancel = true;
+        }
+
+        // Check for a valid city.
         if (isCityValid(city)) {
             act_city.setError(getString(R.string.error_field_required));
             focusView = act_city;
@@ -646,13 +691,6 @@ public class RegistrationFromActivity extends AppCompatActivity {
             focusView = et_address;
             cancel = true;
         }
-
-        // Check for a valid distributor.
-//        if (isDistributorValid(distributor)) {
-//            et_distributor.setError(getString(R.string.error_field_required));
-//            focusView = et_distributor;
-//            cancel = true;
-//        }
 
         // Check for a valid id.
         if (isOwnerValid(owner)) {
@@ -723,7 +761,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         et_password_confirm.setError(null);     //password_confirmation
         et_username.setError(null);             //username
         et_name.setError(null);                 //name
-        et_address.setError(null);              //address
+//        et_address.setError(null);              //address
         act_city.setError(null);                //city_id
         act_state.setError(null);               //states_id
         et_phone.setError(null);                //hp_no
@@ -735,7 +773,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         String passwordConfirm = et_password_confirm.getText().toString();  //password_confirmation
         String username = et_username.getText().toString();                 //username
         String name = et_name.getText().toString();                         //name
-        String address = et_address.getText().toString();                   //address
+//        String address = et_address.getText().toString();                   //address
         String city = act_city.getText().toString();                        //city_id
         String state = act_state.getText().toString();                      //states_id
         String phone = et_phone.getText().toString();                       //hp_no
@@ -774,10 +812,23 @@ public class RegistrationFromActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        // Check for a valid address.
-        if (isAddressEmpty(address)) {
-            et_address.setError(getString(R.string.error_field_required));
-            focusView = et_address;
+//        // Check for a valid address.
+//        if (isAddressEmpty(address)) {
+//            et_address.setError(getString(R.string.error_field_required));
+//            focusView = et_address;
+//            cancel = true;
+//        }
+
+        // Check for a valid city store.
+        if (!bool_city) {
+            act_city.setError(getString(R.string.error_field_city_required));
+            focusView = act_city;
+            cancel = true;
+        }
+        // Check for a valid state store.
+        if (!bool_state) {
+            act_state.setError(getString(R.string.error_field_state_required));
+            focusView = act_state;
             cancel = true;
         }
 
@@ -912,20 +963,53 @@ public class RegistrationFromActivity extends AppCompatActivity {
         switch (pil) {
             case "tukang bangunan":
                 setContentView(R.layout.activity_registration_form_tukang_bangunan);
-                OnCreateRegistrasiApplicator();
+                if (!isNetworkAvailable()){
+                    popupNoInternet();
+                }else{
+                    OnCreateRegistrasiApplicator();
+                }
                 break;
             case "retailer":
                 setContentView(R.layout.activity_registration_form_retailer_tradisional);
-                OnCreateRegistrasiRetailer();
+                if (!isNetworkAvailable()){
+                    popupNoInternet();
+                }else{
+                    OnCreateRegistrasiRetailer();
+                }
                 break;
             case "individu":
                 setContentView(R.layout.activity_registration_form_individu);
-                OnCreateRegistrasiIndividu();
+                if (!isNetworkAvailable()){
+                    popupNoInternet();
+                }else{
+                    OnCreateRegistrasiIndividu();
+                }
                 break;
         }
     }
+    public void popupNoInternet(){
+        new AlertDialog.Builder(this)
+                .setTitle("Tidak Ada Koneksi Internet!")
+                .setMessage("Periksa koneksi internet anda")
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
+                    public void onClick(DialogInterface arg0, int arg1) {
 
+                        int pid = android.os.Process.myPid();
+                        android.os.Process.killProcess(pid);
+                        System.exit(0);
+                        finish();
+                    }
+                }).create().show();
+    }
+
+    // cek ada internet apa gak..
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
     /** Radio Button */
     public void onRBSignupClicked(View v){
@@ -1079,17 +1163,6 @@ public class RegistrationFromActivity extends AppCompatActivity {
                     cityJson = json.getJSONArray("data");
                     return true;
 
-//
-//                    result = apiWeb.GetCities();
-//                    if(result==null){
-//                        return false;
-//                    }
-//                    json = new JSONObject(result);
-//                    status = json.getString("status");
-//                    if(status.compareToIgnoreCase("success")==0){
-//                        cityJson = json.getJSONArray("data");
-//                        return true;
-//                    }
                 }
                 if(json.has("message"))errorMessage = json.getString("message");
             } catch (JSONException e) {
@@ -1155,7 +1228,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         private ApiWeb apiWeb;
         private String errorMessage = "Koneksi Error";
         private String statusError = "Koneksi Error";
-        private String retailerType, username, password, password_comfirmation, email, name, address, hp_no, birth_date,distributor_name, owner_name, id_no, id_no_type, company_name, association_name,officePhone,occupation, city_id,state_id;
+        private String retailerType, username, password, password_comfirmation, email, name, address, hp_no, birth_date,distributor_name, owner_name, id_no, id_no_type, company_name, association_name,officePhone,occupation;
 
         RegisterApplicatorTask() {
             apiWeb = new ApiWeb();
@@ -1166,19 +1239,22 @@ public class RegistrationFromActivity extends AppCompatActivity {
             name = et_name.getText().toString();
             address = et_address.getText().toString();
             hp_no = et_phone.getText().toString();
-            birth_date = txtisianBirth.getText().toString();
 
-            city_id         = adapter_city.getItemId(act_city.getText().toString())+"";
-            state_id        = adapter_state.getItemId(act_state.getText().toString())+"";
+//            city_id         = adapter_city.getItemId(act_city.getText().toString())+"";
+//            state_id        = adapter_state.getItemId(act_state.getText().toString())+"";
 
             id_no = et_id.getText().toString();
             id_no_type = gender;
             if (pil.compareToIgnoreCase("individu")==0){
+                birth_date = "";
                 occupation=spn_profession.getSelectedItem().toString();
+                company_name = et_company.getText().toString();
             }else if(pil.compareToIgnoreCase("tukang bangunan")==0){
+                birth_date = txtisianBirth.getText().toString();
                 company_name = et_company.getText().toString();
                 association_name = et_association.getText().toString();
             } else {
+                birth_date = txtisianBirth.getText().toString();
                 officePhone=et_officePhone.getText().toString();
                 distributor_name = et_distributor.getText().toString();
                 owner_name = et_owner.getText().toString();
@@ -1199,7 +1275,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
                 result = apiWeb.RegisterRetailer(retailerType,"retailer",username, password, password_comfirmation,email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, distributor_name, owner_name, id_no, id_no_type, officePhone);
                 // retailer type ada tradisional dll ada 3
             }else if (pil.compareToIgnoreCase("individu")==0) {//user_type, username, password, password_confirmation, email, name, address, states_id, city_id, hp_no, birth_date, id_no, id_no_type
-                result = apiWeb.RegisterIndividu("individu",username, password, password_comfirmation, email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, "", "", occupation);
+                result = apiWeb.RegisterIndividu("individu",username, password, password_comfirmation, email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, "", "", occupation, company_name);
                 // retailer type ada tradisional dll ada 3
             }
 
@@ -1231,9 +1307,13 @@ public class RegistrationFromActivity extends AppCompatActivity {
             if (success) {
                 //SESSION
 
+                session.setEmailForm(email);
+                session.setHpNoForm(hp_no);
+
                 popupSuccess(email,hp_no);
                 showProgress(false);
                 registerApplicatorTask=null;
+                bool_city = bool_state = false;
 //                Intent i;
 //                i = new Intent(context, VerificationPageActivity.class);
 //                i.putExtra("email", email);

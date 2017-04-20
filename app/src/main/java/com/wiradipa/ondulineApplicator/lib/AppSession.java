@@ -117,7 +117,7 @@ public class AppSession {
     }
 
     public String getEmailForm(){
-        return sharedPreferences.getString(EMAILFORM,"null");
+        return sharedPreferences.getString(EMAILFORM,null);
     }
     public void setEmailForm(String email){
         editor = sharedPreferences.edit();
@@ -125,7 +125,7 @@ public class AppSession {
         editor.apply();
     }
     public String getHpNoForm(){
-        return sharedPreferences.getString(HPNOFORM,"null");
+        return sharedPreferences.getString(HPNOFORM,null);
     }
     public void setHpNoForm(String hp_no){
         editor = sharedPreferences.edit();

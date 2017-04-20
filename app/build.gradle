@@ -7,8 +7,8 @@ android {
         applicationId "com.wiradipa.ondulineApplicator"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 9
+        versionName "1.0.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    packagingOptions{
+    packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
@@ -35,5 +35,6 @@ dependencies {
     compile 'org.apache.httpcomponents:httpcore:4.3.3'
     compile 'org.apache.httpcomponents:httpmime:4.3.6'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 }
