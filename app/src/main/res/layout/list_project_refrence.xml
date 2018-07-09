@@ -1,37 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_margin="5dp"
+        android:orientation="horizontal"
         android:weightSum="5">
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="5">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/txt_product"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Onduline®"
                         android:textColor="@color/colorPrimary"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:textSize="24dp"/>
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -42,36 +47,40 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Warna : Merah"
-                        android:visibility="gone"
-                        android:textColor="@color/colorBlackAlpha"/>
+                        android:textColor="@color/colorBlackAlpha"
+                        android:visibility="gone" />
+
                     <TextView
                         android:id="@+id/txt_imgUrl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Warna : Merah"
-                        android:visibility="gone"
-                        android:textColor="@color/colorBlackAlpha"/>
+                        android:textColor="@color/colorBlackAlpha"
+                        android:visibility="gone" />
+
                     <TextView
                         android:id="@+id/txt_ColorName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Warna : Merah"
                         android:layout_gravity="center"
-                        android:textColor="@color/colorBlackAlpha"/>
+                        android:text="Warna : Merah"
+                        android:textColor="@color/colorBlackAlpha" />
+
                     <TextView
                         android:id="@+id/txt_city"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
                         android:layout_gravity="center"
                         android:text="Probolinggo"
-                        android:textColor="@color/colorBlackAlpha"/>
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textSize="18dp" />
+
                     <TextView
                         android:id="@+id/txt_state"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Jawa Timur"/>
+                        android:text="Jawa Timur" />
                 </LinearLayout>
 
             </LinearLayout>

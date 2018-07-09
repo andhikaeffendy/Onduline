@@ -166,7 +166,6 @@ public class VerificationPageActivity extends AppCompatActivity {
         }
     }
 
-
     /**
      * Shows the progress UI and hides the login next_menu.
      */

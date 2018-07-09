@@ -13,25 +13,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="@string/qna"
                 android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
                 android:textSize="24dp"
-                android:text="@string/qna"/>
+                android:textStyle="bold" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:visibility="gone"
-                android:src="@drawable/header_q_and_a"/>
+                android:src="@drawable/header_q_and_a"
+                android:visibility="gone" />
         </RelativeLayout>
 
         <ScrollView
@@ -49,244 +52,255 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_1"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_1"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_1"
+                    android:textSize="18dp" />
                 <!--qnaActivity 2-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_2"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_2"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_2"
+                    android:textSize="18dp" />
                 <!--qnaActivity 3-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_3"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_3"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_3"
+                    android:textSize="18dp" />
                 <!--qnaActivity 4-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_4"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_4"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_4"
+                    android:textSize="18dp" />
                 <!--qnaActivity 5-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_5"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_5"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_5"
+                    android:textSize="18dp" />
                 <!--qnaActivity 6-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_6"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_6"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_6"
+                    android:textSize="18dp" />
                 <!--qnaActivity 7-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_7"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_7"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_7"
+                    android:textSize="18dp" />
                 <!--qnaActivity 8-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_8"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_8"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_8"
+                    android:textSize="18dp" />
                 <!--qnaActivity 9-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_9"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_9"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_9"
+                    android:textSize="18dp" />
                 <!--qnaActivity 10-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_10"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_10"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_10"
+                    android:textSize="18dp" />
                 <!--qnaActivity 10-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/question_retail_11"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textAlignment="center"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18dp"
-                    android:text="@string/answer_retail_11"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/answer_retail_11"
+                    android:textSize="18dp" />
             </LinearLayout>
 
         </ScrollView>
@@ -294,8 +308,8 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="@color/colorPrimary"/>
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary" />
 </RelativeLayout>

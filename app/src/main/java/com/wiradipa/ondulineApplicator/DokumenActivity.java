@@ -27,6 +27,11 @@ public class DokumenActivity extends AppCompatActivity {
                         Uri.parse("http://onduvilla.co.id/sites/onduvilla_id/files/green_certification.pdf"));
                 startActivity(i);
                 break;
+            case R.id.download_data_proyek_green_certification_onduline: //v
+                i = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://onduvilla.co.id/sites/onduvilla_id/files/green_certification.pdf"));
+                startActivity(i);
+                break;
             case R.id.download_data_proyek_green_certification_bituline: //v
                 i = new Intent(Intent.ACTION_VIEW,
                         Uri.parse("http://onduvilla.co.id/sites/onduvilla_id/files/green_certification.pdf"));

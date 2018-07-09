@@ -15,11 +15,11 @@ public class calc_formula {
         if(statRoof==1 && (tilt==15 || tilt>15)){
             hasil=luasCosRadian(luas,tilt)/1.539;
 //            System.out.println(luas + " / 1.539 = " + hasil );
-        }else if (statRoof==1 && (tilt<15 || tilt>10) || tilt==10){
+        }else if (statRoof==1 && (tilt<15 && tilt>=10)){
             hasil=luasCosRadian(luas,tilt)/1.539;
 //            System.out.println(luas + " / 1.539 = " + hasil );
         }else if (statRoof==1 && tilt < 10){
-            hasil=luasCosRadian(luas,tilt)/1.277;
+            hasil=luasCosRadian(luas,tilt)/1.278;
 //            System.out.println(luas + " / 1.277 = " + hasil );
         }else if (statRoof==2 && (tilt==15 || tilt>15) ){
             hasil=luasCosRadian(luas,tilt)/0.3088;

@@ -14,64 +14,75 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="12"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:weightSum="12">
+
         <LinearLayout
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_weight="2">
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textSize="24dp"
-                android:text="Halo Mr Fauzi"/>
+                android:text="Halo Mr Fauzi"
+                android:textSize="24dp" />
+
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:textSize="18dp"
-                android:text="Detail Project"/>
+                android:text="Detail Project"
+                android:textSize="18dp" />
         </LinearLayout>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:background="@color/colorAccent"/>
+                    android:background="@color/colorAccent" />
+
                 <LinearLayout
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:background="@color/colorPrimary"/>
+                        android:background="@color/colorPrimary" />
+
                     <TextView
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="24dp"
-                        android:text="Ambil foto"/>
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="Ambil foto"
+                        android:textSize="24dp" />
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jenis Proyek"/>
+                    android:text="Jenis Proyek" />
+
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"></Spinner>
@@ -80,36 +91,44 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Alamat proyek"/>
+                    android:text="Alamat proyek" />
+
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"/>
+                    android:layout_height="120dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kota"/>
+                    android:text="Kota" />
+
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"></Spinner>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Propinsi"/>
+                    android:text="Propinsi" />
+
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"></Spinner>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pproduk"/>
+                    android:text="Pproduk" />
+
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"></Spinner>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Warna"/>
+                    android:text="Warna" />
+
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"></Spinner>
@@ -119,27 +138,31 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="7">
+
                     <TextView
-                        android:layout_weight="3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Luas Atap"/>
+                        android:layout_weight="3"
+                        android:text="Luas Atap" />
+
                     <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:hint="isi luas atap"/>
+                        android:hint="isi luas atap" />
+
                     <TextView
-                        android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="m2"/>
+                        android:layout_weight="1"
+                        android:text="m2" />
                 </LinearLayout>
+
                 <Button
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kirim"/>
+                    android:layout_gravity="center"
+                    android:text="Kirim" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

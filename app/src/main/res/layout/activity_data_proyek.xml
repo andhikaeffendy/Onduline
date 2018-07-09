@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.wiradipa.ondulineApplicator.DataProyekActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="@string/tittle_header_data_proyek"
                 android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
                 android:textSize="24dp"
-                android:text="@string/tittle_header_data_proyek"/>
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <ScrollView
@@ -40,10 +42,10 @@
 
                 <RelativeLayout
                     android:id="@+id/rl_dokumenTeknis"
-                    android:onClick="onClickDataProyek"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="10dp"
+                    android:onClick="onClickDataProyek">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -61,10 +63,10 @@
 
                 <RelativeLayout
                     android:id="@+id/rl_inputInformasiProyek"
-                    android:onClick="onClickDataProyek"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="10dp"
+                    android:onClick="onClickDataProyek">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -75,27 +77,26 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:textAlignment="center"
                         android:text="@string/btn_input_informasi_proyek"
+                        android:textAlignment="center"
                         android:textColor="#fff"
                         android:textSize="30dp" />
                 </RelativeLayout>
-
-
 
 
             </LinearLayout>
         </ScrollView>
 
     </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
-        android:textColor="@color/colorBlackAlpha"
-        android:text="@string/note_data_proyek"/>
+        android:text="@string/note_data_proyek"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlackAlpha" />
 
 </RelativeLayout>

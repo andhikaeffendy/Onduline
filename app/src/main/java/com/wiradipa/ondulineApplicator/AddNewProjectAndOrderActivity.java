@@ -13,17 +13,15 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.IntegerRes;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,8 +33,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.wiradipa.ondulineApplicator.imagehelper.ImageLoadingUtils;
 import com.wiradipa.ondulineApplicator.lib.ApiWeb;
 import com.wiradipa.ondulineApplicator.lib.AppSession;
 import com.wiradipa.ondulineApplicator.lib.AutoCompleteAdapter;
@@ -46,7 +44,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -54,33 +55,37 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import static java.lang.System.out;
+
 public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 
-    /** fokus sama order aplikator dulu aja */
+    /**
+     * fokus sama order aplikator dulu aja
+     */
 
     private Context context;
     private AppSession session;
-    private SubmitOrderApplicatorTask  mAuthOrderApplicatorTask = null;
-    private SubmitNewProjectApplicatorTask mAuthNewProjectApplicatorTask=null;
+    private SubmitOrderApplicatorTask mAuthOrderApplicatorTask = null;
+    private SubmitNewProjectApplicatorTask mAuthNewProjectApplicatorTask = null;
     private Spinner spn_product_demand_color, spn_product_demand_brand, spn_ProjectType;
     private ArrayAdapter<String> adapter_product_demand_color, adapter_product_demand_brand, adapter_project_type;
-    private HashMap<Integer,Long> spinnerMapProduct, spinnerMapColor, spinnerMapProjectType;
+    private HashMap<Integer, Long> spinnerMapProduct, spinnerMapColor, spinnerMapProjectType;
     private UpdateGetProductTask updateGetProductTask;
     private UpdateGetProductColorTask updateGetProductColorTask;
     private UpdateProjectTypeTask updateProjectTypeTask;
 
     private ImageView img_AddNew;
 
-    private TextView txt_NameUser, txt_DatePicker,txt_DatePickerView;
+    private TextView txt_NameUser, txt_DatePicker, txt_DatePickerView;
     private Button btn_DatePicker, btn_Submit;
-    private EditText et_AddressStore, et_amount,et_distributor,et_ProjectAddress,et_SpaciousRoof,et_StoreName,et_address,et_onduvilla_amount,et_onduline_amount,et_onduclair_amount;
+    private EditText et_AddressStore, et_amount, et_distributor, et_ProjectAddress, et_SpaciousRoof, et_StoreName, et_address, et_onduvilla_amount, et_onduline_amount, et_onduclair_amount;
     private AutoCompleteTextView act_City, act_State;
     private LinearLayout btn_ImageAddNew;
     private String token;
     private Bitmap imageBitmapShare;
 
     private AutoCompleteAdapter adapter_state = null;
-    private AutoCompleteAdapter adapter_city= null;
+    private AutoCompleteAdapter adapter_city = null;
     private String[] statesName, citiesName;
     private long[] statesIds, citiesIds;
     private long state_id, city_id;
@@ -90,30 +95,32 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
     private UpdateCityTask updateCityTask;
     private View mProgressView;
     private View mFormView;
+    private ImageLoadingUtils utils;
     String mCurrentPhotoPath;
 
-    private String[] souvenirName, productName,colorName;
-    private long[] souvenirIds, productIds,colorIds ;
+    private String[] souvenirName, productName, colorName;
+    private long[] souvenirIds, productIds, colorIds;
 
     private Calendar calendar;
     private int year, month, day;
 
 
     String pil, nameUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
         session = new AppSession(context);
         session.checkSession();
-        nameUser=session.getName();
+        nameUser = session.getName();
 
-        mCurrentPhotoPath=null;
+        mCurrentPhotoPath = null;
         setLayout();
 
     }
 
-    public void popupTakeAPicture(){
+    public void popupTakeAPicture() {
 
         new AlertDialog.Builder(this)
                 .setTitle("Perhatian!")
@@ -124,7 +131,8 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                     }
                 }).create().show();
     }
-    public void popupSuccess(){
+
+    public void popupSuccess() {
         new AlertDialog.Builder(this)
                 .setTitle("Pengiriman Sukses!")
                 .setMessage("Selamat pengiriman anda telah terkirim")
@@ -133,7 +141,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                     public void onClick(DialogInterface arg0, int arg1) {
 
                         Intent intent = new Intent(context, AddNewProjectAndOrderActivity.class);
-                        intent.putExtra("pil",pil);
+                        intent.putExtra("pil", pil);
                         intent.addCategory(Intent.CATEGORY_HOME);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
 
@@ -144,83 +152,121 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 
     }
 
+    public File saveBitmapToFile(File file) {
+        try {
+
+            // BitmapFactory options to downsize the image
+            BitmapFactory.Options o = new BitmapFactory.Options();
+            o.inJustDecodeBounds = true;
+            o.inSampleSize = 6;
+            // factor of downsizing the image
+
+            FileInputStream inputStream = new FileInputStream(file);
+            //Bitmap selectedBitmap = null;
+            BitmapFactory.decodeStream(inputStream, null, o);
+            inputStream.close();
+
+            // The new size we want to scale to
+            final int REQUIRED_SIZE = 75;
+
+            // Find the correct scale value. It should be the power of 2.
+            int scale = 1;
+            while (o.outWidth / scale / 2 >= REQUIRED_SIZE &&
+                    o.outHeight / scale / 2 >= REQUIRED_SIZE) {
+                scale *= 2;
+            }
+
+            BitmapFactory.Options o2 = new BitmapFactory.Options();
+            o2.inSampleSize = scale;
+            inputStream = new FileInputStream(file);
+
+            Bitmap selectedBitmap = BitmapFactory.decodeStream(inputStream, null, o2);
+            inputStream.close();
+
+            // here i override the original image file
+            file.createNewFile();
+            FileOutputStream outputStream = new FileOutputStream(file);
+
+            selectedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+
+            return file;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
+    MarshMallowPermission marshMallowPermission = new MarshMallowPermission(this);
+
     private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (!marshMallowPermission.checkPermissionForCamera()) {
+            marshMallowPermission.requestPermissionForCamera();
+        } else {
+            if (!marshMallowPermission.checkPermissionForExternalStorage()) {
+                marshMallowPermission.requestPermissionForExternalStorage();
+            } else {
 
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.wiradipa.ondulineApplicator.fileprovider",
-                        photoFile);
-                List<ResolveInfo> resolvedIntentActivities = getPackageManager().queryIntentActivities(takePictureIntent, PackageManager.MATCH_DEFAULT_ONLY);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
 
-                for (ResolveInfo resolvedIntentInfo : resolvedIntentActivities) {
-                    String packageName = resolvedIntentInfo.activityInfo.packageName;
+                    File photoFile = null;
+                    try {
+                        photoFile = createImageFile();
+                    } catch (IOException ex) {
+                        // Error occurred while creating the File
+                    }
+                    // Continue only if the File was successfully created
+                    if (photoFile != null) {
+                        Uri photoURI = FileProvider.getUriForFile(this,
+                                "com.wiradipa.ondulineApplicator.fileprovider",
+                                photoFile);
+                        List<ResolveInfo> resolvedIntentActivities = getPackageManager().queryIntentActivities(takePictureIntent, PackageManager.MATCH_DEFAULT_ONLY);
 
-                    grantUriPermission(packageName, photoURI, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        for (ResolveInfo resolvedIntentInfo : resolvedIntentActivities) {
+                            String packageName = resolvedIntentInfo.activityInfo.packageName;
+
+                            grantUriPermission(packageName, photoURI, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        }
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                    }
+
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+
                 }
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+
             }
-
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-
         }
+
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-//            Bundle extras = data.getExtras();
 
-
-//          ========================================================================================
-
-
-		/* There isn't enough memory to open up more than a couple camera photos */
-		/* So pre-scale the target bitmap into which the file is decoded */
-
-		/* Get the size of the ImageView */
+            // Get the dimensions of the View
             int targetW = img_AddNew.getWidth();
             int targetH = img_AddNew.getHeight();
 
-		/* Get the size of the image */
+            // Get the dimensions of the bitmap
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;
             BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
             int photoW = bmOptions.outWidth;
             int photoH = bmOptions.outHeight;
 
-		/* Figure out which way needs to be reduced less */
-            int scaleFactor = 1;
-            if ((targetW > 0) || (targetH > 0)) {
-                scaleFactor = Math.min(photoW/targetW, photoH/targetH);
-            }
+            // Determine how much to scale down the image
+            int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
 
-		/* Set bitmap options to scale the image decode target */
+            // Decode the image file into a Bitmap sized to fill the View
             bmOptions.inJustDecodeBounds = false;
             bmOptions.inSampleSize = scaleFactor;
             bmOptions.inPurgeable = true;
 
-		/* Decode the JPEG file into a Bitmap */
-//            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-
-
-
-//            ======================================================================================
-            Bitmap imageBitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-            imageBitmapShare = imageBitmap;
-            img_AddNew.setImageBitmap(imageBitmap);
+            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+            img_AddNew.setImageBitmap(bitmap);
         }
     }
 
@@ -240,6 +286,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         return image;
     }
 
+//    untuk mengkompress gambar
 
 
     private boolean isImageValid(String mCurrentPhotoPath) {
@@ -252,20 +299,24 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         //TODO: Replace this with your own logic
         return address.equals("");
     }
+
     private boolean isSpaciousRoofValid(String large) {
         //TODO: Replace this with your own logic
         return large.equals("");
     }
+
     private boolean isAdapterStateValid(String State) {
         //TODO: Replace this with your own logic
         int large = Integer.parseInt(State);
-        return large>0;
+        return large > 0;
     }
+
     private boolean isAdapterCityValid(String City) {
         //TODO: Replace this with your own logic
         int large = Integer.parseInt(City);
-        return large>0;
+        return large > 0;
     }
+
     private boolean isProductTypeValid(String product) {
         //TODO: Replace this with your own logic
         return product.equals("");
@@ -286,14 +337,17 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         //TODO: Replace this with your own logic
         return AddressStore.equals("");
     }
+
     private boolean isStoreNameValid(String StoreName) {
         //TODO: Replace this with your own logic
         return StoreName.equals("");
     }
+
     private boolean isamountValid(String Amount) {
         //TODO: Replace this with your own logic
         return Amount.equals("");
     }
+
     private boolean isdistributorValid(String distributor) {
         //TODO: Replace this with your own logic
         return distributor.equals("");
@@ -421,7 +475,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 //            disini kita show progreess apapun itu dan di setiap
 
             //Toast.makeText(this, "password : " + password , Toast.LENGTH_LONG).show();
-            mAuthOrderApplicatorTask  = new SubmitOrderApplicatorTask();
+            mAuthOrderApplicatorTask = new SubmitOrderApplicatorTask();
             mAuthOrderApplicatorTask.execute((Void) null);
         }
     }
@@ -487,7 +541,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 //            disini kita show progreess apapun itu dan di setiap
 
             //Toast.makeText(this, "password : " + password , Toast.LENGTH_LONG).show();
-            mAuthNewProjectApplicatorTask   = new SubmitNewProjectApplicatorTask();
+            mAuthNewProjectApplicatorTask = new SubmitNewProjectApplicatorTask();
             mAuthNewProjectApplicatorTask.execute((Void) null);
         }
     }
@@ -507,7 +561,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         et_distributor.setError(null);
 
         // Store values at the time of the submit attempt.
-        String distributor= et_distributor.getText().toString();
+        String distributor = et_distributor.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -531,12 +585,12 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 //            disini kita show progreess apapun itu dan di setiap
 
             //Toast.makeText(this, "password : " + password , Toast.LENGTH_LONG).show();
-            mAuthOrderApplicatorTask  = new SubmitOrderApplicatorTask();
-            mAuthOrderApplicatorTask .execute((Void) null);
+            mAuthOrderApplicatorTask = new SubmitOrderApplicatorTask();
+            mAuthOrderApplicatorTask.execute((Void) null);
         }
     }
 
-    public void popupAllert(String allert){
+    public void popupAllert(String allert) {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(allert)
@@ -548,9 +602,8 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
     }
 
 
-
     //function to set layout(produk, brosur, souvenir)
-    public void setLayout(){
+    public void setLayout() {
         Bundle extras = getIntent().getExtras();
         pil = extras.getString("pil");
         switch (pil) {
@@ -569,19 +622,19 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         }
     }
 
-    public void OnCreateNewProjectApplicator(){
+    public void OnCreateNewProjectApplicator() {
 
-        img_AddNew      = (ImageView)findViewById(R.id.img_AddNew);
-        txt_NameUser    = (TextView)findViewById(R.id.txt_NameUser);
-        txt_DatePicker=(TextView)findViewById(R.id.txtisianBirth);//                 wajib diisi
-        txt_DatePickerView=(TextView)findViewById(R.id.txtisianBirthView);//                 wajib diisi
-        btn_Submit      = (Button) findViewById(R.id.btn_submit);
+        img_AddNew = (ImageView) findViewById(R.id.img_AddNew);
+        txt_NameUser = (TextView) findViewById(R.id.txt_NameUser);
+        txt_DatePicker = (TextView) findViewById(R.id.txtisianBirth);//                 wajib diisi
+        txt_DatePickerView = (TextView) findViewById(R.id.txtisianBirthView);//                 wajib diisi
+        btn_Submit = (Button) findViewById(R.id.btn_submit);
         et_ProjectAddress = (EditText) findViewById(R.id.et_ProjectAddress);
         et_SpaciousRoof = (EditText) findViewById(R.id.et_SpaciousRoof);
         spn_ProjectType = (Spinner) findViewById(R.id.spn_ProjectType);// onduline, onduvilla, bituline, bardoline
-        act_City        = (AutoCompleteTextView) findViewById(R.id.act_city);
-        act_State       = (AutoCompleteTextView) findViewById(R.id.act_state);
-        btn_ImageAddNew = (LinearLayout)findViewById(R.id.btn_ImageAddNew);
+        act_City = (AutoCompleteTextView) findViewById(R.id.act_city);
+        act_State = (AutoCompleteTextView) findViewById(R.id.act_state);
+        btn_ImageAddNew = (LinearLayout) findViewById(R.id.btn_ImageAddNew);
 
         calendar = Calendar.getInstance();
 
@@ -592,20 +645,20 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        showDate(year, month+1, day);
+        showDate(year, month + 1, day);
 
 
 //        ------------------------------------------------------------------------------------------
 
 //        Spinner spn_product_demand_color, spn_product_demand_brand;
-        spn_product_demand_color = (Spinner)findViewById(R.id.spn_product_demand_color);
-        spn_product_demand_brand = (Spinner)findViewById(R.id.spn_product_demand_brand);
+        spn_product_demand_color = (Spinner) findViewById(R.id.spn_product_demand_color);
+        spn_product_demand_brand = (Spinner) findViewById(R.id.spn_product_demand_brand);
 
 
         updateProjectTypeTask = new UpdateProjectTypeTask();
-        updateProjectTypeTask.execute((Void)null);
+        updateProjectTypeTask.execute((Void) null);
         updateGetProductTask = new UpdateGetProductTask();
-        updateGetProductTask.execute((Void)null);
+        updateGetProductTask.execute((Void) null);
 
 
         spn_product_demand_brand.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -613,8 +666,8 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 Long product_id = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition());
-                updateGetProductColorTask = new UpdateGetProductColorTask(product_id+"");
-                updateGetProductColorTask.execute((Void)null);
+                updateGetProductColorTask = new UpdateGetProductColorTask(product_id + "");
+                updateGetProductColorTask.execute((Void) null);
             }
 
             @Override
@@ -639,7 +692,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         });
 
         updateTask = new UpdateTask();
-        updateTask.execute((Void)null);
+        updateTask.execute((Void) null);
 
         act_State.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -648,15 +701,15 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                 bool_state = true;
 
                 state_id = adapter_state.getItemId(act_State.getText().toString());
-                updateCityTask = new UpdateCityTask(state_id+"");
-                updateCityTask.execute((Void)null);
+                updateCityTask = new UpdateCityTask(state_id + "");
+                updateCityTask.execute((Void) null);
             }
         });
         act_City.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //              kondisi dimana city telah dipilih
-                bool_city= true;
+                bool_city = true;
                 city_id = adapter_city.getItemId(act_City.getText().toString());
             }
         });
@@ -669,24 +722,22 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
     }
 
 
-
-
     // kebutuhan untuk get data produk
 
-    private boolean parsingProduct(JSONArray data){
+    private boolean parsingProduct(JSONArray data) {
         try {
 
             String[] spinnerArray = new String[data.length()];
             spinnerMapProduct = new HashMap<Integer, Long>();
 //            productName = new String[data.length()];
 //            productIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
-                spinnerMapProduct.put(i,jason.getLong("id"));
+                spinnerMapProduct.put(i, jason.getLong("id"));
                 spinnerArray[i] = jason.getString("name");
             }
             // Create an ArrayAdapter using the string array and a default spinner layout
-            adapter_product_demand_brand = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, spinnerArray);
+            adapter_product_demand_brand = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, spinnerArray);
             // Specify the layout to use when the list of choices appears
             adapter_product_demand_brand.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             // Apply the adapter to the spinner
@@ -699,20 +750,20 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean parsingProductcolors(JSONArray data){
+    private boolean parsingProductcolors(JSONArray data) {
         try {
 
             String[] spinnerArray = new String[data.length()];
             spinnerMapColor = new HashMap<Integer, Long>();
             colorName = new String[data.length()];
             colorIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
-                spinnerMapColor.put(i,jason.getLong("id"));
+                spinnerMapColor.put(i, jason.getLong("id"));
                 spinnerArray[i] = jason.getString("name");
             }
             // Create an ArrayAdapter using the string array and a default spinner layout
-            adapter_product_demand_color = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, spinnerArray);
+            adapter_product_demand_color = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, spinnerArray);
             // Specify the layout to use when the list of choices appears
             adapter_product_demand_color.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             // Apply the adapter to the spinner
@@ -726,7 +777,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
     }
 
 
-
     public class UpdateGetProductColorTask extends AsyncTask<Void, Void, Boolean> {
 
         private ApiWeb apiWeb;
@@ -736,13 +786,13 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         private JSONArray colorJson;
         private String stateId;
 
-        UpdateGetProductColorTask (String state_id) {
+        UpdateGetProductColorTask(String state_id) {
             apiWeb = new ApiWeb();
             pg = new ProgressDialog(context);
             pg.setTitle("Ambil Data");
             pg.setMessage("Ambil Data");
             pg.show();
-            stateId=state_id;
+            stateId = state_id;
         }
 
         @Override
@@ -750,18 +800,18 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetproductColors(stateId);
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     colorJson = json.getJSONArray("data");
                     return true;
 
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -805,13 +855,13 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.Getproducts();
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     ProductsJson = json.getJSONArray("data");
                     return true;
 
@@ -837,23 +887,23 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
     //==============================================================================================
 
 
-    public void OnCreateorderApplicator(){
+    public void OnCreateorderApplicator() {
 
-        img_AddNew      = (ImageView)findViewById(R.id.img_AddNew);
-        txt_NameUser    = (TextView)findViewById(R.id.txt_NameUser);
-        txt_DatePicker =(TextView)findViewById(R.id.txtisianBirth);//                 wajib diisi
-        txt_DatePickerView=(TextView)findViewById(R.id.txtisianBirthView);//                 wajib diisi
-        btn_DatePicker  = (Button) findViewById(R.id.btn_DatePicker);
-        btn_Submit      = (Button) findViewById(R.id.btn_submit);
+        img_AddNew = (ImageView) findViewById(R.id.img_AddNew);
+        txt_NameUser = (TextView) findViewById(R.id.txt_NameUser);
+        txt_DatePicker = (TextView) findViewById(R.id.txtisianBirth);//                 wajib diisi
+        txt_DatePickerView = (TextView) findViewById(R.id.txtisianBirthView);//                 wajib diisi
+        btn_DatePicker = (Button) findViewById(R.id.btn_DatePicker);
+        btn_Submit = (Button) findViewById(R.id.btn_submit);
         et_AddressStore = (EditText) findViewById(R.id.et_AddressStore);
-        et_StoreName    = (EditText) findViewById(R.id.et_StoreName);
+        et_StoreName = (EditText) findViewById(R.id.et_StoreName);
 //        et_amount       = (EditText) findViewById(R.id.et_amount);
-        act_City        = (AutoCompleteTextView) findViewById(R.id.act_city);
-        act_State       = (AutoCompleteTextView) findViewById(R.id.act_state);
-        btn_ImageAddNew = (LinearLayout)findViewById(R.id.btn_ImageAddNew);
-        et_onduvilla_amount  = (EditText) findViewById(R.id.et_onduvilla_amount);
-        et_onduline_amount   = (EditText) findViewById(R.id.et_onduline_amount);
-        et_onduclair_amount  = (EditText) findViewById(R.id.et_onduclair_amount);
+        act_City = (AutoCompleteTextView) findViewById(R.id.act_city);
+        act_State = (AutoCompleteTextView) findViewById(R.id.act_state);
+        btn_ImageAddNew = (LinearLayout) findViewById(R.id.btn_ImageAddNew);
+        et_onduvilla_amount = (EditText) findViewById(R.id.et_onduvilla_amount);
+        et_onduline_amount = (EditText) findViewById(R.id.et_onduline_amount);
+        et_onduclair_amount = (EditText) findViewById(R.id.et_onduclair_amount);
 
         calendar = Calendar.getInstance();
 
@@ -864,17 +914,17 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        showDate(year, month+1, day);
+        showDate(year, month + 1, day);
 
 //        ------------------------------------------------------------------------------------------
 
 //        Spinner spn_product_demand_color, spn_product_demand_brand;
-        spn_product_demand_color = (Spinner)findViewById(R.id.spn_product_demand_color);
-        spn_product_demand_brand = (Spinner)findViewById(R.id.spn_product_demand_brand);
+        spn_product_demand_color = (Spinner) findViewById(R.id.spn_product_demand_color);
+        spn_product_demand_brand = (Spinner) findViewById(R.id.spn_product_demand_brand);
 
 
         updateGetProductTask = new UpdateGetProductTask();
-        updateGetProductTask.execute((Void)null);
+        updateGetProductTask.execute((Void) null);
 
 
         spn_product_demand_brand.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -882,8 +932,8 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 Long product_id = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition());
-                updateGetProductColorTask = new UpdateGetProductColorTask(product_id+"");
-                updateGetProductColorTask.execute((Void)null);
+                updateGetProductColorTask = new UpdateGetProductColorTask(product_id + "");
+                updateGetProductColorTask.execute((Void) null);
             }
 
             @Override
@@ -897,10 +947,10 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //submit order aplikator
-                if(mCurrentPhotoPath==null){
+                if (mCurrentPhotoPath == null) {
                     //tempat popup belum ambil gamber
                     popupTakeAPicture();
-                }else {
+                } else {
                     attemptSubmitOrderApplicator();
                 }
 
@@ -914,7 +964,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         });
 
         updateTask = new UpdateTask();
-        updateTask.execute((Void)null);
+        updateTask.execute((Void) null);
 
 
         act_State.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -924,15 +974,15 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                 bool_state = true;
 
                 state_id = adapter_state.getItemId(act_State.getText().toString());
-                updateCityTask = new UpdateCityTask(state_id+"");
-                updateCityTask.execute((Void)null);
+                updateCityTask = new UpdateCityTask(state_id + "");
+                updateCityTask.execute((Void) null);
             }
         });
         act_City.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //              kondisi dimana city telah dipilih
-                bool_city= true;
+                bool_city = true;
                 city_id = adapter_city.getItemId(act_City.getText().toString());
             }
         });
@@ -943,22 +993,21 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         txt_NameUser.setText("Halo " + session.getName());
     }
 
-    public void OnCreateorderRetailer(){
+    public void OnCreateorderRetailer() {
 
-        img_AddNew      = (ImageView)findViewById(R.id.img_AddNew);
-        txt_NameUser    = (TextView)findViewById(R.id.txt_NameUser);
-        txt_DatePicker  =(TextView)findViewById(R.id.txtisianBirth);//                 wajib diisi
-        txt_DatePickerView=(TextView)findViewById(R.id.txtisianBirthView);//                 wajib diisi
-        btn_DatePicker  = (Button) findViewById(R.id.btn_DatePicker);
-        btn_Submit      = (Button) findViewById(R.id.btn_submit);
-        et_distributor  = (EditText) findViewById(R.id.et_distributor);
-        et_address  = (EditText) findViewById(R.id.et_address);
-        et_amount       = (EditText) findViewById(R.id.et_amount);
-        btn_ImageAddNew = (LinearLayout)findViewById(R.id.btn_ImageAddNew);
-        et_onduvilla_amount  = (EditText) findViewById(R.id.et_onduvilla_amount);
-        et_onduline_amount   = (EditText) findViewById(R.id.et_onduline_amount);
-        et_onduclair_amount  = (EditText) findViewById(R.id.et_onduclair_amount);
-
+        img_AddNew = (ImageView) findViewById(R.id.img_AddNew);
+        txt_NameUser = (TextView) findViewById(R.id.txt_NameUser);
+        txt_DatePicker = (TextView) findViewById(R.id.txtisianBirth);//                 wajib diisi
+        txt_DatePickerView = (TextView) findViewById(R.id.txtisianBirthView);//                 wajib diisi
+        btn_DatePicker = (Button) findViewById(R.id.btn_DatePicker);
+        btn_Submit = (Button) findViewById(R.id.btn_submit);
+        et_distributor = (EditText) findViewById(R.id.et_distributor);
+        et_address = (EditText) findViewById(R.id.et_address);
+        et_amount = (EditText) findViewById(R.id.et_amount);
+        btn_ImageAddNew = (LinearLayout) findViewById(R.id.btn_ImageAddNew);
+        et_onduvilla_amount = (EditText) findViewById(R.id.et_onduvilla_amount);
+        et_onduline_amount = (EditText) findViewById(R.id.et_onduline_amount);
+        et_onduclair_amount = (EditText) findViewById(R.id.et_onduclair_amount);
 
 
         calendar = Calendar.getInstance();
@@ -970,17 +1019,17 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        showDate(year, month+1, day);
+        showDate(year, month + 1, day);
 
 
         btn_Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //submit order aplikator
-                if(mCurrentPhotoPath==null){
+                if (mCurrentPhotoPath == null) {
                     //tempat popup belum ambil gamber
                     popupTakeAPicture();
-                }else {
+                } else {
                     attemptSubmitOrderRetailer();
                 }
             }
@@ -1000,9 +1049,9 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
     }
 
 
-
-
-    /** set date :D */
+    /**
+     * set date :D
+     */
     @SuppressWarnings("deprecation")
     public void setDate(View view) {
         showDialog(999);
@@ -1034,24 +1083,23 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
                     // arg1 = year
                     // arg2 = month
                     // arg3 = day
-                    showDate(arg1, arg2+1, arg3);
+                    showDate(arg1, arg2 + 1, arg3);
                 }
             };
 
 
-
-    private boolean parsingProjectType(JSONArray data){
+    private boolean parsingProjectType(JSONArray data) {
         try {
 
             String[] spinnerArray = new String[data.length()];
-            spinnerMapProjectType= new HashMap<Integer, Long>();
-            for(int i=0;i<data.length();i++){
+            spinnerMapProjectType = new HashMap<Integer, Long>();
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
-                spinnerMapProjectType.put(i,jason.getLong("id"));
+                spinnerMapProjectType.put(i, jason.getLong("id"));
                 spinnerArray[i] = jason.getString("name");
             }
             // Create an ArrayAdapter using the string array and a default spinner layout
-            adapter_project_type= new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, spinnerArray);
+            adapter_project_type = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, spinnerArray);
             // Specify the layout to use when the list of choices appears
             adapter_project_type.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             // Apply the adapter to the spinner
@@ -1066,11 +1114,11 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean parsingState(JSONArray data){
+    private boolean parsingState(JSONArray data) {
         try {
             statesName = new String[data.length()];
             statesIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
                 statesIds[i] = jason.getLong("id");
                 statesName[i] = jason.getString("name");
@@ -1084,11 +1132,11 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean parsingCity(JSONArray data){
+    private boolean parsingCity(JSONArray data) {
         try {
             citiesName = new String[data.length()];
             citiesIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
                 citiesIds[i] = jason.getLong("id");
                 citiesName[i] = jason.getString("name");
@@ -1127,13 +1175,13 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetStates();
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     stateJson = json.getJSONArray("data");
                     return true;
 
@@ -1170,7 +1218,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             pg.setTitle("Ambil Data");
             pg.setMessage("Ambil Data");
             pg.show();
-            stateId=state_id;
+            stateId = state_id;
         }
 
         @Override
@@ -1178,18 +1226,18 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetCities(stateId);
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     cityJson = json.getJSONArray("data");
                     return true;
 
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -1210,13 +1258,13 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
     public class SubmitOrderApplicatorTask extends AsyncTask<Void, Void, Boolean> {
 
         private ApiWeb apiWeb;
-//        private String productId;
+        //        private String productId;
         private String orderDate;
-//        private String address;
+        //        private String address;
         private String distributor;
         private String store_name;
         private String colorId;
-//        private String amount;
+        //        private String amount;
         private String receipt;
         private String city_id_send;
         private String state_id_send;
@@ -1227,64 +1275,64 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 
         SubmitOrderApplicatorTask() {
 
-            if (pil.compareToIgnoreCase("order applicator")==0){
-                apiWeb      = new ApiWeb();
-                token       = session.getToken();
-                receipt     =  mCurrentPhotoPath;
-                orderDate   = txt_DatePicker.getText().toString();
+            if (pil.compareToIgnoreCase("order applicator") == 0) {
+                apiWeb = new ApiWeb();
+                token = session.getToken();
+                receipt = mCurrentPhotoPath;
+                orderDate = txt_DatePicker.getText().toString();
                 distributor = "";
-                store_name  = et_StoreName.getText().toString();
-                city_id_send = city_id+"";
-                state_id_send= state_id+"";
-                colorId     = "";     //colorId
+                store_name = et_StoreName.getText().toString();
+                city_id_send = city_id + "";
+                state_id_send = state_id + "";
+                colorId = "";     //colorId
 
-                if(et_onduvilla_amount.getText().toString().equals("")){
-                    onduvilla_amount="0";
-                }else {
-                    onduvilla_amount    = et_onduvilla_amount.getText().toString()+"";
+                if (et_onduvilla_amount.getText().toString().equals("")) {
+                    onduvilla_amount = "0";
+                } else {
+                    onduvilla_amount = et_onduvilla_amount.getText().toString() + "";
                 }
 
-                if(et_onduline_amount.getText().toString().equals("")){
-                    onduline_amount="0";
-                }else {
-                    onduline_amount     = et_onduline_amount.getText().toString()+"";
+                if (et_onduline_amount.getText().toString().equals("")) {
+                    onduline_amount = "0";
+                } else {
+                    onduline_amount = et_onduline_amount.getText().toString() + "";
                 }
 
-                if(et_onduclair_amount.getText().toString().equals("")){
-                    onduclair_amount="0";
-                }else {
-                    onduclair_amount    = et_onduclair_amount.getText().toString()+"";
+                if (et_onduclair_amount.getText().toString().equals("")) {
+                    onduclair_amount = "0";
+                } else {
+                    onduclair_amount = et_onduclair_amount.getText().toString() + "";
                 }
-            }else if (pil.compareToIgnoreCase("order retailer")==0){
-                apiWeb      = new ApiWeb();                                                                     //apiWeb
-                token       = session.getToken();                                                               //token
-                receipt     = mCurrentPhotoPath;                                                               //receipt
-                orderDate   = txt_DatePicker.getText().toString();                                              //orderDate
+            } else if (pil.compareToIgnoreCase("order retailer") == 0) {
+                apiWeb = new ApiWeb();                                                                     //apiWeb
+                token = session.getToken();                                                               //token
+                receipt = mCurrentPhotoPath;                                                               //receipt
+                orderDate = txt_DatePicker.getText().toString();                                              //orderDate
                 distributor = et_distributor.getText().toString();                                              //distributor
-                store_name  = "";                                                                               //store_name
-                city_id_send= "";                         //city_id
-                state_id_send= "";                       //state_id
-                colorId     = "";     //colorId
+                store_name = "";                                                                               //store_name
+                city_id_send = "";                         //city_id
+                state_id_send = "";                       //state_id
+                colorId = "";     //colorId
 
-                if(et_onduvilla_amount.getText().toString().equals("")){
-                    onduvilla_amount="0";
-                }else {
-                    onduvilla_amount    = et_onduvilla_amount.getText().toString()+"";
+                if (et_onduvilla_amount.getText().toString().equals("")) {
+                    onduvilla_amount = "0";
+                } else {
+                    onduvilla_amount = et_onduvilla_amount.getText().toString() + "";
                 }
 
-                if(et_onduline_amount.getText().toString().equals("")){
-                    onduline_amount="0";
-                }else {
-                    onduline_amount     = et_onduline_amount.getText().toString()+"";
+                if (et_onduline_amount.getText().toString().equals("")) {
+                    onduline_amount = "0";
+                } else {
+                    onduline_amount = et_onduline_amount.getText().toString() + "";
                 }
 
-                if(et_onduclair_amount.getText().toString().equals("")){
-                    onduclair_amount="0";
-                }else {
-                    onduclair_amount    = et_onduclair_amount.getText().toString()+"";
+                if (et_onduclair_amount.getText().toString().equals("")) {
+                    onduclair_amount = "0";
+                } else {
+                    onduclair_amount = et_onduclair_amount.getText().toString() + "";
                 }
 
-            }else {
+            } else {
 
 //                project applicator
 
@@ -1297,20 +1345,20 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 
             String result = null;
 //            result = apiWeb.Order(token,receipt,productId,orderDate,address,distributor,store_name,colorId,amount,city_id,state_id);
-            result = apiWeb.Order(token,receipt,orderDate,distributor,store_name,colorId,city_id_send,state_id_send,onduvilla_amount,onduline_amount,onduclair_amount);
+            result = apiWeb.Order(token, receipt, orderDate, distributor, store_name, colorId, city_id_send, state_id_send, onduvilla_amount, onduline_amount, onduclair_amount);
 
 
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
 
                     return true;
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -1360,20 +1408,20 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 
         SubmitNewProjectApplicatorTask() {
 
-            apiWeb          = new ApiWeb();
+            apiWeb = new ApiWeb();
 //            projectType     = "1";//---------------------?? ini maksutnya tipe apa?
-            projectType     = spinnerMapProjectType.get(spn_ProjectType.getSelectedItemPosition()) + "";
-            projectAddress  = et_ProjectAddress.getText().toString();
-            city_id_send    = city_id+"";
-            state_id_send   = state_id+"";
+            projectType = spinnerMapProjectType.get(spn_ProjectType.getSelectedItemPosition()) + "";
+            projectAddress = et_ProjectAddress.getText().toString();
+            city_id_send = city_id + "";
+            state_id_send = state_id + "";
 //            productId       = "1";//--------------------- maksutnya onduline dan apalah itu
 //            colorId         = "1";
 
-            productId       = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition()) + "";
-            colorId         = spinnerMapColor.get(spn_product_demand_color.getSelectedItemPosition()) + "";
-            spaciousRoof    = et_SpaciousRoof.getText().toString();
-            receipt         =  mCurrentPhotoPath;
-            projectDate     = txt_DatePicker.getText().toString();
+            productId = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition()) + "";
+            colorId = spinnerMapColor.get(spn_product_demand_color.getSelectedItemPosition()) + "";
+            spaciousRoof = et_SpaciousRoof.getText().toString();
+            receipt = mCurrentPhotoPath;
+            projectDate = txt_DatePicker.getText().toString();
 
         }
 
@@ -1382,20 +1430,20 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = null;
-            result = apiWeb.NewProject(token,receipt,projectType,projectAddress,projectDate,city_id_send,state_id_send,productId,colorId,spaciousRoof);
+            result = apiWeb.NewProject(token, receipt, projectType, projectAddress, projectDate, city_id_send, state_id_send, productId, colorId, spaciousRoof);
 
 
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
 
                     return true;
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -1412,7 +1460,7 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
 
                 popupSuccess();
                 showProgress(false);
-                mCurrentPhotoPath=null;
+                mCurrentPhotoPath = null;
                 bool_city = bool_state = false;
 
             } else {
@@ -1458,13 +1506,13 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetProjectTypes();
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     projectTypeJson = json.getJSONArray("data");
                     return true;
 

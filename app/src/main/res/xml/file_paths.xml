@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<paths xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--com.wiradipa.ondulineApplicator.fileprovider-->
-    <external-path name="my_images" path="Android/data/com.wiradipa.ondulineApplicator/files/Pictures" />
-</paths>
+    <paths xmlns:android="http://schemas.android.com/apk/res/android">
+        <!--com.wiradipa.ondulineApplicator.fileprovider-->
+        <external-path
+            name="my_images"
+            path="Android/data/com.wiradipa.ondulineApplicator/files/Pictures" />
+    </paths>
 </resources>

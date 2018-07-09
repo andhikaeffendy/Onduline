@@ -4,8 +4,8 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -30,7 +30,6 @@ import java.util.HashMap;
 public class TotalOrderActivity extends AppCompatActivity {
 
 
-
     private View mProgressView;
     private View mFormView;
 
@@ -38,7 +37,7 @@ public class TotalOrderActivity extends AppCompatActivity {
 
     private Context context;
     private AppSession session;
-    private TextView txt_NameUser,txt_headerTittle;
+    private TextView txt_NameUser, txt_headerTittle;
     private UpdateProjectTask updateProjectTask;
     private UpdateProjectDetilTask updateProjectDetilTask;
     private UpdateOrderTask updateOrderTask;
@@ -67,18 +66,18 @@ public class TotalOrderActivity extends AppCompatActivity {
         session = new AppSession(context);
         session.checkSession();
         token = session.getToken();
-        usertype=session.getUSERTYPE();
+        usertype = session.getUSERTYPE();
 
         setLayoutListView();
 
     }
 
-    public void setLayoutListView(){
+    public void setLayoutListView() {
         Bundle extras = getIntent().getExtras();
         pilListView = extras.getString("pilListView");
         pil_detil = extras.getString("pil");
 
-        switch (pilListView){
+        switch (pilListView) {
             case "project":
                 OncreateProject();
                 break;
@@ -89,99 +88,99 @@ public class TotalOrderActivity extends AppCompatActivity {
 
     }
 
-    public void OncreateProject(){
+    public void OncreateProject() {
         setContentView(R.layout.activity_total_order);
 
-        txt_NameUser = (TextView)findViewById(R.id.txt_NameUser);
-        img_tmp     = (ImageView)findViewById(R.id.img_tmp);
-        txt_headerTittle    = (TextView)findViewById(R.id.txt_headerTittle);
-        txt_totalOrder      = (TextView)findViewById(R.id.txt_totalOrder);
+        txt_NameUser = (TextView) findViewById(R.id.txt_NameUser);
+        img_tmp = (ImageView) findViewById(R.id.img_tmp);
+        txt_headerTittle = (TextView) findViewById(R.id.txt_headerTittle);
+        txt_totalOrder = (TextView) findViewById(R.id.txt_totalOrder);
 
 
         txt_NameUser.setText("Halo " + session.getName());
         txt_headerTittle.setText("HISTORY PROYEK");
 
         lv = (ListView) findViewById(R.id.lv_totalPoin);
-        mylist = new ArrayList<HashMap<String,String>>();
+        mylist = new ArrayList<HashMap<String, String>>();
 
         updateProjectTask = new UpdateProjectTask();
-        updateProjectTask.execute((Void)null);
+        updateProjectTask.execute((Void) null);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 updateProjectDetilTask = new UpdateProjectDetilTask(mylist.get(position).get("list_id"));
-                updateProjectDetilTask.execute((Void)null);
+                updateProjectDetilTask.execute((Void) null);
             }
         });
 
     }
 
-    public void OncreateOrder(){
+    public void OncreateOrder() {
         setContentView(R.layout.activity_total_order);
 
-        txt_NameUser = (TextView)findViewById(R.id.txt_NameUser);
-        img_tmp     = (ImageView)findViewById(R.id.img_tmp);
-        txt_headerTittle    = (TextView)findViewById(R.id.txt_headerTittle);
-        txt_totalOrder      = (TextView)findViewById(R.id.txt_totalOrder);
+        txt_NameUser = (TextView) findViewById(R.id.txt_NameUser);
+        img_tmp = (ImageView) findViewById(R.id.img_tmp);
+        txt_headerTittle = (TextView) findViewById(R.id.txt_headerTittle);
+        txt_totalOrder = (TextView) findViewById(R.id.txt_totalOrder);
 
         txt_NameUser.setText("Halo " + session.getName());
         txt_headerTittle.setText("HISTORY  ORDER");
 
         lv = (ListView) findViewById(R.id.lv_totalPoin);
-        mylist = new ArrayList<HashMap<String,String>>();
+        mylist = new ArrayList<HashMap<String, String>>();
 
-        updateOrderTask= new UpdateOrderTask();
-        updateOrderTask.execute((Void)null);
+        updateOrderTask = new UpdateOrderTask();
+        updateOrderTask.execute((Void) null);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                updateOrderDetilTask= new UpdateOrderDetilTask(mylist.get(position).get("list_id"));
-                updateOrderDetilTask.execute((Void)null);
+                updateOrderDetilTask = new UpdateOrderDetilTask(mylist.get(position).get("list_id"));
+                updateOrderDetilTask.execute((Void) null);
             }
         });
 
     }
 
-    public void showProjectDetil(String id, String productName,String productColor,String roofProductWidth,String state,String city,String address, String imageUrl){
+    public void showProjectDetil(String id, String productName, String productColor, String roofProductWidth, String state, String city, String address, String imageUrl) {
 
-        final Dialog dialog=new Dialog(context);
+        final Dialog dialog = new Dialog(context);
         dialog.setTitle("Detil Project");
         dialog.setContentView(R.layout.list_detil);
 
-        int width = (int)(getResources().getDisplayMetrics().widthPixels*0.90);
-        int height = (int)(getResources().getDisplayMetrics().heightPixels*0.90);
+        int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.90);
+        int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.90);
 
         dialog.getWindow().setLayout(width, height);
 
 //        Toast.makeText(context, "productName : " + productName, Toast.LENGTH_LONG).show();
-        ImageView img_detil = (ImageView)dialog.findViewById(R.id.img_detil);
-        TextView txt_productName = (TextView)dialog.findViewById(R.id.txt_productName);
-        TextView txt_productColor = (TextView)dialog.findViewById(R.id.txt_productColor);
-        TextView txt_roofProductWidth = (TextView)dialog.findViewById(R.id.txt_roofProductWidth);
-        TextView txt_state = (TextView)dialog.findViewById(R.id.txt_state);
-        TextView txt_city = (TextView)dialog.findViewById(R.id.txt_city);
-        TextView txt_address = (TextView)dialog.findViewById(R.id.txt_address);
+        ImageView img_detil = (ImageView) dialog.findViewById(R.id.img_detil);
+        TextView txt_productName = (TextView) dialog.findViewById(R.id.txt_productName);
+        TextView txt_productColor = (TextView) dialog.findViewById(R.id.txt_productColor);
+        TextView txt_roofProductWidth = (TextView) dialog.findViewById(R.id.txt_roofProductWidth);
+        TextView txt_state = (TextView) dialog.findViewById(R.id.txt_state);
+        TextView txt_city = (TextView) dialog.findViewById(R.id.txt_city);
+        TextView txt_address = (TextView) dialog.findViewById(R.id.txt_address);
         txt_productName.setText(productName);
-        txt_productColor.setText("Warna Atap : "+productColor);
-        txt_roofProductWidth.setText("Lebar Atap : "+roofProductWidth);
+        txt_productColor.setText("Warna Atap : " + productColor);
+        txt_roofProductWidth.setText("Lebar Atap : " + roofProductWidth);
         txt_state.setText(state);
         txt_city.setText(city);
         txt_address.setText(address);
 
-                Toast.makeText(context, "imageurl : " + imageUrl, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "imageurl : " + imageUrl, Toast.LENGTH_LONG).show();
 
         Picasso.with(dialog.getContext())
-                .load("http://128.199.142.101"+imageUrl)
-                .error( R.drawable.ic_error_outline_black_24dp )
-                .placeholder( R.drawable.progress_animation )
+                .load("http://128.199.142.101" + imageUrl)
+                .error(R.drawable.ic_error_outline_black_24dp)
+                .placeholder(R.drawable.progress_animation)
                 .resize(450, 150)
                 .into(img_detil);
 //            Toast.makeText(context, "url : " + imageUrl  , Toast.LENGTH_SHORT).show();
 
-        Button btn_addItem = (Button)dialog.findViewById(R.id.btn_back);
+        Button btn_addItem = (Button) dialog.findViewById(R.id.btn_back);
         btn_addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -195,35 +194,35 @@ public class TotalOrderActivity extends AppCompatActivity {
     }
 
 
-    public void showOrderDetil(String shop_name,String owner_name, String order_date,String city_name, String state_name,String receipt_no, String receipt_url, String transaction_value, String store_name, String onduline_amount, String onduvilla_amount, String onduclair_amount){
+    public void showOrderDetil(String shop_name, String owner_name, String order_date, String city_name, String state_name, String receipt_no, String receipt_url, String transaction_value, String store_name, String onduline_amount, String onduvilla_amount, String onduclair_amount) {
 
 //        Toast.makeText(context, "productState : " + state_name, Toast.LENGTH_LONG).show();
 //        Toast.makeText(context, "productCity : " + city_name, Toast.LENGTH_LONG).show();
 
-        final Dialog dialog=new Dialog(context);
+        final Dialog dialog = new Dialog(context);
         dialog.setTitle("Detil Order");
 
-        if(usertype.equals("applicator")){
+        if (usertype.equals("applicator")) {
             dialog.setContentView(R.layout.list_detil_order_applicator);
-        }else if(usertype.equals("retailer")){
+        } else if (usertype.equals("retailer")) {
             dialog.setContentView(R.layout.list_detil_order_retailler);
         }
 
-        int width = (int)(getResources().getDisplayMetrics().widthPixels*0.90);
-        int height = (int)(getResources().getDisplayMetrics().heightPixels*0.90);
+        int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.90);
+        int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.90);
 
         dialog.getWindow().setLayout(width, height);
 
 //        Toast.makeText(context, "productName : " + productName, Toast.LENGTH_LONG).show();
-        ImageView img_detil = (ImageView)dialog.findViewById(R.id.img_detil);
-        TextView txt_shop_name = (TextView)dialog.findViewById(R.id.txt_shop_name);
-        TextView txt_state_name = (TextView)dialog.findViewById(R.id.txt_state_name);
-        TextView txt_city_name = (TextView)dialog.findViewById(R.id.txt_city_name);
-        TextView txt_order_date = (TextView)dialog.findViewById(R.id.txt_order_date);
-        TextView txt_onduvilla_amount = (TextView)dialog.findViewById(R.id.txt_onduvilla_amount);
-        TextView txt_onduline_amount = (TextView)dialog.findViewById(R.id.txt_onduline_amount);
-        TextView txt_onduclair_amount = (TextView)dialog.findViewById(R.id.txt_onduclair_amount);
-        TextView txt_owner_name = (TextView)dialog.findViewById(R.id.txt_owner_name);
+        ImageView img_detil = (ImageView) dialog.findViewById(R.id.img_detil);
+        TextView txt_shop_name = (TextView) dialog.findViewById(R.id.txt_shop_name);
+        TextView txt_state_name = (TextView) dialog.findViewById(R.id.txt_state_name);
+        TextView txt_city_name = (TextView) dialog.findViewById(R.id.txt_city_name);
+        TextView txt_order_date = (TextView) dialog.findViewById(R.id.txt_order_date);
+        TextView txt_onduvilla_amount = (TextView) dialog.findViewById(R.id.txt_onduvilla_amount);
+        TextView txt_onduline_amount = (TextView) dialog.findViewById(R.id.txt_onduline_amount);
+        TextView txt_onduclair_amount = (TextView) dialog.findViewById(R.id.txt_onduclair_amount);
+        TextView txt_owner_name = (TextView) dialog.findViewById(R.id.txt_owner_name);
 
 //        TextView txt_productName = (TextView)dialog.findViewById(R.id.txt_productName);
 //        TextView txt_productColor = (TextView)dialog.findViewById(R.id.txt_productColor);
@@ -243,20 +242,20 @@ public class TotalOrderActivity extends AppCompatActivity {
         txt_city_name.setText(city_name);
         txt_order_date.setText(order_date);
         txt_owner_name.setText(owner_name);
-        txt_onduvilla_amount.setText("ONDUVILLA : "+onduvilla_amount);
-        txt_onduline_amount.setText("ONDULINE : "+onduline_amount);
-        txt_onduclair_amount.setText("ONDUCLAIR : "+onduclair_amount);
+        txt_onduvilla_amount.setText("ONDUVILLA : " + onduvilla_amount);
+        txt_onduline_amount.setText("ONDULINE : " + onduline_amount);
+        txt_onduclair_amount.setText("ONDUCLAIR : " + onduclair_amount);
 
 //        Toast.makeText(context, "imageurl : " + imageUrl, Toast.LENGTH_LONG).show();
 
         Picasso.with(dialog.getContext())
-                .load("http://128.199.142.101"+receipt_url)
-                .error( R.drawable.ic_error_outline_black_24dp )
-                .placeholder( R.drawable.progress_animation )
+                .load("http://128.199.142.101" + receipt_url)
+                .error(R.drawable.ic_error_outline_black_24dp)
+                .placeholder(R.drawable.progress_animation)
                 .resize(450, 150).into(img_detil);
 //            Toast.makeText(context, "url : " + imageUrl  , Toast.LENGTH_SHORT).show();
 
-        Button btn_addItem = (Button)dialog.findViewById(R.id.btn_back);
+        Button btn_addItem = (Button) dialog.findViewById(R.id.btn_back);
         btn_addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -270,7 +269,7 @@ public class TotalOrderActivity extends AppCompatActivity {
     }
 
 
-    private boolean parsinglistView(JSONArray data){
+    private boolean parsinglistView(JSONArray data) {
 
         try {
             ProductName = new String[data.length()];
@@ -280,7 +279,7 @@ public class TotalOrderActivity extends AppCompatActivity {
             image = new String[data.length()];
             list_id = new String[data.length()];
 
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
                 list_id[i] = jason.getString("id");
                 ProductName[i] = jason.getString("product_name");
@@ -289,7 +288,7 @@ public class TotalOrderActivity extends AppCompatActivity {
                 stateName[i] = jason.getString("state_name");
                 image[i] = jason.getString("receipt_url");
             }
-            for (int i = 0; i < ProductName.length; i++){
+            for (int i = 0; i < ProductName.length; i++) {
                 map = new HashMap<String, String>();
                 map.put("list_id", list_id[i]);
                 map.put("ProductName", ProductName[i]);
@@ -303,7 +302,7 @@ public class TotalOrderActivity extends AppCompatActivity {
             }
 
             Adapter = new SimpleAdapter(this, mylist, R.layout.list_project_refrence,
-                    new String[] {"img","list_id", "ProductName","colorName","stateName","cityName"}, new int[] {R.id.txt_imgUrl, R.id.txt_id, R.id.txt_product, R.id.txt_ColorName,R.id.txt_state,R.id.txt_city});
+                    new String[]{"img", "list_id", "ProductName", "colorName", "stateName", "cityName"}, new int[]{R.id.txt_imgUrl, R.id.txt_id, R.id.txt_product, R.id.txt_ColorName, R.id.txt_state, R.id.txt_city});
             lv.setAdapter(Adapter);
 
 
@@ -315,8 +314,8 @@ public class TotalOrderActivity extends AppCompatActivity {
     }
 
 
-    private boolean parsingOrderlistView(JSONArray data){
-        txt_totalOrder.setText("TOTAL ORDER ANDA \n"+data.length());
+    private boolean parsingOrderlistView(JSONArray data) {
+        txt_totalOrder.setText("TOTAL ORDER ANDA \n" + data.length());
         try {
             stateName = new String[data.length()];
             cityName = new String[data.length()];
@@ -325,19 +324,19 @@ public class TotalOrderActivity extends AppCompatActivity {
 
             int dsc = data.length();
 
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
 
-                JSONObject jason = data.getJSONObject(dsc-1);
+                JSONObject jason = data.getJSONObject(dsc - 1);
 //                JSONObject jason = data.getJSONObject(i);
 
-                if(usertype.equals("applicator")){
+                if (usertype.equals("applicator")) {
 
-                list_id[i] = jason.getString("id");
-                cityName[i] = jason.getString("city_name");
-                stateName[i] = jason.getString("state_name");
-                orderDate[i] = jason.getString("order_date");
+                    list_id[i] = jason.getString("id");
+                    cityName[i] = jason.getString("city_name");
+                    stateName[i] = jason.getString("state_name");
+                    orderDate[i] = jason.getString("order_date");
 
-                }else if(usertype.equals("retailer")){
+                } else if (usertype.equals("retailer")) {
 
                     list_id[i] = jason.getString("id");
 //                    cityName[i] = jason.getString("address");
@@ -346,24 +345,24 @@ public class TotalOrderActivity extends AppCompatActivity {
 //                    storename[i] = jason.getString("store_name");
 
                 }
-                dsc = dsc-1;
+                dsc = dsc - 1;
 
 //                Toast.makeText(context, "city_name : " + jason.getString("city_name"), Toast.LENGTH_LONG).show();
             }
-            for (int i = 0; i < list_id.length; i++){
+            for (int i = 0; i < list_id.length; i++) {
                 map = new HashMap<String, String>();
 
-                if(usertype.equals("applicator")){
+                if (usertype.equals("applicator")) {
 
                     map.put("list_id", list_id[i]);
                     map.put("stateName", stateName[i]);
                     map.put("cityName", cityName[i]);
                     map.put("order_date", orderDate[i]);
 
-                }else if(usertype.equals("retailer")){
+                } else if (usertype.equals("retailer")) {
 
                     map.put("list_id", list_id[i]);
-                    map.put("stateName", "Distributor : "+stateName[i]);
+                    map.put("stateName", "Distributor : " + stateName[i]);
                     map.put("cityName", orderDate[i]);
                     map.put("order_date", "");
 
@@ -378,8 +377,8 @@ public class TotalOrderActivity extends AppCompatActivity {
             }
 
             Adapter = new SimpleAdapter(this, mylist, R.layout.list_refrence_oder,
-                    new String[] {"list_id","stateName","cityName","order_date"},
-                    new int[] {R.id.txt_id,R.id.txt_state,R.id.txt_city, R.id.txt_OrdeDate});
+                    new String[]{"list_id", "stateName", "cityName", "order_date"},
+                    new int[]{R.id.txt_id, R.id.txt_state, R.id.txt_city, R.id.txt_OrdeDate});
             lv.setAdapter(Adapter);
 
 
@@ -389,8 +388,6 @@ public class TotalOrderActivity extends AppCompatActivity {
         }
         return true;
     }
-
-
 
 
     /**
@@ -419,13 +416,13 @@ public class TotalOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetProjetc(token);
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     stateJson = json.getJSONArray("data");
                     return true;
 
@@ -473,13 +470,13 @@ public class TotalOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetProjectDetil(list_id, token);
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("id");
-                if(!status.equals("")){
+                if (!status.equals("")) {
                     productName = json.getString("product_name");
                     productColor = json.getString("color_name");
                     productWidth = json.getString("roof_width");
@@ -501,11 +498,10 @@ public class TotalOrderActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(final Boolean success) {
             pg.dismiss();
-            showProjectDetil(list_id,productName,productColor,productWidth,productState,productCity,productAddress,productImage);
+            showProjectDetil(list_id, productName, productColor, productWidth, productState, productCity, productAddress, productImage);
 
         }
     }
-
 
 
     /**
@@ -534,13 +530,13 @@ public class TotalOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetOrders(token);
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     stateJson = json.getJSONArray("data");
                     return true;
 
@@ -587,13 +583,13 @@ public class TotalOrderActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetOrderDetil(list_id, token);
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("receipt_url");
-                if(!status.equals("")){
+                if (!status.equals("")) {
                     storeName = json.getString("store_name");       //null
                     store_name = json.getString("store_name");      //null
                     company_name = json.getString("company_name");  //null
@@ -624,13 +620,13 @@ public class TotalOrderActivity extends AppCompatActivity {
         protected void onPostExecute(final Boolean success) {
             pg.dismiss();
 
-            if(usertype.equals("applicator")){
+            if (usertype.equals("applicator")) {
 
-                showOrderDetil(company_name,store_name,order_date,productCity,productState,"",productImage,"",store_name,onduline_amount,onduvilla_amount, onduclair_amount);
+                showOrderDetil(company_name, store_name, order_date, productCity, productState, "", productImage, "", store_name, onduline_amount, onduvilla_amount, onduclair_amount);
 
-            }else if(usertype.equals("retailer")){
+            } else if (usertype.equals("retailer")) {
 
-                showOrderDetil(shop_name,owner_name,order_date,productCity,productState,"",productImage,"",store_name,onduline_amount,onduvilla_amount, onduclair_amount);
+                showOrderDetil(shop_name, owner_name, order_date, productCity, productState, "", productImage, "", store_name, onduline_amount, onduvilla_amount, onduclair_amount);
 
             }
 

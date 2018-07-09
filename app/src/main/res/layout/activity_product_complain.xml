@@ -7,30 +7,30 @@
     tools:context="com.wiradipa.ondulineApplicator.KeluhanPemasanganActivity">
 
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="10"
-        android:orientation="vertical"
-        android:background="@drawable/bg_02"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_02"
+        android:orientation="vertical"
+        android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="@string/tecnical_support"
                 android:textColor="@color/colorTextLight"
                 android:textSize="24dp"
-                android:textStyle="bold"
-                android:text="@string/tecnical_support"/>
+                android:textStyle="bold" />
         </RelativeLayout>
         <!-- Login progress -->
 
@@ -50,47 +50,52 @@
 
 
                 <LinearLayout
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp">
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+
                     <TextView
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:text="Keluhan Produk"
                         android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
-                        android:layout_centerInParent="true"
                         android:textSize="24dp"
-                        android:text="Keluhan Produk"/>
+                        android:textStyle="bold" />
+
                     <TextView
-                        android:layout_margin="10dp"
-                        android:layout_gravity="center"
-                        android:textAlignment="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:textSize="18dp"
-                        android:text="Silahkan sampaikan keluhan Anda terkait produk kami"/>
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:text="Silahkan sampaikan keluhan Anda terkait produk kami"
+                        android:textAlignment="center"
+                        android:textSize="18dp" />
                 </LinearLayout>
 
                 <!-- edit text cara pemasangan -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <LinearLayout
-                        android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
+                            android:text="Ketik Disini : "
                             android:textColor="@color/colorBlackAlpha"
-                            android:textStyle="bold"
-                            android:text="Ketik Disini : "/>
+                            android:textStyle="bold" />
+
                         <EditText
                             android:id="@+id/et_productComplain"
                             android:layout_width="match_parent"
@@ -101,15 +106,16 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <Button
                         android:id="@+id/btn_produckComplain"
-                        android:onClick="onClickinstalationGuideComplain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/submit"
+                        android:layout_centerInParent="true"
                         android:background="@drawable/ps__button_youtube"
-                        android:textColor="@color/colorTextLight"
-                        android:layout_centerInParent="true"/>
+                        android:onClick="onClickinstalationGuideComplain"
+                        android:text="@string/submit"
+                        android:textColor="@color/colorTextLight" />
                 </RelativeLayout>
 
 
@@ -124,8 +130,8 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:foregroundGravity="center"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true" />
+        android:foregroundGravity="center"
+        android:visibility="gone" />
 </RelativeLayout>

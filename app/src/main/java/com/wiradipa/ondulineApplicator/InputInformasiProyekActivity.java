@@ -9,10 +9,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,15 +33,15 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
 
     private Context context;
     private AppSession session;
-    private EditText et_projectName,et_projectAddress,et_roofWidth;
+    private EditText et_projectName, et_projectAddress, et_roofWidth;
     private Spinner spn_rooftype, spn_product_demand_brand;
-    private HashMap<Integer,Long> spinnerMapProduct;
+    private HashMap<Integer, Long> spinnerMapProduct;
     private ArrayAdapter<String> adapter_product_demand_brand;
     private String[] listRoofType;
     private ArrayAdapter Adapter;
     private AutoCompleteTextView act_City, act_State;
     private AutoCompleteAdapter adapter_state = null;
-    private AutoCompleteAdapter adapter_city= null;
+    private AutoCompleteAdapter adapter_city = null;
     private String[] statesName, citiesName;
     private long[] statesIds, citiesIds;
     private long state_id, city_id;
@@ -65,23 +64,22 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
         session = new AppSession(context);
         session.checkSession();
 
-        act_City        = (AutoCompleteTextView) findViewById(R.id.act_city);
-        act_State       = (AutoCompleteTextView) findViewById(R.id.act_state);
-        spn_product_demand_brand = (Spinner)findViewById(R.id.spn_product_demand_brand);
-        et_projectName  = (EditText) findViewById(R.id.et_projectName);
-        et_projectAddress  = (EditText) findViewById(R.id.et_projectAddress);
-        et_roofWidth  = (EditText) findViewById(R.id.et_roofWidth);
-
+        act_City = (AutoCompleteTextView) findViewById(R.id.act_city);
+        act_State = (AutoCompleteTextView) findViewById(R.id.act_state);
+        spn_product_demand_brand = (Spinner) findViewById(R.id.spn_product_demand_brand);
+        et_projectName = (EditText) findViewById(R.id.et_projectName);
+        et_projectAddress = (EditText) findViewById(R.id.et_projectAddress);
+        et_roofWidth = (EditText) findViewById(R.id.et_roofWidth);
 
 
         mFormView = findViewById(R.id.submit_form);
         mProgressView = findViewById(R.id.submit_progress);
 
         updateStateTask = new UpdateStateTask();
-        updateStateTask.execute((Void)null);
+        updateStateTask.execute((Void) null);
 
         updateGetProductTask = new UpdateGetProductTask();
-        updateGetProductTask.execute((Void)null);
+        updateGetProductTask.execute((Void) null);
 
         act_State.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -89,34 +87,34 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
 //              kondisi dimana state telah dipilih
                 bool_state = true;
                 state_id = adapter_state.getItemId(act_State.getText().toString());
-                updateCityTask = new UpdateCityTask(state_id+"");
-                updateCityTask.execute((Void)null);
+                updateCityTask = new UpdateCityTask(state_id + "");
+                updateCityTask.execute((Void) null);
             }
         });
         act_City.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //              kondisi dimana city telah dipilih
-                bool_city= true;
+                bool_city = true;
                 city_id = adapter_city.getItemId(act_City.getText().toString());
             }
         });
 
     }
 
-    public void onClickProjectInformation(View v){
-        switch (v.getId()){
+    public void onClickProjectInformation(View v) {
+        switch (v.getId()) {
             case R.id.btnSubmitProjectInformation:
                 attemptInputInformasiProyek();
                 break;
         }
     }
 
-    private boolean parsingState(JSONArray data){
+    private boolean parsingState(JSONArray data) {
         try {
             statesName = new String[data.length()];
             statesIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
                 statesIds[i] = jason.getLong("id");
                 statesName[i] = jason.getString("name");
@@ -130,11 +128,11 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean parsingCity(JSONArray data){
+    private boolean parsingCity(JSONArray data) {
         try {
             citiesName = new String[data.length()];
             citiesIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
                 citiesIds[i] = jason.getLong("id");
                 citiesName[i] = jason.getString("name");
@@ -150,20 +148,20 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
 
     // kebutuhan untuk get data produk
 
-    private boolean parsingProduct(JSONArray data){
+    private boolean parsingProduct(JSONArray data) {
         try {
 
             String[] spinnerArray = new String[data.length()];
             spinnerMapProduct = new HashMap<Integer, Long>();
 //            productName = new String[data.length()];
 //            productIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
-                spinnerMapProduct.put(i,jason.getLong("id"));
+                spinnerMapProduct.put(i, jason.getLong("id"));
                 spinnerArray[i] = jason.getString("name");
             }
             // Create an ArrayAdapter using the string array and a default spinner layout
-            adapter_product_demand_brand = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, spinnerArray);
+            adapter_product_demand_brand = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, spinnerArray);
             // Specify the layout to use when the list of choices appears
             adapter_product_demand_brand.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             // Apply the adapter to the spinner
@@ -202,13 +200,13 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetStates();
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     stateJson = json.getJSONArray("data");
                     return true;
 
@@ -245,7 +243,7 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
             pg.setTitle("Ambil Data");
             pg.setMessage("Ambil Data");
             pg.show();
-            stateId=state_id;
+            stateId = state_id;
         }
 
         @Override
@@ -253,18 +251,18 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetCities(stateId);
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     cityJson = json.getJSONArray("data");
                     return true;
 
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -322,14 +320,17 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
         //TODO: Replace this with your own logic
         return address.equals("");
     }
+
     private boolean isRoofWidthEmpty(String address) {
         //TODO: Replace this with your own logic
         return address.equals("");
     }
+
     private boolean isProjectNameEmpty(String address) {
         //TODO: Replace this with your own logic
         return address.equals("");
     }
+
     private boolean isCityValid(String city) {
         //TODO: Replace this with your own logic
         return city.equals("");
@@ -347,7 +348,7 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
      * errors are presented and no actual login attempt is made.
      */
     private void attemptInputInformasiProyek() {
-        if (inputInformasiProyekTask!= null) {
+        if (inputInformasiProyekTask != null) {
             return;
         }
 
@@ -426,7 +427,7 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
             showProgress(true);
 //            disini kita show progreess apapun itu dan di setiap
 
-            inputInformasiProyekTask= new InputInformasiProyekTask();
+            inputInformasiProyekTask = new InputInformasiProyekTask();
             inputInformasiProyekTask.execute((Void) null);
         }
     }
@@ -456,13 +457,13 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.Getproducts();
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     ProductsJson = json.getJSONArray("data");
                     return true;
 
@@ -486,7 +487,6 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
@@ -496,16 +496,16 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
         private ApiWeb apiWeb;
         private String errorMessage = "Koneksi Error";
         private String statusError = "Koneksi Error";
-        private String token, project_name, roof_type, address,roof_width, productId;
+        private String token, project_name, roof_type, address, roof_width, productId;
 
         InputInformasiProyekTask() {
             apiWeb = new ApiWeb();
-            token           = session.getToken();
-            project_name    = et_projectName.getText().toString();
+            token = session.getToken();
+            project_name = et_projectName.getText().toString();
 //            roof_type       = spn_rooftype.getSelectedItem().toString();
-            address         = et_projectAddress.getText().toString();
-            roof_width      = et_roofWidth.getText().toString();
-            productId       = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition()) + "";
+            address = et_projectAddress.getText().toString();
+            roof_width = et_roofWidth.getText().toString();
+            productId = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition()) + "";
 
 
         }
@@ -515,20 +515,20 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
             String result = null;
 
-            result  = apiWeb.inputProjectInformation(token,project_name,productId,address,""+city_id,""+state_id,roof_width);
+            result = apiWeb.inputProjectInformation(token, project_name, productId, address, "" + city_id, "" + state_id, roof_width);
 
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
 
                     return true;
                 }
 
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -543,7 +543,7 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
 
                 popupSuccess();
                 showProgress(false);
-                inputInformasiProyekTask=null;
+                inputInformasiProyekTask = null;
                 bool_city = bool_state = false;
 //                Intent i;
 //                i = new Intent(context, VerificationPageActivity.class);
@@ -555,14 +555,15 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
 
                 popupAllert(errorMessage);
                 showProgress(false);
-                inputInformasiProyekTask=null;
+                inputInformasiProyekTask = null;
 //                editTextLoginEmail.setError(errorMessage);
 //                editTextLoginEmail.requestFocus();
 
             }
         }
     }
-    public void popupSuccess(){
+
+    public void popupSuccess() {
         new AlertDialog.Builder(this)
                 .setTitle("Input Informasi Proyek Sukses!")
                 .setMessage("Selamat Input Informasi Proyek  anda berhasil")
@@ -582,7 +583,7 @@ public class InputInformasiProyekActivity extends AppCompatActivity {
 
     }
 
-    public void popupAllert(String allert){
+    public void popupAllert(String allert) {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(allert)

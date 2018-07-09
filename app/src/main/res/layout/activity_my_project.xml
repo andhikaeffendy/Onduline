@@ -14,63 +14,70 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="12"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:weightSum="12">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textSize="24dp"
-                android:text="My Project"/>
+                android:text="My Project"
+                android:textSize="24dp" />
         </RelativeLayout>
+
         <ListView
             android:id="@+id/lvMyProject"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8"/>
+            android:layout_weight="8" />
+
         <TextView
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:textSize="18dp"
-            android:textStyle="bold"
+            android:layout_weight="1"
+            android:text="Total Project Anda \n30"
             android:textAlignment="center"
-            android:text="Total Project Anda \n30"/>
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
+
             <LinearLayout
-                android:background="@color/colorPrimary"
                 android:id="@+id/btnNewProject"
-                android:onClick="onClickMyProject"
-                android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/colorPrimary"
+                android:onClick="onClickMyProject"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_launcher" />
+
                 <TextView
-                    android:textColor="#fff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
                     android:layout_margin="5dp"
-                    android:text="Masukan Project Baru"/>
+                    android:text="Masukan Project Baru"
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </RelativeLayout>
 

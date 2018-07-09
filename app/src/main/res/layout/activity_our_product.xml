@@ -12,19 +12,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="Pilihan Produk"
                 android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
                 android:textSize="24dp"
-                android:text="Pilihan Produk"/>
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <ScrollView
@@ -129,15 +131,16 @@
         </ScrollView>
 
     </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
-        android:textColor="@color/colorBlackAlpha"
-        android:text="@string/signatureContact"/>
+        android:text="@string/signatureContact"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlackAlpha" />
 
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Onduline</string>
+    <string name="app_version">Version 1.2.6</string>
 
     <string name="contact_Login">CONTACT SERVICE : 0822 97 345 789\nwww.onduline.co.id / www.onduvilla.co.id</string>
 
@@ -30,10 +31,10 @@
     <string name="home_technical_support">Dukungan Teknis</string>
     <string name="home_product">Produk</string>
     <string name="home_calculator">Kalkulator</string>
-    <string name="home_contact_onduline">Kontak ONDULINE®</string>
+    <string name="home_contact_onduline">Hubungi kami</string>
     <string name="home_ordering_product">Pemesanan Produk</string>
-    <string name="home_ogra">Sayembara Desain</string>
-    <string name="home_data_proyek">Data Proyek</string>
+    <string name="home_ogra">Inspirasi Atap</string>
+    <string name="home_data_proyek">Dukungan Proyek</string>
 
     <!--Marketing support button-->
     <string name="order_brochure">Permintaan Brosur</string>
@@ -49,7 +50,7 @@
     <string name="keterangan_btn_upload_surat_jalan">Dapatkan Poin dengan cara\nmengupload surat jalan baru</string>
 
     <!--Data Proyek-->
-    <string name="tittle_header_data_proyek">Data Proyek</string>
+    <string name="tittle_header_data_proyek">Dukungan Proyek</string>
     <string name="note_data_proyek">permintaan data dokumen dapat mengirimkan\nemail ke info@ondulineindonesia.com </string>
     <!--Dokumen Teknis-->
     <string name="tittle_header_dokumen_teknis">Dokumen Teknis</string>
@@ -92,10 +93,8 @@
     <string name="hint_project_city">Masukan kota proyek anda</string>
 
 
-
-
     <!--Onduline Green Roof Award-->
-    <string name="header_onduvilla_green_roof_award">Onduline Green Roof Award</string>
+    <string name="header_onduvilla_inspirasi_atap">Inspirasi Atap</string>
     <string name="tittle_onduvilla_green_roof_award">SAYEMBARA DESAIN ATAP PONDOK WISATA TEPI PANTAI</string>
     <string name="ogra_tittle_persyaratan_karya">PERSYARATAN KARYA</string>
 
@@ -310,7 +309,7 @@ Director dan Principal architect of sigit.kusumawijaya\n\n</string>
     <string name="question_retail_4">4. Apakah dibawah atap ONDULINE® dan genteng ONDUVILLA® perlu dipasang insulasi penahan panas seperti rockwoll atau aluminium foil ?</string>
     <string name="question_retail_5">5. Apakah ONDULINE® tahan terhadap korosi akibat bahan kimia ?</string>
     <string name="question_retail_6">6. Apakah genteng ONDUVILLA® melindungi dari kebisingan? Terutama dalam hal suara hujan.</string>
-    <string name="question_retail_7">7. Apa jaminan jika saya membeli produk atap ONDULINE®?</string>
+    <string name="question_retail_7">7. Jaminan (garansi) apa yang saya peroleh dari Onduline?</string>
     <string name="question_retail_8">8. Dapatkah saya berjalan di sebuah atap ONDULINE® dan genteng ONDUVILLA®?</string>
     <string name="question_retail_9">9. Dapatkah pemasangan atap dapat dilakukan pada rangka metal? Pada beton atau kayu decking?</string>
     <string name="question_retail_10">10. Saya mencium bau pada produk atap ONDULINE®, apakah normal?</string>
@@ -332,7 +331,7 @@ Director dan Principal architect of sigit.kusumawijaya\n\n</string>
     <string name="question_app_ind_4">4. Apakah dibawah atap ONDULINE® dan genteng ONDUVILLA® perlu dipasang insulasi penahan panas seperti rockwoll atau aluminium foil ?</string>
     <string name="question_app_ind_5">5. Apakah ONDULINE® tahan terhadap korosi akibat bahan kimia ?</string>
     <string name="question_app_ind_6">6. Apakah genteng ONDUVILLA® melindungi dari kebisingan? Terutama dalam hal suara hujan.</string>
-    <string name="question_app_ind_7">7. Dapatkah saya berjalan disebuat atap ONDULINE®?</string>
+    <string name="question_app_ind_7">7. Jaminan (garansi) apa yang saya peroleh dari Onduline?</string>
     <string name="question_app_ind_8">8. Dapatkah saya berjalan di sebuah atap ONDULINE® dan genteng ONDUVILLA®?</string>
     <string name="question_app_ind_9">9. Dapatkah pemasangan atap dapat dilakukan pada rangka metal? Pada beton atau kayu decking?</string>
     <string name="question_app_ind_10">10. Apakah pemasangan atap dapat dipasang di rangka baja kanal C?</string>
@@ -352,7 +351,7 @@ Director dan Principal architect of sigit.kusumawijaya\n\n</string>
     <string name="answer_app_ind_8">Seperti atap lainnya, atap ONDULINE® dan genteng ONDUVILLA® tidak dibuat untuk dapat berjalan diatasnya. Jadi, Anda harus mengikuti prosedur keselamatan ketika bekerja di atas atap. Apabila pekerjaan diatas atap harus dilakukan, maka berjalanlah diatas reng dan overlap. Harap membawa dua buah papan sebagai pijakan sewaktu bekerja (working platform).</string>
     <string name="answer_app_ind_9">Ya. Pemasangan atap dapat dipasang pada rangka metal atau decking. Untuk pemasangan pada rangka metal baja ringan jarak reng harus mengikuti standar pemasangan dari pabrik.</string>
     <string name="answer_app_ind_10">Ya. dapat dipasang di gording dengan rangka baja kanal C sampai dengan ketebalan 3mm.</string>
-    <string name="answer_app_ind_11">Atap kami diwarnai pra-pigmented dan juga memiliki varian yang dicat dari pabrik. Sangat mungkin untuk mengecat kembali pada kedua sisi. Hindari penggunaan cat minyak dengan pelarut, gunakanlah cat berbahan dasar ait. Silahkan hubungi Departemen Teknis untuk keterangan lebih lanjut.</string>
+    <string name="answer_app_ind_11">Atap kami diwarnai pra-pigmented dan juga memiliki varian yang dicat dari pabrik. Sangat mungkin untuk mengecat kembali pada kedua sisi. Hindari penggunaan cat minyak dengan pelarut, gunakanlah cat berbahan dasar air. Silahkan hubungi Departemen Teknis untuk keterangan lebih lanjut.</string>
     <string name="answer_app_ind_12">Dengan perawatan yang benar atap ONDULINE® dan genteng ONDUVILLA® tidak akan berlumut. Hindari penumpukan daun pada atap yang, apabila dibiarkan, dapat menyebabkan tumbuhnya lumut pada atap.</string>
     <string name="answer_app_ind_13">Bau yang ditimbulkan oleh produk atap dari ONDULINE® disebabkan bahan penyusun atap. Hal tersebut normal dan bau akan hilang setelah kurang lebih satu minggu terpasang. Pastikan pemasangan dengan benar dan udara dibawah atap tersirkulasi dengan baik sehingga bau akan lebih cepat hilang.</string>
     <string name="answer_app_ind_14">Ya. dapat dipasang di proyek peternakan, seperti peternakan sapi dan ayam. Karena bahan atap ONDULINE® dan genteng ONDUVILLA® tidak mengandung unsur metal, maka tidak akan berkarat. Namun untuk sekrup atau paku harap menggunakan bahan dari stainless steel. Produk atap ONDULINE® memiliki ketahanan sedang terhadap senyawa alkaline, seperti misalnya amonia pada peternakan, dikarenakan pengaruh kadar amonia dan sistem ventilasi udara yang digunakan.</string>
@@ -411,7 +410,7 @@ Director dan Principal architect of sigit.kusumawijaya\n\n</string>
     <string name="calc_sum_of_roof_onduline">JUMLAH ATAP ONDULINE®</string>
     <string name="calc_sum_of_nok_onduline">JUMLAH NOK ONDULINE®</string>
     <string name="calc_sum_of_scrup_onduline">JUMLAH SEKRUP ONDULINE®</string>
-    <string name="calc_resume">RESUME</string>
+    <string name="calc_resume">Hasil</string>
 
     <!-- array String yes or no -->
     <string-array name="yes_or_no_array">
@@ -437,14 +436,14 @@ Director dan Principal architect of sigit.kusumawijaya\n\n</string>
 
     <string-array name="pilih_atap_onduline_array">
         <item> - Pilih Atap - </item>
-        <item>Modern Roof</item>
-        <item>Curve Roof</item>
-        <item>Traditional Roof</item>
+        <item>Atap modern</item>
+        <item>Atap Lengkung</item>
+        <item>Atap Rumah Gadang</item>
     </string-array>
     <string-array name="pilih_atap_onduvila_array">
         <item> - Pilih Atap - </item>
         <item>Modern Roof</item>
-        <item>Curve Roof</item>
+        <item>Round Roof</item>
     </string-array>
 
     <string-array name="pilih_warna_onduvila_array">
@@ -486,8 +485,8 @@ Director dan Principal architect of sigit.kusumawijaya\n\n</string>
 
     <!-- array String untuk Kalkulator -->
     <string-array name="pilih_jenis_rangka_array">
-        <item>RANGKA KAYU</item>
         <item>RANGKA BAJA</item>
+        <item>RANGKA KAYU</item>
     </string-array>
     <string-array name="pilih_jenis_atap_array">
         <item>ONDULINE®</item>
@@ -732,5 +731,7 @@ Director dan Principal architect of sigit.kusumawijaya\n\n</string>
     <string name="odl_subtainability_4">Sebanding. Ini tranparently menyajikan dampak lingkungan dengan parameter terukur. Hal ini terbuka untuk semua orang dan deklarasi dimengerti dan memungkinkan untuk membuat perbandingan antara bahan konstruksi. Ini adalah cara yang paling komprehensif untuk menyorot produk kami fitur lingkungan.\n\n</string>
     <string name="odl_subtainability_5">Handal. Ini bukan deklarasi diri, harus diverifikasi oleh pihak ketiga yang independen dan dipublikasikan oleh otoritas.\n\n</string>
     <string name="title_activity_contact_onduline">ContactOndulineActivity</string>
+    <string name="contact_us_hint">Masukkan Text</string>
+    <string name="registrasi_user_personal">Personal / Arsitek / Konsultan / DLL</string>
 
 </resources>

@@ -13,34 +13,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="10"
-        android:orientation="vertical"
         android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/submit_progress"
         android:layout_toRightOf="@+id/submit_progress"
-        android:layout_toEndOf="@+id/submit_progress">
+        android:orientation="vertical"
+        android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="Kontak Onduline"
                 android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
                 android:textSize="24dp"
-                android:text="Kontak Onduline"/>
+                android:textStyle="bold" />
         </RelativeLayout>
-
 
 
         <ScrollView
             android:id="@+id/register_form"
             android:layout_width="match_parent"
-            android:background="@drawable/bg_03"
             android:layout_height="0dp"
-            android:layout_weight="9">
+            android:layout_weight="9"
+            android:background="@drawable/bg_03">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -52,19 +53,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
                     android:layout_margin="10dp"
-                    android:textStyle="bold"
+                    android:text="@string/onduline"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="30dp"
-                    android:text="@string/onduline"/>
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:textColor="@color/colorBlack"
-                    android:text="@string/signature"/>
-
+                    android:text="@string/signature"
+                    android:textColor="@color/colorBlack" />
 
 
             </LinearLayout>
@@ -79,10 +80,10 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:foregroundGravity="center"
-        android:visibility="gone"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true" />
+        android:foregroundGravity="center"
+        android:visibility="gone" />
 
 
 </RelativeLayout>

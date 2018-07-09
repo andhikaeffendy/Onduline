@@ -10,9 +10,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,11 +40,11 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
     private EditText et_totalNok, et_totalScrup, et_totalNail, et_etc;
     private Spinner spn_product_demand_color, spn_product_demand_brand;
     private ArrayAdapter<String> adapter_product_demand_color, adapter_product_demand_brand;
-    private HashMap<Integer,Long> spinnerMapProduct, spinnerMapColor;
+    private HashMap<Integer, Long> spinnerMapProduct, spinnerMapColor;
     private Context context;
     private Button btn_submit;
-    private String[] souvenirName, productName,colorName;
-    private long[] souvenirIds, productIds,colorIds ;
+    private String[] souvenirName, productName, colorName;
+    private long[] souvenirIds, productIds, colorIds;
     private View mProgressView;
     private View mFormView;
 
@@ -59,19 +60,20 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
     private UpdateGetProductColorTask updateGetProductColorTask;
     private String token;
 
-//    variable for listview
+    //    variable for listview
     private ListView lv_Marketing;
     private SimpleAdapter Adapter;
     private HashMap<String, String> map;
     private ArrayList<HashMap<String, String>> mylist;
-    private String[] itemName, itemQuantity,itemKey, itemStatus,itemImg;
-    private int[] orderItemKeys,orderItemQty;
+    private String[] itemName, itemQuantity, itemKey, itemStatus, itemImg;
+    private int[] orderItemKeys, orderItemQty;
 
     String pil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context=this;
+        context = this;
         session = new AppSession(context);
         session.checkSession();
         token = session.getToken();
@@ -83,12 +85,10 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         mProgressView = findViewById(R.id.register_progress);
 
 
-
-
     }
 
     //function to set layout(produk, brosur, souvenir)
-    public void setLayout(){
+    public void setLayout() {
         Bundle extras = getIntent().getExtras();
         pil = extras.getString("pil");
         switch (pil) {
@@ -148,10 +148,12 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         //TODO: Replace this with your own logic
         return totalNok.equals("");
     }
+
     private boolean isTotalScrupEmpty(String totalScrup) {
         //TODO: Replace this with your own logic
         return totalScrup.equals("");
     }
+
     private boolean isTotalNailEmpty(String totalNail) {
         //TODO: Replace this with your own logic
         return totalNail.equals("");
@@ -213,26 +215,26 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 //            disini kita show progreess apapun itu dan di setiap
 
             //Toast.makeText(this, "password : " + password , Toast.LENGTH_LONG).show();
-            orderProductTask    =   new OrderProductTask();
-            orderProductTask.execute((Void)null);
+            orderProductTask = new OrderProductTask();
+            orderProductTask.execute((Void) null);
         }
     }
 
-    public void OncreateProduct(){
+    public void OncreateProduct() {
 
 //        et_totalNok, et_totalScrup, et_totalNail, et_etc
-        et_totalNok =(EditText)findViewById(R.id.et_totalNok);
-        et_totalNail =(EditText)findViewById(R.id.et_totalNail);
-        et_totalScrup =(EditText)findViewById(R.id.et_totalScrup);
-        et_etc =(EditText)findViewById(R.id.et_etc);
+        et_totalNok = (EditText) findViewById(R.id.et_totalNok);
+        et_totalNail = (EditText) findViewById(R.id.et_totalNail);
+        et_totalScrup = (EditText) findViewById(R.id.et_totalScrup);
+        et_etc = (EditText) findViewById(R.id.et_etc);
 
 //        Spinner spn_product_demand_color, spn_product_demand_brand;
-        spn_product_demand_color = (Spinner)findViewById(R.id.spn_product_demand_color);
-        spn_product_demand_brand = (Spinner)findViewById(R.id.spn_product_demand_brand);
+        spn_product_demand_color = (Spinner) findViewById(R.id.spn_product_demand_color);
+        spn_product_demand_brand = (Spinner) findViewById(R.id.spn_product_demand_brand);
 
 
         updateGetProductTask = new UpdateGetProductTask();
-        updateGetProductTask.execute((Void)null);
+        updateGetProductTask.execute((Void) null);
 
 
         spn_product_demand_brand.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -240,8 +242,8 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 Long product_id = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition());
-                updateGetProductColorTask = new UpdateGetProductColorTask(product_id+"");
-                updateGetProductColorTask.execute((Void)null);
+                updateGetProductColorTask = new UpdateGetProductColorTask(product_id + "");
+                updateGetProductColorTask.execute((Void) null);
             }
 
             @Override
@@ -249,7 +251,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 
             }
         });
-        btn_submit      = (Button)findViewById(R.id.btn_submit);
+        btn_submit = (Button) findViewById(R.id.btn_submit);
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -258,21 +260,21 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         });
     }
 
-    public void OnCreateSouvenir(){
+    public void OnCreateSouvenir() {
 
 //        coba get souvenir data
-        updateSouvenirTask  =   new UpdateSouvenirTask();
-        updateSouvenirTask.execute((Void)null);
+        updateSouvenirTask = new UpdateSouvenirTask();
+        updateSouvenirTask.execute((Void) null);
 
-        lv_Marketing = (ListView)findViewById(R.id.lv_Marketing);
-        btn_submit      = (Button)findViewById(R.id.btn_submit);
+        lv_Marketing = (ListView) findViewById(R.id.lv_Marketing);
+        btn_submit = (Button) findViewById(R.id.btn_submit);
         btn_submit.setEnabled(false);
 
         lv_Marketing.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //show input box
-                showInputBox(mylist.get(position).get("ItemName"),position);
+                showInputBox(mylist.get(position).get("ItemName"), position);
             }
         });
         btn_submit.setOnClickListener(new View.OnClickListener() {
@@ -280,28 +282,28 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 showProgress(true);
-                orderSuvenirTask    =   new OrderSuvenirTask(orderItemKeys.length,orderItemKeys,orderItemQty);
-                orderSuvenirTask.execute((Void)null);
+                orderSuvenirTask = new OrderSuvenirTask(orderItemKeys.length, orderItemKeys, orderItemQty);
+                orderSuvenirTask.execute((Void) null);
             }
         });
 
     }
 
-    public void OnCreateBrosur(){
+    public void OnCreateBrosur() {
 
 //        coba get souvenir data
-        updateBrosurTask    =   new UpdateBrosurTask();
-        updateBrosurTask.execute((Void)null);
+        updateBrosurTask = new UpdateBrosurTask();
+        updateBrosurTask.execute((Void) null);
 
-        lv_Marketing = (ListView)findViewById(R.id.lv_Marketing);
-        btn_submit      = (Button)findViewById(R.id.btn_submit);
+        lv_Marketing = (ListView) findViewById(R.id.lv_Marketing);
+        btn_submit = (Button) findViewById(R.id.btn_submit);
         btn_submit.setEnabled(false);
 
         lv_Marketing.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //show input box
-                showInputBox(mylist.get(position).get("ItemName"),position);
+                showInputBox(mylist.get(position).get("ItemName"), position);
             }
         });
         btn_submit.setOnClickListener(new View.OnClickListener() {
@@ -309,47 +311,46 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 showProgress(true);
-                orderBrosurTask =   new OrderBrosurTask(orderItemKeys.length,orderItemKeys,orderItemQty);
-                orderBrosurTask.execute((Void)null);
+                orderBrosurTask = new OrderBrosurTask(orderItemKeys.length, orderItemKeys, orderItemQty);
+                orderBrosurTask.execute((Void) null);
             }
         });
 
     }
 
 
+    public void showInputBox(String itemName, final int index) {
 
-    public void showInputBox(String itemName, final int index){
-
-        final Dialog dialog=new Dialog(context);
+        final Dialog dialog = new Dialog(context);
         dialog.setTitle("Tambah Pesanan");
         dialog.setContentView(R.layout.add_item);
-        TextView txt_addItemName = (TextView)dialog.findViewById(R.id.txt_addItemName);
+        TextView txt_addItemName = (TextView) dialog.findViewById(R.id.txt_addItemName);
         txt_addItemName.setText(itemName);
-        final EditText et_ItemQuantity = (EditText)dialog.findViewById(R.id.et_ItemQuantity);
+        final EditText et_ItemQuantity = (EditText) dialog.findViewById(R.id.et_ItemQuantity);
 //        et_ItemQuantity.setText("0");
-        Button btn_addItem = (Button)dialog.findViewById(R.id.btn_addItem);
+        Button btn_addItem = (Button) dialog.findViewById(R.id.btn_addItem);
         btn_addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(et_ItemQuantity.getText().toString().equals("0")){
-                    mylist.get(index).put("ItemQuantity","0");
-                    mylist.get(index).put("ItemStatus","Tambah Pesanan");
-                    mylist.get(index).put("ItemImg",Integer.toString(R.drawable.ic_check_box_outline_blank_red_24dp));
-                }else if (et_ItemQuantity.getText().toString().equals("")){
-                    mylist.get(index).put("ItemQuantity","0");
-                    mylist.get(index).put("ItemStatus","Tambah Pesanan");
-                    mylist.get(index).put("ItemImg",Integer.toString(R.drawable.ic_check_box_outline_blank_red_24dp));
-                }else {
-                    mylist.get(index).put("ItemQuantity",et_ItemQuantity.getText().toString());
-                    mylist.get(index).put("ItemStatus",et_ItemQuantity.getText().toString());
-                    mylist.get(index).put("ItemImg",Integer.toString(R.drawable.ic_check_box_outline_blank_black_24dp));
+                if (et_ItemQuantity.getText().toString().equals("0")) {
+                    mylist.get(index).put("ItemQuantity", "0");
+                    mylist.get(index).put("ItemStatus", "Tambah Pesanan");
+                    mylist.get(index).put("ItemImg", Integer.toString(R.drawable.ic_check_box_outline_blank_red_24dp));
+                } else if (et_ItemQuantity.getText().toString().equals("")) {
+                    mylist.get(index).put("ItemQuantity", "0");
+                    mylist.get(index).put("ItemStatus", "Tambah Pesanan");
+                    mylist.get(index).put("ItemImg", Integer.toString(R.drawable.ic_check_box_outline_blank_red_24dp));
+                } else {
+                    mylist.get(index).put("ItemQuantity", et_ItemQuantity.getText().toString());
+                    mylist.get(index).put("ItemStatus", et_ItemQuantity.getText().toString());
+                    mylist.get(index).put("ItemImg", Integer.toString(R.drawable.ic_check_box_outline_blank_black_24dp));
                 }
 
 
                 Adapter = new SimpleAdapter(context, mylist, R.layout.list_marketing,
-                        new String[] {"ItemName","ItemQuantity", "ItemKey", "ItemStatus", "ItemImg"},
-                        new int[] {R.id.txt_ItemName, R.id.txt_quantity, R.id.txt_itemKey, R.id.txt_statusItem, R.id.img_checkbox});
+                        new String[]{"ItemName", "ItemQuantity", "ItemKey", "ItemStatus", "ItemImg"},
+                        new int[]{R.id.txt_ItemName, R.id.txt_quantity, R.id.txt_itemKey, R.id.txt_statusItem, R.id.img_checkbox});
                 lv_Marketing.setAdapter(Adapter);
 
 
@@ -358,11 +359,11 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
                 itemkeyId = new int[mylist.size()];
                 quantityItem = new int[mylist.size()];
 
-                for (int i =0; i<mylist.size(); i++){
+                for (int i = 0; i < mylist.size(); i++) {
                     int quantityTmp = Integer.parseInt(mylist.get(i).get("ItemQuantity"));
-                    if(quantityTmp!=0){
-                        itemkeyId[i]=Integer.parseInt(mylist.get(i).get("ItemKey"));
-                        quantityItem[i]=quantityTmp;//--------------------------------------------------------------------------------------------------------------
+                    if (quantityTmp != 0) {
+                        itemkeyId[i] = Integer.parseInt(mylist.get(i).get("ItemKey"));
+                        quantityItem[i] = quantityTmp;//--------------------------------------------------------------------------------------------------------------
 
                         btn_submit.setEnabled(true);
 //                        Toast.makeText(context, "id : " + itemkeyId[i]+", qty : "+quantityItem[i], Toast.LENGTH_LONG).show();
@@ -375,7 +376,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 
 //                Toast.makeText(context, "orderItemKeys length : " + orderItemKeys.length, Toast.LENGTH_LONG).show();
                 orderItemKeys = itemkeyId;
-                orderItemQty  = quantityItem;
+                orderItemQty = quantityItem;
 
                 dialog.dismiss();
 
@@ -385,16 +386,16 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public void popupSuccess(){
+    public void popupSuccess() {
         new AlertDialog.Builder(this)
-                .setTitle("Permintaan "+pil+" Sukses!")
-                .setMessage("Selamat permintaan "+pil+" Anda telah terkirim")
+                .setTitle("Permintaan " + pil + " Sukses!")
+                .setMessage("Selamat permintaan " + pil + " Anda telah terkirim")
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
 
                         Intent intent = new Intent(context, PermintaanMarketingActivity.class);
-                        intent.putExtra("pil",pil);
+                        intent.putExtra("pil", pil);
                         intent.addCategory(Intent.CATEGORY_HOME);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
 
@@ -405,7 +406,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
     }
 
 
-    public void popupAllert(String allert){
+    public void popupAllert(String allert) {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(allert)
@@ -417,7 +418,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
                         // System.exit(0);
 
                         Intent intent = new Intent(context, MarketingSupportActivity.class);
-                        intent.putExtra("pil",pil);
+                        intent.putExtra("pil", pil);
                         intent.addCategory(Intent.CATEGORY_HOME);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
 
@@ -428,16 +429,21 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
     }
 
 
-    public String parsingParam(int length, int[]  id, int[] qty){
+    public String parsingParam(int length, int[] id, int[] qty) {
         try {
             JSONObject result = new JSONObject();
             JSONArray orders = new JSONArray();
 
 //            perulangan untuk cek mana aja yg di pilih dan jumlahnya,.
-            for (int i = 0; i <length; i++) {
+            for (int i = 0; i < length; i++) {
                 JSONObject order = new JSONObject();
                 order.put("souvenir_id", id[i]);
                 order.put("quantity", qty[i]);
+
+                orders.put(order);
+
+                Log.d("souvenir_id ", id[i]+"");
+                Log.d("quantity ", qty[i]+"");
             }
 
             result.put("souvenir_orders_attributes", orders);
@@ -448,16 +454,20 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         }
         return "";
     }
-    public String parsingBrochuresParam(int length, int[]  id, int[] qty){
+
+    public String parsingBrochuresParam(int length, int[] id, int[] qty) {
         try {
             JSONObject result = new JSONObject();
             JSONArray orders = new JSONArray();
 
 //            perulangan untuk cek mana aja yg di pilih dan jumlahnya,.
-            for (int i = 0; i <length; i++) {
+            for (int i = 0; i < length; i++) {
                 JSONObject order = new JSONObject();
-                order.put("product_id", id[i]);
+                order.put("brochure_id", id[i]);
                 order.put("quantity", qty[i]);
+
+                orders.put(order);
+
             }
 
             result.put("brochure_orders_attributes", orders);
@@ -470,20 +480,20 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
     }
 
 
-    private boolean parsingProduct(JSONArray data){
+    private boolean parsingProduct(JSONArray data) {
         try {
 
             String[] spinnerArray = new String[data.length()];
             spinnerMapProduct = new HashMap<Integer, Long>();
 //            productName = new String[data.length()];
 //            productIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
-                spinnerMapProduct.put(i,jason.getLong("id"));
+                spinnerMapProduct.put(i, jason.getLong("id"));
                 spinnerArray[i] = jason.getString("name");
             }
             // Create an ArrayAdapter using the string array and a default spinner layout
-            adapter_product_demand_brand = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, spinnerArray);
+            adapter_product_demand_brand = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, spinnerArray);
             // Specify the layout to use when the list of choices appears
             adapter_product_demand_brand.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             // Apply the adapter to the spinner
@@ -496,20 +506,20 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean parsingProductcolors(JSONArray data){
+    private boolean parsingProductcolors(JSONArray data) {
         try {
 
             String[] spinnerArray = new String[data.length()];
             spinnerMapColor = new HashMap<Integer, Long>();
             colorName = new String[data.length()];
             colorIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
-                spinnerMapColor.put(i,jason.getLong("id"));
+                spinnerMapColor.put(i, jason.getLong("id"));
                 spinnerArray[i] = jason.getString("name");
             }
             // Create an ArrayAdapter using the string array and a default spinner layout
-            adapter_product_demand_color = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, spinnerArray);
+            adapter_product_demand_color = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, spinnerArray);
             // Specify the layout to use when the list of choices appears
             adapter_product_demand_color.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             // Apply the adapter to the spinner
@@ -523,19 +533,19 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
     }
 
     //    parsing souvenir
-    private boolean parsingItem(JSONArray data){
+    private boolean parsingItem(JSONArray data) {
         try {
             souvenirName = new String[data.length()];
             souvenirIds = new long[data.length()];
 
 
-            itemKey     = new String[data.length()];
-            itemName    = new String[data.length()];
-            itemStatus  = new String[data.length()];
-            itemQuantity= new String[data.length()];
-            itemImg     = new String[data.length()];
+            itemKey = new String[data.length()];
+            itemName = new String[data.length()];
+            itemStatus = new String[data.length()];
+            itemQuantity = new String[data.length()];
+            itemImg = new String[data.length()];
 
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
 
                 int tmp = jason.getInt("id");
@@ -545,8 +555,8 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
                 itemQuantity[i] = "0";
                 itemImg[i] = Integer.toString(R.drawable.ic_check_box_outline_blank_red_24dp);
             }
-            mylist = new ArrayList<HashMap<String,String>>();
-            for (int i = 0; i < itemName.length; i++){
+            mylist = new ArrayList<HashMap<String, String>>();
+            for (int i = 0; i < itemName.length; i++) {
                 map = new HashMap<String, String>();
 
                 map.put("ItemName", itemName[i]);
@@ -559,8 +569,8 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             }
 
             Adapter = new SimpleAdapter(this, mylist, R.layout.list_marketing,
-                    new String[] {"ItemName","ItemQuantity", "ItemKey", "ItemStatus", "ItemImg"},
-                    new int[] {R.id.txt_ItemName, R.id.txt_quantity, R.id.txt_itemKey, R.id.txt_statusItem, R.id.img_checkbox});
+                    new String[]{"ItemName", "ItemQuantity", "ItemKey", "ItemStatus", "ItemImg"},
+                    new int[]{R.id.txt_ItemName, R.id.txt_quantity, R.id.txt_itemKey, R.id.txt_statusItem, R.id.img_checkbox});
             lv_Marketing.setAdapter(Adapter);
 
         } catch (JSONException e) {
@@ -580,13 +590,13 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         private JSONArray colorJson;
         private String stateId;
 
-        UpdateGetProductColorTask (String state_id) {
+        UpdateGetProductColorTask(String state_id) {
             apiWeb = new ApiWeb();
             pg = new ProgressDialog(context);
             pg.setTitle("Ambil Data");
             pg.setMessage("Ambil Data");
             pg.show();
-            stateId=state_id;
+            stateId = state_id;
         }
 
         @Override
@@ -594,18 +604,18 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetproductColors(stateId);
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     colorJson = json.getJSONArray("data");
                     return true;
 
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -649,16 +659,15 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.Getproducts();
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     ProductsJson = json.getJSONArray("data");
                     return true;
-
 //
 //                    result = apiWeb.GetCities();
 //                    if(result==null){
@@ -694,6 +703,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 //    ==============================================================================================
 
 //    update data brosur
+
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
@@ -706,7 +716,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         private JSONArray souvenirJson;
         private JSONArray cityJson;
 
-        UpdateBrosurTask () {
+        UpdateBrosurTask() {
             apiWeb = new ApiWeb();
             pg = new ProgressDialog(context);
             pg.setTitle("Ambil Data");
@@ -719,13 +729,13 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.Getbrochures();
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     souvenirJson = json.getJSONArray("data");
                     return true;
 
@@ -756,7 +766,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         private String errorMessage = "Koneksi Error";
         private String brochure_orders_attributes;
 
-        OrderBrosurTask(int length, int[]  id, int[] qty) {
+        OrderBrosurTask(int length, int[] id, int[] qty) {
             apiWeb = new ApiWeb();
             brochure_orders_attributes = parsingBrochuresParam(length, id, qty);
         }
@@ -767,20 +777,20 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 
             String result = null;
 
-           result = apiWeb.OrderBrosur(token,brochure_orders_attributes);      //  ini belum di bikin di apiweb
+            result = apiWeb.OrderBrosur(token, brochure_orders_attributes);      //  ini belum di bikin di apiweb
 
 
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
 
                     return true;
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -811,6 +821,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 //    ==============================================================================================
 
 //    update data souvenir
+
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
@@ -836,13 +847,13 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.Getsouvenirs();
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     souvenirJson = json.getJSONArray("data");
                     return true;
 
@@ -863,8 +874,6 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
     }
 
 
-
-
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
@@ -875,9 +884,10 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         private String errorMessage = "Koneksi Error";
         private String souvenir_orders_attributes;
 
-        OrderSuvenirTask(int length, int[]  id, int[] qty) {
+        OrderSuvenirTask(int length, int[] id, int[] qty) {
             apiWeb = new ApiWeb();
             souvenir_orders_attributes = parsingParam(length, id, qty);
+            Log.d("test pesan seuvenir ", souvenir_orders_attributes);
         }
 
         @Override
@@ -885,20 +895,20 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = null;
-            result = apiWeb.OrderSuvenir(token,souvenir_orders_attributes);
+            result = apiWeb.OrderSuvenir(token, souvenir_orders_attributes);
 
 
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
 
                     return true;
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -928,6 +938,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 //    ==============================================================================================
 
 //    update data product
+
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
@@ -940,7 +951,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
         private JSONArray souvenirJson;
         private JSONArray cityJson;
 
-        UpdateProductTask () {
+        UpdateProductTask() {
             apiWeb = new ApiWeb();
             pg = new ProgressDialog(context);
             pg.setTitle("Ambil Data");
@@ -953,13 +964,13 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.Getsouvenirs();
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     souvenirJson = json.getJSONArray("data");
                     return true;
 
@@ -980,8 +991,6 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
     }
 
 
-
-
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
@@ -996,22 +1005,22 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             apiWeb = new ApiWeb();
 
 
-            if(et_totalNok.getText().toString().equals("")){
-                nok="0";
-            }else {
-                nok    = et_totalNok.getText().toString()+"";
+            if (et_totalNok.getText().toString().equals("")) {
+                nok = "0";
+            } else {
+                nok = et_totalNok.getText().toString() + "";
             }
 
-            if(et_totalNail.getText().toString().equals("")){
-                nail="0";
-            }else {
-                nail     = et_totalNail.getText().toString()+"";
+            if (et_totalNail.getText().toString().equals("")) {
+                nail = "0";
+            } else {
+                nail = et_totalNail.getText().toString() + "";
             }
 
-            if(et_totalScrup.getText().toString().equals("")){
-                scrup="0";
-            }else {
-                scrup    = et_totalScrup.getText().toString()+"";
+            if (et_totalScrup.getText().toString().equals("")) {
+                scrup = "0";
+            } else {
+                scrup = et_totalScrup.getText().toString() + "";
             }
 
 
@@ -1020,7 +1029,7 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
 //            scrup = et_totalScrup.getText().toString();
             etc = et_etc.getText().toString();
             product_id = spinnerMapProduct.get(spn_product_demand_brand.getSelectedItemPosition()) + "";
-            color_id= spinnerMapColor.get(spn_product_demand_color.getSelectedItemPosition()) + "";
+            color_id = spinnerMapColor.get(spn_product_demand_color.getSelectedItemPosition()) + "";
         }
 
         @Override
@@ -1028,20 +1037,20 @@ public class PermintaanMarketingActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = null;
-            result = apiWeb.OrderProduct(token,product_id,color_id,nok,scrup,nail,etc);
+            result = apiWeb.OrderProduct(token, product_id, color_id, nok, scrup, nail, etc);
 
 
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
 
                     return true;
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }

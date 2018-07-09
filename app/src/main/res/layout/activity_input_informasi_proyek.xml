@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,103 +12,112 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorTextLight"
-                android:textAlignment="center"
-                android:layout_centerInParent="true"
-                android:textSize="24dp"
                 android:layout_centerHorizontal="true"
-                android:textStyle="bold"
+                android:layout_centerInParent="true"
                 android:text="@string/tittle_header_input_informasi_proyek"
-                android:id="@+id/textView2" />
+                android:textAlignment="center"
+                android:textColor="@color/colorTextLight"
+                android:textSize="24dp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <ScrollView
             android:id="@+id/submit_form"
             android:layout_width="match_parent"
-            android:background="@drawable/bg_01"
             android:layout_height="0dp"
             android:layout_weight="9"
+            android:background="@drawable/bg_01"
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="5dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/project_name"/>
+                    android:text="@string/project_name"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_projectName"
                     android:layout_width="307dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_project_name"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp"
+                    android:hint="@string/hint_project_name" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/project_state"/>
+                    android:text="@string/project_state"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <AutoCompleteTextView
                     android:id="@+id/act_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:maxLines="1"
-                    android:hint="@string/hint_project_state"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
-                    android:layout_margin="5dp"
-                    android:text="@string/project_city"/>
-                <AutoCompleteTextView
-                    android:id="@+id/act_city"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:layout_margin="5dp"
-                    android:hint="@string/hint_project_city"/>
+                    android:hint="@string/hint_project_state"
+                    android:maxLines="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/project_address"/>
+                    android:text="@string/project_city"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/act_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="@string/hint_project_city"
+                    android:maxLines="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/project_address"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_projectAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_project_address"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp"
+                    android:hint="@string/hint_project_address" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/roof_area"/>
+                    android:text="@string/roof_area"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/et_roofWidth"
@@ -122,26 +130,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/roof_type"
                     android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
-                    android:layout_margin="5dp"
-                    android:text="@string/roof_type"/>
+                    android:textStyle="bold" />
+
                 <Spinner
-                    android:layout_margin="5dp"
                     android:id="@+id/spn_product_demand_brand"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp" />
 
                 <Button
                     android:id="@+id/btnSubmitProjectInformation"
-                    android:onClick="onClickProjectInformation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:layout_gravity="center"
+                    android:layout_margin="5dp"
                     android:background="@drawable/ps__button_youtube"
-                    android:textColor="@color/colorTextLight"
-                    android:text="@string/submit"/>
+                    android:onClick="onClickProjectInformation"
+                    android:text="@string/submit"
+                    android:textColor="@color/colorTextLight" />
 
             </LinearLayout>
         </ScrollView>
@@ -152,8 +161,8 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true" />
+        android:visibility="gone" />
 
 </RelativeLayout>

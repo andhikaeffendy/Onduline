@@ -13,9 +13,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,7 +27,6 @@ import android.widget.ListAdapter;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wiradipa.ondulineApplicator.lib.ApiWeb;
 import com.wiradipa.ondulineApplicator.lib.AppSession;
@@ -38,7 +37,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.acl.Owner;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -69,11 +67,10 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
     private UpdateTask updateTask;
     private UpdateCityTask updateCityTask;
-    private RegisterApplicatorTask registerApplicatorTask= null;
+    private RegisterApplicatorTask registerApplicatorTask = null;
     private View mProgressView;
     private View mFormView;
     private AppSession session;
-
 
 
     protected ListAdapter adapter;
@@ -94,13 +91,14 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.length()>4;
+        return email.length() > 4;
     }
 
     private boolean isUsernameValid(String password) {
         //TODO: Replace this with your own logic
         return password.length() > 4;
     }
+
     private boolean isUsernameEmpty(String user) {
         //TODO: Replace this with your own logic
         return user.equals("");
@@ -110,6 +108,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         //TODO: Replace this with your own logic
         return password.length() > 4;
     }
+
     private boolean isPasswordEmpty(String password) {
         //TODO: Replace this with your own logic
         return password.equals("");
@@ -129,7 +128,8 @@ public class RegistrationFromActivity extends AppCompatActivity {
         //TODO: Replace this with your own logic
         return name.equals("");
     }
-//
+
+    //
     private boolean isAddressEmpty(String address) {
         //TODO: Replace this with your own logic
         return address.equals("");
@@ -176,7 +176,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
 //    }
 
 
-    public void popupSuccess(final String email_regis, final String no_hp_regis){
+    public void popupSuccess(final String email_regis, final String no_hp_regis) {
         new AlertDialog.Builder(this)
                 .setTitle("Registrasi Sukses!")
                 .setMessage("Selamat registrasi anda berhasil, lanjutkan ke halaman aktivasi")
@@ -196,7 +196,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
     }
 
-    public void popupAllert(String allert){
+    public void popupAllert(String allert) {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(allert)
@@ -209,96 +209,96 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
     }
 
-    public void OnCreateRegistrasiApplicator(){
+    public void OnCreateRegistrasiApplicator() {
 
 
-        et_name = (EditText)findViewById(R.id.et_name);//               wajib diisi
-        et_address = (EditText)findViewById(R.id.et_address);//         wajib diisi
-        et_phone = (EditText)findViewById(R.id.et_phone);//             harus diisi
-        et_email = (EditText)findViewById(R.id.et_email); //            email min min 4 karater harus ada @
-        et_distributor = (EditText)findViewById(R.id.et_distributor);// wajib diisi
-        et_association = (EditText)findViewById(R.id.et_association);// wajib diisi
-        et_owner = (EditText)findViewById(R.id.et_owner);//             wajib diisi
-        et_id = (EditText)findViewById(R.id.et_id);
-        et_username = (EditText)findViewById(R.id.et_username);//       username minimal 4 karakter dan harus terdiri dari huruf dan angka
-        et_password = (EditText)findViewById(R.id.et_password);//       password minimal 4 karakter harus terdiri dari huruf dan angka
-        et_password_confirm = (EditText)findViewById(R.id.et_password_confirm);//   harus sama dengan password
-        act_city = (AutoCompleteTextView)findViewById(R.id.act_city);//             wajib diisi
-        act_state = (AutoCompleteTextView)findViewById(R.id.act_state);//           wajib diisi
-        et_company = (EditText)findViewById(R.id.et_company);//                     wajib diisi
+        et_name = (EditText) findViewById(R.id.et_name);//               wajib diisi
+        et_address = (EditText) findViewById(R.id.et_address);//         wajib diisi
+        et_phone = (EditText) findViewById(R.id.et_phone);//             harus diisi
+        et_email = (EditText) findViewById(R.id.et_email); //            email min min 4 karater harus ada @
+        et_distributor = (EditText) findViewById(R.id.et_distributor);// wajib diisi
+        et_association = (EditText) findViewById(R.id.et_association);// wajib diisi
+        et_owner = (EditText) findViewById(R.id.et_owner);//             wajib diisi
+        et_id = (EditText) findViewById(R.id.et_id);
+        et_username = (EditText) findViewById(R.id.et_username);//       username minimal 4 karakter dan harus terdiri dari huruf dan angka
+        et_password = (EditText) findViewById(R.id.et_password);//       password minimal 4 karakter harus terdiri dari huruf dan angka
+        et_password_confirm = (EditText) findViewById(R.id.et_password_confirm);//   harus sama dengan password
+        act_city = (AutoCompleteTextView) findViewById(R.id.act_city);//             wajib diisi
+        act_state = (AutoCompleteTextView) findViewById(R.id.act_state);//           wajib diisi
+        et_company = (EditText) findViewById(R.id.et_company);//                     wajib diisi
 
-        txtisianBirth=(TextView)findViewById(R.id.txtisianBirth);//                 wajib diisi
-        txtisianBirthView=(TextView)findViewById(R.id.txtisianBirthView);//                 wajib diisi
-        calendar = Calendar.getInstance();
 
         mFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
 
+        txtisianBirth = (TextView) findViewById(R.id.txtisianBirth);//                 wajib diisi
+        txtisianBirthView = (TextView) findViewById(R.id.txtisianBirthView);//                 wajib diisi
+        calendar = Calendar.getInstance();
 
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        showDate(year, month+1, day);
+        showDate(year, month + 1, day);
 
         act_state.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                memberikan tanda bahwa city telah terisi dengan benar
-                bool_state= true;
+                bool_state = true;
                 states_id = adapter_state.getItemId(act_state.getText().toString());
-                updateCityTask = new UpdateCityTask(states_id+"");
-                updateCityTask.execute((Void)null);
+                updateCityTask = new UpdateCityTask(states_id + "");
+                updateCityTask.execute((Void) null);
             }
         });
         act_city.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                memberikan tanda bahwa city telah terisi dengan benar
-                bool_city= true;
+                bool_city = true;
                 city_id = adapter_city.getItemId(act_city.getText().toString());
             }
         });
 
         updateTask = new UpdateTask();
-        updateTask.execute((Void)null);
+        updateTask.execute((Void) null);
     }
 
-    public void OnCreateRegistrasiRetailer(){
+    public void OnCreateRegistrasiRetailer() {
 
 
         mFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
-        et_name = (EditText)findViewById(R.id.et_name);
-        et_address = (EditText)findViewById(R.id.et_address);
-        act_city = (AutoCompleteTextView)findViewById(R.id.act_city);
-        act_state = (AutoCompleteTextView)findViewById(R.id.act_state);
-        et_phone = (EditText)findViewById(R.id.et_phone);
+        et_name = (EditText) findViewById(R.id.et_name);
+        et_address = (EditText) findViewById(R.id.et_address);
+        act_city = (AutoCompleteTextView) findViewById(R.id.act_city);
+        act_state = (AutoCompleteTextView) findViewById(R.id.act_state);
+        et_phone = (EditText) findViewById(R.id.et_phone);
         et_officePhone = (EditText) findViewById(R.id.et_officePhone);
-        et_email = (EditText)findViewById(R.id.et_email);
+        et_email = (EditText) findViewById(R.id.et_email);
 
-        txtisianBirth=(TextView)findViewById(R.id.txtisianBirth);
-        txtisianBirthView=(TextView)findViewById(R.id.txtisianBirthView);
-        txt_distributor = (TextView)findViewById(R.id.txt_distributor);
-        et_distributor = (EditText)findViewById(R.id.et_distributor);
-        et_owner = (EditText)findViewById(R.id.et_owner);
-        et_id = (EditText)findViewById(R.id.et_id);
+        txtisianBirth = (TextView) findViewById(R.id.txtisianBirth);
+        txtisianBirthView = (TextView) findViewById(R.id.txtisianBirthView);
+        txt_distributor = (TextView) findViewById(R.id.txt_distributor);
+        et_distributor = (EditText) findViewById(R.id.et_distributor);
+        et_owner = (EditText) findViewById(R.id.et_owner);
+        et_id = (EditText) findViewById(R.id.et_id);
 
-        txt_officePhone = (TextView)findViewById(R.id.txt_officePhone);
-        txt_email= (TextView)findViewById(R.id.txt_email);
+        txt_officePhone = (TextView) findViewById(R.id.txt_officePhone);
+        txt_email = (TextView) findViewById(R.id.txt_email);
 
-        et_username = (EditText)findViewById(R.id.et_username);
-        et_password = (EditText)findViewById(R.id.et_password);
-        et_password_confirm = (EditText)findViewById(R.id.et_password_confirm);
+        et_username = (EditText) findViewById(R.id.et_username);
+        et_password = (EditText) findViewById(R.id.et_password);
+        et_password_confirm = (EditText) findViewById(R.id.et_password_confirm);
 
         calendar = Calendar.getInstance();
 
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        showDate(year, month+1, day);
+        showDate(year, month + 1, day);
 
         //set form registrasi bila user akan registrasi sebagai supermarket bahan bangunan
-        if(retailer_type.equals("2")){
+        if (retailer_type.equals("2")) {
             et_distributor.setVisibility(View.GONE);
             txt_distributor.setVisibility(View.GONE);
 
@@ -310,56 +310,55 @@ public class RegistrationFromActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                memberikan tanda bahwa city telah terisi dengan benar
-                bool_state= true;
+                bool_state = true;
                 states_id = adapter_state.getItemId(act_state.getText().toString());
-                updateCityTask = new UpdateCityTask(states_id+"");
-                updateCityTask.execute((Void)null);
+                updateCityTask = new UpdateCityTask(states_id + "");
+                updateCityTask.execute((Void) null);
             }
         });
         act_city.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                memberikan tanda bahwa city telah terisi dengan benar
-                bool_city= true;
+                bool_city = true;
                 city_id = adapter_city.getItemId(act_city.getText().toString());
             }
         });
 
         updateTask = new UpdateTask();
-        updateTask.execute((Void)null);
+        updateTask.execute((Void) null);
     }
 
-    public void OnCreateRegistrasiIndividu(){
+    public void OnCreateRegistrasiIndividu() {
 
         mFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
         spn_profession = (Spinner) findViewById(R.id.spn_profession);
-        et_name = (EditText)findViewById(R.id.et_name);//               wajib diisi
-        et_address = (EditText)findViewById(R.id.et_address);//         wajib diisi
-        act_city = (AutoCompleteTextView)findViewById(R.id.act_city);//             wajib diisi
-        act_state = (AutoCompleteTextView)findViewById(R.id.act_state);//           wajib diisi
-        et_phone = (EditText)findViewById(R.id.et_phone);//             harus diisi
-        et_email = (EditText)findViewById(R.id.et_email); //            email min min 4 karater harus ada @
-        et_company = (EditText)findViewById(R.id.et_company);
-        et_address = (EditText)findViewById(R.id.et_address);
+        et_name = (EditText) findViewById(R.id.et_name);//               wajib diisi
+        et_address = (EditText) findViewById(R.id.et_address);//         wajib diisi
+        act_city = (AutoCompleteTextView) findViewById(R.id.act_city);//             wajib diisi
+        act_state = (AutoCompleteTextView) findViewById(R.id.act_state);//           wajib diisi
+        et_phone = (EditText) findViewById(R.id.et_phone);//             harus diisi
+        et_email = (EditText) findViewById(R.id.et_email); //            email min min 4 karater harus ada @
+        et_company = (EditText) findViewById(R.id.et_company);
+        et_address = (EditText) findViewById(R.id.et_address);
 
-        txtisianBirth=(TextView)findViewById(R.id.txtisianBirth);//                 wajib diisi
-        txtisianBirthView=(TextView)findViewById(R.id.txtisianBirthView);//                 wajib diisi
-        et_id = (EditText)findViewById(R.id.et_id);
-        et_username = (EditText)findViewById(R.id.et_username);//       username minimal 4 karakter dan harus terdiri dari huruf dan angka
-        et_password = (EditText)findViewById(R.id.et_password);//       password minimal 4 karakter harus terdiri dari huruf dan angka
-        et_password_confirm = (EditText)findViewById(R.id.et_password_confirm);//   harus sama dengan password
+        txtisianBirth = (TextView) findViewById(R.id.txtisianBirth);//                 wajib diisi
+        txtisianBirthView = (TextView) findViewById(R.id.txtisianBirthView);//                 wajib diisi
+        et_id = (EditText) findViewById(R.id.et_id);
+        et_username = (EditText) findViewById(R.id.et_username);//       username minimal 4 karakter dan harus terdiri dari huruf dan angka
+        et_password = (EditText) findViewById(R.id.et_password);//       password minimal 4 karakter harus terdiri dari huruf dan angka
+        et_password_confirm = (EditText) findViewById(R.id.et_password_confirm);//   harus sama dengan password
 
 
-        listProfession = new String[] {"Perorangan", "Konsultan", "Kontraktor", "Arsitek", "Lain-lain"};
+        listProfession = new String[]{"Perorangan", "Konsultan", "Kontraktor", "Arsitek", "Lain-lain"};
 
         // Create an ArrayAdapter using the string array and a default spinner layout
-        Adapter = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, listProfession);
+        Adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, listProfession);
         // Specify the layout to use when the list of choices appears
         Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spn_profession.setAdapter(Adapter);
-
 
 
         calendar = Calendar.getInstance();
@@ -367,29 +366,29 @@ public class RegistrationFromActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        showDate(year, month+1, day);
+        showDate(year, month + 1, day);
 
         act_state.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                memberikan tanda bahwa city telah terisi dengan benar
-                bool_state= true;
+                bool_state = true;
                 states_id = adapter_state.getItemId(act_state.getText().toString());
-                updateCityTask = new UpdateCityTask(states_id+"");
-                updateCityTask.execute((Void)null);
+                updateCityTask = new UpdateCityTask(states_id + "");
+                updateCityTask.execute((Void) null);
             }
         });
         act_city.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                memberikan tanda bahwa city telah terisi dengan benar
-                bool_city= true;
+                bool_city = true;
                 city_id = adapter_city.getItemId(act_city.getText().toString());
             }
         });
 
         updateTask = new UpdateTask();
-        updateTask.execute((Void)null);
+        updateTask.execute((Void) null);
     }
 
 
@@ -400,7 +399,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
      * errors are presented and no actual login attempt is made.
      */
     private void attemptRegister() {
-        if (registerApplicatorTask!= null) {
+        if (registerApplicatorTask != null) {
             return;
         }
 
@@ -436,7 +435,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             et_password.setError(getString(R.string.error_field_required));
             focusView = et_password;
             cancel = true;
-        }else if (!isPasswordValid(password)) {
+        } else if (!isPasswordValid(password)) {
             et_password.setError(getString(R.string.error_invalid_password));
             focusView = et_password;
             cancel = true;
@@ -447,7 +446,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             et_username.setError(getString(R.string.error_field_required));
             focusView = et_username;
             cancel = true;
-        }else if (!isUsernameValid(username)) {
+        } else if (!isUsernameValid(username)) {
             et_username.setError(getString(R.string.error_field_required));
             focusView = et_username;
             cancel = true;
@@ -486,7 +485,6 @@ public class RegistrationFromActivity extends AppCompatActivity {
             focusView = act_state;
             cancel = true;
         }
-
 
 
         // Check for a valid phone.
@@ -536,7 +534,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             et_password_confirm.setError(getString(R.string.error_field_required));
             focusView = et_password_confirm;
             cancel = true;
-        } else if (!isPasswordConfirmValid(password,passwordConfirm)) {
+        } else if (!isPasswordConfirmValid(password, passwordConfirm)) {
             et_password_confirm.setError(getString(R.string.error_invalid_password_confirm));
             focusView = et_password_confirm;
             cancel = true;
@@ -549,7 +547,6 @@ public class RegistrationFromActivity extends AppCompatActivity {
 //            focusView = et_password;
 //            cancel = true;
 //        }
-
 
 
         // Check for a valid email address.
@@ -574,7 +571,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
 //            disini kita show progreess apapun itu dan di setiap
 
             //Toast.makeText(this, "password : " + password , Toast.LENGTH_LONG).show();
-            registerApplicatorTask= new RegisterApplicatorTask();
+            registerApplicatorTask = new RegisterApplicatorTask();
             registerApplicatorTask.execute((Void) null);
         }
     }
@@ -587,7 +584,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
      * errors are presented and no actual login attempt is made.
      */
     private void attemptRegisterRetailer() {
-        if (registerApplicatorTask!= null) {
+        if (registerApplicatorTask != null) {
             return;
         }
 
@@ -627,7 +624,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             et_password.setError(getString(R.string.error_field_required));
             focusView = et_password;
             cancel = true;
-        }else if (!isPasswordValid(password)) {
+        } else if (!isPasswordValid(password)) {
             et_password.setError(getString(R.string.error_invalid_password));
             focusView = et_password;
             cancel = true;
@@ -638,7 +635,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             et_username.setError(getString(R.string.error_field_required));
             focusView = et_username;
             cancel = true;
-        }else if (!isUsernameValid(username)) {
+        } else if (!isUsernameValid(username)) {
             et_username.setError(getString(R.string.error_field_required));
             focusView = et_username;
             cancel = true;
@@ -711,7 +708,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             et_password_confirm.setError(getString(R.string.error_field_required));
             focusView = et_password_confirm;
             cancel = true;
-        } else if (!isPasswordConfirmValid(password,passwordConfirm)) {
+        } else if (!isPasswordConfirmValid(password, passwordConfirm)) {
             et_password_confirm.setError(getString(R.string.error_invalid_password_confirm));
             focusView = et_password_confirm;
             cancel = true;
@@ -739,7 +736,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
 //            disini kita show progreess apapun itu dan di setiap
 
             //Toast.makeText(this, "password : " + password , Toast.LENGTH_LONG).show();
-            registerApplicatorTask= new RegisterApplicatorTask();
+            registerApplicatorTask = new RegisterApplicatorTask();
             registerApplicatorTask.execute((Void) null);
         }
     }
@@ -751,7 +748,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
      * errors are presented and no actual login attempt is made.
      */
     private void attemptRegisterIndividu() {
-        if (registerApplicatorTask!= null) {
+        if (registerApplicatorTask != null) {
             return;
         }
 
@@ -788,7 +785,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             et_password.setError(getString(R.string.error_field_required));
             focusView = et_password;
             cancel = true;
-        }else if (!isPasswordValid(password)) {
+        } else if (!isPasswordValid(password)) {
             et_password.setError(getString(R.string.error_invalid_password));
             focusView = et_password;
             cancel = true;
@@ -799,7 +796,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             et_username.setError(getString(R.string.error_field_required));
             focusView = et_username;
             cancel = true;
-        }else if (!isUsernameValid(username)) {
+        } else if (!isUsernameValid(username)) {
             et_username.setError(getString(R.string.error_field_required));
             focusView = et_username;
             cancel = true;
@@ -866,7 +863,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             et_password_confirm.setError(getString(R.string.error_field_required));
             focusView = et_password_confirm;
             cancel = true;
-        } else if (!isPasswordConfirmValid(password,passwordConfirm)) {
+        } else if (!isPasswordConfirmValid(password, passwordConfirm)) {
             et_password_confirm.setError(getString(R.string.error_invalid_password_confirm));
             focusView = et_password_confirm;
             cancel = true;
@@ -894,7 +891,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
 //            disini kita show progreess apapun itu dan di setiap
 
             //Toast.makeText(this, "password : " + password , Toast.LENGTH_LONG).show();
-            registerApplicatorTask= new RegisterApplicatorTask();
+            registerApplicatorTask = new RegisterApplicatorTask();
             registerApplicatorTask.execute((Void) null);
         }
     }
@@ -937,13 +934,13 @@ public class RegistrationFromActivity extends AppCompatActivity {
     }
 
 
-    public void onClickRegistrationForm(View v){
+    public void onClickRegistrationForm(View v) {
         Intent i;
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnSubmitRegistrationForm:
-                if (pil.equals("tukang bangunan")){
+                if (pil.equals("tukang bangunan")) {
                     attemptRegister();
-                }else if (pil.equals("retailer")){
+                } else if (pil.equals("retailer")) {
                     attemptRegisterRetailer();
                 }
 
@@ -956,38 +953,39 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
 
     //function to set layout(produk, brosur, souvenir)
-    public void setLayout(){
+    public void setLayout() {
         Bundle extras = getIntent().getExtras();
         pil = extras.getString("pil");
         retailer_type = extras.getString("retailer_type");
         switch (pil) {
             case "tukang bangunan":
                 setContentView(R.layout.activity_registration_form_tukang_bangunan);
-                if (!isNetworkAvailable()){
+                if (!isNetworkAvailable()) {
                     popupNoInternet();
-                }else{
+                } else {
                     OnCreateRegistrasiApplicator();
                 }
                 break;
             case "retailer":
                 setContentView(R.layout.activity_registration_form_retailer_tradisional);
-                if (!isNetworkAvailable()){
+                if (!isNetworkAvailable()) {
                     popupNoInternet();
-                }else{
+                } else {
                     OnCreateRegistrasiRetailer();
                 }
                 break;
             case "individu":
                 setContentView(R.layout.activity_registration_form_individu);
-                if (!isNetworkAvailable()){
+                if (!isNetworkAvailable()) {
                     popupNoInternet();
-                }else{
+                } else {
                     OnCreateRegistrasiIndividu();
                 }
                 break;
         }
     }
-    public void popupNoInternet(){
+
+    public void popupNoInternet() {
         new AlertDialog.Builder(this)
                 .setTitle("Tidak Ada Koneksi Internet!")
                 .setMessage("Periksa koneksi internet anda")
@@ -1011,31 +1009,34 @@ public class RegistrationFromActivity extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    /** Radio Button */
-    public void onRBSignupClicked(View v){
+    /**
+     * Radio Button
+     */
+    public void onRBSignupClicked(View v) {
         // Is the button now checked?
         boolean checked = ((RadioButton) v).isChecked();
 
         // Check which radio button was clicked
-        switch(v.getId()) {
+        switch (v.getId()) {
             case R.id.rbKTP:
                 if (checked)
-                    gender="KTP";
+                    gender = "KTP";
                 break;
             case R.id.rbSIM:
                 if (checked)
-                    gender="SIM";
+                    gender = "SIM";
                 break;
             default:
-                gender="";
+                gender = "";
                 break;
         }
 
     }
 
 
-
-    /** set date :D */
+    /**
+     * set date :D
+     */
     @SuppressWarnings("deprecation")
     public void setDate(View view) {
         showDialog(999);
@@ -1070,7 +1071,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
                     // arg1 = year
                     // arg2 = month
                     // arg3 = day
-                    showDate(arg1, arg2+1, arg3);
+                    showDate(arg1, arg2 + 1, arg3);
                 }
             };
 
@@ -1101,13 +1102,13 @@ public class RegistrationFromActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetStates();
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     stateJson = json.getJSONArray("data");
                     return true;
 
@@ -1145,7 +1146,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             pg.setTitle("Ambil Data");
             pg.setMessage("Ambil Data");
             pg.show();
-            stateId=state_id;
+            stateId = state_id;
         }
 
         @Override
@@ -1153,18 +1154,18 @@ public class RegistrationFromActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.GetCities(stateId);
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     cityJson = json.getJSONArray("data");
                     return true;
 
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -1182,11 +1183,11 @@ public class RegistrationFromActivity extends AppCompatActivity {
     }
 
 
-    private boolean parsingState(JSONArray data){
+    private boolean parsingState(JSONArray data) {
         try {
             statesName = new String[data.length()];
             statesIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
                 statesIds[i] = jason.getLong("id");
                 statesName[i] = jason.getString("name");
@@ -1200,11 +1201,11 @@ public class RegistrationFromActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean parsingCity(JSONArray data){
+    private boolean parsingCity(JSONArray data) {
         try {
             citiesName = new String[data.length()];
             citiesIds = new long[data.length()];
-            for(int i=0;i<data.length();i++){
+            for (int i = 0; i < data.length(); i++) {
                 JSONObject jason = data.getJSONObject(i);
                 citiesIds[i] = jason.getLong("id");
                 citiesName[i] = jason.getString("name");
@@ -1228,7 +1229,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         private ApiWeb apiWeb;
         private String errorMessage = "Koneksi Error";
         private String statusError = "Koneksi Error";
-        private String retailerType, username, password, password_comfirmation, email, name, address, hp_no, birth_date,distributor_name, owner_name, id_no, id_no_type, company_name, association_name,officePhone,occupation;
+        private String retailerType, username, password, password_comfirmation, email, name, address, hp_no, birth_date, distributor_name, owner_name, id_no, id_no_type, company_name, association_name, officePhone, occupation;
 
         RegisterApplicatorTask() {
             apiWeb = new ApiWeb();
@@ -1245,17 +1246,17 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
             id_no = et_id.getText().toString();
             id_no_type = gender;
-            if (pil.compareToIgnoreCase("individu")==0){
+            if (pil.compareToIgnoreCase("individu") == 0) {
                 birth_date = "";
-                occupation=spn_profession.getSelectedItem().toString();
+                occupation = spn_profession.getSelectedItem().toString();
                 company_name = et_company.getText().toString();
-            }else if(pil.compareToIgnoreCase("tukang bangunan")==0){
+            } else if (pil.compareToIgnoreCase("tukang bangunan") == 0) {
                 birth_date = txtisianBirth.getText().toString();
                 company_name = et_company.getText().toString();
                 association_name = et_association.getText().toString();
             } else {
                 birth_date = txtisianBirth.getText().toString();
-                officePhone=et_officePhone.getText().toString();
+                officePhone = et_officePhone.getText().toString();
                 distributor_name = et_distributor.getText().toString();
                 owner_name = et_owner.getText().toString();
                 retailerType = retailer_type;
@@ -1269,23 +1270,23 @@ public class RegistrationFromActivity extends AppCompatActivity {
             // TODO: attempt authentication against a network service.
 
             String result = null;
-            if(pil.compareToIgnoreCase("tukang bangunan")==0){
-                result = apiWeb.RegisterApplicator("applicator", username, password, password_comfirmation, email, name, address, ""+states_id, ""+city_id, hp_no, company_name, birth_date, association_name, id_no, id_no_type);
-            } else if (pil.compareToIgnoreCase("retailer")==0) {
-                result = apiWeb.RegisterRetailer(retailerType,"retailer",username, password, password_comfirmation,email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, distributor_name, owner_name, id_no, id_no_type, officePhone);
+            if (pil.compareToIgnoreCase("tukang bangunan") == 0) {
+                result = apiWeb.RegisterApplicator("applicator", username, password, password_comfirmation, email, name, address, "" + states_id, "" + city_id, hp_no, company_name, birth_date, association_name, id_no, id_no_type);
+            } else if (pil.compareToIgnoreCase("retailer") == 0) {
+                result = apiWeb.RegisterRetailer(retailerType, "retailer", username, password, password_comfirmation, email, name, address, "" + states_id, "" + city_id, hp_no, birth_date, distributor_name, owner_name, id_no, id_no_type, officePhone);
                 // retailer type ada tradisional dll ada 3
-            }else if (pil.compareToIgnoreCase("individu")==0) {//user_type, username, password, password_confirmation, email, name, address, states_id, city_id, hp_no, birth_date, id_no, id_no_type
-                result = apiWeb.RegisterIndividu("individu",username, password, password_comfirmation, email, name, address, ""+states_id, ""+city_id, hp_no, birth_date, "", "", occupation, company_name);
+            } else if (pil.compareToIgnoreCase("individu") == 0) {//user_type, username, password, password_confirmation, email, name, address, states_id, city_id, hp_no, birth_date, id_no, id_no_type
+                result = apiWeb.RegisterIndividu("individu", username, password, password_comfirmation, email, name, address, "" + states_id, "" + city_id, hp_no, birth_date, "", "", occupation, company_name);
                 // retailer type ada tradisional dll ada 3
             }
 
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
 
                     return true;
                 }
@@ -1294,7 +1295,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
 //                    statusError = json.getString("message");
 //
 //                }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -1310,9 +1311,9 @@ public class RegistrationFromActivity extends AppCompatActivity {
                 session.setEmailForm(email);
                 session.setHpNoForm(hp_no);
 
-                popupSuccess(email,hp_no);
+                popupSuccess(email, hp_no);
                 showProgress(false);
-                registerApplicatorTask=null;
+                registerApplicatorTask = null;
                 bool_city = bool_state = false;
 //                Intent i;
 //                i = new Intent(context, VerificationPageActivity.class);
@@ -1324,7 +1325,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
 
                 popupAllert(errorMessage);
                 showProgress(false);
-                registerApplicatorTask=null;
+                registerApplicatorTask = null;
 //                editTextLoginEmail.setError(errorMessage);
 //                editTextLoginEmail.requestFocus();
 

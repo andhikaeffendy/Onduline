@@ -34,7 +34,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class HomeActivity extends AppCompatActivity{
+public class HomeActivity extends AppCompatActivity {
 
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
@@ -42,10 +42,10 @@ public class HomeActivity extends AppCompatActivity{
     private AppSession session;
     TextView txtProfilName, txtUserType, txt_totalPoint;
     ImageView imgProfil;
-    private RelativeLayout rl_btnOrderingProduct, rl_btnTechnicalSupport;
+    private RelativeLayout rl_btnOrderingProduct, rl_btnTechnicalSupport, rl_btnProgram, rl_btnContactOnduline, rl_btnTechnicalSupport_atas;
 
     private UpdateTask updateTask;
-//    untuk menu gerak
+    //    untuk menu gerak
     private ViewFlipper viewFlipper;
     private Animation fadeIn, fadeOut;
 
@@ -58,14 +58,14 @@ public class HomeActivity extends AppCompatActivity{
         context = this;
         session = new AppSession(context);
         session.checkSession();
-        pil=session.getUSERTYPE();
-        token=session.getToken();
+        pil = session.getUSERTYPE();
+        token = session.getToken();
         //class ini memuat xml sesuai dengan user masuk sebagai aplikator atau retailer
         setLayout(pil);
 
-        viewFlipper=(ViewFlipper)findViewById(R.id.viewFlipper);
-        fadeIn= AnimationUtils.loadAnimation(this,R.anim.fade_in);
-        fadeOut= AnimationUtils.loadAnimation(this,R.anim.fate_out);
+        viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+        fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        fadeOut = AnimationUtils.loadAnimation(this, R.anim.fate_out);
         viewFlipper.setInAnimation(fadeIn);
         viewFlipper.setOutAnimation(fadeOut);
 
@@ -73,7 +73,7 @@ public class HomeActivity extends AppCompatActivity{
         viewFlipper.setFlipInterval(5000);
         viewFlipper.startFlipping();
 
-        if (!isNetworkAvailable()){
+        if (!isNetworkAvailable()) {
             popupNoInternet();
         }
 
@@ -90,7 +90,7 @@ public class HomeActivity extends AppCompatActivity{
     }
 
 
-    public void popupNoInternet(){
+    public void popupNoInternet() {
         new AlertDialog.Builder(this)
                 .setTitle("Tidak Ada Koneksi Internet!")
                 .setMessage("Periksa koneksi internet anda")
@@ -107,7 +107,7 @@ public class HomeActivity extends AppCompatActivity{
     }
 
     //function to set layout(aplikator or retailer)
-    public void setLayout(String pil){
+    public void setLayout(String pil) {
 //        Bundle extras = getIntent().getExtras();
 //        pil = extras.getString("pil");
         switch (pil) {
@@ -146,7 +146,7 @@ public class HomeActivity extends AppCompatActivity{
 //                    startActivity(i);
 //                }
                 i = new Intent(HomeActivity.this, TotalPointActivity.class);
-                i.putExtra("pilListView","project");
+                i.putExtra("pilListView", "project");
                 startActivity(i);
 
                 break;
@@ -155,10 +155,15 @@ public class HomeActivity extends AppCompatActivity{
                 i = new Intent(this, TechnicalSupportActivity.class);
                 startActivity(i);
                 break;
+            case R.id.btnTechnicalSupport2:
+//                Toast.makeText(this, "btnTechnicalSupport", Toast.LENGTH_LONG).show();
+                i = new Intent(this, TechnicalSupportActivity.class);
+                startActivity(i);
+                break;
             case R.id.btnProduk:
 //                Toast.makeText(this, "btnProduk", Toast.LENGTH_LONG).show();
                 i = new Intent(this, OurProductActivity.class);
-                i.putExtra("stat","");
+                i.putExtra("stat", "");
                 startActivity(i);
                 break;
             case R.id.btnDukunganMarketing:
@@ -197,8 +202,7 @@ public class HomeActivity extends AppCompatActivity{
     }
 
 
-
-    public void popupLogout(){
+    public void popupLogout() {
 
 
         new AlertDialog.Builder(context)
@@ -237,7 +241,7 @@ public class HomeActivity extends AppCompatActivity{
         }
     }
 
-    public void exitApp(){
+    public void exitApp() {
         new AlertDialog.Builder(this)
                 .setTitle("Keluar!")
                 .setMessage("Apakah anda yakin ingin keluar?")
@@ -290,8 +294,10 @@ public class HomeActivity extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
-    /** fungsi yang digunakan bila user login sebagai aplikator  */
-    public void loginAplicator(){
+    /**
+     * fungsi yang digunakan bila user login sebagai aplikator
+     */
+    public void loginAplicator() {
 
         /** xml untuk aplikator */
         setContentView(R.layout.activity_home);
@@ -307,15 +313,15 @@ public class HomeActivity extends AppCompatActivity{
 
 //        get poin
         updateTask = new UpdateTask();
-        updateTask.execute((Void)null);
+        updateTask.execute((Void) null);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_right_view);
-        View header=navigationView.getHeaderView(0);
-        txtProfilName = (TextView)header.findViewById(R.id.txtProfilName);
-        txtUserType = (TextView)header.findViewById(R.id.txtUserType);
-        imgProfil   = (ImageView)header.findViewById(R.id.imgProfil);
+        View header = navigationView.getHeaderView(0);
+        txtProfilName = (TextView) header.findViewById(R.id.txtProfilName);
+        txtUserType = (TextView) header.findViewById(R.id.txtUserType);
+        imgProfil = (ImageView) header.findViewById(R.id.imgProfil);
         imgProfil.setImageDrawable(getResources().getDrawable(R.drawable.avatar_applicator));
-        txtProfilName.setText("Halo "+session.getName());
+        txtProfilName.setText("Halo " + session.getName());
         txtUserType.setText(session.getUSERTYPE());
 
         NavigationView leftNavigationView = (NavigationView) findViewById(R.id.nav_left_view);
@@ -344,12 +350,12 @@ public class HomeActivity extends AppCompatActivity{
 
                 Intent i;
                 switch (item.getItemId()) {
-//                    case R.id.nav_TotalPoin:
-//                        Toast.makeText(HomeActivity.this, "nav_TotalPoin", Toast.LENGTH_LONG).show();
-//                        i = new Intent(HomeActivity.this, TotalPointActivity.class);
-//                        i.putExtra("pilListView","project");
-//                        startActivity(i);
-//                        break;
+                    case R.id.nav_TotalPoin:
+                        Toast.makeText(HomeActivity.this, "nav_TotalPoin", Toast.LENGTH_LONG).show();
+                        i = new Intent(HomeActivity.this, TotalPointActivity.class);
+                        i.putExtra("pilListView","project");
+                        startActivity(i);
+                        break;
 //                    case R.id.nav_sumOrder:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalOrder", Toast.LENGTH_LONG).show();
 //                        i = new Intent(HomeActivity.this, TotalOrderActivity.class);
@@ -374,8 +380,10 @@ public class HomeActivity extends AppCompatActivity{
 
     }
 
-    /** fungsi yang digunakan bila user login sebagai Retailer  */
-    public void loginRetailer(){
+    /**
+     * fungsi yang digunakan bila user login sebagai Retailer
+     */
+    public void loginRetailer() {
 
         /** xml untuk retailer */
         setContentView(R.layout.activity_home_retailer);
@@ -383,39 +391,48 @@ public class HomeActivity extends AppCompatActivity{
 
 //        get poin
         updateTask = new UpdateTask();
-        updateTask.execute((Void)null);
+        updateTask.execute((Void) null);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_right_view);
-        View header=navigationView.getHeaderView(0);
-        rl_btnOrderingProduct = (RelativeLayout)findViewById(R.id.rl_btnOrderingProduct);    //pemesanan produk untuk toko baja ringan dan toko bahan bangunan / tradisional
-        rl_btnTechnicalSupport = (RelativeLayout)findViewById(R.id.rl_btnTechnicalSupport);  //dukungan teknis untuk modern outlet
+        View header = navigationView.getHeaderView(0);
+        rl_btnOrderingProduct = (RelativeLayout) findViewById(R.id.rl_btnOrderingProduct);    //pemesanan produk untuk toko baja ringan dan toko bahan bangunan / tradisional
+        rl_btnTechnicalSupport = (RelativeLayout) findViewById(R.id.rl_btnTechnicalSupport);  //dukungan teknis untuk modern outlet
+        rl_btnProgram = (RelativeLayout) findViewById(R.id.rl_btnProgram);
+        rl_btnContactOnduline = (RelativeLayout) findViewById(R.id.rl_btnContactOnduline);
+        rl_btnTechnicalSupport_atas = (RelativeLayout) findViewById(R.id.rl_btnTechnicalSupport_atas);
 
-        txtProfilName = (TextView)header.findViewById(R.id.txtProfilName);
-        txtUserType = (TextView)header.findViewById(R.id.txtUserType);
-        imgProfil   = (ImageView)header.findViewById(R.id.imgProfil);
+        txtProfilName = (TextView) header.findViewById(R.id.txtProfilName);
+        txtUserType = (TextView) header.findViewById(R.id.txtUserType);
+        imgProfil = (ImageView) header.findViewById(R.id.imgProfil);
         imgProfil.setImageDrawable(getResources().getDrawable(R.drawable.avatar_retailer));
-        txtProfilName.setText("Halo "+session.getName());
+        txtProfilName.setText("Halo " + session.getName());
         txtUserType.setText(session.getRetailerType());
 
         NavigationView leftNavigationView = (NavigationView) findViewById(R.id.nav_left_view);
         Menu menuLeft = leftNavigationView.getMenu();
 
-        if (session.getRetailerType().equals("Supermarket Bahan Bangunan")){
+        if (session.getRetailerType().equals("Supermarket Bahan Bangunan")) {
 //            Toast.makeText(HomeActivity.this, session.getRetailerType()+ "\n Supermarket Bahan Bangunan", Toast.LENGTH_LONG).show();
-            menuLeft.findItem(R.id.nav_Dukungan).setVisible(false);
+            menuLeft.findItem(R.id.nav_contactOnduline).setVisible(false);
             toolbar.setTitle(R.string.modern_outlet);
             rl_btnTechnicalSupport.setVisibility(View.VISIBLE);
             rl_btnOrderingProduct.setVisibility(View.GONE);
-        }else if (session.getRetailerType().equals("Toko Baja Ringan / Depo keramik")){
+            rl_btnProgram.setVisibility(View.GONE);
+            rl_btnContactOnduline.setVisibility(View.VISIBLE);
+            rl_btnTechnicalSupport_atas.setVisibility(View.GONE);
+        } else if (session.getRetailerType().equals("Toko Baja Ringan / Depo keramik")) {
 //            Toast.makeText(HomeActivity.this, session.getRetailerType() + "\nToko Baja Ringan / Depo Keramik", Toast.LENGTH_LONG).show();
+//            menuLeft.findItem(R.id.nav_Dukungan).setVisible(false);
             toolbar.setTitle(R.string.toko_baja_ringan);
             rl_btnTechnicalSupport.setVisibility(View.GONE);
             rl_btnOrderingProduct.setVisibility(View.VISIBLE);
-        }else {
+            rl_btnTechnicalSupport_atas.setVisibility(View.VISIBLE);
+        } else {
 //            Toast.makeText(HomeActivity.this, session.getRetailerType()+ "\nToko Bahan Bangunan", Toast.LENGTH_LONG).show();
             toolbar.setTitle(R.string.toko_bahan_bangunan);
-            rl_btnTechnicalSupport.setVisibility(View.GONE);
             rl_btnOrderingProduct.setVisibility(View.VISIBLE);
+            rl_btnProgram.setVisibility(View.VISIBLE);
+            rl_btnTechnicalSupport_atas.setVisibility(View.GONE);
         }
 
         setSupportActionBar(toolbar);
@@ -438,11 +455,11 @@ public class HomeActivity extends AppCompatActivity{
                         i = new Intent(HomeActivity.this, qnaActivity.class);
                         startActivity(i);
                         break;
-                    case R.id.nav_Dukungan:
-//                        Toast.makeText(HomeActivity.this, "nav_Dukungan", Toast.LENGTH_LONG).show();
-                        i = new Intent(HomeActivity.this, TechnicalSupportActivity.class);
-                        startActivity(i);
-                        break;
+//                    case R.id.nav_Dukungan:
+////                        Toast.makeText(HomeActivity.this, "nav_Dukungan", Toast.LENGTH_LONG).show();
+//                        i = new Intent(HomeActivity.this, TechnicalSupportActivity.class);
+//                        startActivity(i);
+//                        break;
                     case R.id.nav_contactOnduline:
 //                        Toast.makeText(HomeActivity.this, "nav_Dukungan", Toast.LENGTH_LONG).show();
                         i = new Intent(HomeActivity.this, ContactOndulineIndividuActivity.class);
@@ -473,8 +490,8 @@ public class HomeActivity extends AppCompatActivity{
                     case R.id.nav_TotalOrder:
 //                        Toast.makeText(HomeActivity.this, "nav_TotalOrder", Toast.LENGTH_LONG).show();
                         i = new Intent(HomeActivity.this, TotalOrderActivity.class);
-                        i.putExtra("pilListView","order");
-                        i.putExtra("pil",pil);
+                        i.putExtra("pilListView", "order");
+                        i.putExtra("pil", pil);
                         startActivity(i);
                         break;
                     case R.id.nav_History:
@@ -502,8 +519,10 @@ public class HomeActivity extends AppCompatActivity{
     }
 
 
-    /** fungsi yang digunakan bila user login sebagai Individu*/
-    public void loginIndividu(){
+    /**
+     * fungsi yang digunakan bila user login sebagai Individu
+     */
+    public void loginIndividu() {
 
         /** xml untuk retailer */
         setContentView(R.layout.activity_home_individu);
@@ -519,12 +538,12 @@ public class HomeActivity extends AppCompatActivity{
 
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_right_view);
-        View header=navigationView.getHeaderView(0);
-        txtProfilName = (TextView)header.findViewById(R.id.txtProfilName);
-        txtUserType = (TextView)header.findViewById(R.id.txtUserType);
-        imgProfil   = (ImageView)header.findViewById(R.id.imgProfil);
+        View header = navigationView.getHeaderView(0);
+        txtProfilName = (TextView) header.findViewById(R.id.txtProfilName);
+        txtUserType = (TextView) header.findViewById(R.id.txtUserType);
+        imgProfil = (ImageView) header.findViewById(R.id.imgProfil);
         imgProfil.setImageDrawable(getResources().getDrawable(R.drawable.avatar_individu));
-        txtProfilName.setText("Halo "+session.getName());
+        txtProfilName.setText("Halo " + session.getName());
         txtUserType.setText(session.getUSERTYPE());
 
         NavigationView leftNavigationView = (NavigationView) findViewById(R.id.nav_left_view);
@@ -569,7 +588,7 @@ public class HomeActivity extends AppCompatActivity{
                     case R.id.nav_History:
 //                        Toast.makeText(HomeActivity.this, "nav_History", Toast.LENGTH_LONG).show();
                         i = new Intent(HomeActivity.this, HistoryActivity.class);
-                        i.putExtra("pil","project " + pil);
+                        i.putExtra("pil", "project " + pil);
                         startActivity(i);
                         break;
                     case R.id.nav_Logout:
@@ -633,13 +652,13 @@ public class HomeActivity extends AppCompatActivity{
             // TODO: attempt authentication against a network service.
 
             String result = apiWeb.getPoint(token);
-            if(result==null){
+            if (result == null) {
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     userPoint = json.getString("total_point");
 
                     return true;

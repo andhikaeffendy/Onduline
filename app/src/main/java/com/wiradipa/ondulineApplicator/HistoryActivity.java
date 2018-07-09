@@ -1,8 +1,8 @@
 package com.wiradipa.ondulineApplicator;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -30,7 +30,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     }
 
-    public void onClickHistory(View v){
+    public void onClickHistory(View v) {
         Intent i;
         switch (v.getId()) {
             case R.id.btnAddNew:
@@ -43,7 +43,7 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     //function to set layout(produk, brosur, souvenir)
-    public void setLayout(){
+    public void setLayout() {
         Bundle extras = getIntent().getExtras();
         pil = extras.getString("pil");
         switch (pil) {
@@ -59,15 +59,15 @@ public class HistoryActivity extends AppCompatActivity {
         }
     }
 
-    public void historyOrderRetail(){
+    public void historyOrderRetail() {
         setContentView(R.layout.activity_history_order_retailer);
 
         pil = "order retailer";
         lv = (ListView) findViewById(R.id.lv_history);
-        ProductName = new String[] {"Onduline®", "Onduvila®", "Onduvila®", "Onduline®", "Onduline®"};
-        mylist = new ArrayList<HashMap<String,String>>();
+        ProductName = new String[]{"Onduline®", "Onduvila®", "Onduvila®", "Onduline®", "Onduline®"};
+        mylist = new ArrayList<HashMap<String, String>>();
 
-        for (int i = 0; i < ProductName.length; i++){
+        for (int i = 0; i < ProductName.length; i++) {
             map = new HashMap<String, String>();
             map.put("ProductName", ProductName[i]);
 
@@ -75,20 +75,20 @@ public class HistoryActivity extends AppCompatActivity {
         }
 
         Adapter = new SimpleAdapter(this, mylist, R.layout.list_history,
-                new String[] {"ProductName"}, new int[] {R.id.txtProductNameHistory});
+                new String[]{"ProductName"}, new int[]{R.id.txtProductNameHistory});
         lv.setAdapter(Adapter);
 
     }
 
-    public void historyOrderApplicator(){
+    public void historyOrderApplicator() {
         setContentView(R.layout.activity_history_order_applicator);
 
         pil = "order applicator";
         lv = (ListView) findViewById(R.id.lv_history);
-        ProductName = new String[] {"Onduline®", "Onduvila®", "Onduvila®", "Onduline®", "Onduline®"};
-        mylist = new ArrayList<HashMap<String,String>>();
+        ProductName = new String[]{"Onduline®", "Onduvila®", "Onduvila®", "Onduline®", "Onduline®"};
+        mylist = new ArrayList<HashMap<String, String>>();
 
-        for (int i = 0; i < ProductName.length; i++){
+        for (int i = 0; i < ProductName.length; i++) {
             map = new HashMap<String, String>();
             map.put("ProductName", ProductName[i]);
 
@@ -96,19 +96,19 @@ public class HistoryActivity extends AppCompatActivity {
         }
 
         Adapter = new SimpleAdapter(this, mylist, R.layout.list_history,
-                new String[] {"ProductName"}, new int[] {R.id.txtProductNameHistory});
+                new String[]{"ProductName"}, new int[]{R.id.txtProductNameHistory});
         lv.setAdapter(Adapter);
     }
 
-    public void historyProjectApplicator(){
+    public void historyProjectApplicator() {
         setContentView(R.layout.activity_history_project_applicator);
 
         pil = "project applicator";
         lv = (ListView) findViewById(R.id.lv_history);
-        ProductName = new String[] {"Onduline®", "Onduvila®", "Onduvila®", "Onduline®", "Onduline®"};
-        mylist = new ArrayList<HashMap<String,String>>();
+        ProductName = new String[]{"Onduline®", "Onduvila®", "Onduvila®", "Onduline®", "Onduline®"};
+        mylist = new ArrayList<HashMap<String, String>>();
 
-        for (int i = 0; i < ProductName.length; i++){
+        for (int i = 0; i < ProductName.length; i++) {
             map = new HashMap<String, String>();
             map.put("ProductName", ProductName[i]);
 
@@ -116,7 +116,7 @@ public class HistoryActivity extends AppCompatActivity {
         }
 
         Adapter = new SimpleAdapter(this, mylist, R.layout.list_history,
-                new String[] {"ProductName"}, new int[] {R.id.txtProductNameHistory});
+                new String[]{"ProductName"}, new int[]{R.id.txtProductNameHistory});
         lv.setAdapter(Adapter);
     }
 }

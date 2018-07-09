@@ -7,39 +7,37 @@
     tools:context="com.wiradipa.ondulineApplicator.PermintaanTrainingActivity">
 
 
-
     <!-- Login progress -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/bg_02"
-        android:weightSum="10"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_02"
+        android:orientation="vertical"
+        android:weightSum="10">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorTextLight"
-                android:textAlignment="center"
-                android:textSize="24dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
                 android:text="Permintaan Training"
-                android:textStyle="bold"
-                android:id="@+id/textView2" />
+                android:textAlignment="center"
+                android:textColor="@color/colorTextLight"
+                android:textSize="24dp"
+                android:textStyle="bold" />
         </RelativeLayout>
-
 
 
         <ScrollView
@@ -51,6 +49,7 @@
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,143 +59,159 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="No HP*"/>
+                    android:text="No HP*"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:inputType="number"
-                    android:hint="isi no hp"/>
+                    android:hint="isi no hp"
+                    android:inputType="number" />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:id="@+id/txtTittleDateTraining"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
                         android:layout_margin="5dp"
-                        android:text="Tanggal Training*"/>
+                        android:text="Tanggal Training*"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/txtisianTraining"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtTittleDateTraining"
-                        android:visibility="gone"
+                        android:text="00/00/00"
                         android:textSize="20dp"
-                        android:text="00/00/00"/>
+                        android:visibility="gone" />
+
                     <TextView
                         android:id="@+id/txtisianTrainingView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtTittleDateTraining"
-                        android:textSize="20dp"
-                        android:text="00/00/00"/>
+                        android:text="00/00/00"
+                        android:textSize="20dp" />
+
                     <Button
                         android:id="@+id/btnDatePicker"
-                        android:onClick="setDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ps__button_youtube"
-                        android:textColor="@color/colorTextLight"
                         android:layout_alignParentRight="true"
-                        android:text="Tanggal Training"/>
+                        android:background="@drawable/ps__button_youtube"
+                        android:onClick="setDate"
+                        android:text="Tanggal Training"
+                        android:textColor="@color/colorTextLight" />
                 </RelativeLayout>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="Total Peserta*"/>
+                    android:text="Total Peserta*"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_totalPeserta"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
                     android:layout_margin="5dp"
-                    android:hint="isi total peserta"/>
+                    android:hint="isi total peserta"
+                    android:inputType="number" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/state"/>
+                    android:text="@string/state"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <AutoCompleteTextView
                     android:id="@+id/act_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="Isi provinsi anda membeli"/>
+                    android:hint="Isi provinsi anda membeli" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="Kota*"/>
+                    android:text="Kota*"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <AutoCompleteTextView
                     android:id="@+id/act_city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="Isi kota anda membeli"/>
+                    android:hint="Isi kota anda membeli" />
 
                 <TextView
+                    android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
                     android:text="Alamat Lengkap*"
-                    android:id="@+id/textView6" />
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/et_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="Alamat Training"/>
+                    android:hint="Alamat Training" />
 
                 <!-- edit text training -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="6">
+
                     <LinearLayout
-                        android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorBlackAlpha"
-                            android:textStyle="bold"
                             android:layout_margin="5dp"
-                            android:text="Keterangan : "/>
+                            android:text="Keterangan : "
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold" />
+
                         <EditText
                             android:id="@+id/et_keterangan"
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
-                            android:layout_margin="5dp"/>
+                            android:layout_margin="5dp" />
                     </LinearLayout>
                 </RelativeLayout>
+
                 <Button
                     android:id="@+id/btn_submit"
-                    android:onClick="onClickTraining"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:background="@drawable/ps__button_youtube"
-                    android:textColor="@color/colorTextLight"
-                    android:text="@string/submit"/>
+                    android:onClick="onClickTraining"
+                    android:text="@string/submit"
+                    android:textColor="@color/colorTextLight" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
@@ -206,7 +221,7 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true"/>
+        android:visibility="gone" />
 </RelativeLayout>

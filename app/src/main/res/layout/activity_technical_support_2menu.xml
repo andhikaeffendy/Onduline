@@ -10,214 +10,232 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="@drawable/bg_01"
         android:orientation="vertical"
-        android:weightSum="11"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:weightSum="11">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textStyle="bold"
+                android:text="@string/tecnical_support"
                 android:textColor="@color/colorTextLight"
                 android:textSize="24dp"
-                android:text="@string/tecnical_support"/>
+                android:textStyle="bold" />
         </RelativeLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="horizontal"
             android:layout_weight="10"
+            android:orientation="horizontal"
             android:weightSum="2">
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:weightSum="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:weightSum="1">
 
 
                 <RelativeLayout
                     android:id="@+id/btnCaraPemasangan"
-                    android:onClick="onClickTechnicalSupport"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_margin="0.5dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:onClick="onClickTechnicalSupport">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center">
+
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/bg_cyrcle"/>
+                                android:src="@drawable/bg_cyrcle" />
+
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_technical_support_white_24dp"/>
+                                android:src="@drawable/ic_technical_support_white_24dp" />
                         </RelativeLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAlignment="center"
+                            android:layout_margin="10dp"
                             android:layout_marginTop="5dp"
                             android:text="Cara Pemasangan"
+                            android:textAlignment="center"
                             android:textSize="14dp"
-                            android:textStyle="bold"
-                            android:layout_margin="10dp"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btnSupervisiProyek"
-                    android:onClick="onClickTechnicalSupport"
                     android:layout_width="match_parent"
-                    android:visibility="gone"
                     android:layout_height="0dp"
                     android:layout_margin="0.5dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:onClick="onClickTechnicalSupport"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center">
+
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/bg_cyrcle"/>
+                                android:src="@drawable/bg_cyrcle" />
+
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_supervisi_white_24dp"/>
+                                android:src="@drawable/ic_supervisi_white_24dp" />
                         </RelativeLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAlignment="center"
+                            android:layout_margin="10dp"
                             android:layout_marginTop="5dp"
                             android:text="Supervisi Proyek"
+                            android:textAlignment="center"
                             android:textSize="14dp"
-                            android:textStyle="bold"
-                            android:layout_margin="10dp"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:weightSum="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:weightSum="1">
 
                 <RelativeLayout
                     android:id="@+id/btnKeluhan"
-                    android:onClick="onClickTechnicalSupport"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_margin="0.5dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:onClick="onClickTechnicalSupport">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center">
+
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/bg_cyrcle"/>
+                                android:src="@drawable/bg_cyrcle" />
+
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_komplain_white_24dp"/>
+                                android:src="@drawable/ic_komplain_white_24dp" />
                         </RelativeLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAlignment="center"
+                            android:layout_margin="10dp"
                             android:layout_marginTop="5dp"
                             android:text="Keluhan"
+                            android:textAlignment="center"
                             android:textSize="14dp"
-                            android:textStyle="bold"
-                            android:layout_margin="10dp"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btnTraining"
-                    android:onClick="onClickTechnicalSupport"
                     android:layout_width="match_parent"
-                    android:visibility="gone"
                     android:layout_height="0dp"
                     android:layout_margin="0.5dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:onClick="onClickTechnicalSupport"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center">
+
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/bg_cyrcle"/>
+                                android:src="@drawable/bg_cyrcle" />
+
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_training_white_24dp"/>
+                                android:src="@drawable/ic_training_white_24dp" />
                         </RelativeLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAlignment="center"
+                            android:layout_margin="10dp"
                             android:layout_marginTop="5dp"
                             android:text="Training"
+                            android:textAlignment="center"
                             android:textSize="14dp"
-                            android:textStyle="bold"
-                            android:layout_margin="10dp"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -226,28 +244,28 @@
 
 
     </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
-        android:textColor="@color/colorBlackAlpha"
-        android:text="@string/signatureContact"/>
-
+        android:text="@string/signatureContact"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlackAlpha" />
 
 
     <!-- finish -->
     <!---->
     <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:weightSum="10"-->
-        <!--android:orientation="vertical">-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:weightSum="10"-->
+    <!--android:orientation="vertical">-->
 
 
-        <!---->
+    <!---->
     <!--</LinearLayout>-->
 
 

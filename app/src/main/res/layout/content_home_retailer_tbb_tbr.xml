@@ -12,20 +12,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="8"
-        android:background="@drawable/bg_02"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_02"
+        android:orientation="vertical"
+        android:weightSum="8">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
             android:layout_weight="4"
             android:background="#bbb"
+            android:orientation="vertical"
             android:weightSum="50">
+
             <ViewFlipper
                 android:id="@+id/viewFlipper"
                 android:layout_width="match_parent"
@@ -36,55 +37,41 @@
                     android:id="@+id/iv_2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"
                     android:scaleType="fitXY"
-                    android:src="@drawable/program_onduvilla_genteng_pinter"
-                    android:background="@color/colorPrimaryDark"/>
+                    android:src="@drawable/home_slider_1" />
 
                 <ImageView
                     android:id="@+id/iv_1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/bg_screen1"
                     android:scaleType="fitXY"
-                    android:src="@drawable/home_retail_ondulucky"
-                    android:background="@color/bg_screen1"/>
+                    android:src="@drawable/home_slider_2" />
 
                 <ImageView
                     android:id="@+id/iv_3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/bg_screen2"
                     android:scaleType="fitXY"
-                    android:src="@drawable/home_retail_sample_roof"
-                    android:background="@color/bg_screen2" />
+                    android:src="@drawable/home_slider_3" />
 
                 <ImageView
                     android:id="@+id/iv_4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/bg_screen2"
                     android:scaleType="fitXY"
-                    android:src="@drawable/home_tukang_baja_ringan_sni"
-                    android:background="@color/bg_screen2" />
+                    android:src="@drawable/home_slider_4" />
+
                 <ImageView
                     android:id="@+id/iv_5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/bg_screen2"
                     android:scaleType="fitXY"
-                    android:src="@drawable/program_slider_ondululine"
-                    android:background="@color/bg_screen2" />
-                <ImageView
-                    android:id="@+id/iv_6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/program_slider_bardoline_pro"
-                    android:background="@color/bg_screen2" />
-                <ImageView
-                    android:id="@+id/iv_7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/program_slider_bituline"
-                    android:background="@color/bg_screen2" />
-
+                    android:src="@drawable/home_slider_5" />
             </ViewFlipper>
         </LinearLayout>
 
@@ -92,8 +79,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
             android:layout_weight="3.8"
+            android:orientation="vertical"
             android:weightSum="2">
 
             <!--button program dan dukungan marketing-->
@@ -106,20 +93,23 @@
 
                 <!--button program-->
                 <RelativeLayout
+                    android:id="@+id/rl_btnProgram"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/btnProgram"
-                        android:onClick="onClickHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_margin="25dp"
+                        android:onClick="onClickHome"
                         android:src="@drawable/btn_home_program" />
 
                     <TextView
+                        android:id="@+id/textView9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
@@ -129,6 +119,34 @@
                         android:textStyle="bold" />
                 </RelativeLayout>
 
+
+                <!--button dukungan teknis-->
+                <RelativeLayout
+                    android:id="@+id/rl_btnTechnicalSupport_atas"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/btnTechnicalSupport2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="25dp"
+                        android:onClick="onClickHome"
+                        android:src="@drawable/btn_home_dukungan_teknis" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/home_technical_support"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+
                 <!--button program-->
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -137,11 +155,11 @@
 
                     <ImageView
                         android:id="@+id/btnDukunganMarketing"
-                        android:onClick="onClickHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_margin="25dp"
+                        android:onClick="onClickHome"
                         android:src="@drawable/btn_home_dukungan_marketing" />
 
                     <TextView
@@ -151,6 +169,33 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="5dp"
                         android:text="@string/home_marketing_support"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <!--button kontak onduline-->
+                <RelativeLayout
+                    android:id="@+id/rl_btnContactOnduline"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/btnContactOnduline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="25dp"
+                        android:onClick="onClickHome"
+                        android:src="@drawable/btn_home_kontak_onduline" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/home_contact_onduline"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
@@ -172,11 +217,11 @@
 
                     <ImageView
                         android:id="@+id/btnProduk"
-                        android:onClick="onClickHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_margin="25dp"
+                        android:onClick="onClickHome"
                         android:src="@drawable/btn_home_produk" />
 
                     <TextView
@@ -195,13 +240,14 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
+
                     <ImageView
                         android:id="@+id/btnOrderingProduct"
-                        android:onClick="onClickHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_margin="25dp"
+                        android:onClick="onClickHome"
                         android:src="@drawable/btn_home_pemesanan_produk" />
 
 
@@ -226,11 +272,11 @@
 
                     <ImageView
                         android:id="@+id/btnTechnicalSupport"
-                        android:onClick="onClickHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_margin="25dp"
+                        android:onClick="onClickHome"
                         android:src="@drawable/btn_home_dukungan_teknis" />
 
                     <TextView
@@ -247,9 +293,10 @@
 
         </LinearLayout>
     </LinearLayout>
+
     <RelativeLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@color/colorPrimary"/>
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary" />
 </RelativeLayout>

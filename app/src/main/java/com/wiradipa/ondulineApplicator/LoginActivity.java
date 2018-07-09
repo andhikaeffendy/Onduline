@@ -10,9 +10,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -20,7 +20,6 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wiradipa.ondulineApplicator.lib.ApiWeb;
 import com.wiradipa.ondulineApplicator.lib.AppSession;
@@ -43,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     private AppSession session;
 
     // UI references.
-    private EditText editTextLoginEmail,editTextLoginPassword;
+    private EditText editTextLoginEmail, editTextLoginPassword;
     private Button btnLogin;
     private View mProgressView;
     private View mLoginFormView;
@@ -53,18 +52,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        editTextLoginEmail = (EditText)findViewById(R.id.editTextLoginEmail);
-        editTextLoginPassword = (EditText)findViewById(R.id.editTextLoginPassword);
-        btnLogin = (Button)findViewById(R.id.btnLogin);
+        editTextLoginEmail = (EditText) findViewById(R.id.editTextLoginEmail);
+        editTextLoginPassword = (EditText) findViewById(R.id.editTextLoginPassword);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
-        if (!isNetworkAvailable()){
+        if (!isNetworkAvailable()) {
             popupNoInternet();
         }
         context = this;
         session = new AppSession(this);
-        if(session.is_login()){
+        if (session.is_login()) {
             Intent i = new Intent(this, HomeActivity.class);
             startActivity(i);
             finish();
@@ -84,7 +83,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
     // cek ada internet apa gak..
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
@@ -100,8 +98,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
-    public void popupNoInternet(){
+    public void popupNoInternet() {
         new AlertDialog.Builder(this)
                 .setTitle("Tidak Ada Koneksi Internet!")
                 .setMessage("Periksa koneksi internet anda")
@@ -119,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.length()>4;
+        return email.length() > 4;
     }
 
     private boolean isPasswordValid(String password) {
@@ -220,13 +217,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
     //    sementara untuk activation
-    public void onClickForgotPassword(View v){
+    public void onClickForgotPassword(View v) {
         Intent i;
         i = new Intent(this, ForgotPasswordActivity.class);
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.forgot_password:
                 startActivity(i);
                 break;
@@ -234,7 +230,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void popupLogout(){
+    public void popupLogout() {
 
 
         new AlertDialog.Builder(context)
@@ -256,7 +252,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void popupError(String error){
+    public void popupError(String error) {
 
 
         new AlertDialog.Builder(context)
@@ -278,16 +274,17 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    public void onClickLogin(View v){
+    public void onClickLogin(View v) {
         Intent i;
         i = new Intent(this, ProgramActivity.class);
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnLogin:
                 attemptLogin();
                 break;
             case R.id.btnRegister:
-                i = new Intent(this, ChooseUserTypeActivity.class);;
+                i = new Intent(this, ChooseUserTypeActivity.class);
+                ;
                 startActivity(i);
                 break;
             case R.id.btnActivation:
@@ -324,28 +321,28 @@ public class LoginActivity extends AppCompatActivity {
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
 
-            String result = apiWeb.Login(username,mPassword);
-            if(result==null){
+            String result = apiWeb.Login(username, mPassword);
+            if (result == null) {
                 errorMessage = getString(R.string.error_server);
                 return false;
             }
             try {
                 JSONObject json = new JSONObject(result);
                 String status = json.getString("status");
-                if(status.compareToIgnoreCase("success")==0){
+                if (status.compareToIgnoreCase("success") == 0) {
                     token = json.getString("token");
                     usertype = json.getString("user_type");
-                    if (!token.equals("null")){
+                    if (!token.equals("null")) {
                         userid = json.getLong("user_id");
                         name = json.getString("name");
                         email = json.getString("email");
                         token = json.getString("token");
-                        if(usertype.equals("applicator")){
+                        if (usertype.equals("applicator")) {
                             poin = json.getString("total_point");
                             return true;
-                        }else if(usertype.equals("individu")){
+                        } else if (usertype.equals("individu")) {
                             return true;
-                        }else if(usertype.equals("retailer")){
+                        } else if (usertype.equals("retailer")) {
                             retailertype = json.getString("retailer_type");
                             userid = json.getLong("user_id");
                             shop_name = json.getString("shop_name");
@@ -358,7 +355,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     reLogin = true;
                 }
-                if(json.has("message"))errorMessage = json.getString("message");
+                if (json.has("message")) errorMessage = json.getString("message");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -372,21 +369,21 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(false);
 
             if (success) {
-                if (usertype.equals("retailer")){
-                    session.login(userid, username, usertype, token, shop_name, shop_name, email, retailertype,poin);
-                }else if (usertype.equals("applicator")){
-                    session.login(userid, username, usertype, token, name, email,poin);
-                }else if (usertype.equals("individu")){
-                    session.login(userid, username, usertype, token, name, email,poin);
+                if (usertype.equals("retailer")) {
+                    session.login(userid, username, usertype, token, shop_name, shop_name, email, retailertype, poin);
+                } else if (usertype.equals("applicator")) {
+                    session.login(userid, username, usertype, token, name, email, poin);
+                } else if (usertype.equals("individu")) {
+                    session.login(userid, username, usertype, token, name, email, poin);
                 }
                 Intent i = new Intent(LoginActivity.this, HomeActivity.class);
 //                i.putExtra("pil","ondulucky");
                 startActivity(i);
                 finish();
             } else {
-                if (reLogin){
+                if (reLogin) {
                     attemptLogin();
-                }else {
+                } else {
 //                    editTextLoginEmail.setError(errorMessage);
                     popupError(errorMessage);
                     editTextLoginEmail.requestFocus();

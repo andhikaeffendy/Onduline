@@ -27,7 +27,7 @@ public class AutoCompleteAdapter extends ArrayAdapter<String> {
              * Atention , if your list has more that one same String , you have to improve here
              */
         // this will be used to get the id provided to the onItemClick callback
-        if (index>0)
+        if (index > 0)
             return ids[index];
         else return 0;
     }
@@ -37,22 +37,22 @@ public class AutoCompleteAdapter extends ArrayAdapter<String> {
         return true;
     }
 
-    public long getItemId(String name){
+    public long getItemId(String name) {
         int index = Arrays.asList(data).indexOf(name);
             /*
              * Atention , if your list has more that one same String , you have to improve here
              */
         // this will be used to get the id provided to the onItemClick callback
-            return ids[index];
+        return ids[index];
 
     }
 
 
-    public void setIds(long[] ids){
+    public void setIds(long[] ids) {
         this.ids = ids;
     }
 
-    public void reloadData(String[] names, long[] ids){
+    public void reloadData(String[] names, long[] ids) {
         this.data = names;
         this.ids = ids;
         notifyDataSetChanged();

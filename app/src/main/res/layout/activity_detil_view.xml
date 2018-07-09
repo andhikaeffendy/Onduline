@@ -14,39 +14,41 @@
 
 
         <!--<RelativeLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:background="@color/colorPrimary"-->
-            <!--android:layout_weight="1">-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_centerInParent="true"-->
-                <!--android:textColor="@color/colorTextLight"-->
-                <!--android:textStyle="bold"-->
-                <!--android:textSize="24dp"-->
-                <!--android:text="Detail View"/>-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:layout_weight="1">-->
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:textColor="@color/colorTextLight"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textSize="24dp"-->
+        <!--android:text="Detail View"/>-->
         <!--</RelativeLayout>-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1">
+
             <ImageView
-                android:onClick="onClickOurProduct"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:background="@drawable/bg_nav_drawer"/>
+                android:background="@drawable/bg_nav_drawer"
+                android:onClick="onClickOurProduct" />
+
             <TextView
                 android:id="@+id/txtMenuProductName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
+                android:text="@string/onduline"
                 android:textAlignment="center"
+                android:textColor="@color/colorTextLight"
                 android:textSize="24dp"
-                android:text="@string/onduline"/>
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <ListView
@@ -56,14 +58,15 @@
             android:layout_weight="9"></ListView>
 
     </LinearLayout>
+
     <ProgressBar
         android:id="@+id/register_progress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:foregroundGravity="center"
-        android:visibility="gone"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true" />
+        android:foregroundGravity="center"
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_verification_page"
-    android:background="@drawable/bg_03"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_03"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -12,106 +12,110 @@
     tools:context="com.wiradipa.ondulineApplicator.VerificationPageActivity">
 
 
-
-
     <LinearLayout
         android:id="@+id/register_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
         <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="18dp"
             android:layout_marginBottom="20dp"
             android:text="@string/send_sms_to_no"
-            android:id="@+id/textView" />
-
+            android:textAlignment="center"
+            android:textSize="18dp" />
 
 
         <TextView
             android:id="@+id/txt_emailForm"
-            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="gone"
-            android:text="Masukan email terlebih dahulu"/>
+            android:layout_marginTop="20dp"
+            android:text="Masukan email terlebih dahulu"
+            android:visibility="gone" />
+
         <EditText
             android:id="@+id/et_activation_email"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:visibility="gone"
-            android:hint="Email"/>
+            android:hint="Email"
+            android:textAlignment="center"
+            android:visibility="gone" />
 
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Masukan kode aktivasi disini"/>
+            android:layout_marginTop="20dp"
+            android:text="Masukan kode aktivasi disini" />
+
         <EditText
             android:id="@+id/et_activation_code"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Kode Aktivasi"
             android:inputType="number"
-            android:hint="Kode Aktivasi"/>
+            android:textAlignment="center" />
+
         <Button
             android:id="@+id/btnActivation"
-            android:onClick="onClickVerivication"
-            android:background="@drawable/ps__button_youtube"
-            android:textColor="@color/colorTextLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="25dp"
-            android:text="aktifkan"/>
+            android:background="@drawable/ps__button_youtube"
+            android:onClick="onClickVerivication"
+            android:text="aktifkan"
+            android:textColor="@color/colorTextLight" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="Tidak menerima sms?\nIsi di bawah ini untuk kirim ulang kode aktivasi anda."
-            android:layout_gravity="center"/>
-
-        <TextView
-            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textAlignment="center"
-            android:text="Pastikan no handphone anda benar untuk mengirim ulang kode aktivasi"/>
+            android:text="Tidak menerima sms?\nIsi di bawah ini untuk kirim ulang kode aktivasi anda."
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Pastikan no handphone anda benar untuk mengirim ulang kode aktivasi"
+            android:textAlignment="center" />
+
         <EditText
             android:id="@+id/et_activation_phone"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Nomor Telepon"
             android:inputType="number"
-            android:hint="Nomor Telepon"/>
+            android:textAlignment="center" />
+
         <Button
             android:id="@+id/btnReSendCode"
-            android:layout_gravity="center"
-            android:background="@drawable/ps__button_youtube"
-            android:textColor="@color/colorTextLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="kirim ulang kode aktivasi"/>
+            android:layout_gravity="center"
+            android:background="@drawable/ps__button_youtube"
+            android:text="kirim ulang kode aktivasi"
+            android:textColor="@color/colorTextLight" />
 
     </LinearLayout>
+
     <ProgressBar
         android:id="@+id/submit_progress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:foregroundGravity="center"
-        android:visibility="gone"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true" />
+        android:foregroundGravity="center"
+        android:visibility="gone" />
 </RelativeLayout>

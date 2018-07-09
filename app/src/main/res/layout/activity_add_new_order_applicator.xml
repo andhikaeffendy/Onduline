@@ -7,342 +7,374 @@
     tools:context="com.wiradipa.ondulineApplicator.AddNewProjectAndOrderActivity">
 
 
-
     <RelativeLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="@color/colorPrimary"/>
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="10"
         android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/register_progress"
         android:layout_toRightOf="@+id/register_progress"
-        android:layout_toEndOf="@+id/register_progress">
+        android:orientation="vertical"
+        android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="@string/neworder"
                 android:textColor="@color/colorTextLight"
                 android:textSize="24dp"
-                android:textStyle="bold"
-                android:text="@string/neworder"/>
+                android:textStyle="bold" />
         </RelativeLayout>
+
         <ScrollView
             android:id="@+id/register_form"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_02"
             android:layout_marginBottom="20dp"
-            android:layout_weight="9">
+            android:layout_weight="9"
+            android:background="@drawable/bg_02">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:padding="5dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <LinearLayout
-                    android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_margin="10dp"
+                    android:gravity="center"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/txt_NameUser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:text="Halo Mr Fauzi"
+                        android:textAlignment="center"
                         android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
                         android:textSize="24dp"
-                        android:text="Halo Mr Fauzi"/>
+                        android:textStyle="bold" />
+
                     <TextView
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:text="Masukan Rincian Pembelian Anda"/>
+                        android:layout_gravity="center"
+                        android:text="Masukan Rincian Pembelian Anda"
+                        android:textSize="18dp" />
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_margin="5dp"
+                    android:id="@+id/img_AddNew"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:background="@drawable/layer_list"
-                    android:id="@+id/img_AddNew" />
+                    android:layout_margin="5dp"
+                    android:background="@drawable/layer_list" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="5dp">
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/btn_ImageAddNew"
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/ps__button_youtube"
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/imageView"
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:src="@drawable/ic_camera_white_24dp"
-                            android:id="@+id/imageView" />
+                            android:src="@drawable/ic_camera_white_24dp" />
 
                         <TextView
-                            android:layout_margin="5dp"
-                            android:layout_gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:text="Upload Struk"
                             android:textColor="@color/colorTextLight"
-                            android:textSize="24dp"
-                            android:text="Upload Struk"/>
+                            android:textSize="24dp" />
                     </LinearLayout>
 
                     <TextView
-                        android:layout_margin="5dp"
-                        android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
-                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Jenis Produk"/>
-                    <Spinner
                         android:layout_margin="5dp"
-                        android:id="@+id/spn_product_demand_brand"
-                        android:visibility="gone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:layout_margin="5dp"
+                        android:text="Jenis Produk"
                         android:textColor="@color/colorBlackAlpha"
                         android:textStyle="bold"
-                        android:visibility="gone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Warna Produk"/>
+                        android:visibility="gone" />
 
                     <Spinner
-                        android:layout_margin="5dp"
-                        android:id="@+id/spn_product_demand_color"
-                        android:layout_width="match_parent"
-                        android:visibility="gone"
-                        android:layout_height="wrap_content"/>
-                    <LinearLayout
-                        android:visibility="gone"
-                        android:layout_margin="5dp"
+                        android:id="@+id/spn_product_demand_brand"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Warna Produk"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <Spinner
+                        android:id="@+id/spn_product_demand_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:orientation="horizontal"
+                        android:visibility="gone"
                         android:weightSum="10">
+
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_weight="4"
-                            android:textColor="@color/colorBlackAlpha"
-                            android:textStyle="bold"
                             android:text="Jumlah : "
-                            android:layout_gravity="center"/>
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold" />
+
                         <EditText
                             android:id="@+id/et_amount"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="6"
                             android:hint="masukan jumlah"
-                            android:inputType="number"/>
+                            android:inputType="number" />
                     </LinearLayout>
 
 
                     <LinearLayout
-                        android:layout_margin="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:orientation="horizontal"
                         android:weightSum="10">
+
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_weight="4"
-                            android:textColor="@color/colorBlackAlpha"
-                            android:textStyle="bold"
                             android:text="Jumlah Produk ONDUVILLA: "
-                            android:layout_gravity="center"/>
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold" />
+
                         <EditText
                             android:id="@+id/et_onduvilla_amount"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="6"
                             android:hint="masukan jumlah"
-                            android:inputType="number"/>
+                            android:inputType="number" />
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_margin="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:orientation="horizontal"
                         android:weightSum="10">
+
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_weight="4"
-                            android:textColor="@color/colorBlackAlpha"
-                            android:textStyle="bold"
                             android:text="Jumlah Produk ONDULINE : "
-                            android:layout_gravity="center"/>
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold" />
+
                         <EditText
                             android:id="@+id/et_onduline_amount"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="6"
                             android:hint="masukan jumlah"
-                            android:inputType="number"/>
+                            android:inputType="number" />
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_margin="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:orientation="horizontal"
                         android:weightSum="10">
+
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_weight="4"
-                            android:textColor="@color/colorBlackAlpha"
-                            android:textStyle="bold"
                             android:text="Jumlah Produk ONDUCLAIR : "
-                            android:layout_gravity="center"/>
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold" />
+
                         <EditText
                             android:id="@+id/et_onduclair_amount"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="6"
                             android:hint="masukan jumlah"
-                            android:inputType="number"/>
+                            android:inputType="number" />
                     </LinearLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp">
+
                         <TextView
                             android:id="@+id/txtTittleDateNewOrder"
-                            android:textColor="@color/colorBlackAlpha"
-                            android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Tanggal Pembelian"/>
+                            android:text="Tanggal Pembelian"
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/txtisianBirth"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/txtTittleDateNewOrder"
-                            android:visibility="gone"
+                            android:text="00/00/00"
                             android:textSize="20dp"
-                            android:text="00/00/00"/>
+                            android:visibility="gone" />
+
                         <TextView
                             android:id="@+id/txtisianBirthView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/txtTittleDateNewOrder"
-                            android:textSize="20dp"
-                            android:text="00/00/00"/>
+                            android:text="00/00/00"
+                            android:textSize="20dp" />
+
                         <Button
                             android:id="@+id/btn_DatePicker"
-                            android:onClick="setDate"
-                            android:layout_alignParentRight="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextLight"
+                            android:layout_alignParentRight="true"
                             android:background="@drawable/ps__button_youtube"
-                            android:text="pilih Tanggal"/>
+                            android:onClick="setDate"
+                            android:text="pilih Tanggal"
+                            android:textColor="@color/colorTextLight" />
                     </RelativeLayout>
+
                     <TextView
-                        android:layout_margin="5dp"
-                        android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nama Toko"/>
+                        android:layout_margin="5dp"
+                        android:text="Nama Toko"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold" />
+
                     <EditText
                         android:id="@+id/et_StoreName"
-                        android:layout_margin="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="isi Nama Toko anda membeli"/>
-                    <TextView
                         android:layout_margin="5dp"
-                        android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
+                        android:hint="isi Nama Toko anda membeli" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tempat Pembelian"/>
+                        android:layout_margin="5dp"
+                        android:text="Tempat Pembelian"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold" />
+
                     <EditText
                         android:id="@+id/et_AddressStore"
-                        android:layout_margin="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="isi Alamat Toko anda membeli"/>
+                        android:layout_margin="5dp"
+                        android:hint="isi Alamat Toko anda membeli" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
                         android:layout_margin="5dp"
-                        android:text="@string/state"/>
+                        android:text="@string/state"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold" />
+
                     <AutoCompleteTextView
                         android:id="@+id/act_state"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:hint="Isi provinsi anda membeli"/>
+                        android:hint="Isi provinsi anda membeli" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
                         android:layout_margin="5dp"
-                        android:text="Kota"/>
+                        android:text="Kota"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold" />
+
                     <AutoCompleteTextView
                         android:id="@+id/act_city"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:hint="Isi kota anda membeli"/>
+                        android:hint="Isi kota anda membeli" />
 
                     <Button
                         android:id="@+id/btn_submit"
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorTextLight"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:text="@string/submit"/>
+                        android:text="@string/submit"
+                        android:textColor="@color/colorTextLight" />
 
                 </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
     <ProgressBar
         android:id="@+id/register_progress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
         android:foregroundGravity="center"
-        android:visibility="gone"
-        android:layout_centerInParent="true" />
+        android:visibility="gone"/>
 </RelativeLayout>

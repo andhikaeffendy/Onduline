@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rejected"
+        android:gravity="center"
+        android:layout_margin="16dp"
+        android:padding="14dp"
+        android:textColor="#FFFFFF"
+        android:background="#FF808080"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Request was rejected by Onduline"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginBottom="16dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorBlack"/>
+    <LinearLayout
+        android:id="@+id/btn_ask_onduline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:maxHeight="66dp"
+            android:maxWidth="66dp"
+            android:src="@drawable/ic_live_help_black_24dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ask Onduline"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorBlack"/>
+</LinearLayout>

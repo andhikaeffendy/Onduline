@@ -10,27 +10,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_02"
-        android:weightSum="10"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_02"
+        android:orientation="vertical"
+        android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="@string/tecnical_support"
                 android:textColor="@color/colorTextLight"
                 android:textSize="24dp"
-                android:textStyle="bold"
-                android:text="@string/tecnical_support"/>
+                android:textStyle="bold" />
         </RelativeLayout>
-
 
 
         <ScrollView
@@ -43,25 +44,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="5dp">
 
 
                 <LinearLayout
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp">
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+
                     <TextView
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
                         android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:text="Supervisi Proyek"
+                        android:textColor="@color/colorBlackAlpha"
                         android:textSize="24dp"
-                        android:text="Supervisi Proyek"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -70,84 +72,90 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:text="Nama Proyek *"
                     android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
-                    android:text="Nama Proyek *"/>
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_supervisionProjectNama"
-                    android:layout_margin="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="isi nama proyek"/>
+                    android:layout_margin="5dp"
+                    android:hint="isi nama proyek" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:text="Alamat Proyek *"
                     android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
-                    android:text="Alamat Proyek *"/>
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_supervisionProjectAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="isi alamat lengkap proyek"/>
+                    android:hint="isi alamat lengkap proyek" />
 
                 <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:textColor="@color/colorBlackAlpha"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:layout_margin="5dp"-->
-                    <!--android:text="Provinsi * "/>-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColor="@color/colorBlackAlpha"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_margin="5dp"-->
+                <!--android:text="Provinsi * "/>-->
                 <!--<AutoCompleteTextView-->
-                    <!--android:id="@+id/act_state"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_margin="5dp"-->
-                    <!--android:hint="Isi propinsi "/>-->
+                <!--android:id="@+id/act_state"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="5dp"-->
+                <!--android:hint="Isi propinsi "/>-->
 
                 <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:textColor="@color/colorBlackAlpha"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:layout_margin="5dp"-->
-                    <!--android:text="Kota * "/>-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColor="@color/colorBlackAlpha"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_margin="5dp"-->
+                <!--android:text="Kota * "/>-->
                 <!--<AutoCompleteTextView-->
-                    <!--android:id="@+id/act_city"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_margin="5dp"-->
-                    <!--android:hint="Isi kota "/>-->
+                <!--android:id="@+id/act_city"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="5dp"-->
+                <!--android:hint="Isi kota "/>-->
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:text="No HP PIC *"
                     android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
-                    android:text="No HP PIC *"/>
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_supervisionProjectPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:inputType="phone"
-                    android:hint="isi no HP"/>
+                    android:hint="isi no HP"
+                    android:inputType="phone" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:text="Nama Pemilik * "
                     android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
-                    android:text="Nama Pemilik * "/>
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_supervisionProjectOwnerName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="isi nama pemilik"/>
+                    android:hint="isi nama pemilik" />
 
 
                 <!-- edit text supervisi -->
@@ -155,45 +163,50 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="6">
+
                     <LinearLayout
-                        android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
+                            android:text="Keterangan : "
                             android:textColor="@color/colorBlackAlpha"
-                            android:textStyle="bold"
-                            android:text="Keterangan : "/>
+                            android:textStyle="bold" />
+
                         <EditText
                             android:id="@+id/et_supervisionProjectDetail"
                             android:layout_width="match_parent"
                             android:layout_height="200dp" />
                     </LinearLayout>
                 </RelativeLayout>
+
                 <Button
                     android:id="@+id/btn_supervisionProject"
-                    android:onClick="onClickSupervisionProject"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/submit"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
                     android:background="@drawable/ps__button_youtube"
-                    android:textColor="@color/colorTextLight"
-                    android:layout_centerInParent="true"/>
+                    android:onClick="onClickSupervisionProject"
+                    android:text="@string/submit"
+                    android:textColor="@color/colorTextLight" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
     <ProgressBar
         android:id="@+id/register_progress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:foregroundGravity="center"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true" />
+        android:foregroundGravity="center"
+        android:visibility="gone" />
 
 </RelativeLayout>

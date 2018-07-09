@@ -8,81 +8,84 @@
 
 
     <RelativeLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@color/colorPrimary"/>
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/bg_02"
-        android:weightSum="13"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_02"
+        android:orientation="vertical"
+        android:weightSum="13">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="@string/simulation_tittle"
                 android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
                 android:textSize="24dp"
-                android:text="@string/simulation_tittle"/>
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <ImageView
+            android:id="@+id/imgSimulator"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="6"
             android:background="@drawable/layer_list"
-            android:src="@drawable/maisonmoderne_c1_shaded_brown_v1"
             android:scaleType="centerCrop"
-            android:id="@+id/imgSimulator" />
+            android:src="@drawable/maisonmoderne_c1_shaded_brown_v1" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="6"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:layout_weight="6">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
 
 
                         <TextView
-                            android:layout_margin="10dp"
-                            android:textColor="@color/colorBlackAlpha"
-                            android:textStyle="bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Jenis Atap : "/>
+                            android:layout_margin="10dp"
+                            android:text="Jenis Atap : "
+                            android:textColor="@color/colorBlackAlpha"
+                            android:textStyle="bold" />
+
                         <Spinner
                             android:id="@+id/spnAtapSimulatorAtap"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:layout_margin="10dp"/>
+                            android:layout_margin="10dp" />
 
 
                         <!--============================= pilihan button ===\=========================-->
@@ -97,8 +100,8 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:orientation="vertical"
                                 android:layout_weight="1"
+                                android:orientation="vertical"
                                 android:weightSum="4">
 
                                 <!-- button 1-->
@@ -110,23 +113,24 @@
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:layout_centerInParent="true">
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
 
                                         <ImageView
                                             android:id="@+id/btnEbonyBlack"
-                                            android:onClick="simulator"
                                             android:layout_width="70dp"
                                             android:layout_height="70dp"
                                             android:layout_gravity="center"
-                                            android:src="@drawable/ebony_black"/>
+                                            android:onClick="simulator"
+                                            android:src="@drawable/ebony_black" />
+
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:textColor="@color/colorBlackAlpha"
-                                            android:padding="5dp"
                                             android:layout_gravity="center"
-                                            android:text="@string/EBONYBLACK"/>
+                                            android:padding="5dp"
+                                            android:text="@string/EBONYBLACK"
+                                            android:textColor="@color/colorBlackAlpha" />
 
                                     </LinearLayout>
 
@@ -141,23 +145,24 @@
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:layout_centerInParent="true">
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
 
                                         <ImageView
                                             android:id="@+id/btnForestGreen"
-                                            android:onClick="simulator"
                                             android:layout_width="70dp"
                                             android:layout_height="70dp"
                                             android:layout_gravity="center"
-                                            android:src="@drawable/forest_green"/>
+                                            android:onClick="simulator"
+                                            android:src="@drawable/forest_green" />
+
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:textColor="@color/colorBlackAlpha"
-                                            android:padding="5dp"
                                             android:layout_gravity="center"
-                                            android:text="@string/FORESTGREEN"/>
+                                            android:padding="5dp"
+                                            android:text="@string/FORESTGREEN"
+                                            android:textColor="@color/colorBlackAlpha" />
 
                                     </LinearLayout>
 
@@ -172,23 +177,24 @@
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:layout_centerInParent="true">
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
 
                                         <ImageView
                                             android:id="@+id/btnAntraciteBlack"
-                                            android:onClick="simulator"
                                             android:layout_width="70dp"
                                             android:layout_height="70dp"
                                             android:layout_gravity="center"
-                                            android:src="@drawable/antracite_black"/>
+                                            android:onClick="simulator"
+                                            android:src="@drawable/antracite_black" />
+
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:textColor="@color/colorBlackAlpha"
-                                            android:padding="5dp"
                                             android:layout_gravity="center"
-                                            android:text="@string/AntrachiteBlack"/>
+                                            android:padding="5dp"
+                                            android:text="@string/AntrachiteBlack"
+                                            android:textColor="@color/colorBlackAlpha" />
 
                                     </LinearLayout>
 
@@ -202,25 +208,25 @@
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:layout_centerInParent="true">
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
 
                                         <ImageView
                                             android:id="@+id/btnShadedRed"
-                                            android:onClick="simulator"
                                             android:layout_width="70dp"
                                             android:layout_height="70dp"
                                             android:layout_gravity="center"
-                                            android:src="@drawable/shaded_red_0_0"/>
+                                            android:onClick="simulator"
+                                            android:src="@drawable/shaded_red_0_0" />
 
                                         <TextView
+                                            android:id="@+id/textView5"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
-                                            android:textColor="@color/colorBlackAlpha"
                                             android:padding="5dp"
                                             android:text="@string/ShadedRed"
-                                            android:id="@+id/textView5" />
+                                            android:textColor="@color/colorBlackAlpha" />
 
                                     </LinearLayout>
 
@@ -233,8 +239,8 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:orientation="vertical"
                                 android:layout_weight="1"
+                                android:orientation="vertical"
                                 android:weightSum="4">
 
                                 <!-- button 1-->
@@ -246,23 +252,24 @@
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:layout_centerInParent="true">
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
 
                                         <ImageView
                                             android:id="@+id/btnTerracota"
-                                            android:onClick="simulator"
                                             android:layout_width="70dp"
                                             android:layout_height="70dp"
                                             android:layout_gravity="center"
-                                            android:src="@drawable/terracota"/>
+                                            android:onClick="simulator"
+                                            android:src="@drawable/terracota" />
+
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:textColor="@color/colorBlackAlpha"
-                                            android:padding="5dp"
                                             android:layout_gravity="center"
-                                            android:text="@string/TERRACOTA"/>
+                                            android:padding="5dp"
+                                            android:text="@string/TERRACOTA"
+                                            android:textColor="@color/colorBlackAlpha" />
 
                                     </LinearLayout>
 
@@ -277,23 +284,24 @@
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:layout_centerInParent="true">
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
 
                                         <ImageView
                                             android:id="@+id/btnRedClassic"
-                                            android:onClick="simulator"
                                             android:layout_width="70dp"
                                             android:layout_height="70dp"
                                             android:layout_gravity="center"
-                                            android:src="@drawable/red_classic"/>
+                                            android:onClick="simulator"
+                                            android:src="@drawable/red_classic" />
+
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:textColor="@color/colorBlackAlpha"
-                                            android:padding="5dp"
                                             android:layout_gravity="center"
-                                            android:text="@string/CLASSICRED"/>
+                                            android:padding="5dp"
+                                            android:text="@string/CLASSICRED"
+                                            android:textColor="@color/colorBlackAlpha" />
 
                                     </LinearLayout>
 
@@ -308,23 +316,24 @@
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:layout_centerInParent="true">
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
 
                                         <ImageView
                                             android:id="@+id/btnShadedBrown"
-                                            android:onClick="simulator"
                                             android:layout_width="70dp"
                                             android:layout_height="70dp"
                                             android:layout_gravity="center"
-                                            android:src="@drawable/shaded_brown"/>
+                                            android:onClick="simulator"
+                                            android:src="@drawable/shaded_brown" />
+
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:textColor="@color/colorBlackAlpha"
-                                            android:padding="5dp"
                                             android:layout_gravity="center"
-                                            android:text="@string/SHADEDBROWN"/>
+                                            android:padding="5dp"
+                                            android:text="@string/SHADEDBROWN"
+                                            android:textColor="@color/colorBlackAlpha" />
 
                                     </LinearLayout>
 
@@ -340,24 +349,24 @@
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:layout_centerInParent="true">
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
 
                                         <ImageView
                                             android:id="@+id/btnShadedGreen"
-                                            android:onClick="simulator"
                                             android:layout_width="70dp"
                                             android:layout_height="70dp"
                                             android:layout_gravity="center"
-                                            android:src="@drawable/shaded_green_0_0"/>
+                                            android:onClick="simulator"
+                                            android:src="@drawable/shaded_green_0_0" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
-                                            android:textColor="@color/colorBlackAlpha"
                                             android:padding="5dp"
-                                            android:text="@string/ShadedGreen" />
+                                            android:text="@string/ShadedGreen"
+                                            android:textColor="@color/colorBlackAlpha" />
 
                                     </LinearLayout>
 

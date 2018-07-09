@@ -12,20 +12,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="8"
-        android:background="@drawable/bg_02"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_02"
+        android:orientation="vertical"
+        android:weightSum="8">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
             android:layout_weight="4"
             android:background="#bbb"
+            android:orientation="vertical"
             android:weightSum="50">
+
             <ViewFlipper
                 android:id="@+id/viewFlipper"
                 android:layout_width="match_parent"
@@ -36,38 +37,41 @@
                     android:id="@+id/iv_2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"
                     android:scaleType="fitXY"
-                    android:src="@drawable/program_onduvilla_genteng_pinter"
-                    android:background="@color/colorPrimaryDark"/>
+                    android:src="@drawable/home_slider_1" />
+
                 <ImageView
                     android:id="@+id/iv_6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/bg_screen2"
                     android:scaleType="fitXY"
-                    android:src="@drawable/onduvilla_green_roof"
-                    android:background="@color/bg_screen2" />
+                    android:src="@drawable/home_slider_2" />
 
                 <ImageView
                     android:id="@+id/iv_3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/bg_screen2"
                     android:scaleType="fitXY"
-                    android:src="@drawable/program_slider_ondululine"
-                    android:background="@color/bg_screen2" />
+                    android:src="@drawable/home_slider_3" />
+
                 <ImageView
                     android:id="@+id/iv_4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/bg_screen2"
                     android:scaleType="fitXY"
-                    android:src="@drawable/program_slider_bardoline_pro"
-                    android:background="@color/bg_screen2" />
+                    android:src="@drawable/home_slider_4" />
+
                 <ImageView
                     android:id="@+id/iv_5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/bg_screen2"
                     android:scaleType="fitXY"
-                    android:src="@drawable/program_slider_bituline"
-                    android:background="@color/bg_screen2" />
+                    android:src="@drawable/home_slider_5" />
 
             </ViewFlipper>
         </LinearLayout>
@@ -75,8 +79,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
             android:layout_weight="3.8"
+            android:orientation="vertical"
             android:weightSum="2">
 
             <!--button program dan dukungan marketing-->
@@ -95,11 +99,11 @@
 
                     <ImageView
                         android:id="@+id/btnSayembaraOgra"
-                        android:onClick="onClickHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_margin="25dp"
+                        android:onClick="onClickHome"
                         android:src="@drawable/btn_home_ogra" />
 
                     <TextView
@@ -119,11 +123,11 @@
 
                     <ImageView
                         android:id="@+id/btnProduk"
-                        android:onClick="onClickHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_margin="25dp"
+                        android:onClick="onClickHome"
                         android:src="@drawable/btn_home_produk" />
 
                     <TextView
@@ -156,11 +160,11 @@
 
                     <ImageView
                         android:id="@+id/btnCalculator"
-                        android:onClick="onClickHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_margin="25dp"
+                        android:onClick="onClickHome"
                         android:src="@drawable/btn_home_kalkulator" />
 
                     <TextView
@@ -182,11 +186,11 @@
 
                     <ImageView
                         android:id="@+id/btnDataProyek"
-                        android:onClick="onClickHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_margin="25dp"
+                        android:onClick="onClickHome"
                         android:src="@drawable/btn_home_data_proyek" />
 
                     <TextView
@@ -203,9 +207,10 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <RelativeLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@color/colorPrimary"/>
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary" />
 </RelativeLayout>

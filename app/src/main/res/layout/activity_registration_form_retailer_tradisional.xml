@@ -13,30 +13,31 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textSize="24dp"
                 android:layout_centerInParent="true"
                 android:text="@string/RegistarsiRetailTradisional"
-                android:id="@+id/textView2" />
+                android:textAlignment="center"
+                android:textColor="@color/colorTextLight"
+                android:textSize="24dp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <ScrollView
             android:id="@+id/register_form"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_02"
             android:layout_weight="9"
+            android:background="@drawable/bg_02"
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
@@ -48,264 +49,288 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
                     android:text="@string/store_name"
-                    android:id="@+id/textView8" />
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_store_name"/>
+                    android:hint="@string/hint_input_your_store_name" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="Alamat Toko*"/>
+                    android:text="Alamat Toko*"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_store_address"/>
+                    android:hint="@string/hint_input_your_store_address" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/state"/>
+                    android:text="@string/state"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <AutoCompleteTextView
                     android:id="@+id/act_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_store_state"/>
+                    android:hint="@string/hint_input_your_store_state" />
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/city"/>
+                    android:text="@string/city"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <AutoCompleteTextView
                     android:id="@+id/act_city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_store_city"/>
+                    android:hint="@string/hint_input_your_store_city" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/phone_number"/>
+                    android:text="@string/phone_number"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_phone_number"/>
+                    android:hint="@string/hint_input_your_phone_number"
+                    android:inputType="phone" />
+
                 <TextView
                     android:id="@+id/txt_officePhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/phone_number_store_tokoBahanBangunan_dan_TokoTradisional"/>
+                    android:text="@string/phone_number_store_tokoBahanBangunan_dan_TokoTradisional"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_officePhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_phone_number_store"/>
+                    android:hint="@string/hint_input_your_phone_number_store"
+                    android:inputType="phone" />
 
                 <TextView
                     android:id="@+id/txt_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/email_tokoBahanBangunan_dan_TokoTradisional"/>
+                    android:text="@string/email_tokoBahanBangunan_dan_TokoTradisional"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_email"/>
+                    android:hint="@string/hint_input_your_email"
+                    android:inputType="textEmailAddress" />
 
                 <!-- untuk tanggal lahir form registari gunakan satu nama id di bawah ini, berlaku unutk semuanya agar tidak ada penulisan ulang di dalam javanya-->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp">
+
                     <TextView
                         android:id="@+id/txtTittleBirth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
                         android:layout_margin="5dp"
-                        android:text="Tanggal lahir"/>
+                        android:text="Tanggal lahir"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/txtisianBirth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtTittleBirth"
-                        android:visibility="gone"
+                        android:text="00/00/00"
                         android:textSize="20dp"
-                        android:text="00/00/00"/>
+                        android:visibility="gone" />
+
                     <TextView
                         android:id="@+id/txtisianBirthView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtTittleBirth"
-                        android:textSize="20dp"
-                        android:text="00/00/00"/>
+                        android:text="00/00/00"
+                        android:textSize="20dp" />
+
                     <Button
                         android:id="@+id/btnDatePicker"
-                        android:onClick="setDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ps__button_youtube"
-                        android:textColor="@color/colorTextLight"
                         android:layout_alignParentRight="true"
-                        android:text="Tanggal Lahir"/>
+                        android:background="@drawable/ps__button_youtube"
+                        android:onClick="setDate"
+                        android:text="Tanggal Lahir"
+                        android:textColor="@color/colorTextLight" />
                 </RelativeLayout>
 
                 <TextView
                     android:id="@+id/txt_distributor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/distributor_name"/>
+                    android:text="@string/distributor_name"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_distributor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_distributor_name"/>
+                    android:hint="@string/hint_input_your_distributor_name" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/owner_name"/>
+                    android:text="@string/owner_name"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_owner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_owner_name"/>
+                    android:hint="@string/hint_input_your_owner_name" />
 
                 <!-- checkbox KTP dan SIM -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/no_id"/>
+                    android:text="@string/no_id"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_no_id"/>
+                    android:hint="@string/hint_input_your_no_id"
+                    android:inputType="number" />
+
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="2">
+
                     <RadioButton
                         android:id="@+id/rbKTP"
-                        android:onClick="onRBSignupClicked"
-                        android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="KTP"/>
+                        android:layout_weight="1"
+                        android:onClick="onRBSignupClicked"
+                        android:text="KTP" />
 
                     <RadioButton
                         android:id="@+id/rbSIM"
-                        android:onClick="onRBSignupClicked"
-                        android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="SIM"/>
+                        android:layout_weight="1"
+                        android:onClick="onRBSignupClicked"
+                        android:text="SIM" />
                 </RadioGroup>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/username"/>
+                    android:text="@string/username"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_username_tokoBahanBangunan_dan_TokoTradisional"/>
+                    android:hint="@string/hint_input_your_username_tokoBahanBangunan_dan_TokoTradisional" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/password"/>
+                    android:text="@string/password"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:inputType="textPassword"
-                    android:hint="@string/hint_input_your_password_tokoBahanBangunan_dan_TokoTradisional"/>
+                    android:hint="@string/hint_input_your_password_tokoBahanBangunan_dan_TokoTradisional"
+                    android:inputType="textPassword" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/re_password"/>
+                    android:text="@string/re_password"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_password_confirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:inputType="textPassword"
-                    android:hint="@string/hint_input_your_re_password"/>
+                    android:hint="@string/hint_input_your_re_password"
+                    android:inputType="textPassword" />
 
                 <Button
                     android:id="@+id/btnSubmitRegistrationForm"
-                    android:onClick="onClickRegistrationForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:background="@drawable/ps__button_youtube"
-                    android:textColor="@color/colorTextLight"
-                    android:layout_gravity="center"
-                    android:text="@string/submit"/>
+                    android:onClick="onClickRegistrationForm"
+                    android:text="@string/submit"
+                    android:textColor="@color/colorTextLight" />
 
             </LinearLayout>
 
@@ -319,8 +344,8 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true" />
+        android:visibility="gone" />
 
 </RelativeLayout>

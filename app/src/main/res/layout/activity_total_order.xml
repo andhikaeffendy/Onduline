@@ -8,34 +8,36 @@
 
 
     <RelativeLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="@color/colorPrimary"/>
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/bg_01"
-        android:weightSum="10"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_01"
+        android:orientation="vertical"
+        android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:id="@+id/txt_headerTittle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="@string/total_Order"
                 android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
                 android:textSize="24dp"
-                android:text="@string/total_Order"/>
+                android:textStyle="bold" />
         </RelativeLayout>
         <!-- Login progress -->
 
@@ -51,67 +53,72 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:padding="5dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="5dp">
+
                 <ImageView
                     android:id="@+id/img_tmp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <LinearLayout
-                    android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="30dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/txt_NameUser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:text="Halo Mr Fauzi"
                         android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
                         android:textSize="24dp"
-                        android:text="Halo Mr Fauzi"/>
+                        android:textStyle="bold" />
 
-                    </LinearLayout>
+                </LinearLayout>
+
                 <LinearLayout
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/txt_totalOrder"
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="TOTAL ORDER ANDA \n0"
+                        android:textAlignment="center"
                         android:textColor="@color/colorBlackAlpha"
                         android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:textAlignment="center"
-                        android:text="TOTAL ORDER ANDA \n0"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <ListView
-                    android:layout_margin="5dp"
+                    android:id="@+id/lv_totalPoin"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
-                    android:background="@drawable/layer_list"
-                    android:id="@+id/lv_totalPoin" />
+                    android:layout_margin="5dp"
+                    android:background="@drawable/layer_list" />
 
 
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
     <ProgressBar
         android:id="@+id/register_progress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true"/>
+        android:visibility="gone" />
 </RelativeLayout>

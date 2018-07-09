@@ -11,86 +11,97 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
+                android:text="@string/instalation_guide_onduline"
                 android:textAlignment="center"
+                android:textColor="@color/colorTextLight"
                 android:textSize="24dp"
-                android:text="@string/instalation_guide_onduline"/>
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="9">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp">
+
                     <ImageView
                         android:id="@+id/btn_Tilt_5_10"
-                        android:onClick="onClickOndulineInstalationGuide"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:background="@drawable/bg_nav_drawer"/>
+                        android:background="@drawable/bg_nav_drawer"
+                        android:onClick="onClickOndulineInstalationGuide" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:text="@string/kemiringan_5_sampai_10"
                         android:textColor="#fff"
-                        android:textSize="30dp"
-                        android:text="@string/kemiringan_5_sampai_10"/>
+                        android:textSize="30dp" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp">
+
                     <ImageView
                         android:id="@+id/btn_Tilt_10_15"
-                        android:onClick="onClickOndulineInstalationGuide"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:background="@drawable/bg_nav_drawer"/>
+                        android:background="@drawable/bg_nav_drawer"
+                        android:onClick="onClickOndulineInstalationGuide" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:text="@string/kemiringan_10_sampai_15"
                         android:textColor="#fff"
-                        android:textSize="30dp"
-                        android:text="@string/kemiringan_10_sampai_15"/>
+                        android:textSize="30dp" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/rv_barduline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp">
+
                     <ImageView
                         android:id="@+id/btn_Tilt_15"
-                        android:onClick="onClickOndulineInstalationGuide"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:background="@drawable/bg_nav_drawer"/>
+                        android:background="@drawable/bg_nav_drawer"
+                        android:onClick="onClickOndulineInstalationGuide" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:text="@string/kemiringan_15_lebih"
                         android:textColor="#fff"
-                        android:textSize="30dp"
-                        android:text="@string/kemiringan_15_lebih"/>
+                        android:textSize="30dp" />
                 </RelativeLayout>
 
 

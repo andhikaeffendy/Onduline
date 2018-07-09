@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,27 +9,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="10"
-        android:orientation="vertical"
-        android:background="@drawable/bg_01"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_01"
+        android:orientation="vertical"
+        android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="@string/tittle_header_dokumen_teknis"
                 android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
                 android:textSize="24dp"
-                android:text="@string/tittle_header_dokumen_teknis"/>
+                android:textStyle="bold" />
         </RelativeLayout>
-
 
 
         <ScrollView
@@ -50,44 +50,48 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:padding="20dp"
+                    android:background="@drawable/layer_list"
                     android:orientation="vertical"
-                    android:background="@drawable/layer_list">
+                    android:padding="20dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
                         android:text="@string/tittle_produk_onduline"
                         android:textSize="16dp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="20dp"/>
+                        android:textStyle="bold" />
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_green_certification_onduline"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true">
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="10dp"
-                                android:textStyle="bold"
+                                android:text="@string/data_proyek_green_certification"
                                 android:textColor="@color/colorTextLight"
-                                android:text="@string/data_proyek_green_certification"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -95,19 +99,20 @@
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_tds_onduline"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -117,29 +122,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_tds_onduline"/>
+                                android:text="@string/data_proyek_tds_onduline"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_rks_onduline"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -149,29 +155,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_rks_onduline"/>
+                                android:text="@string/data_proyek_rks_onduline"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_sertifikat_sni"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -181,29 +188,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_sertifikat_sni"/>
+                                android:text="@string/data_proyek_sertifikat_sni"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_sni_pemasangan"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -213,29 +221,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_sni_pemasangan"/>
+                                android:text="@string/data_proyek_sni_pemasangan"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_sound_test_onduline"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -245,29 +254,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_sound_test"/>
+                                android:text="@string/data_proyek_sound_test"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_wind_testing_onduline"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -277,14 +287,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_wind_testing_onduline"/>
+                                android:text="@string/data_proyek_wind_testing_onduline"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
-
-
 
 
                 </LinearLayout>
@@ -310,19 +318,20 @@
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_green_certification_onduvilla"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -332,29 +341,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_green_certification"/>
+                                android:text="@string/data_proyek_green_certification"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_tds_onduvilla"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -364,29 +374,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_tds_onduvilla"/>
+                                android:text="@string/data_proyek_tds_onduvilla"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_rks_onduvilla"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -396,10 +407,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_rks_onduvilla"/>
+                                android:text="@string/data_proyek_rks_onduvilla"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -407,19 +418,20 @@
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_sound_test"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -429,10 +441,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_sound_test"/>
+                                android:text="@string/data_proyek_sound_test"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -440,19 +452,20 @@
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_wind_testing_onduvilla"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -462,10 +475,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_wind_testing_onduvilla"/>
+                                android:text="@string/data_proyek_wind_testing_onduvilla"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -473,19 +486,20 @@
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_technical_data_onduvilla_pphr_3d"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -495,14 +509,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_technical_data_onduvilla_pphr_3d"/>
+                                android:text="@string/data_proyek_technical_data_onduvilla_pphr_3d"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
                 </LinearLayout>
-
 
 
                 <!--dokumen bituline-->
@@ -510,34 +523,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:padding="20dp"
+                    android:background="@drawable/layer_list"
                     android:orientation="vertical"
-                    android:background="@drawable/layer_list">
+                    android:padding="20dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
                         android:text="@string/tittle_produk_bituline"
                         android:textSize="16dp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="20dp"/>
+                        android:textStyle="bold" />
 
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_green_certification_bituline"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -547,10 +562,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_green_certification"/>
+                                android:text="@string/data_proyek_green_certification"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -558,19 +573,20 @@
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_tds_bituline"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -580,10 +596,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_tds_bituline"/>
+                                android:text="@string/data_proyek_tds_bituline"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -594,34 +610,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:padding="20dp"
+                    android:background="@drawable/layer_list"
                     android:orientation="vertical"
-                    android:background="@drawable/layer_list">
+                    android:padding="20dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
                         android:text="@string/tittle_produk_bardoline"
                         android:textSize="16dp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="20dp"/>
+                        android:textStyle="bold" />
 
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_green_certification"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -631,10 +649,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_green_certification"/>
+                                android:text="@string/data_proyek_green_certification"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -642,19 +660,20 @@
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_tds_bardoline_beaver"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -664,29 +683,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_tds_bardoline_beaver"/>
+                                android:text="@string/data_proyek_tds_bardoline_beaver"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
                     <!--download-->
                     <RelativeLayout
                         android:id="@+id/download_data_proyek_tds_bardoline_rectangular"
-                        android:onClick="onClickDokumenTeknis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         android:background="@drawable/ps__button_youtube"
-                        android:layout_margin="5dp">
+                        android:onClick="onClickDokumenTeknis"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/btn_download"/>
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/btn_download" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -696,23 +716,24 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorTextLight"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/data_proyek_tds_bardoline_rectangular"/>
+                                android:text="@string/data_proyek_tds_bardoline_rectangular"
+                                android:textColor="@color/colorTextLight"
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </RelativeLayout>
 
 
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:text="@string/note_data_proyek"/>
+                    android:text="@string/note_data_proyek"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlackAlpha" />
 
 
             </LinearLayout>

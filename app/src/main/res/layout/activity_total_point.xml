@@ -8,34 +8,36 @@
 
 
     <RelativeLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="@color/colorPrimary"/>
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/bg_01"
-        android:weightSum="10"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_01"
+        android:orientation="vertical"
+        android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:id="@+id/txt_headerTittle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:text="@string/home_program"
                 android:textColor="@color/colorTextLight"
-                android:textStyle="bold"
                 android:textSize="24dp"
-                android:text="@string/home_program"/>
+                android:textStyle="bold" />
         </RelativeLayout>
         <!-- Login progress -->
 
@@ -50,83 +52,87 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:padding="5dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="5dp">
+
                 <ImageView
                     android:id="@+id/img_tmp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <LinearLayout
-                    android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="30dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/txt_NameUser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:text="Halo Mr Fauzi"
                         android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
                         android:textSize="24dp"
-                        android:text="Halo Mr Fauzi"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="Total Poin Anda"
+                        android:textAlignment="center"
                         android:textColor="@color/colorBlackAlpha"
                         android:textSize="20dp"
-                        android:textStyle="normal"
-                        android:textAlignment="center"
-                        android:text="Total Poin Anda"/>
+                        android:textStyle="normal" />
+
                     <TextView
                         android:id="@+id/txt_totalpoin"
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="30 Poin"
+                        android:textAlignment="center"
                         android:textColor="@color/colorBlackAlpha"
                         android:textSize="25dp"
-                        android:textStyle="bold"
-                        android:textAlignment="center"
-                        android:text="30 Poin"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
-                    android:layout_margin="5dp"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:text="@string/keterangan_btn_upload_surat_jalan"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlackAlpha"
                     android:textSize="16dp"
-                    android:textStyle="normal"
-                    android:textAlignment="center"
-                    android:text="@string/keterangan_btn_upload_surat_jalan"/>
+                    android:textStyle="normal" />
 
                 <!--button upload surat jalan baru-->
                 <Button
                     android:id="@+id/btn_upload_surat_jalan_baru"
-                    android:onClick="onClickTotalPoin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/ps__button_youtube"
+                    android:onClick="onClickTotalPoin"
+                    android:text="@string/btn_upload_surat_jalan"
                     android:textColor="@color/colorTextLight"
-                    android:textSize="20dp"
-                    android:text="@string/btn_upload_surat_jalan"/>
+                    android:textSize="20dp" />
 
                 <!--tempat button info program dan history surat jalan baru-->
                 <LinearLayout
@@ -134,32 +140,36 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="2">
+
                     <Button
                         android:id="@+id/btn_reward_program"
-                        android:onClick="onClickTotalPoin"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_height="65dp"
                         android:layout_marginLeft="10dp"
-                        android:background="#99000000"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ps__button_youtube"
+                        android:onClick="onClickTotalPoin"
                         android:text="@string/informasi_ondulucky"
                         android:textColor="@color/colorTextLight"
-                        android:textSize="11dp"
-                        android:layout_weight="1"/>
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
                     <Button
                         android:id="@+id/btn_total_surat_jalan"
-                        android:onClick="onClickTotalPoin"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_height="65dp"
                         android:layout_marginLeft="10dp"
-                        android:background="#99000000"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ps__button_youtube"
+                        android:onClick="onClickTotalPoin"
                         android:text="@string/total_surat_jalan"
                         android:textColor="@color/colorTextLight"
-                        android:textSize="11dp"
-                        android:layout_weight="1"/>
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <ImageView
@@ -167,8 +177,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/program_ondulucky_baja_ringan_4"/>
-
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/tabel_hadiah_toko_bahan_bangunan" />
 
             </LinearLayout>
         </ScrollView>
@@ -179,8 +189,8 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true"/>
+        android:visibility="gone" />
 
 </RelativeLayout>

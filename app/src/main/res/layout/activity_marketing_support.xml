@@ -10,35 +10,37 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="@drawable/bg_01"
         android:orientation="vertical"
-        android:weightSum="13"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:weightSum="13">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textStyle="bold"
+                android:text="Dukungan Marketing"
                 android:textColor="@color/colorTextLight"
                 android:textSize="24dp"
-                android:text="Dukungan Marketing"/>
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
             android:layout_weight="11"
             android:gravity="center"
+            android:orientation="vertical"
             android:weightSum="6">
+
             <RelativeLayout
                 android:id="@+id/rl_PermintaanBrosur"
                 android:layout_width="match_parent"
@@ -48,11 +50,11 @@
 
                 <ImageView
                     android:id="@+id/btnPermintaanBrosur"
-                    android:onClick="onClickMarketingSupport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_margin="25dp"
+                    android:onClick="onClickMarketingSupport"
                     android:src="@drawable/btn_home_pemesanan_brosur" />
 
                 <TextView
@@ -66,8 +68,8 @@
                     android:textStyle="bold" />
 
 
-
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/rl_PermintaanSouvenir"
                 android:layout_width="match_parent"
@@ -77,11 +79,11 @@
 
                 <ImageView
                     android:id="@+id/btnPermintaanSouvenir"
-                    android:onClick="onClickMarketingSupport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_margin="25dp"
+                    android:onClick="onClickMarketingSupport"
                     android:src="@drawable/btn_home_pemesanan_souvenir" />
 
                 <TextView
@@ -100,17 +102,16 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
-        android:textColor="@color/colorBlackAlpha"
-        android:text="@string/signatureContact"/>
-
-
+        android:text="@string/signatureContact"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlackAlpha" />
 
 
 </RelativeLayout>

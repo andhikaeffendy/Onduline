@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_registration_from"
     android:layout_width="match_parent"
-    android:background="@drawable/bg_login"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
     tools:context="com.wiradipa.ondulineApplicator.RegistrationFromActivity">
 
     <!-- Login progress -->
@@ -15,231 +15,253 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_drawer"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_drawer">
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorTextLight"
-                android:textAlignment="center"
-                android:layout_centerInParent="true"
-                android:textSize="24dp"
                 android:layout_centerHorizontal="true"
-                android:textStyle="bold"
+                android:layout_centerInParent="true"
                 android:text="@string/RegistarsiIndividu"
-                android:id="@+id/textView2" />
+                android:textAlignment="center"
+                android:textColor="@color/colorTextLight"
+                android:textSize="24dp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <ScrollView
             android:id="@+id/register_form"
             android:layout_width="match_parent"
-            android:background="@drawable/bg_02"
             android:layout_height="0dp"
             android:layout_weight="9"
+            android:background="@drawable/bg_02"
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="5dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/name"/>
+                    android:text="@string/name"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_name"/>
+                    android:hint="@string/hint_input_your_name" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/company_name"/>
+                    android:text="@string/company_name"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_company"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_company_name"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
-                    android:layout_margin="5dp"
-                    android:text="@string/profesion"/>
-                <Spinner
-                    android:id="@+id/spn_profession"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"/>
+                    android:hint="@string/hint_input_your_company_name" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/company_address"/>
+                    android:text="@string/profesion"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spn_profession"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/company_address"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_company_address"/>
+                    android:hint="@string/hint_input_your_company_address" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/state"/>
+                    android:text="@string/state"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <AutoCompleteTextView
                     android:id="@+id/act_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_state"/>
+                    android:hint="@string/hint_input_your_state" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/city"/>
+                    android:text="@string/city"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <AutoCompleteTextView
                     android:id="@+id/act_city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_city"/>
+                    android:hint="@string/hint_input_your_city" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/phone_number"/>
+                    android:text="@string/phone_number"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_phone_number"/>
+                    android:hint="@string/hint_input_your_phone_number"
+                    android:inputType="phone" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
                     android:layout_margin="5dp"
-                    android:text="@string/email"/>
+                    android:text="@string/email"
+                    android:textColor="@color/colorBlackAlpha"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_email"/>
+                    android:hint="@string/hint_input_your_email"
+                    android:inputType="textEmailAddress" />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_margin="5dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:visibility="gone">
+
                     <TextView
                         android:id="@+id/txtTittleBirth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="Tanggal lahir * "
                         android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
-                        android:text="Tanggal lahir * "/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/txtisianBirth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtTittleBirth"
-                        android:visibility="gone"
+                        android:text="00/00/00"
                         android:textSize="20dp"
-                        android:text="00/00/00"/>
+                        android:visibility="gone" />
+
                     <TextView
                         android:id="@+id/txtisianBirthView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtTittleBirth"
-                        android:textSize="20dp"
-                        android:text="00/00/00"/>
+                        android:text="00/00/00"
+                        android:textSize="20dp" />
+
                     <Button
                         android:id="@+id/btnDatePicker"
-                        android:onClick="setDate"
-                        android:background="@drawable/ps__button_youtube"
-                        android:textColor="@color/colorTextLight"
-                        android:layout_alignParentRight="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tanggal Lahir"/>
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/ps__button_youtube"
+                        android:onClick="setDate"
+                        android:text="Tanggal Lahir"
+                        android:textColor="@color/colorTextLight" />
                 </RelativeLayout>
 
 
                 <!-- ktp sim dihilangkan -->
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_margin="5dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/no_id"
                     android:textColor="@color/colorBlackAlpha"
-                    android:visibility="gone"
                     android:textStyle="bold"
-                    android:text="@string/no_id"/>
+                    android:visibility="gone" />
+
                 <EditText
                     android:id="@+id/et_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:layout_margin="5dp"
+                    android:hint="Isi ID(KTP/SIM) anda"
                     android:inputType="number"
-                    android:hint="Isi ID(KTP/SIM) anda"/>
+                    android:visibility="gone" />
+
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
-                    android:layout_margin="5dp"
                     android:weightSum="2">
+
                     <RadioButton
                         android:id="@+id/rbKTP"
-                        android:onClick="onRBSignupClicked"
-                        android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
-                        android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="KTP"/>
+                        android:layout_weight="1"
+                        android:onClick="onRBSignupClicked"
+                        android:text="KTP"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold" />
 
                     <RadioButton
                         android:id="@+id/rbSIM"
-                        android:onClick="onRBSignupClicked"
-                        android:textColor="@color/colorBlackAlpha"
-                        android:textStyle="bold"
-                        android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="SIM"/>
+                        android:layout_weight="1"
+                        android:onClick="onRBSignupClicked"
+                        android:text="SIM"
+                        android:textColor="@color/colorBlackAlpha"
+                        android:textStyle="bold" />
                 </RadioGroup>
                 <!-- ktp sim dihilangkan -->
 
@@ -248,54 +270,59 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:text="@string/username"
                     android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
-                    android:text="@string/username"/>
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="@string/hint_input_your_username"/>
+                    android:hint="@string/hint_input_your_username" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:text="@string/password"
                     android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
-                    android:text="@string/password"/>
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
-                    android:layout_margin="5dp"
-                    android:inputType="textPassword"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_input_your_password"/>
+                    android:layout_margin="5dp"
+                    android:hint="@string/hint_input_your_password"
+                    android:inputType="textPassword" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:text="@string/re_password"
                     android:textColor="@color/colorBlackAlpha"
-                    android:textStyle="bold"
-                    android:text="@string/re_password"/>
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_password_confirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:inputType="textPassword"
-                    android:hint="@string/hint_input_your_re_password"/>
+                    android:hint="@string/hint_input_your_re_password"
+                    android:inputType="textPassword" />
 
                 <Button
                     android:id="@+id/btnSubmitRegistrationFormIndividu"
-                    android:onClick="onClickRegistrationForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:layout_gravity="center"
+                    android:layout_margin="5dp"
                     android:background="@drawable/ps__button_youtube"
-                    android:textColor="@color/colorTextLight"
-                    android:text="@string/submit"/>
+                    android:onClick="onClickRegistrationForm"
+                    android:text="@string/submit"
+                    android:textColor="@color/colorTextLight" />
 
             </LinearLayout>
         </ScrollView>
@@ -306,7 +333,7 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:layout_centerInParent="true" />
+        android:visibility="gone" />
 </RelativeLayout>

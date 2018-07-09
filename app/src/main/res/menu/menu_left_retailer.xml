@@ -3,14 +3,11 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_Dukungan"
-            android:title="Dukungan Teknis" />
+            android:id="@+id/nav_contactOnduline"
+            android:title="Hubungi Kami"/>
         <item
             android:id="@+id/nav_QandA"
             android:title="Tanya Jawab" />
-        <item
-            android:id="@+id/nav_contactOnduline"
-            android:title="Kontak ONDULINE®" />
     </group>
 
 
