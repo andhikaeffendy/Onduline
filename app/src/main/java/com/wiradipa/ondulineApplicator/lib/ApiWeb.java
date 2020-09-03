@@ -1,5 +1,12 @@
 package com.wiradipa.ondulineApplicator.lib;
 
+import android.app.Activity;
+import android.app.assist.AssistContent;
+import android.content.Intent;
+import android.os.Bundle;
+
+import com.wiradipa.ondulineApplicator.DetailSupportLetterActivity;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.HttpMultipartMode;
@@ -23,10 +30,11 @@ import java.net.URLEncoder;
 
 public class ApiWeb {
 
-    //	private String url = "http://onduline-mobile.wiradipa.com";
-//	private String apiurl = "http://onduline-mobile.wiradipa.com/api/";
-    private String url = "http://128.199.142.101";
-    private String apiurl = "http://128.199.142.101/api/";
+    private String url = "https://onduline-mobile.wiradipa.com";
+	private String apiurl = "https://onduline-mobile.wiradipa.com/api/";
+    //private String url = "http://128.199.142.101";
+    //private String apiurl = "http://128.199.142.101/api/";
+    private String apiLetter = "https://onduline-letter.com";
     private int responseCode = 200;
 
     public ApiWeb() {
@@ -95,7 +103,7 @@ public class ApiWeb {
      * Fungsi register untuk retailer
      * belum ada retailer type
      */
-    public String RegisterRetailer(String retailer_type, String user_type, String username, String password, String password_comfirmation, String email, String shop_name, String shop_address, String states_id, String city_id, String hp_no, String birth_date, String distributor_name, String owner_name, String id_no, String id_no_type, String phone) {
+    public String RegisterRetailer(String retailer_type, String user_type, String username, String password, String password_comfirmation, String email, String shop_name, String shop_address, String states_id, String city_id, String hp_no, String birth_date, String distributor_name, String owner_name, String id_no, String phone) {
         try {
             String url = apiurl + "users/create";
 
@@ -114,8 +122,8 @@ public class ApiWeb {
                     + "&birth_date=" + URLEncoder.encode(birth_date, "UTF-8")
                     + "&distributor_name=" + URLEncoder.encode(distributor_name, "UTF-8")
                     + "&owner_name=" + URLEncoder.encode(owner_name, "UTF-8")
-                    + "&id_no=" + URLEncoder.encode(id_no, "UTF-8")
-                    + "&id_no_type=" + URLEncoder.encode(id_no_type, "UTF-8");
+                    + "&id_no=" + URLEncoder.encode(id_no, "UTF-8");
+                    //+ "&id_no_type=" + URLEncoder.encode(id_no_type, "UTF-8");
 
             return PostHttp(url, params);
         } catch (UnsupportedEncodingException e) {
@@ -540,6 +548,11 @@ public class ApiWeb {
     public String GetOrderDetil(String id, String token) {
         String url = apiurl + "orders/" + id + "?token=" + token;
         return GetHttp(url);
+    }
+
+    public String getApiLetterr(){
+        String url = apiLetter;
+        return url;
     }
 //	public String ResendActivatiionCode(String token, int id){
 //		String url = apiurl+"resend_activation_code";

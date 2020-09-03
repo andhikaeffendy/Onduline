@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import com.wiradipa.ondulineApplicator.lib.AppSession;
 
 public class MarketingSupportActivity extends AppCompatActivity {

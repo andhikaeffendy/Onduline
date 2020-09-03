@@ -45,7 +45,7 @@
                 android:id="@+id/rl_PermintaanBrosur"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2">
+                android:layout_weight="1.5">
 
 
                 <ImageView
@@ -64,7 +64,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="5dp"
                     android:text="@string/order_brochure"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
 
@@ -74,7 +74,7 @@
                 android:id="@+id/rl_PermintaanSouvenir"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2">
+                android:layout_weight="1.5">
 
 
                 <ImageView
@@ -93,7 +93,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="5dp"
                     android:text="@string/order_souvenir"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
 

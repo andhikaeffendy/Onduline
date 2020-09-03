@@ -39,6 +39,7 @@
     <!--Marketing support button-->
     <string name="order_brochure">Permintaan Brosur</string>
     <string name="order_souvenir">Permintaan Suvenir</string>
+    <string name="permintaan_garansi">Permintaan Garansi</string>
 
     <!--retailer type-->
     <string name="modern_outlet">Modern Outlet</string>
@@ -368,6 +369,7 @@ Director dan Principal architect of sigit.kusumawijaya\n\n</string>
     <string name="onduvilla">ONDUVILLA®</string>
     <string name="bardoline">BARDOLINE® PRO</string>
     <string name="bituline">BITULINE®</string>
+    <string name="scan_barcode">SCAN BARCODE®</string>
     <string name="minimum_username">minimal 8 digit berupa huruf dan angka</string>
 
     <!-- SIGN IN ACTIVITY -->
@@ -733,5 +735,11 @@ Director dan Principal architect of sigit.kusumawijaya\n\n</string>
     <string name="title_activity_contact_onduline">ContactOndulineActivity</string>
     <string name="contact_us_hint">Masukkan Text</string>
     <string name="registrasi_user_personal">Personal / Arsitek / Konsultan / DLL</string>
+    <string name="upload_picture">Upload Picture</string>
 
+
+    <!--Satuan barang-->
+    <string name="satuan_pcs">PCS</string>
+    <string name="satuan_cm">CM</string>
+    <string name="satuan_meter">M2</string>
 </resources>

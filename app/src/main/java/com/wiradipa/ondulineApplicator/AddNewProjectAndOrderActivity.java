@@ -34,7 +34,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.wiradipa.ondulineApplicator.imagehelper.ImageLoadingUtils;
 import com.wiradipa.ondulineApplicator.lib.ApiWeb;
 import com.wiradipa.ondulineApplicator.lib.AppSession;
 import com.wiradipa.ondulineApplicator.lib.AutoCompleteAdapter;
@@ -95,7 +94,6 @@ public class AddNewProjectAndOrderActivity extends AppCompatActivity {
     private UpdateCityTask updateCityTask;
     private View mProgressView;
     private View mFormView;
-    private ImageLoadingUtils utils;
     String mCurrentPhotoPath;
 
     private String[] souvenirName, productName, colorName;

@@ -600,7 +600,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
         act_city.setError(null);
         act_state.setError(null);
         et_phone.setError(null);
-        et_id.setError(null);
+        //et_id.setError(null);
 
         // Store values at the time of the login attempt.
         String email = et_email.getText().toString();
@@ -697,11 +697,11 @@ public class RegistrationFromActivity extends AppCompatActivity {
         }
 
         // Check for a valid id.
-        if (isIdValid(id)) {
-            et_id.setError(getString(R.string.error_field_required));
-            focusView = et_id;
-            cancel = true;
-        }
+//        if (isIdValid(id)) {
+//            et_id.setError(getString(R.string.error_field_required));
+//            focusView = et_id;
+//            cancel = true;
+//        }
 
         // Check for a valid re password.
         if (isPasswordConfirmEmpty(passwordConfirm)) {
@@ -1273,7 +1273,7 @@ public class RegistrationFromActivity extends AppCompatActivity {
             if (pil.compareToIgnoreCase("tukang bangunan") == 0) {
                 result = apiWeb.RegisterApplicator("applicator", username, password, password_comfirmation, email, name, address, "" + states_id, "" + city_id, hp_no, company_name, birth_date, association_name, id_no, id_no_type);
             } else if (pil.compareToIgnoreCase("retailer") == 0) {
-                result = apiWeb.RegisterRetailer(retailerType, "retailer", username, password, password_comfirmation, email, name, address, "" + states_id, "" + city_id, hp_no, birth_date, distributor_name, owner_name, id_no, id_no_type, officePhone);
+                result = apiWeb.RegisterRetailer(retailerType, "retailer", username, password, password_comfirmation, email, name, address, "" + states_id, "" + city_id, hp_no, birth_date, distributor_name, owner_name, id_no, officePhone);
                 // retailer type ada tradisional dll ada 3
             } else if (pil.compareToIgnoreCase("individu") == 0) {//user_type, username, password, password_confirmation, email, name, address, states_id, city_id, hp_no, birth_date, id_no, id_no_type
                 result = apiWeb.RegisterIndividu("individu", username, password, password_comfirmation, email, name, address, "" + states_id, "" + city_id, hp_no, birth_date, "", "", occupation, company_name);

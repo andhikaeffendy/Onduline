@@ -155,7 +155,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     public void popupSuccess(){
         new AlertDialog.Builder(this)
-                .setTitle("Permintaan terikirm!")
+                .setTitle("Permintaan terkirim!")
                 .setMessage("tunggu beberapa saat untuk sms password baru anda")
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
 

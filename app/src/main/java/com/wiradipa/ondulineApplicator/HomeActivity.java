@@ -277,6 +277,7 @@ public class HomeActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
 
         int id = item.getItemId();
+        Intent i;
 
         //noinspection SimplifiableIfStatement
         /*if (id == R.id.action_openRight) {
@@ -289,6 +290,10 @@ public class HomeActivity extends AppCompatActivity {
 //                Toast.makeText(HomeActivity.this, "open nav right", Toast.LENGTH_LONG).show();
                 drawer.openDrawer(GravityCompat.END);
                 break;
+
+            case R.id.action_barcode:
+                i = new Intent(this, ScannerBarcodeActivity.class);
+                startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
